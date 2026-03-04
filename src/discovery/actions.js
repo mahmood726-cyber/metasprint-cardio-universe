@@ -1,6 +1,7 @@
-﻿import { listConnectors } from '../data/connectors/index.js';
+import { listConnectors } from '../data/connectors/index.js';
 import { loadUniverseFromConnector } from '../data/repository/universe-repository.js';
 import { buildIdentityGraph } from '../engine/identity/index.js';
+import { ENDPOINT_ONTOLOGY_V1, INTERVENTION_DICTIONARY_V1, mapOntologyFromText } from '../ontology/index.js';
 import { SAMPLE_TRIALS, SAMPLE_OPPORTUNITIES } from './data/sample-data.js';
 
 const CONNECTOR_IDS = listConnectors();
@@ -19,6 +20,26 @@ const SUBCATEGORY_LABELS = {
   general: 'General Cardiology',
 };
 
+const ENDPOINT_DOMAIN_LABELS = {
+  mace: 'MACE',
+  mortality: 'Mortality',
+  hf: 'Heart Failure',
+  renal: 'Renal',
+  safety: 'Safety',
+  frailty: 'Frailty',
+  other: 'Other',
+};
+
+const DOMAIN_ORDER = ['mace', 'mortality', 'hf', 'renal', 'safety', 'frailty', 'other'];
+
+const INTERVENTION_LABELS = new Map(
+  INTERVENTION_DICTIONARY_V1.classes.map((entry) => [entry.classId, entry.canonicalName]),
+);
+
+const ENDPOINT_TO_DOMAIN = new Map(
+  ENDPOINT_ONTOLOGY_V1.endpoints.map((entry) => [entry.endpointId, entry.domain ?? 'other']),
+);
+
 function toFiniteNumber(value, fallback = 0) {
   const n = Number(value);
   return Number.isFinite(n) ? n : fallback;
@@ -26,6 +47,18 @@ function toFiniteNumber(value, fallback = 0) {
 
 function asArray(value) {
   return Array.isArray(value) ? value : [];
+}
+
+function uniqueStrings(values) {
+  const seen = new Set();
+  const out = [];
+  for (const value of values) {
+    const text = String(value ?? '').trim();
+    if (!text || seen.has(text)) continue;
+    seen.add(text);
+    out.push(text);
+  }
+  return out;
 }
 
 function computeKpis(trials, opportunities) {
@@ -115,6 +148,11 @@ function buildOpportunitiesFromTrials(trials) {
       priority,
       trialCount: entry.trialCount,
       recentTrials: entry.recentTrials,
+      scoreBreakdown: {
+        evidencePenalty: Math.round(evidencePenalty),
+        recencyPenalty: Math.round(recencyPenalty),
+        scalePenalty: Math.round(scalePenalty),
+      },
       rationale:
         `${entry.trialCount} trials indexed, ${entry.recentTrials} in last 3 years` +
         (entry.maxYear ? `, latest ${entry.maxYear}.` : '.'),
@@ -124,7 +162,15 @@ function buildOpportunitiesFromTrials(trials) {
   return opportunities;
 }
 
-function createConnectorRequest() {
+function createConnectorRequest(source) {
+  const sourceKey = String(source ?? '').toLowerCase();
+  const limitBySource = {
+    ctgov: 500,
+    aact: 1000,
+    pubmed: 150,
+    openalex: 150,
+    europepmc: 100,
+  };
   return {
     domain: 'cardio',
     query: {
@@ -133,20 +179,20 @@ function createConnectorRequest() {
       category: 'cardiovascular',
       mailto: 'metasprint-cardio@example.org',
     },
-    limit: 100,
+    limit: limitBySource[sourceKey] ?? 100,
     offset: 0,
   };
 }
 
-async function loadTrialsForSource(source) {
+async function loadTrialsForSource(source, request = null) {
   if (source === 'sample') return SAMPLE_TRIALS;
-  return loadUniverseFromConnector(source, createConnectorRequest());
+  return loadUniverseFromConnector(source, request ?? createConnectorRequest(source));
 }
 
 function createGate(source, totalTrials, detail, status = 'high') {
   const sourceLabel = source === 'sample' ? 'Sample' : String(source).toUpperCase();
   return {
-    label: status === 'high' ? 'Green' : 'Amber',
+    label: status === 'high' ? 'Ingestion OK' : 'Fallback Loaded',
     detail: detail ?? `${sourceLabel} source loaded with ${totalTrials} normalized trials.`,
     status,
   };
@@ -158,6 +204,102 @@ function summarizeDedup(trials) {
     duplicateClusterCount: graph.duplicateClusterCount,
     edgeCount: graph.edgeCount,
     multiSourceClusterCount: graph.clusters.filter((cluster) => cluster.sources.length > 1).length,
+  };
+}
+
+function collectMatrixSignals(trial) {
+  const text = [trial?.title, ...(Array.isArray(trial?.conditions) ? trial.conditions : [])]
+    .map((entry) => String(entry ?? '').trim())
+    .filter(Boolean)
+    .join(' ');
+
+  const inferred = mapOntologyFromText(text);
+  const interventionIds = uniqueStrings([
+    ...asArray(trial?.interventionClassIds),
+    ...asArray(inferred?.interventionClassIds),
+  ]);
+  const endpointIds = uniqueStrings([...asArray(trial?.endpointIds), ...asArray(inferred?.endpointIds)]);
+  const domains = uniqueStrings(
+    endpointIds.map((endpointId) => String(ENDPOINT_TO_DOMAIN.get(endpointId) ?? 'other')),
+  );
+
+  return {
+    interventionIds: interventionIds.length > 0 ? interventionIds : ['unspecified_intervention'],
+    domains: domains.length > 0 ? domains : ['other'],
+    hasSignals: interventionIds.length > 0 || endpointIds.length > 0,
+  };
+}
+
+function buildMatrixSummary(trials) {
+  if (!Array.isArray(trials) || trials.length === 0) {
+    return { rows: [], columns: [], totalTrials: 0, matchedTrials: 0 };
+  }
+
+  const rowCounts = new Map();
+  const colCounts = new Map();
+  const cellCounts = new Map();
+  const matchedTrialIds = new Set();
+
+  for (let index = 0; index < trials.length; index += 1) {
+    const trial = trials[index];
+    const trialKey = String(trial?.trialId ?? `trial_${index}`);
+    const signals = collectMatrixSignals(trial);
+    if (signals.hasSignals) matchedTrialIds.add(trialKey);
+
+    for (const interventionId of signals.interventionIds) {
+      if (!rowCounts.has(interventionId)) rowCounts.set(interventionId, new Set());
+      rowCounts.get(interventionId).add(trialKey);
+    }
+
+    for (const domainId of signals.domains) {
+      if (!colCounts.has(domainId)) colCounts.set(domainId, new Set());
+      colCounts.get(domainId).add(trialKey);
+    }
+
+    for (const interventionId of signals.interventionIds) {
+      for (const domainId of signals.domains) {
+        const key = `${interventionId}__${domainId}`;
+        if (!cellCounts.has(key)) cellCounts.set(key, new Set());
+        cellCounts.get(key).add(trialKey);
+      }
+    }
+  }
+
+  const columns = [...colCounts.keys()]
+    .sort((a, b) => {
+      const aIdx = DOMAIN_ORDER.indexOf(a);
+      const bIdx = DOMAIN_ORDER.indexOf(b);
+      const left = aIdx === -1 ? Number.MAX_SAFE_INTEGER : aIdx;
+      const right = bIdx === -1 ? Number.MAX_SAFE_INTEGER : bIdx;
+      if (left !== right) return left - right;
+      return a.localeCompare(b);
+    })
+    .map((columnId) => ({
+      id: columnId,
+      label: ENDPOINT_DOMAIN_LABELS[columnId] ?? columnId,
+      trialCount: colCounts.get(columnId)?.size ?? 0,
+    }));
+
+  const rows = [...rowCounts.keys()]
+    .sort((a, b) => (rowCounts.get(b)?.size ?? 0) - (rowCounts.get(a)?.size ?? 0))
+    .map((rowId) => ({
+      id: rowId,
+      label:
+        rowId === 'unspecified_intervention'
+          ? 'Unspecified intervention'
+          : INTERVENTION_LABELS.get(rowId) ?? rowId,
+      trialCount: rowCounts.get(rowId)?.size ?? 0,
+      cells: columns.map((column) => ({
+        id: column.id,
+        count: cellCounts.get(`${rowId}__${column.id}`)?.size ?? 0,
+      })),
+    }));
+
+  return {
+    rows,
+    columns,
+    totalTrials: trials.length,
+    matchedTrials: matchedTrialIds.size,
   };
 }
 
@@ -178,12 +320,13 @@ export function createDiscoveryActions(store, deps = {}) {
   const loadUniverse = async () => {
     const loadToken = nextRequestToken();
     const { dataSource } = store.getState();
+    const request = createConnectorRequest(dataSource);
     store.patchState({ loading: true, lastError: null }, 'load:start');
 
     await new Promise((resolve) => setTimeout(resolve, loadingDelayMs));
 
     try {
-      const loadedTrials = asArray(await loadTrials(dataSource));
+      const loadedTrials = asArray(await loadTrials(dataSource, request));
       if (loadToken !== latestLoadToken) return;
       const trials = loadedTrials.length > 0 ? loadedTrials : SAMPLE_TRIALS;
       const usedFallbackTrials = loadedTrials.length === 0 && dataSource !== 'sample';
@@ -195,6 +338,7 @@ export function createDiscoveryActions(store, deps = {}) {
         currentSortMode,
       );
       const kpis = computeKpis(trials, opportunities);
+      const matrixSummary = buildMatrixSummary(trials);
       const dedupSummary = summarizeDedup(trials);
 
       const gate = usedFallbackTrials
@@ -215,8 +359,17 @@ export function createDiscoveryActions(store, deps = {}) {
           universeLoaded: true,
           loading: false,
           lastRefreshIso: new Date().toISOString(),
+          provenance: {
+            requestedSource: dataSource,
+            loadedSource: usedFallbackTrials ? 'sample' : dataSource,
+            requestedLimit: request.limit ?? null,
+            loadedCount: trials.length,
+            usedFallback: usedFallbackTrials,
+            fallbackReason: usedFallbackTrials ? `No rows returned from ${String(dataSource).toUpperCase()}.` : null,
+          },
           trials,
           opportunities,
+          matrixSummary,
           dedupSummary,
           kpis,
           methodologyGate: gate,
@@ -231,17 +384,26 @@ export function createDiscoveryActions(store, deps = {}) {
         buildOpportunitiesFromTrials(fallbackTrials),
         store.getState().sortMode,
       );
+      const matrixSummary = buildMatrixSummary(fallbackTrials);
       const dedupSummary = summarizeDedup(fallbackTrials);
 
       store.patchState(
         {
-          dataSource: 'sample',
           universeLoaded: true,
           loading: false,
           lastRefreshIso: new Date().toISOString(),
           lastError: `Connector ${dataSource.toUpperCase()} failed: ${message}`,
+          provenance: {
+            requestedSource: dataSource,
+            loadedSource: 'sample',
+            requestedLimit: request.limit ?? null,
+            loadedCount: fallbackTrials.length,
+            usedFallback: true,
+            fallbackReason: `Connector ${String(dataSource).toUpperCase()} failed.`,
+          },
           trials: fallbackTrials,
           opportunities: fallbackOpportunities,
+          matrixSummary,
           dedupSummary,
           kpis: computeKpis(fallbackTrials, fallbackOpportunities),
           methodologyGate: createGate(

@@ -170,3 +170,47 @@ test('sortOpportunities remains stable when metrics contain non-finite values', 
   assert.equal(state.sortMode, 'count');
   assert.equal(state.opportunities[0].id, 'opp_good');
 });
+
+test('loadUniverse records provenance and matrix summary metadata', async () => {
+  const store = createStore(INITIAL_DISCOVERY_STATE);
+  const actions = createDiscoveryActions(store, {
+    loadingDelayMs: 0,
+    loadTrialsForSource: async () => [
+      {
+        trialId: 'trial_1',
+        source: 'ctgov',
+        sourceType: 'trial',
+        title: 'Empagliflozin trial with cardiovascular death endpoint',
+        year: 2024,
+        enrollment: 3200,
+        subcategoryId: 'hf',
+        interventionClassIds: ['sglt2_inhibitor'],
+        endpointIds: ['cv_death'],
+      },
+      {
+        trialId: 'trial_2',
+        source: 'ctgov',
+        sourceType: 'trial',
+        title: 'Apixaban trial with stroke endpoint',
+        year: 2023,
+        enrollment: 1800,
+        subcategoryId: 'af',
+        interventionClassIds: ['doac'],
+        endpointIds: ['stroke'],
+      },
+    ],
+  });
+
+  assert.equal(actions.setDataSource('ctgov'), true);
+  await actions.loadUniverse();
+
+  const state = store.getState();
+  assert.equal(state.provenance.requestedSource, 'ctgov');
+  assert.equal(state.provenance.loadedSource, 'ctgov');
+  assert.equal(state.provenance.usedFallback, false);
+  assert.equal(state.provenance.loadedCount, 2);
+  assert.ok(Number.isFinite(Number(state.provenance.requestedLimit)));
+  assert.equal(state.matrixSummary.totalTrials, 2);
+  assert.ok(state.matrixSummary.rows.length > 0);
+  assert.ok(state.matrixSummary.columns.length > 0);
+});

@@ -1,4 +1,4 @@
-﻿import { append, byId, clearNode, el, setText } from '../../core/dom.js';
+import { append, byId, clearNode, el, setText } from '../../core/dom.js';
 
 function formatTime(iso) {
   if (!iso) return 'never';
@@ -11,7 +11,7 @@ function getViewLabel(view) {
     network: 'Network graph (modular shell)',
     treemap: 'Treemap (modular shell)',
     timeline: 'Timeline (modular shell)',
-    matrix: 'Intervention x Outcome matrix (modular shell)',
+    matrix: 'Intervention x outcome matrix (live trial coverage)',
     gapscatter: 'Gap scatter (modular shell)',
     pipeline: 'Phase pipeline (modular shell)',
   };
@@ -72,6 +72,30 @@ function renderKpis(state) {
   }
 }
 
+function renderProvenanceBanner(state) {
+  const host = byId('provenanceBanner');
+  if (!host) return;
+  if (!state.universeLoaded) {
+    host.hidden = true;
+    host.textContent = '';
+    host.className = 'provenance-banner';
+    return;
+  }
+
+  const provenance = state.provenance ?? {};
+  const requestedSource = sourceLabel(provenance.requestedSource ?? state.dataSource);
+  const loadedSource = sourceLabel(provenance.loadedSource ?? state.dataSource);
+  const requestedLimit = provenance.requestedLimit != null ? provenance.requestedLimit : 'n/a';
+  const loadedCount = provenance.loadedCount != null ? provenance.loadedCount : state.trials.length;
+  const usedFallback = Boolean(provenance.usedFallback);
+
+  host.hidden = false;
+  host.className = usedFallback ? 'provenance-banner warning' : 'provenance-banner';
+  host.textContent = usedFallback
+    ? `Fallback mode: requested ${requestedSource} (limit ${requestedLimit}), loaded ${loadedCount} from ${loadedSource}. ${provenance.fallbackReason ?? ''}`
+    : `Data provenance: requested ${requestedSource} (limit ${requestedLimit}), loaded ${loadedCount} from ${loadedSource}.`;
+}
+
 function renderOpportunityList(state) {
   const host = byId('opportunityList');
   clearNode(host);
@@ -88,11 +112,11 @@ function renderOpportunityList(state) {
 
     const badge = el('span', {
       className: `badge ${item.priority}`,
-      text: item.priority.toUpperCase(),
+      text: `${item.priority.toUpperCase()} GAP`,
     });
     title.appendChild(badge);
 
-    const metaParts = [`${item.subcategoryId.toUpperCase()}`, `Score ${item.score}`];
+    const metaParts = [`${item.subcategoryId.toUpperCase()}`, `Gap score ${item.score}`];
     if (item.trialCount != null) metaParts.push(`${item.trialCount} trials`);
     if (item.recentTrials != null) metaParts.push(`${item.recentTrials} recent`);
 
@@ -101,8 +125,14 @@ function renderOpportunityList(state) {
       text: metaParts.join(' | '),
     });
 
+    const breakdown = item.scoreBreakdown;
+    const formula = breakdown
+      ? `Formula: 100 - evidence ${breakdown.evidencePenalty} - recency ${breakdown.recencyPenalty} - scale ${breakdown.scalePenalty}`
+      : 'Formula: 100 - evidence - recency - scale';
+
+    const formulaNode = el('div', { className: 'meta formula', text: formula });
     const rationale = el('div', { className: 'meta', text: item.rationale });
-    append(li, title, meta, rationale);
+    append(li, title, meta, formulaNode, rationale);
     host.appendChild(li);
   }
 }
@@ -117,13 +147,75 @@ function renderTabs(state) {
   }
 }
 
+function renderMatrixView(frame, state) {
+  const matrix = state.matrixSummary ?? { rows: [], columns: [], totalTrials: 0, matchedTrials: 0 };
+  const rows = Array.isArray(matrix.rows) ? matrix.rows : [];
+  const columns = Array.isArray(matrix.columns) ? matrix.columns : [];
+
+  const intro = el('div', {
+    className: 'matrix-summary',
+    text: `Intervention x endpoint-domain coverage from ${matrix.totalTrials ?? state.trials.length} trials. Ontology-matched trials: ${matrix.matchedTrials ?? 0}.`,
+  });
+  frame.appendChild(intro);
+
+  if (rows.length === 0 || columns.length === 0) {
+    frame.appendChild(el('div', { text: 'No matrix signals found for this dataset.' }));
+    return;
+  }
+
+  const table = el('table', { className: 'matrix-table' });
+  const thead = el('thead');
+  const headRow = el('tr');
+  append(
+    headRow,
+    el('th', { text: 'Intervention class' }),
+    ...columns.map((column) => el('th', { text: `${column.label} (${column.trialCount})` })),
+    el('th', { text: 'Trials' }),
+  );
+  thead.appendChild(headRow);
+  table.appendChild(thead);
+
+  const tbody = el('tbody');
+  for (const row of rows) {
+    const tr = el('tr');
+    tr.appendChild(el('th', { text: row.label }));
+    for (const cell of row.cells ?? []) {
+      const td = el('td', { text: String(cell.count ?? 0) });
+      if ((cell.count ?? 0) > 0) td.classList.add('hit');
+      tr.appendChild(td);
+    }
+    tr.appendChild(el('td', { text: String(row.trialCount ?? 0) }));
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  frame.appendChild(table);
+}
+
 function renderViewFrame(state) {
   const frame = byId('viewFrame');
   clearNode(frame);
 
-  const text = !state.universeLoaded
-    ? 'Load Universe to initialize discovery views.'
-    : `${getViewLabel(state.currentView)}\n${state.trials.length} trials indexed from ${sourceLabel(state.dataSource)}, sorted by ${state.sortMode}.`;
+  const isMatrix = state.universeLoaded && state.currentView === 'matrix';
+  frame.classList.toggle('view-frame-rich', isMatrix);
+
+  if (!state.universeLoaded) {
+    frame.appendChild(el('div', { text: 'Load Universe to initialize discovery views.' }));
+    return;
+  }
+
+  if (isMatrix) {
+    renderMatrixView(frame, state);
+    return;
+  }
+
+  const provenance = state.provenance ?? {};
+  const requested = sourceLabel(provenance.requestedSource ?? state.dataSource);
+  const loaded = sourceLabel(provenance.loadedSource ?? state.dataSource);
+  const text =
+    `${getViewLabel(state.currentView)}\n` +
+    `${state.trials.length} trials loaded from ${loaded}` +
+    (requested !== loaded ? ` (requested ${requested}).` : '.') +
+    ` Sorted by ${state.sortMode}.`;
 
   frame.appendChild(el('div', { text }));
 }
@@ -132,7 +224,7 @@ function renderMethodologyGate(state) {
   const host = byId('methodologyGate');
   clearNode(host);
 
-  const label = el('div', { text: `Gate: ${state.methodologyGate.label}` });
+  const label = el('div', { text: `Status: ${state.methodologyGate.label}` });
   label.style.fontWeight = '700';
   label.style.marginBottom = '6px';
 
@@ -163,12 +255,21 @@ function renderMethodologyGate(state) {
 }
 
 export function renderDiscovery(state) {
-  setText(byId('statusText'), `Status: ${state.loading ? 'loading' : state.universeLoaded ? 'ready' : 'idle'} (${sourceLabel(state.dataSource)})`);
+  const provenance = state.provenance ?? {};
+  const requestedSource = sourceLabel(provenance.requestedSource ?? state.dataSource);
+  const loadedSource = sourceLabel(provenance.loadedSource ?? state.dataSource);
+  const sourceText =
+    state.universeLoaded && requestedSource !== loadedSource
+      ? `${requestedSource} -> ${loadedSource}`
+      : requestedSource;
+
+  setText(byId('statusText'), `Status: ${state.loading ? 'loading' : state.universeLoaded ? 'ready' : 'idle'} (${sourceText})`);
   setText(byId('refreshText'), `Last refresh: ${formatTime(state.lastRefreshIso)}`);
 
   renderSourceButtons(state);
   renderSortButtons(state);
   renderTabs(state);
+  renderProvenanceBanner(state);
   renderKpis(state);
   renderViewFrame(state);
   renderOpportunityList(state);

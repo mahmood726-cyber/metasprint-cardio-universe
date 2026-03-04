@@ -17,6 +17,8 @@ export function mountDiscovery(root = document.getElementById('discoveryShell'))
   });
 
   const detachHandlers = attachDiscoveryHandlers(root, actions);
+  // Load initial sample universe so users immediately see clinical rows.
+  void actions.loadUniverse();
 
   return {
     store,

@@ -210,6 +210,9 @@
       border-radius: 10px;
       background: #fff;
       padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .chart-card.wide {
@@ -220,8 +223,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 2px;
     }
 
     .chart-head h3 {
@@ -253,7 +257,7 @@
     }
 
     .chart-box {
-      min-height: 240px;
+      min-height: 280px;
       border: 1px dashed #c7d8eb;
       border-radius: 8px;
       background: linear-gradient(180deg, #f8fcff, #f2f7fb);
@@ -261,13 +265,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
       color: #4e647f;
       font-size: 0.78rem;
       text-align: center;
     }
 
     .chart-note {
-      margin: 8px 0 0;
+      margin: 0;
+      line-height: 1.4;
       font-size: 0.76rem;
       color: #2d4867;
     }
@@ -283,6 +290,7 @@
       .main { border-right: 0; border-bottom: 1px solid var(--border); }
       .kpi-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
       .chart-grid { grid-template-columns: 1fr; }
+      .chart-box { min-height: 320px; }
     }
   </style>
 </head>

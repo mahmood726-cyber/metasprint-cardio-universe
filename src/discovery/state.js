@@ -1,4 +1,4 @@
-﻿export const INITIAL_DISCOVERY_STATE = {
+export const INITIAL_DISCOVERY_STATE = {
   universeLoaded: false,
   loading: false,
   lastRefreshIso: null,
@@ -6,8 +6,22 @@
   sortMode: 'gap',
   dataSource: 'sample',
   lastError: null,
+  provenance: {
+    requestedSource: 'sample',
+    loadedSource: 'sample',
+    requestedLimit: 100,
+    loadedCount: 0,
+    usedFallback: false,
+    fallbackReason: null,
+  },
   trials: [],
   opportunities: [],
+  matrixSummary: {
+    rows: [],
+    columns: [],
+    totalTrials: 0,
+    matchedTrials: 0,
+  },
   dedupSummary: {
     duplicateClusterCount: 0,
     edgeCount: 0,

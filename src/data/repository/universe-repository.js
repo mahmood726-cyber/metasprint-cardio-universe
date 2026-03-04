@@ -144,6 +144,25 @@ function normalizeSourceType(value) {
   return VALID_SOURCE_TYPES.has(normalized) ? normalized : 'trial';
 }
 
+function collectTextTerms(values, maxItems = 12) {
+  if (!Array.isArray(values)) return [];
+  const terms = [];
+  for (const entry of values) {
+    if (terms.length >= maxItems) break;
+    if (entry == null) continue;
+    if (typeof entry === 'string' || typeof entry === 'number' || typeof entry === 'boolean') {
+      const text = normalizeText(entry, '', 220);
+      if (text) terms.push(text);
+      continue;
+    }
+    if (!isPlainObject(entry)) continue;
+    const candidate = entry.name ?? entry.term ?? entry.label ?? entry.value ?? entry.text;
+    const text = normalizeText(candidate, '', 220);
+    if (text) terms.push(text);
+  }
+  return terms;
+}
+
 function normalizeIdentityKeys(keys) {
   const seen = new Set();
   const output = [];
@@ -203,6 +222,28 @@ function normalizeTrial(raw, source) {
     MAX_TITLE_LENGTH,
   );
 
+  const conditionTerms = collectTextTerms(
+    safeRaw?.protocolSection?.conditionsModule?.conditions ??
+      safeRaw?.conditions ??
+      safeRaw?.condition_terms ??
+      [],
+  );
+  const keywordTerms = collectTextTerms(
+    safeRaw?.protocolSection?.conditionsModule?.keywords ??
+      safeRaw?.keywords ??
+      safeRaw?.meshTerms ??
+      [],
+  );
+  const interventionTerms = collectTextTerms(
+    safeRaw?.protocolSection?.armsInterventionsModule?.interventions ??
+      safeRaw?.interventions ??
+      safeRaw?.intervention_terms ??
+      [],
+  );
+  const subcategoryText = [title, ...conditionTerms, ...keywordTerms, ...interventionTerms]
+    .filter(Boolean)
+    .join(' ');
+
   const startDate =
     safeRaw?.startDate ??
     safeRaw?.start_date ??
@@ -235,7 +276,7 @@ function normalizeTrial(raw, source) {
       0,
       MAX_ENROLLMENT,
     ),
-    subcategoryId: inferSubcategoryFromText(title),
+    subcategoryId: inferSubcategoryFromText(subcategoryText),
     identityKeys: normalizeIdentityKeys([
       nctId ? `nct:${nctId}` : null,
       pmid ? `pmid:${pmid}` : null,

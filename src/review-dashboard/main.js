@@ -35,65 +35,62 @@ function hasPlotly() {
 }
 
 const PLOTLY_CDN_URL = 'https://cdn.plot.ly/plotly-2.27.0.min.js';
+const PLOTLY_LOCAL_URL = './vendor/plotly-2.27.0.min.js';
 let plotlyLoadPromise = null;
+
+function loadPlotlyScript(url, timeoutMs) {
+  return new Promise((resolve) => {
+    if (hasPlotly()) {
+      resolve(true);
+      return;
+    }
+
+    const normalizedUrl = new URL(url, document.baseURI).href;
+    const existing = [...document.querySelectorAll('script[data-plotly-loader="1"]')].find(
+      (script) => script.src === normalizedUrl,
+    );
+
+    let done = false;
+    const finish = (ok) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      resolve(ok);
+    };
+
+    const onLoad = () => finish(hasPlotly());
+    const onError = () => finish(false);
+    const timer = setTimeout(() => finish(false), timeoutMs);
+
+    if (existing) {
+      existing.addEventListener('load', onLoad, { once: true });
+      existing.addEventListener('error', onError, { once: true });
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.src = url;
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+    script.dataset.plotlyLoader = '1';
+    script.addEventListener('load', onLoad, { once: true });
+    script.addEventListener('error', onError, { once: true });
+    document.head.appendChild(script);
+  });
+}
 
 function loadPlotlyWithTimeout(timeoutMs = 4500) {
   if (hasPlotly()) return Promise.resolve(true);
   if (plotlyLoadPromise) return plotlyLoadPromise;
 
-  plotlyLoadPromise = new Promise((resolve) => {
-    let done = false;
-    const finish = (ok) => {
-      if (done) return;
-      done = true;
-      resolve(ok);
-    };
-
-    const timer = setTimeout(() => finish(false), timeoutMs);
-    const existing = document.querySelector('script[data-plotly-loader="1"]');
-    if (existing) {
-      existing.addEventListener(
-        'load',
-        () => {
-          clearTimeout(timer);
-          finish(hasPlotly());
-        },
-        { once: true },
-      );
-      existing.addEventListener(
-        'error',
-        () => {
-          clearTimeout(timer);
-          finish(false);
-        },
-        { once: true },
-      );
-      return;
+  plotlyLoadPromise = (async () => {
+    const candidates = [PLOTLY_LOCAL_URL, PLOTLY_CDN_URL];
+    for (const url of candidates) {
+      const loaded = await loadPlotlyScript(url, timeoutMs);
+      if (loaded) return true;
     }
-
-    const script = document.createElement('script');
-    script.src = PLOTLY_CDN_URL;
-    script.async = true;
-    script.crossOrigin = 'anonymous';
-    script.dataset.plotlyLoader = '1';
-    script.addEventListener(
-      'load',
-      () => {
-        clearTimeout(timer);
-        finish(hasPlotly());
-      },
-      { once: true },
-    );
-    script.addEventListener(
-      'error',
-      () => {
-        clearTimeout(timer);
-        finish(false);
-      },
-      { once: true },
-    );
-    document.head.appendChild(script);
-  });
+    return hasPlotly();
+  })();
 
   return plotlyLoadPromise;
 }
@@ -322,12 +319,12 @@ async function renderSwitchTrendChart(payload) {
       },
     ],
     {
-      margin: { l: 44, r: 18, t: 14, b: 38 },
+      margin: { l: 44, r: 18, t: 52, b: 44 },
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor: 'rgba(0,0,0,0)',
-      xaxis: { tickfont: { size: 11 } },
-      yaxis: { range: [0, maxPlotted], dtick: 1, title: { text: 'Reviewers', font: { size: 11 } } },
-      legend: { orientation: 'h', y: -0.24, x: 0 },
+      xaxis: { tickfont: { size: 11 }, tickangle: -20, automargin: true },
+      yaxis: { range: [0, maxPlotted], dtick: 1, title: { text: 'Reviewers', font: { size: 11 } }, automargin: true },
+      legend: { orientation: 'h', x: 0, y: 1.02, yanchor: 'bottom', font: { size: 11 } },
     },
     { displayModeBar: false, responsive: true },
   );
@@ -384,12 +381,12 @@ async function renderDecisionMixChart(payload) {
     ],
     {
       barmode: 'stack',
-      margin: { l: 44, r: 18, t: 14, b: 38 },
+      margin: { l: 44, r: 18, t: 52, b: 44 },
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor: 'rgba(0,0,0,0)',
-      xaxis: { tickfont: { size: 11 } },
-      yaxis: { dtick: 1, title: { text: 'Count', font: { size: 11 } } },
-      legend: { orientation: 'h', y: -0.24, x: 0 },
+      xaxis: { tickfont: { size: 11 }, tickangle: -20, automargin: true },
+      yaxis: { dtick: 1, title: { text: 'Count', font: { size: 11 } }, automargin: true },
+      legend: { orientation: 'h', x: 0, y: 1.02, yanchor: 'bottom', font: { size: 11 } },
     },
     { displayModeBar: false, responsive: true },
   );
@@ -453,11 +450,11 @@ async function renderDissentThemeChart(payload) {
       },
     ],
     {
-      margin: { l: 120, r: 20, t: 14, b: 32 },
+      margin: { l: 120, r: 20, t: 30, b: 44 },
       paper_bgcolor: 'rgba(0,0,0,0)',
       plot_bgcolor: 'rgba(0,0,0,0)',
-      xaxis: { dtick: 1, title: { text: 'Mentions', font: { size: 11 } } },
-      yaxis: { autorange: 'reversed' },
+      xaxis: { dtick: 1, title: { text: 'Mentions', font: { size: 11 } }, automargin: true },
+      yaxis: { autorange: 'reversed', automargin: true },
     },
     { displayModeBar: false, responsive: true },
   );
