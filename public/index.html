@@ -1,0 +1,316 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MetaSprint Cardio Universe - Discovery Shell</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --surface-alt: #f0f4f8;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #d1d9e2;
+      --primary: #0f766e;
+      --primary-strong: #115e59;
+      --danger: #b91c1c;
+      --warn: #b45309;
+      --success: #166534;
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #f7f8fa, #e8eef5 60%, #dbe7f0);
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .shell {
+      max-width: 1200px;
+      margin: 20px auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+    }
+
+    .header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(120deg, #0f766e, #0e7490);
+      color: #fff;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 0.01em;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      font-size: 0.86rem;
+      opacity: 0.9;
+    }
+
+    .controls {
+      padding: 14px 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-alt);
+      align-items: center;
+    }
+
+    .control-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-right: 2px;
+      font-weight: 600;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 11px;
+      font-size: 0.84rem;
+      cursor: pointer;
+    }
+
+    .btn:hover { border-color: #9fb3c8; }
+
+    .btn.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+    }
+
+    .btn.primary:hover { background: var(--primary-strong); }
+
+    .btn.active {
+      background: #0e7490;
+      border-color: #0e7490;
+      color: #fff;
+    }
+
+    .tabs {
+      padding: 10px 16px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-btn.active {
+      background: #0f766e;
+      color: #fff;
+      border-color: #0f766e;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 0;
+      min-height: 520px;
+    }
+
+    .viewport {
+      padding: 16px;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar {
+      padding: 16px;
+      background: #fbfdff;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .panel h3 {
+      margin: 0;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.86rem;
+      background: #f8fbff;
+    }
+
+    .panel-body {
+      padding: 10px 12px;
+      font-size: 0.82rem;
+    }
+
+    .status-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      color: var(--muted);
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .kpi {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .kpi .label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .kpi .value {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .view-frame {
+      border: 1px dashed #9fb3c8;
+      border-radius: 10px;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      background: linear-gradient(180deg, #f8fcff, #f2f7fb);
+      margin-top: 12px;
+      padding: 18px;
+      text-align: center;
+      white-space: pre-line;
+    }
+
+    .opportunity-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .opportunity-item {
+      padding: 8px;
+      border-bottom: 1px solid #edf2f7;
+      font-size: 0.78rem;
+    }
+
+    .opportunity-item:last-child { border-bottom: 0; }
+
+    .opportunity-item .title {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .opportunity-item .meta {
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      margin-left: 6px;
+      color: #fff;
+    }
+
+    .badge.high { background: var(--danger); }
+    .badge.moderate { background: var(--warn); }
+    .badge.low { background: var(--success); }
+
+    @media (max-width: 980px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+      .viewport {
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell" id="discoveryShell">
+    <div class="header">
+      <h1>MetaSprint Cardio Universe - Discovery Module</h1>
+      <p>Quran-inspired charter in action: Ilm, Burhan, Adl, Amanah, Shura, Mizan, Ihsan.</p>
+    </div>
+
+    <div class="controls" id="controlBar">
+      <span class="control-label">Source:</span>
+      <button class="btn active" data-action="set-data-source" data-source="sample" aria-pressed="true">Sample</button>
+      <button class="btn" data-action="set-data-source" data-source="ctgov" aria-pressed="false">CT.gov</button>
+      <button class="btn" data-action="set-data-source" data-source="aact" aria-pressed="false">AACT</button>
+      <button class="btn" data-action="set-data-source" data-source="pubmed" aria-pressed="false">PubMed</button>
+      <button class="btn" data-action="set-data-source" data-source="openalex" aria-pressed="false">OpenAlex</button>
+      <button class="btn" data-action="set-data-source" data-source="europepmc" aria-pressed="false">Europe PMC</button>
+      <button class="btn primary" data-action="load-universe">Load Universe</button>
+      <button class="btn" data-action="refresh-universe">Refresh</button>
+      <button class="btn active" data-action="sort-opportunities" data-sort="gap" aria-pressed="true">Sort: Gap</button>
+      <button class="btn" data-action="sort-opportunities" data-sort="recent" aria-pressed="false">Sort: Recent</button>
+      <button class="btn" data-action="sort-opportunities" data-sort="count" aria-pressed="false">Sort: Count</button>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Discovery views" id="viewTabs">
+      <button class="btn tab-btn active" data-action="switch-view" data-view="ayat" role="tab" aria-selected="true">Ayat</button>
+      <button class="btn tab-btn" data-action="switch-view" data-view="network" role="tab" aria-selected="false">Network</button>
+      <button class="btn tab-btn" data-action="switch-view" data-view="treemap" role="tab" aria-selected="false">Treemap</button>
+      <button class="btn tab-btn" data-action="switch-view" data-view="timeline" role="tab" aria-selected="false">Timeline</button>
+      <button class="btn tab-btn" data-action="switch-view" data-view="matrix" role="tab" aria-selected="false">Matrix</button>
+      <button class="btn tab-btn" data-action="switch-view" data-view="gapscatter" role="tab" aria-selected="false">Gap Scatter</button>
+      <button class="btn tab-btn" data-action="switch-view" data-view="pipeline" role="tab" aria-selected="false">Pipeline</button>
+    </div>
+
+    <div class="content">
+      <section class="viewport" id="viewport">
+        <div class="status-row">
+          <span id="statusText">Status: idle</span>
+          <span id="refreshText">Last refresh: never</span>
+        </div>
+
+        <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="view-frame" id="viewFrame" aria-live="polite"></div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="panel">
+          <h3>Top Opportunities</h3>
+          <div class="panel-body">
+            <ul class="opportunity-list" id="opportunityList"></ul>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Methodology Gate</h3>
+          <div class="panel-body" id="methodologyGate">
+            Not yet evaluated.
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>

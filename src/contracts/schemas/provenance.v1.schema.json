@@ -1,0 +1,131 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metasprint.dev/schemas/provenance.v1.json",
+  "title": "ProvenanceV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "provenanceId",
+    "generatedAt",
+    "pipelineVersion",
+    "sourceSnapshots",
+    "transformations",
+    "metricDerivations"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "provenance.v1" },
+    "provenanceId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,120}$" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "pipelineVersion": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "sourceSnapshots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "extractedAt", "endpoint", "queryHash", "recordCount"],
+        "properties": {
+          "source": { "type": "string", "enum": ["ctgov", "aact", "pubmed", "openalex", "europepmc", "manual"] },
+          "extractedAt": { "type": "string", "format": "date-time" },
+          "endpoint": { "type": "string", "maxLength": 400 },
+          "queryHash": { "type": "string", "pattern": "^[a-f0-9]{16,128}$" },
+          "recordCount": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "transformations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "version", "inputHash", "outputHash", "executedAt"],
+        "properties": {
+          "step": { "type": "string", "maxLength": 120 },
+          "version": { "type": "string", "maxLength": 40 },
+          "inputHash": { "type": "string", "pattern": "^[a-f0-9]{16,128}$" },
+          "outputHash": { "type": "string", "pattern": "^[a-f0-9]{16,128}$" },
+          "executedAt": { "type": "string", "format": "date-time" },
+          "params": { "type": "object" }
+        }
+      }
+    },
+    "metricDerivations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metricId", "formula", "inputs", "output"],
+        "properties": {
+          "metricId": { "type": "string", "pattern": "^[a-z0-9_:-]{3,80}$" },
+          "formula": { "type": "string", "minLength": 1, "maxLength": 1000 },
+          "inputs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1, "maxLength": 120 }
+          },
+          "output": { "type": "string", "minLength": 1, "maxLength": 120 }
+        }
+      }
+    },
+    "auditTrail": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["at", "actor", "action"],
+        "properties": {
+          "at": { "type": "string", "format": "date-time" },
+          "actor": { "type": "string", "maxLength": 120 },
+          "action": { "type": "string", "maxLength": 200 },
+          "details": { "type": "string", "maxLength": 2000 }
+        }
+      }
+    },
+    "missingEvidenceRisk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["framework", "overallJudgement", "assessedAt"],
+      "properties": {
+        "framework": { "const": "ROB-ME" },
+        "overallJudgement": { "type": "string", "enum": ["low", "some_concerns", "high"] },
+        "assessedAt": { "type": "string", "format": "date-time" },
+        "evidencePath": { "type": "string", "maxLength": 260 },
+        "scenarioCoverage": { "type": "integer", "minimum": 0 },
+        "domains": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "biasDueToMissingResultsInPublishedStudies": {
+              "type": "string",
+              "enum": ["low", "some_concerns", "high"]
+            },
+            "biasDueToSelectivePublication": {
+              "type": "string",
+              "enum": ["low", "some_concerns", "high"]
+            }
+          }
+        },
+        "signals": { "type": "object" },
+        "rationale": { "type": "string", "maxLength": 2000 }
+      }
+    },
+    "networkMissingEvidenceRisk": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["framework", "overallJudgement", "assessedAt"],
+      "properties": {
+        "framework": { "const": "RoB NMA" },
+        "overallJudgement": { "type": "string", "enum": ["low", "some_concerns", "high"] },
+        "assessedAt": { "type": "string", "format": "date-time" },
+        "evidencePath": { "type": "string", "maxLength": 260 },
+        "networkCount": { "type": "integer", "minimum": 0 },
+        "domains": { "type": "object" },
+        "signals": { "type": "object" },
+        "rationale": { "type": "string", "maxLength": 2000 }
+      }
+    }
+  }
+}

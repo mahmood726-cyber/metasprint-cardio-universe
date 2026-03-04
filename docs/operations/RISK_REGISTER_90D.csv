@@ -1,0 +1,9 @@
+﻿risk_id,opened_date,category,risk_statement,impact,likelihood,owner,mitigation,trigger,contingency_plan,status
+R-001,2026-03-02,Data sources,External API outages break strict refresh mode,high,medium,Data Lead,Retry+backoff+health checks,2 consecutive strict-source failures,Shift to degraded mode and alert board,open
+R-002,2026-03-02,Methods,Ontology mismatch causes endpoint mapping errors,high,medium,Methods Lead,Unknown-term queue + weekly adjudication,Mapping coverage <95%,Freeze ranking changes until mappings corrected,open
+R-003,2026-03-02,Identity,Dedup false merges degrade trust,high,medium,Data Lead,Conservative thresholds + reviewer override queue,False-merge rate >5%,Rollback merge set and require human review,open
+R-004,2026-03-02,Quality,Benchmark overfitting hides real-world quality drift,high,medium,QA Lead,Holdout sets + benchmark rotation,NDCG delta >0.1 between benchmark and holdout,Recalibrate weights and retrain thresholds,open
+R-005,2026-03-02,Adoption,Reviewer disagreement remains high,high,medium,Methods Lead,Biweekly calibration + rubric tightening,Switch_now <11 for 2 cycles,Run remediation sprint and defer release,open
+R-006,2026-03-02,Performance,Large-universe load time exceeds budget,medium,medium,UX Lead,Perf profiling + incremental rendering,Workflow median >10 min,Disable heavy view features until optimized,open
+R-007,2026-03-02,Security,Unsafe rendering regression in UI code,high,low,QA Lead,Inline-handler audit + secure render checks,Security script failure in CI,Block release branch and hotfix immediately,open
+R-008,2026-03-02,Program,Cross-stream dependency slippage,high,medium,Program Lead,Weekly dependency review + critical path ownership,Two missed weekly milestones,Re-scope sprint and reassign capacity,open

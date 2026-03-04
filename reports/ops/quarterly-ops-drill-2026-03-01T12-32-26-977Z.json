@@ -1,0 +1,51 @@
+{
+  "generatedAt": "2026-03-01T12:32:26.977Z",
+  "cadence": {
+    "expectedFrequencyDays": 90,
+    "ownerRole": "QA Lead"
+  },
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "status": "passed"
+  },
+  "scenarios": [
+    {
+      "id": "lock_contention_suite",
+      "description": "Validate lock contention behavior across dedup/override/drift scripts.",
+      "command": "C:\\Program Files\\nodejs\\node.exe --test tests/lock-contention.test.mjs",
+      "startedAt": "2026-03-01T12:32:26.979Z",
+      "durationSeconds": 3.29,
+      "exitCode": 0,
+      "status": "passed",
+      "stdoutTail": "TAP version 13\n# Subtest: run-identity-dedup lock contention returns code 2 for second process\nok 1 - run-identity-dedup lock contention returns code 2 for second process\n  ---\n  duration_ms: 1082.8417\n  type: 'test'\n  ...\n# Subtest: apply-override-decisions lock contention returns code 2 for second process\nok 2 - apply-override-decisions lock contention returns code 2 for second process\n  ---\n  duration_ms: 984.7331\n  type: 'test'\n  ...\n# Subtest: compute-living-drift lock contention returns code 2 for second process\nok 3 - compute-living-drift lock contention returns code 2 for second process\n  ---\n  duration_ms: 918.0004\n  type: 'test'\n  ...\n1..3\n# tests 3\n# suites 0\n# pass 3\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 3156.933",
+      "stderrTail": "",
+      "error": null
+    },
+    {
+      "id": "source_outage_recovery",
+      "description": "Validate strict outage and recovery behavior for source health.",
+      "command": "npm run ops:resilience-check",
+      "startedAt": "2026-03-01T12:32:30.269Z",
+      "durationSeconds": 0.957,
+      "exitCode": 0,
+      "status": "passed",
+      "stdoutTail": "> metasprint-cardio-universe@0.1.0 ops:resilience-check\n> node scripts/operations/validate-source-resilience.mjs\n\nOutage scenario exit: 2\nRecovery scenario exit: 0\nWrote reports\\ops\\source-resilience-check-2026-03-01T12-32-31-186Z.json\nWrote reports\\ops\\source-resilience-check-latest.json",
+      "stderrTail": "",
+      "error": null
+    },
+    {
+      "id": "release_doc_sync",
+      "description": "Validate runbooks and evidence docs are reviewed within cadence.",
+      "command": "npm run ops:doc-sync",
+      "startedAt": "2026-03-01T12:32:31.226Z",
+      "durationSeconds": 0.744,
+      "exitCode": 0,
+      "status": "passed",
+      "stdoutTail": "> metasprint-cardio-universe@0.1.0 ops:doc-sync\n> node scripts/operations/verify-release-doc-sync.mjs --manifest docs/operations/RELEASE_DOC_SYNC.v1.json\n\nRelease doc sync status: passed\nChecks: 10, failed: 0, warnings: 0\nWrote reports\\ops\\release-doc-sync-2026-03-01T12-32-31-926Z.json\nWrote reports\\ops\\release-doc-sync-latest.json",
+      "stderrTail": "",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+﻿# Execution Status - 2026-02-28
+
+Completed now:
+- 90-day execution program defined (March 2, 2026 to May 31, 2026):
+  - `docs/EXECUTION_PLAN_90_DAYS.md`
+  - `docs/operations/WEEKLY_EXECUTION_TRACKER.csv`
+  - `docs/operations/KPI_SCORECARD_90D_TEMPLATE.csv`
+  - `docs/operations/RISK_REGISTER_90D.csv`
+  - `docs/operations/OWNER_RACI_90D.md`
+  - `docs/operations/CADENCE_CALENDAR_2026Q2.md`
+- Week-1 baseline artifacts pre-generated:
+  - benchmark fixtures in `reports/benchmarks/packs/v1/`
+  - baseline KPI snapshot `docs/operations/KPI_BASELINE_2026-03-02.json`
+  - current baseline mirror `docs/operations/KPI_BASELINE_LATEST.json`
+  - baseline metric sources:
+    - `reports/benchmarks/ingestion.json`
+    - `reports/benchmarks/ranking.json`
+    - `reports/ops/refresh-health.json`
+    - `reports/ux/task-timing.json`
+  - baseline generator script: `scripts/operations/generate-week1-baseline.mjs`
+- Spin-off workspace scaffold created.
+- Phase 0 extraction pipeline implemented (`scripts/extract-phase0.ps1`).
+- Mechanical extraction generated in `extracts/phase0/` with manifest and line provenance.
+- Canonical contracts created:
+  - `trial-record.v1`
+  - `cluster.v1`
+  - `provenance.v1`
+- Type declarations added (`src/contracts/types/index.d.ts`).
+- Week-2 unified graph contracts and validation suite delivered early:
+  - graph schemas:
+    - `src/contracts/schemas/graph-entity.v1.schema.json`
+    - `src/contracts/schemas/graph-edge.v1.schema.json`
+    - `src/contracts/schemas/graph-dataset.v1.schema.json`
+  - graph example fixture:
+    - `src/contracts/examples/graph_dataset.example.json`
+  - graph suite validator:
+    - `scripts/contracts/validate-graph-suite.mjs`
+  - acceptance met:
+    - 77/77 graph suite cases pass (>=50 requirement met)
+    - orphan/dangling/self-loop checks pass
+- Week-3 connector resilience delivered early:
+  - shared retry/backoff + failure normalization:
+    - `src/data/connectors/base.js`
+  - connectors upgraded to retry-aware fetch pipeline:
+    - `src/data/connectors/ctgov.js`
+    - `src/data/connectors/aact.js`
+    - `src/data/connectors/pubmed.js`
+    - `src/data/connectors/openalex.js`
+    - `src/data/connectors/europepmc.js`
+  - source-health telemetry emitted per run:
+    - `reports/ops/source-health-latest.json`
+  - strict outage/recovery gate script:
+    - `scripts/operations/validate-source-resilience.mjs`
+    - `reports/ops/source-resilience-check-latest.json`
+  - acceptance met:
+    - strict outage run exits `2` with explicit `simulated_outage` failure class
+    - recovery run exits `0` with strict status `passed`
+- Week-4 ontology v1 delivered early:
+  - intervention dictionary and endpoint ontology:
+    - `src/ontology/intervention-dictionary.js`
+    - `src/ontology/endpoint-ontology.js`
+  - ontology mapper + trial enrichment:
+    - `src/ontology/index.js`
+    - `src/data/repository/universe-repository.js`
+  - ontology benchmark entities and coverage gate:
+    - `reports/benchmarks/packs/v1/ontology_entities.v1.json`
+    - `scripts/ontology/validate-ontology-coverage.mjs`
+    - `reports/ontology/coverage-latest.json`
+    - `reports/ontology/unknown-term-queue.csv`
+  - acceptance met:
+    - ontology coverage `96.67%` (`58/60`) on benchmark entities
+    - unknown-term queue produced (`2` terms)
+- Release/CI gates added:
+  - release gate runner:
+    - `scripts/ci/verify-release-gates.mjs`
+  - workflow:
+    - `.github/workflows/release-gates.yml`
+  - artifact:
+    - `reports/ops/release-gates-latest.json`
+  - acceptance met:
+    - local release gates pass (`verify:phase1` + `ops:resilience-check`)
+- Editorial readiness subsystem added:
+  - readiness pack generator:
+    - `scripts/editorial/build-lancet-readiness-pack.mjs`
+  - quality standard:
+    - `docs/editorial/LANCET_QUALITY_BAR.md`
+  - commands:
+    - `npm run editorial:lancet-readiness`
+    - `npm run verify:lancet`
+    - `npm run benchmark:ingestion-live`
+    - `npm run benchmark:ranking`
+  - outputs:
+    - `reports/editorial/lancet-readiness-latest.json`
+    - `reports/editorial/lancet-submission-checklist.csv`
+    - `docs/editorial/LANCET_READINESS_REPORT_LATEST.md`
+    - `reports/ops/source-health-live-latest.json`
+    - `reports/benchmarks/ranking-eval-latest.json`
+  - latest measured state:
+    - readiness score `7/7` (`100%`) with `ready_for_submission`
+    - ingestion recall gate passed (`100%` via `reports/benchmarks/ingestion-live.json`)
+    - non-proxy ranking gate passed (`proxy=false`, precision@20 `100%`, ndcg@20 `99.84%`)
+    - provenance completeness gate passed (`100%`)
+    - strict live-source breadth gate passed (`okSources=5`, `failedSources=0`)
+  - closeout plan:
+    - `docs/editorial/LANCET_CLOSEOUT_PLAN.md`
+- Contract fixtures added (valid + invalid) and validator script implemented.
+- Validation run successful (`6 passed, 0 failed`).
+- 12-person Shura review framework created:
+  - charter, rubric, cycle checklist
+  - reviewer/opportunity/scoring/disagreement templates
+- Review-cycle automation added:
+  - `new-cycle.ps1` scaffolder
+  - `compute-adoption-summary.mjs` adoption gate calculator
+- Consecutive review cycle evidence now demonstrates sustained 11/12 immediate-switch adoption:
+  - `reports/review-cycles/cycle_001-summary.json`
+  - `reports/review-cycles/cycle_002-summary.json`
+- Phase 1 discovery runtime shell implemented:
+  - modular store, delegated handlers, safe DOM renderer
+  - connector-aware source switching (`sample`, `ctgov`, `aact`, `pubmed`, `openalex`, `europepmc`)
+  - deterministic normalization and cardio subcategory inference
+  - opportunity scoring/ranking from loaded trial inventory
+- Security tooling hardened:
+  - inline handler auditor with target selection
+  - extracted Discover markup hardener with legacy handler conversion
+  - hardened copy emitted to `extracts/hardened/discover-phase-markup.safe.html`
+- Review dashboard pipeline implemented:
+  - `scripts/review/build-dashboard-data.mjs`
+  - `public/review-dashboard.html`
+  - `src/review-dashboard/main.js`
+  - `public/data/review-dashboard.json` generation
+- Connector expansion completed:
+  - `pubmed` connector with keyed/non-keyed rate limiting
+  - `openalex` connector with request budgeting
+  - `europepmc` connector with query-safe REST adapter
+- Identity and dedup engine v1 implemented:
+  - pairwise scoring (`src/engine/identity/similarity.js`)
+  - cluster graph builder (`src/engine/identity/graph.js`)
+  - report runner (`scripts/engine/run-identity-dedup.mjs`)
+- Human override queue + override persistence implemented:
+  - pending-pair queue export (`reports/dedup/override-queue.csv`)
+  - override decisions store (`reports/dedup/overrides.json`)
+  - override apply script (`scripts/engine/apply-override-decisions.mjs`)
+- Cross-source provenance stitching implemented:
+  - stitched provenance ledger (`src/engine/provenance/stitch.js`)
+  - report output (`reports/dedup/provenance-latest.json`)
+
+Verification commands run:
+- `npm run extract:phase0`
+- `npm run validate:fixtures`
+- `npm run validate:graph-suite`
+- `npm run validate:ontology`
+- `npm run ops:resilience-check`
+- `npm run verify:release-gates`
+- `npm run editorial:lancet-readiness`
+- `npm run verify:lancet`
+- `npm run benchmark:ingestion-live`
+- `npm run benchmark:ranking`
+- `npm run review:new-cycle -- -CycleId cycle_002`
+- `npm run review:summary -- reports/review-cycles/cycle_001/scores_sample_filled.csv`
+- `npm run review:summary -- reports/review-cycles/cycle_002/scores_sample_filled.csv`
+- `npm run verify:phase1`
+- `node --check` across all `src/**/*.js` and `scripts/**/*.mjs`
+- `npm run review:dashboard-data`
+- `npm run dedup:identity`
+- `npm run dedup:apply-overrides`
+- `npm run dedup:identity:multisource`
+- `npm run ops:baseline`
+- connector smoke checks for `europepmc`
+
+Next implementation steps:
+1. Execute Week 5 milestones from `docs/EXECUTION_PLAN_90_DAYS.md` (expected-value ranking v2 + sensitivity report).
+2. Sustain `verify:lancet` green status over consecutive daily runs.
+3. Finish guideline topic mapping layer (ACC/ESC map integration).
+4. Expand benchmark depth beyond current judgment fixture to reduce overfitting risk.

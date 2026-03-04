@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-03-01T12:09:22.242Z",
+  "weekStart": "2026-03-02",
+  "benchmarkVersion": "v1.0.0-2026-03-02",
+  "metrics": {
+    "ingestion_recall": {
+      "target": 0.95,
+      "actual": 1,
+      "status": "on_track",
+      "source": "reports/benchmarks/ingestion-live.json",
+      "note": "Using live benchmark coverage (22/22 expected trials)."
+    },
+    "opportunity_precision_at_20": {
+      "target": 0.9,
+      "actual": 1,
+      "status": "measured",
+      "source": "reports/benchmarks/ranking.json",
+      "note": "Measured from blinded non-proxy ranking benchmark fixture."
+    },
+    "ndcg_at_20": {
+      "target": 0.82,
+      "actual": 0.9984,
+      "status": "measured",
+      "source": "reports/benchmarks/ranking.json",
+      "note": "Measured from blinded non-proxy ranking benchmark fixture."
+    },
+    "ontology_mapping_coverage": {
+      "target": 0.98,
+      "actual": 1,
+      "status": "on_track",
+      "source": "reports/ontology/coverage-latest.json",
+      "note": "Ontology benchmark mapping coverage with unknown-term queue generation."
+    },
+    "ontology_unknown_terms": {
+      "target": 0,
+      "actual": 0,
+      "status": "on_track",
+      "source": "reports/ontology/coverage-latest.json",
+      "note": "Lancet-tier ontology gate requires zero unknown terms on benchmark entities."
+    },
+    "dedup_f1": {
+      "target": 0.92,
+      "actual": 1,
+      "status": "on_track",
+      "source": "reports/benchmarks/dedup-identity.json",
+      "note": "Measured from dedup identity benchmark (passed)."
+    },
+    "provenance_completeness": {
+      "target": 1,
+      "actual": 1,
+      "status": "on_track",
+      "source": "reports\\dedup\\provenance-latest.json"
+    },
+    "refresh_success_rate_30d": {
+      "target": 0.99,
+      "actual": 1,
+      "status": "on_track",
+      "source": "reports/ops/refresh-health.json",
+      "note": "Computed from 19 strict-source telemetry runs in the last 30 days."
+    },
+    "refresh_runtime_p95_minutes": {
+      "target": 30,
+      "actual": 0.073,
+      "status": "on_track",
+      "source": "reports/ops/refresh-health.json",
+      "note": "Computed from 19 strict-source telemetry runs in the last 30 days."
+    },
+    "median_discovery_workflow_minutes": {
+      "target": 10,
+      "actual": 0.228,
+      "status": "on_track",
+      "source": "reports/ux/task-timing.json",
+      "note": "Computed from 22 successful release-gate runs in the last 30 days."
+    },
+    "switch_now_count": {
+      "target": 11,
+      "actual": 11,
+      "status": "on_track",
+      "source": "reports/review-cycles/cycle_002-summary.json",
+      "totalReviewers": 12
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-02-28T19:08:04.505Z",
+  "source": {
+    "rctRoot": "C:/Users/user/rct-extractor-v2",
+    "seedPath": "C:\\Users\\user\\rct-extractor-v2\\data\\benchmarks\\cardiology_ahmad_subset25_20260225\\model_seed_adjudicator_only.jsonl"
+  },
+  "input": {
+    "parsedRows": 25,
+    "parseErrors": []
+  },
+  "coverage": {
+    "extractedRows": 23,
+    "noExtractionRows": 2,
+    "extractedPct": 92,
+    "withPmidRows": 25,
+    "withPmcidRows": 17,
+    "withLinkedMetaRows": 25,
+    "withSourceTextRows": 23,
+    "withEffectTypeRows": 23
+  },
+  "distributions": {
+    "automationTierCounts": {
+      "full_auto": 7,
+      "manual": 16,
+      "unknown": 2
+    },
+    "effectTypeCounts": {
+      "HR": 5,
+      "MD": 13,
+      "OR": 5
+    },
+    "confidence": {
+      "count": 25,
+      "min": 0,
+      "max": 0.99,
+      "mean": 0.5684,
+      "median": 0.455
+    }
+  },
+  "identifiers": {
+    "trialPmidsCount": 25,
+    "linkedMetaPmidsCount": 12,
+    "expectedPublicationIdsCount": 37,
+    "candidateTrialIdsFromTextCount": 1
+  },
+  "topLinkedMetaPmids": [
+    {
+      "pmid": "PMID38828867",
+      "count": 11
+    },
+    {
+      "pmid": "PMID39175848",
+      "count": 4
+    },
+    {
+      "pmid": "PMID30950507",
+      "count": 3
+    },
+    {
+      "pmid": "PMID36915032",
+      "count": 2
+    },
+    {
+      "pmid": "PMID39276199",
+      "count": 2
+    },
+    {
+      "pmid": "PMID40468584",
+      "count": 2
+    },
+    {
+      "pmid": "PMID39312290",
+      "count": 1
+    },
+    {
+      "pmid": "PMID40642671",
+      "count": 1
+    },
+    {
+      "pmid": "PMID40800680",
+      "count": 1
+    },
+    {
+      "pmid": "PMID40834158",
+      "count": 1
+    },
+    {
+      "pmid": "PMID40955256",
+      "count": 1
+    },
+    {
+      "pmid": "PMID41149262",
+      "count": 1
+    }
+  ],
+  "outputs": {
+    "packPath": "C:\\Users\\user\\Downloads\\metasprint-cardio-universe\\reports\\benchmarks\\packs\\v1\\rct_extractor_publications_subset25.v1.json",
+    "summaryPath": "C:\\Users\\user\\Downloads\\metasprint-cardio-universe\\reports\\benchmarks\\rct-extractor-bridge-subset25-latest.json"
+  }
+}

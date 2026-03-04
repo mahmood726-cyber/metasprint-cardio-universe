@@ -1,0 +1,615 @@
+{
+  "generatedAt": "2026-02-28T21:30:35.445Z",
+  "summary": {
+    "generatedAt": "2026-02-28T21:30:35.445Z",
+    "sourceFixture": "reports\\benchmarks\\packs\\v2\\bias_sensitivity.v1.json",
+    "schemaVersion": "bias_sensitivity.v1",
+    "scenarioCount": 2,
+    "passedScenarioCount": 2,
+    "passRateScenarios": 1,
+    "checkCount": 20,
+    "passedCheckCount": 20,
+    "passRateChecks": 1,
+    "robMeCoverage": 1,
+    "robMeJudgementCounts": {
+      "low": 1,
+      "some_concerns": 0,
+      "high": 1
+    },
+    "overallRobMeJudgement": "high",
+    "status": "passed",
+    "note": "Bias robustness suite including selection proxy, PET-PEESE, trim-fill proxy, p-hacking, and non-affirmative inclusion."
+  },
+  "scenarios": [
+    {
+      "scenarioId": "hf_publication_bias_risk",
+      "description": "Asymmetric small-study profile with probable missing non-significant studies.",
+      "alpha": 0.05,
+      "passed": true,
+      "checks": [
+        {
+          "check": "finite_method_count",
+          "expected": 6,
+          "actual": 9,
+          "passed": true
+        },
+        {
+          "check": "envelope_width",
+          "expected": {
+            "min": 0.03,
+            "max": 2.5
+          },
+          "actual": 0.656454,
+          "passed": true
+        },
+        {
+          "check": "robme_overall",
+          "expected": [
+            "some_concerns",
+            "high"
+          ],
+          "actual": "high",
+          "passed": true
+        },
+        {
+          "check": "robme_framework",
+          "expected": "ROB-ME",
+          "actual": "ROB-ME",
+          "passed": true
+        },
+        {
+          "check": "reference_lock_baseline_random_effects",
+          "expected": {
+            "estimate": -0.434003,
+            "tolerance": 0.0005
+          },
+          "actual": -0.434003,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_selection_model_proxy",
+          "expected": {
+            "estimate": -0.402744,
+            "tolerance": 0.0005
+          },
+          "actual": -0.402744,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_pet_peese_selected",
+          "expected": {
+            "estimate": -0.687265,
+            "tolerance": 0.0005
+          },
+          "actual": -0.687265,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_trim_and_fill_proxy",
+          "expected": {
+            "estimate": -0.450456,
+            "tolerance": 0.0005
+          },
+          "actual": -0.450456,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_p_hacking_borderline_exclusion",
+          "expected": {
+            "estimate": -0.484656,
+            "tolerance": 0.0005
+          },
+          "actual": -0.484656,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_non_affirmative_all",
+          "expected": {
+            "estimate": -0.434003,
+            "tolerance": 0.0005
+          },
+          "actual": -0.434003,
+          "delta": 0,
+          "passed": true
+        }
+      ],
+      "baseline": {
+        "estimate": -0.434003,
+        "result": {
+          "schemaVersion": "analysis_result.v2",
+          "model": "random_effects_reml_hksj",
+          "input": {
+            "studyCount": 7,
+            "alpha": 0.05,
+            "multiArmCorrectionApplied": true,
+            "dependentEffectHandling": "cluster_robust_cr1"
+          },
+          "pooled": {
+            "estimate": -0.434003,
+            "seClassic": 0.077638,
+            "seHksj": 0.059069,
+            "ciHksj": {
+              "lower": -0.578459,
+              "upper": -0.289546
+            },
+            "predictionInterval": {
+              "lower": -0.633359,
+              "upper": -0.234646
+            }
+          },
+          "heterogeneity": {
+            "q": 3.473054,
+            "i2": 0,
+            "h2": 0.578842,
+            "tau2": 0,
+            "tau2QProfile": {
+              "lower": 0,
+              "upper": 0.100568
+            }
+          },
+          "robustVariance": {
+            "available": true,
+            "clusters": 7,
+            "seCr1": 0.054956,
+            "ciCr1": {
+              "lower": -0.568402,
+              "upper": -0.299603
+            }
+          },
+          "adjustedStudies": [
+            {
+              "studyId": "B1",
+              "clusterId": "B1",
+              "yi": -0.61,
+              "viOriginal": 0.032,
+              "viAdjusted": 0.032,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "B2",
+              "clusterId": "B2",
+              "yi": -0.52,
+              "viOriginal": 0.029,
+              "viAdjusted": 0.029,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "B3",
+              "clusterId": "B3",
+              "yi": -0.48,
+              "viOriginal": 0.031,
+              "viAdjusted": 0.031,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "B4",
+              "clusterId": "B4",
+              "yi": -0.41,
+              "viOriginal": 0.044,
+              "viAdjusted": 0.044,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "B5",
+              "clusterId": "B5",
+              "yi": -0.28,
+              "viOriginal": 0.051,
+              "viAdjusted": 0.051,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "B6",
+              "clusterId": "B6",
+              "yi": -0.23,
+              "viOriginal": 0.058,
+              "viAdjusted": 0.058,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "B7",
+              "clusterId": "B7",
+              "yi": -0.09,
+              "viOriginal": 0.12,
+              "viAdjusted": 0.12,
+              "multiArmFactor": 1
+            }
+          ]
+        }
+      },
+      "methods": [
+        {
+          "method": "baseline_random_effects",
+          "estimate": -0.434003
+        },
+        {
+          "method": "selection_model_proxy",
+          "estimate": -0.402744
+        },
+        {
+          "method": "pet",
+          "estimate": -1.0591982388114765
+        },
+        {
+          "method": "peese",
+          "estimate": -0.6872645733866763
+        },
+        {
+          "method": "pet_peese_selected",
+          "estimate": -0.6872645733866763
+        },
+        {
+          "method": "trim_and_fill_proxy",
+          "estimate": -0.450456
+        },
+        {
+          "method": "p_hacking_borderline_exclusion",
+          "estimate": -0.484656
+        },
+        {
+          "method": "non_affirmative_all",
+          "estimate": -0.434003
+        },
+        {
+          "method": "non_affirmative_affirmative_only",
+          "estimate": -0.479496
+        }
+      ],
+      "envelope": {
+        "min": -1.059198,
+        "max": -0.402744,
+        "width": 0.656454
+      },
+      "selectionDetails": {
+        "estimate": -0.402744,
+        "adjustedStudyCount": 7,
+        "method": "selection_model_proxy"
+      },
+      "petPeese": {
+        "petEstimate": -1.0591982388114765,
+        "peeseEstimate": -0.6872645733866763,
+        "selectedEstimate": -0.6872645733866763,
+        "selectedRule": "PEESE",
+        "petPIntercept": 0
+      },
+      "trimAndFill": {
+        "estimate": -0.450456,
+        "imputedCount": 1,
+        "method": "trim_and_fill_proxy"
+      },
+      "pHacking": {
+        "estimate": -0.484656,
+        "retainedCount": 5,
+        "excludedCount": 2,
+        "method": "p_hacking_borderline_exclusion"
+      },
+      "nonAffirmative": {
+        "allEstimate": -0.434003,
+        "affirmativeOnlyEstimate": -0.479496,
+        "affirmativeCount": 5,
+        "totalCount": 7,
+        "shift": -0.04549299999999995,
+        "method": "non_affirmative_inclusion"
+      },
+      "robMe": {
+        "framework": "ROB-ME",
+        "overallJudgement": "high",
+        "domains": {
+          "biasDueToMissingResultsInPublishedStudies": "some_concerns",
+          "biasDueToSelectivePublication": "high"
+        },
+        "signals": {
+          "studyCount": 7,
+          "nonSignificantShare": 0.285714,
+          "borderlinePValueShare": 0.285714,
+          "directionalAsymmetry": 0.142857
+        },
+        "rationale": "High missing-evidence risk signal due to asymmetry and/or suppression of non-significant results.",
+        "assessedAt": "2026-02-28T21:30:35.436Z"
+      }
+    },
+    {
+      "scenarioId": "balanced_mixed_signal",
+      "description": "Mixed-effect profile with broader p-value distribution and lower missing-evidence concern.",
+      "alpha": 0.05,
+      "passed": true,
+      "checks": [
+        {
+          "check": "finite_method_count",
+          "expected": 6,
+          "actual": 9,
+          "passed": true
+        },
+        {
+          "check": "envelope_width",
+          "expected": {
+            "min": 0.01,
+            "max": 1.5
+          },
+          "actual": 0.678291,
+          "passed": true
+        },
+        {
+          "check": "robme_overall",
+          "expected": [
+            "low",
+            "some_concerns"
+          ],
+          "actual": "low",
+          "passed": true
+        },
+        {
+          "check": "robme_framework",
+          "expected": "ROB-ME",
+          "actual": "ROB-ME",
+          "passed": true
+        },
+        {
+          "check": "reference_lock_baseline_random_effects",
+          "expected": {
+            "estimate": -0.040308,
+            "tolerance": 0.0005
+          },
+          "actual": -0.040308,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_selection_model_proxy",
+          "expected": {
+            "estimate": -0.040308,
+            "tolerance": 0.0005
+          },
+          "actual": -0.040308,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_pet_peese_selected",
+          "expected": {
+            "estimate": -0.678291,
+            "tolerance": 0.0005
+          },
+          "actual": -0.678291,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_trim_and_fill_proxy",
+          "expected": {
+            "estimate": -0.040308,
+            "tolerance": 0.0005
+          },
+          "actual": -0.040308,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_p_hacking_borderline_exclusion",
+          "expected": {
+            "estimate": -0.040308,
+            "tolerance": 0.0005
+          },
+          "actual": -0.040308,
+          "delta": 0,
+          "passed": true
+        },
+        {
+          "check": "reference_lock_non_affirmative_all",
+          "expected": {
+            "estimate": -0.040308,
+            "tolerance": 0.0005
+          },
+          "actual": -0.040308,
+          "delta": 0,
+          "passed": true
+        }
+      ],
+      "baseline": {
+        "estimate": -0.040308,
+        "result": {
+          "schemaVersion": "analysis_result.v2",
+          "model": "random_effects_reml_hksj",
+          "input": {
+            "studyCount": 8,
+            "alpha": 0.05,
+            "multiArmCorrectionApplied": true,
+            "dependentEffectHandling": "cluster_robust_cr1"
+          },
+          "pooled": {
+            "estimate": -0.040308,
+            "seClassic": 0.074288,
+            "seHksj": 0.035068,
+            "ciHksj": {
+              "lower": -0.123204,
+              "upper": 0.042589
+            },
+            "predictionInterval": {
+              "lower": -0.221986,
+              "upper": 0.141371
+            }
+          },
+          "heterogeneity": {
+            "q": 1.559793,
+            "i2": 0,
+            "h2": 0.222828,
+            "tau2": 0,
+            "tau2QProfile": {
+              "lower": 0,
+              "upper": 0
+            }
+          },
+          "robustVariance": {
+            "available": true,
+            "clusters": 8,
+            "seCr1": 0.035738,
+            "ciCr1": {
+              "lower": -0.124789,
+              "upper": 0.044174
+            }
+          },
+          "adjustedStudies": [
+            {
+              "studyId": "C1",
+              "clusterId": "C1",
+              "yi": -0.18,
+              "viOriginal": 0.04,
+              "viAdjusted": 0.04,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "C2",
+              "clusterId": "C2",
+              "yi": -0.12,
+              "viOriginal": 0.037,
+              "viAdjusted": 0.037,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "C3",
+              "clusterId": "C3",
+              "yi": -0.05,
+              "viOriginal": 0.045,
+              "viAdjusted": 0.045,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "C4",
+              "clusterId": "C4",
+              "yi": 0.02,
+              "viOriginal": 0.05,
+              "viAdjusted": 0.05,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "C5",
+              "clusterId": "C5",
+              "yi": 0.07,
+              "viOriginal": 0.042,
+              "viAdjusted": 0.042,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "C6",
+              "clusterId": "C6",
+              "yi": -0.09,
+              "viOriginal": 0.039,
+              "viAdjusted": 0.039,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "C7",
+              "clusterId": "C7",
+              "yi": 0.11,
+              "viOriginal": 0.048,
+              "viAdjusted": 0.048,
+              "multiArmFactor": 1
+            },
+            {
+              "studyId": "C8",
+              "clusterId": "C8",
+              "yi": -0.03,
+              "viOriginal": 0.06,
+              "viAdjusted": 0.06,
+              "multiArmFactor": 1
+            }
+          ]
+        }
+      },
+      "methods": [
+        {
+          "method": "baseline_random_effects",
+          "estimate": -0.040308
+        },
+        {
+          "method": "selection_model_proxy",
+          "estimate": -0.040308
+        },
+        {
+          "method": "pet",
+          "estimate": -0.6782907038050489
+        },
+        {
+          "method": "peese",
+          "estimate": -0.3372948080014277
+        },
+        {
+          "method": "pet_peese_selected",
+          "estimate": -0.6782907038050489
+        },
+        {
+          "method": "trim_and_fill_proxy",
+          "estimate": -0.040308
+        },
+        {
+          "method": "p_hacking_borderline_exclusion",
+          "estimate": -0.040308
+        },
+        {
+          "method": "non_affirmative_all",
+          "estimate": -0.040308
+        },
+        {
+          "method": "non_affirmative_affirmative_only",
+          "estimate": null
+        }
+      ],
+      "envelope": {
+        "min": -0.678291,
+        "max": 0,
+        "width": 0.678291
+      },
+      "selectionDetails": {
+        "estimate": -0.040308,
+        "adjustedStudyCount": 8,
+        "method": "selection_model_proxy"
+      },
+      "petPeese": {
+        "petEstimate": -0.6782907038050489,
+        "peeseEstimate": -0.3372948080014277,
+        "selectedEstimate": -0.6782907038050489,
+        "selectedRule": "PET",
+        "petPIntercept": 0.137986
+      },
+      "trimAndFill": {
+        "estimate": -0.040308,
+        "imputedCount": 0,
+        "method": "trim_and_fill_proxy"
+      },
+      "pHacking": {
+        "estimate": -0.040308,
+        "retainedCount": 8,
+        "excludedCount": 0,
+        "method": "p_hacking_borderline_exclusion"
+      },
+      "nonAffirmative": {
+        "allEstimate": -0.040308,
+        "affirmativeOnlyEstimate": null,
+        "affirmativeCount": 0,
+        "totalCount": 8,
+        "shift": 0.040308,
+        "method": "non_affirmative_inclusion"
+      },
+      "robMe": {
+        "framework": "ROB-ME",
+        "overallJudgement": "low",
+        "domains": {
+          "biasDueToMissingResultsInPublishedStudies": "low",
+          "biasDueToSelectivePublication": "low"
+        },
+        "signals": {
+          "studyCount": 8,
+          "nonSignificantShare": 1,
+          "borderlinePValueShare": 0,
+          "directionalAsymmetry": 0
+        },
+        "rationale": "Low missing-evidence risk signal on current scenario diagnostics.",
+        "assessedAt": "2026-02-28T21:30:35.445Z"
+      }
+    }
+  ]
+}

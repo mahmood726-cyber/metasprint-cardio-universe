@@ -1,0 +1,57 @@
+﻿{
+  "schemaVersion": "provenance.v1",
+  "provenanceId": "prov_2026_02_28_001",
+  "generatedAt": "2026-02-28T12:35:00Z",
+  "pipelineVersion": "0.1.0",
+  "sourceSnapshots": [
+    {
+      "source": "ctgov",
+      "extractedAt": "2026-02-28T11:00:00Z",
+      "endpoint": "https://clinicaltrials.gov/api/v2/studies",
+      "queryHash": "a3b17d0c5f924a2f",
+      "recordCount": 10234
+    },
+    {
+      "source": "aact",
+      "extractedAt": "2026-02-28T11:20:00Z",
+      "endpoint": "postgresql://aact-db.ctti-clinicaltrials.org/aact",
+      "queryHash": "4ed81c67a8fd2712",
+      "recordCount": 9982
+    }
+  ],
+  "transformations": [
+    {
+      "step": "deduplicate_trials",
+      "version": "1.0.0",
+      "inputHash": "7a2f81d01f0a8e09",
+      "outputHash": "1987ab3e6d09f1c2",
+      "executedAt": "2026-02-28T12:00:00Z",
+      "params": {
+        "titleThreshold": 0.92,
+        "idPriority": ["nctId", "pmid", "doi"]
+      }
+    }
+  ],
+  "metricDerivations": [
+    {
+      "metricId": "opportunity_total",
+      "formula": "0.35*evidenceGap + 0.20*freshness + 0.20*feasibility - 0.15*uncertaintyPenalty + 0.10*guidelineRelevance",
+      "inputs": [
+        "evidenceGap",
+        "freshness",
+        "feasibility",
+        "uncertaintyPenalty",
+        "guidelineRelevance"
+      ],
+      "output": "scoreBreakdown.total"
+    }
+  ],
+  "auditTrail": [
+    {
+      "at": "2026-02-28T12:40:00Z",
+      "actor": "pipeline",
+      "action": "rank_refresh_completed",
+      "details": "top-200 opportunity list regenerated"
+    }
+  ]
+}

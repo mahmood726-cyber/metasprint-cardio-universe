@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-03-03T13:15:41.786Z",
+  "scenarios": {
+    "outage": {
+      "args": [
+        "--sources",
+        "sample",
+        "--strict-sources",
+        "--simulate-outage",
+        "sample"
+      ],
+      "exitCode": 2,
+      "strictStatus": "failed",
+      "sampleStatus": "failed",
+      "sampleFailureClass": "simulated_outage",
+      "runtimeSchemaSummary": {
+        "requestedMode": "off",
+        "sourcesWithRuntimeSchema": 0,
+        "unreportedSourceCount": 1,
+        "modeCounts": {
+          "off": 0,
+          "warn": 0,
+          "enforce": 0
+        },
+        "validatedCount": 0,
+        "warningCount": 0,
+        "rejectedCount": 0,
+        "validatorUnavailableCount": 0,
+        "sourcesWithIssues": 0
+      }
+    },
+    "recovery": {
+      "args": [
+        "--sources",
+        "sample",
+        "--strict-sources"
+      ],
+      "exitCode": 0,
+      "strictStatus": "passed",
+      "sampleStatus": "ok",
+      "runtimeSchemaSummary": {
+        "requestedMode": "off",
+        "sourcesWithRuntimeSchema": 0,
+        "unreportedSourceCount": 1,
+        "modeCounts": {
+          "off": 0,
+          "warn": 0,
+          "enforce": 0
+        },
+        "validatedCount": 0,
+        "warningCount": 0,
+        "rejectedCount": 0,
+        "validatorUnavailableCount": 0,
+        "sourcesWithIssues": 0
+      }
+    }
+  }
+}

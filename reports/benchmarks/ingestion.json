@@ -1,0 +1,62 @@
+{
+  "generatedAt": "2026-03-01T12:09:22.242Z",
+  "weekStart": "2026-03-02",
+  "benchmarkVersion": "v1.0.0-2026-03-02",
+  "expectedTrialCount": 22,
+  "observedTrialCount": 6,
+  "matchedTrialCount": 6,
+  "ingestionRecall": 0.2727,
+  "observedSource": "src/discovery/data/sample-data.js",
+  "packCoverage": [
+    {
+      "packId": "sglt2_hf_cardiorenal",
+      "expectedTrialCount": 7,
+      "observedTrialCount": 5,
+      "recall": 0.7143,
+      "observedTrials": [
+        "NCT03036124",
+        "NCT03057977",
+        "NCT03619213",
+        "NCT03057951",
+        "NCT03521934"
+      ]
+    },
+    {
+      "packId": "glp1_cv_outcomes",
+      "expectedTrialCount": 5,
+      "observedTrialCount": 0,
+      "recall": 0,
+      "observedTrials": []
+    },
+    {
+      "packId": "antithrombotic_af_stroke",
+      "expectedTrialCount": 5,
+      "observedTrialCount": 1,
+      "recall": 0.2,
+      "observedTrials": [
+        "NCT02465515"
+      ]
+    },
+    {
+      "packId": "hf_foundational_therapy",
+      "expectedTrialCount": 5,
+      "observedTrialCount": 0,
+      "recall": 0,
+      "observedTrials": []
+    },
+    {
+      "packId": "ontology_benchmark_entities",
+      "expectedTrialCount": 0,
+      "observedTrialCount": 0,
+      "recall": null,
+      "observedTrials": []
+    },
+    {
+      "packId": "ranking_judgments",
+      "expectedTrialCount": 0,
+      "observedTrialCount": 0,
+      "recall": null,
+      "observedTrials": []
+    }
+  ]
+}

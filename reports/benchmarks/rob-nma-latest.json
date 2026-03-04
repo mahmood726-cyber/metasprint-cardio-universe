@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-02-28T21:30:38.444Z",
+  "framework": "RoB NMA",
+  "overallJudgement": "some_concerns",
+  "networkCount": 2,
+  "judgementCounts": {
+    "low": 0,
+    "some_concerns": 2,
+    "high": 0
+  },
+  "sourceBenchmark": "reports\\benchmarks\\packs\\v2\\network_nma.v1.json",
+  "status": "passed"
+}

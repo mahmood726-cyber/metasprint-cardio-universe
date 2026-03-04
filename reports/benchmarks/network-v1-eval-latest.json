@@ -1,0 +1,1290 @@
+{
+  "generatedAt": "2026-02-28T21:30:38.444Z",
+  "summary": {
+    "generatedAt": "2026-02-28T21:30:38.444Z",
+    "sourceFixture": "reports\\benchmarks\\packs\\v2\\network_nma.v1.json",
+    "schemaVersion": "network_nma.v1",
+    "scenarioCount": 2,
+    "passedScenarioCount": 2,
+    "passRateScenarios": 1,
+    "checkCount": 35,
+    "passedCheckCount": 35,
+    "passRateChecks": 1,
+    "robNmaCoverage": 1,
+    "robNmaJudgementCounts": {
+      "low": 0,
+      "some_concerns": 2,
+      "high": 0
+    },
+    "overallRobNmaJudgement": "some_concerns",
+    "status": "passed",
+    "note": "Network v1 benchmark validates NMA estimation, inconsistency diagnostics, rank uncertainty, and RoB NMA outputs."
+  },
+  "scenarios": [
+    {
+      "scenarioId": "triangle_consistent",
+      "description": "Three-treatment network with near-consistent direct and indirect evidence.",
+      "alpha": 0.05,
+      "samples": 3000,
+      "rankSeed": 20260228,
+      "passed": true,
+      "checks": [
+        {
+          "check": "treatment_count",
+          "expected": {
+            "min": 3,
+            "max": 3
+          },
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "check": "tau2",
+          "expected": {
+            "min": 0,
+            "max": 0.08
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "global_inconsistency_q",
+          "expected": {
+            "min": 0,
+            "max": 4
+          },
+          "actual": 0.000437,
+          "passed": true
+        },
+        {
+          "check": "global_inconsistency_p",
+          "expected": {
+            "min": 0.05,
+            "max": 1
+          },
+          "actual": 0.931747,
+          "passed": true
+        },
+        {
+          "check": "top_treatment_probability",
+          "expected": {
+            "min": 0.45,
+            "max": 1
+          },
+          "actual": 0.925333,
+          "passed": true
+        },
+        {
+          "check": "rank_seed_non_negative",
+          "expected": {
+            "min": 0
+          },
+          "actual": 20260228,
+          "passed": true
+        },
+        {
+          "check": "ranking_precision_poth",
+          "expected": {
+            "min": 0,
+            "max": 1
+          },
+          "actual": 0.712385,
+          "passed": true
+        },
+        {
+          "check": "ranking_precision_poth_top3",
+          "expected": {
+            "min": 0,
+            "max": 1
+          },
+          "actual": 0.712385,
+          "passed": true
+        },
+        {
+          "check": "multiplicative_phi",
+          "expected": {
+            "min": 1
+          },
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "check": "top_treatment_allowed",
+          "expected": [
+            "A"
+          ],
+          "actual": "A",
+          "passed": true
+        },
+        {
+          "check": "min_pair_diagnostics",
+          "expected": 2,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "check": "rob_nma_overall",
+          "expected": [
+            "low",
+            "some_concerns"
+          ],
+          "actual": "some_concerns",
+          "passed": true
+        },
+        {
+          "check": "rob_nma_min_comparisons",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "check": "rank_probabilities_A",
+          "expected": "sum~=1 and each in [0,1]",
+          "actual": "sum=1",
+          "passed": true
+        },
+        {
+          "check": "rank_probabilities_B",
+          "expected": "sum~=1 and each in [0,1]",
+          "actual": "sum=1",
+          "passed": true
+        },
+        {
+          "check": "rank_probabilities_C",
+          "expected": "sum~=1 and each in [0,1]",
+          "actual": "sum=0.999999",
+          "passed": true
+        },
+        {
+          "check": "network_schema_valid",
+          "expected": "valid",
+          "actual": "valid",
+          "passed": true
+        }
+      ],
+      "result": {
+        "schemaVersion": "network_analysis.v1",
+        "model": "nma_random_effects_wls",
+        "input": {
+          "studyCount": 5,
+          "treatmentCount": 3,
+          "treatments": [
+            "A",
+            "B",
+            "C"
+          ],
+          "referenceTreatment": "B",
+          "alpha": 0.05,
+          "rankSamples": 3000,
+          "rankSeed": 20260228
+        },
+        "effects": [
+          {
+            "treatment": "A",
+            "estimateVsReference": -0.202955,
+            "se": 0.129175,
+            "ci95": {
+              "lower": -0.456134,
+              "upper": 0.050224
+            }
+          },
+          {
+            "treatment": "B",
+            "estimateVsReference": 0,
+            "se": 0,
+            "ci95": {
+              "lower": 0,
+              "upper": 0
+            }
+          },
+          {
+            "treatment": "C",
+            "estimateVsReference": 0.102845,
+            "se": 0.143006,
+            "ci95": {
+              "lower": -0.177441,
+              "upper": 0.383132
+            }
+          }
+        ],
+        "pairwiseEstimates": [
+          {
+            "treatmentA": "A",
+            "treatmentB": "B",
+            "estimate": -0.202955,
+            "se": 0.129175,
+            "ci95": {
+              "lower": -0.456134,
+              "upper": 0.050224
+            },
+            "directAvailable": true,
+            "directEstimate": -0.201176,
+            "directVariance": 0.021176,
+            "inconsistencyFactor": 0.001779,
+            "inconsistencyP": 0.992706
+          },
+          {
+            "treatmentA": "A",
+            "treatmentB": "C",
+            "estimate": -0.3058,
+            "se": 0.158013,
+            "ci95": {
+              "lower": -0.615499,
+              "upper": 0.003899
+            },
+            "directAvailable": true,
+            "directEstimate": -0.31,
+            "directVariance": 0.05,
+            "inconsistencyFactor": -0.0042,
+            "inconsistencyP": 0.987762
+          },
+          {
+            "treatmentA": "B",
+            "treatmentB": "C",
+            "estimate": -0.102845,
+            "se": 0.143006,
+            "ci95": {
+              "lower": -0.383132,
+              "upper": 0.177441
+            },
+            "directAvailable": true,
+            "directEstimate": -0.100435,
+            "directVariance": 0.028696,
+            "inconsistencyFactor": 0.00241,
+            "inconsistencyP": 0.991325
+          }
+        ],
+        "heterogeneity": {
+          "tau2": 0,
+          "q": 0.023006,
+          "df": 3,
+          "i2": 0
+        },
+        "inconsistency": {
+          "globalQ": 0.000437,
+          "globalDf": 1,
+          "globalP": 0.931747,
+          "pairDiagnostics": [
+            {
+              "treatmentA": "A",
+              "treatmentB": "B",
+              "directEstimate": -0.201176,
+              "indirectEstimate": -0.202955,
+              "inconsistencyFactor": 0.001779,
+              "inconsistencySe": 0.194584,
+              "inconsistencyP": 0.992706,
+              "directStudyCount": 2
+            },
+            {
+              "treatmentA": "A",
+              "treatmentB": "C",
+              "directEstimate": -0.31,
+              "indirectEstimate": -0.3058,
+              "inconsistencyFactor": -0.0042,
+              "inconsistencySe": 0.273803,
+              "inconsistencyP": 0.987762,
+              "directStudyCount": 1
+            },
+            {
+              "treatmentA": "B",
+              "treatmentB": "C",
+              "directEstimate": -0.100435,
+              "indirectEstimate": -0.102845,
+              "inconsistencyFactor": 0.00241,
+              "inconsistencySe": 0.22169,
+              "inconsistencyP": 0.991325,
+              "directStudyCount": 2
+            }
+          ]
+        },
+        "ranking": {
+          "samples": 3000,
+          "topTreatment": "A",
+          "topTreatmentProbability": 0.925333,
+          "rankProbabilities": [
+            {
+              "treatment": "A",
+              "probabilities": [
+                0.925333,
+                0.066,
+                0.008667
+              ]
+            },
+            {
+              "treatment": "B",
+              "probabilities": [
+                0.054333,
+                0.719667,
+                0.226
+              ]
+            },
+            {
+              "treatment": "C",
+              "probabilities": [
+                0.020333,
+                0.214333,
+                0.765333
+              ]
+            }
+          ],
+          "expectedRanks": [
+            {
+              "treatment": "A",
+              "expectedRank": 1.083333
+            },
+            {
+              "treatment": "B",
+              "expectedRank": 2.171667
+            },
+            {
+              "treatment": "C",
+              "expectedRank": 2.745
+            }
+          ],
+          "sucra": [
+            {
+              "treatment": "A",
+              "sucra": 0.958333
+            },
+            {
+              "treatment": "B",
+              "sucra": 0.414167
+            },
+            {
+              "treatment": "C",
+              "sucra": 0.1275
+            }
+          ],
+          "precision": {
+            "method": "POTH",
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "varianceSucra": 0.118731,
+            "maxVarianceSucra": 0.166667,
+            "averageRankVariance": 0.191743,
+            "rankVarianceByTreatment": [
+              {
+                "treatment": "A",
+                "rankVariance": 0.093722
+              },
+              {
+                "treatment": "B",
+                "rankVariance": 0.250864
+              },
+              {
+                "treatment": "C",
+                "rankVariance": 0.230642
+              }
+            ]
+          }
+        },
+        "multiplicativeHeterogeneity": {
+          "model": "nma_multiplicative_effect",
+          "phi": 1,
+          "qFixed": 0.023006,
+          "dfFixed": 3,
+          "effects": [
+            {
+              "treatment": "A",
+              "estimateVsReference": -0.202955,
+              "se": 0.129175,
+              "ci95": {
+                "lower": -0.456134,
+                "upper": 0.050224
+              }
+            },
+            {
+              "treatment": "B",
+              "estimateVsReference": 0,
+              "se": 0,
+              "ci95": {
+                "lower": 0,
+                "upper": 0
+              }
+            },
+            {
+              "treatment": "C",
+              "estimateVsReference": 0.102845,
+              "se": 0.143006,
+              "ci95": {
+                "lower": -0.177441,
+                "upper": 0.383132
+              }
+            }
+          ]
+        },
+        "robNma": {
+          "framework": "RoB NMA",
+          "overallJudgement": "some_concerns",
+          "assessedAt": "2026-02-28T21:30:38.281Z",
+          "assumptions": {
+            "model": "comparison-level missing-evidence heuristic",
+            "tau2": 0
+          },
+          "comparisons": [
+            {
+              "pair": "A|B",
+              "treatmentA": "A",
+              "treatmentB": "B",
+              "studyCount": 2,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "low",
+              "weight": 47.222222
+            },
+            {
+              "pair": "A|C",
+              "treatmentA": "A",
+              "treatmentB": "C",
+              "studyCount": 1,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "some_concerns",
+              "weight": 20
+            },
+            {
+              "pair": "B|C",
+              "treatmentA": "B",
+              "treatmentB": "C",
+              "studyCount": 2,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "low",
+              "weight": 34.848485
+            }
+          ],
+          "contributionSummary": [
+            {
+              "treatmentA": "A",
+              "treatmentB": "B",
+              "contributions": [
+                {
+                  "pair": "A|B",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "B|C",
+                  "contribution": 0.254144
+                },
+                {
+                  "pair": "A|C",
+                  "contribution": 0.145856
+                }
+              ]
+            },
+            {
+              "treatmentA": "A",
+              "treatmentB": "C",
+              "contributions": [
+                {
+                  "pair": "A|C",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "A|B",
+                  "contribution": 0.230154
+                },
+                {
+                  "pair": "B|C",
+                  "contribution": 0.169846
+                }
+              ]
+            },
+            {
+              "treatmentA": "B",
+              "treatmentB": "C",
+              "contributions": [
+                {
+                  "pair": "B|C",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "A|B",
+                  "contribution": 0.280992
+                },
+                {
+                  "pair": "A|C",
+                  "contribution": 0.119008
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "error": null
+    },
+    {
+      "scenarioId": "four_node_mild_inconsistency",
+      "description": "Four-treatment network with loop tension to exercise inconsistency diagnostics.",
+      "alpha": 0.05,
+      "samples": 3000,
+      "rankSeed": 20260228,
+      "passed": true,
+      "checks": [
+        {
+          "check": "treatment_count",
+          "expected": {
+            "min": 4,
+            "max": 4
+          },
+          "actual": 4,
+          "passed": true
+        },
+        {
+          "check": "tau2",
+          "expected": {
+            "min": 0,
+            "max": 0.2
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "global_inconsistency_q",
+          "expected": {
+            "min": 0,
+            "max": 20
+          },
+          "actual": 0.082453,
+          "passed": true
+        },
+        {
+          "check": "global_inconsistency_p",
+          "expected": {
+            "min": 0,
+            "max": 1
+          },
+          "actual": 0.989083,
+          "passed": true
+        },
+        {
+          "check": "top_treatment_probability",
+          "expected": {
+            "min": 0.25,
+            "max": 1
+          },
+          "actual": 0.74,
+          "passed": true
+        },
+        {
+          "check": "rank_seed_non_negative",
+          "expected": {
+            "min": 0
+          },
+          "actual": 20260228,
+          "passed": true
+        },
+        {
+          "check": "ranking_precision_poth",
+          "expected": {
+            "min": 0,
+            "max": 1
+          },
+          "actual": 0.701854,
+          "passed": true
+        },
+        {
+          "check": "ranking_precision_poth_top3",
+          "expected": {
+            "min": 0,
+            "max": 1
+          },
+          "actual": 0.155442,
+          "passed": true
+        },
+        {
+          "check": "multiplicative_phi",
+          "expected": {
+            "min": 1
+          },
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "check": "top_treatment_allowed",
+          "expected": [
+            "A",
+            "B"
+          ],
+          "actual": "A",
+          "passed": true
+        },
+        {
+          "check": "min_pair_diagnostics",
+          "expected": 4,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "check": "rob_nma_overall",
+          "expected": [
+            "some_concerns",
+            "high"
+          ],
+          "actual": "some_concerns",
+          "passed": true
+        },
+        {
+          "check": "rob_nma_min_comparisons",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "check": "rank_probabilities_A",
+          "expected": "sum~=1 and each in [0,1]",
+          "actual": "sum=1",
+          "passed": true
+        },
+        {
+          "check": "rank_probabilities_B",
+          "expected": "sum~=1 and each in [0,1]",
+          "actual": "sum=1",
+          "passed": true
+        },
+        {
+          "check": "rank_probabilities_C",
+          "expected": "sum~=1 and each in [0,1]",
+          "actual": "sum=1",
+          "passed": true
+        },
+        {
+          "check": "rank_probabilities_D",
+          "expected": "sum~=1 and each in [0,1]",
+          "actual": "sum=1",
+          "passed": true
+        },
+        {
+          "check": "network_schema_valid",
+          "expected": "valid",
+          "actual": "valid",
+          "passed": true
+        }
+      ],
+      "result": {
+        "schemaVersion": "network_analysis.v1",
+        "model": "nma_random_effects_wls",
+        "input": {
+          "studyCount": 7,
+          "treatmentCount": 4,
+          "treatments": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "referenceTreatment": "B",
+          "alpha": 0.05,
+          "rankSamples": 3000,
+          "rankSeed": 20260228
+        },
+        "effects": [
+          {
+            "treatment": "A",
+            "estimateVsReference": -0.454589,
+            "se": 0.159976,
+            "ci95": {
+              "lower": -0.768137,
+              "upper": -0.141041
+            }
+          },
+          {
+            "treatment": "B",
+            "estimateVsReference": 0,
+            "se": 0,
+            "ci95": {
+              "lower": 0,
+              "upper": 0
+            }
+          },
+          {
+            "treatment": "C",
+            "estimateVsReference": -0.318919,
+            "se": 0.151691,
+            "ci95": {
+              "lower": -0.616228,
+              "upper": -0.021611
+            }
+          },
+          {
+            "treatment": "D",
+            "estimateVsReference": -0.288834,
+            "se": 0.153726,
+            "ci95": {
+              "lower": -0.590131,
+              "upper": 0.012462
+            }
+          }
+        ],
+        "pairwiseEstimates": [
+          {
+            "treatmentA": "A",
+            "treatmentB": "B",
+            "estimate": -0.454589,
+            "se": 0.159976,
+            "ci95": {
+              "lower": -0.768137,
+              "upper": -0.141041
+            },
+            "directAvailable": true,
+            "directEstimate": -0.41,
+            "directVariance": 0.05,
+            "inconsistencyFactor": 0.044589,
+            "inconsistencyP": 0.871167
+          },
+          {
+            "treatmentA": "A",
+            "treatmentB": "C",
+            "estimate": -0.13567,
+            "se": 0.161041,
+            "ci95": {
+              "lower": -0.451303,
+              "upper": 0.179964
+            },
+            "directAvailable": true,
+            "directEstimate": -0.13,
+            "directVariance": 0.06,
+            "inconsistencyFactor": 0.00567,
+            "inconsistencyP": 0.984569
+          },
+          {
+            "treatmentA": "A",
+            "treatmentB": "D",
+            "estimate": -0.165755,
+            "se": 0.159987,
+            "ci95": {
+              "lower": -0.479324,
+              "upper": 0.147814
+            },
+            "directAvailable": true,
+            "directEstimate": -0.22,
+            "directVariance": 0.055,
+            "inconsistencyFactor": -0.054245,
+            "inconsistencyP": 0.848467
+          },
+          {
+            "treatmentA": "B",
+            "treatmentB": "C",
+            "estimate": 0.318919,
+            "se": 0.151691,
+            "ci95": {
+              "lower": 0.021611,
+              "upper": 0.616228
+            },
+            "directAvailable": true,
+            "directEstimate": 0.34,
+            "directVariance": 0.045,
+            "inconsistencyFactor": 0.021081,
+            "inconsistencyP": 0.935573
+          },
+          {
+            "treatmentA": "B",
+            "treatmentB": "D",
+            "estimate": 0.288834,
+            "se": 0.153726,
+            "ci95": {
+              "lower": -0.012462,
+              "upper": 0.590131
+            },
+            "directAvailable": true,
+            "directEstimate": 0.31,
+            "directVariance": 0.05,
+            "inconsistencyFactor": 0.021166,
+            "inconsistencyP": 0.937827
+          },
+          {
+            "treatmentA": "C",
+            "treatmentB": "D",
+            "estimate": -0.030085,
+            "se": 0.142981,
+            "ci95": {
+              "lower": -0.310323,
+              "upper": 0.250153
+            },
+            "directAvailable": true,
+            "directEstimate": -0.011111,
+            "directVariance": 0.033704,
+            "inconsistencyFactor": 0.018974,
+            "inconsistencyP": 0.935013
+          }
+        ],
+        "heterogeneity": {
+          "tau2": 0,
+          "q": 0.149984,
+          "df": 4,
+          "i2": 0
+        },
+        "inconsistency": {
+          "globalQ": 0.082453,
+          "globalDf": 3,
+          "globalP": 0.989083,
+          "pairDiagnostics": [
+            {
+              "treatmentA": "A",
+              "treatmentB": "B",
+              "directEstimate": -0.41,
+              "indirectEstimate": -0.454589,
+              "inconsistencyFactor": 0.044589,
+              "inconsistencySe": 0.274941,
+              "inconsistencyP": 0.871167,
+              "directStudyCount": 1
+            },
+            {
+              "treatmentA": "A",
+              "treatmentB": "C",
+              "directEstimate": -0.13,
+              "indirectEstimate": -0.13567,
+              "inconsistencyFactor": 0.00567,
+              "inconsistencySe": 0.293145,
+              "inconsistencyP": 0.984569,
+              "directStudyCount": 1
+            },
+            {
+              "treatmentA": "A",
+              "treatmentB": "D",
+              "directEstimate": -0.22,
+              "indirectEstimate": -0.165755,
+              "inconsistencyFactor": -0.054245,
+              "inconsistencySe": 0.283894,
+              "inconsistencyP": 0.848467,
+              "directStudyCount": 1
+            },
+            {
+              "treatmentA": "B",
+              "treatmentB": "C",
+              "directEstimate": 0.34,
+              "indirectEstimate": 0.318919,
+              "inconsistencyFactor": 0.021081,
+              "inconsistencySe": 0.260787,
+              "inconsistencyP": 0.935573,
+              "directStudyCount": 1
+            },
+            {
+              "treatmentA": "B",
+              "treatmentB": "D",
+              "directEstimate": 0.31,
+              "indirectEstimate": 0.288834,
+              "inconsistencyFactor": 0.021166,
+              "inconsistencySe": 0.271351,
+              "inconsistencyP": 0.937827,
+              "directStudyCount": 1
+            },
+            {
+              "treatmentA": "C",
+              "treatmentB": "D",
+              "directEstimate": -0.011111,
+              "indirectEstimate": -0.030085,
+              "inconsistencyFactor": 0.018974,
+              "inconsistencySe": 0.232696,
+              "inconsistencyP": 0.935013,
+              "directStudyCount": 2
+            }
+          ]
+        },
+        "ranking": {
+          "samples": 3000,
+          "topTreatment": "A",
+          "topTreatmentProbability": 0.74,
+          "rankProbabilities": [
+            {
+              "treatment": "A",
+              "probabilities": [
+                0.74,
+                0.18,
+                0.078667,
+                0.001333
+              ]
+            },
+            {
+              "treatment": "B",
+              "probabilities": [
+                0,
+                0.004667,
+                0.039,
+                0.956333
+              ]
+            },
+            {
+              "treatment": "C",
+              "probabilities": [
+                0.15,
+                0.45,
+                0.387333,
+                0.012667
+              ]
+            },
+            {
+              "treatment": "D",
+              "probabilities": [
+                0.11,
+                0.365333,
+                0.495,
+                0.029667
+              ]
+            }
+          ],
+          "expectedRanks": [
+            {
+              "treatment": "A",
+              "expectedRank": 1.341333
+            },
+            {
+              "treatment": "C",
+              "expectedRank": 2.262667
+            },
+            {
+              "treatment": "D",
+              "expectedRank": 2.444333
+            },
+            {
+              "treatment": "B",
+              "expectedRank": 3.951667
+            }
+          ],
+          "sucra": [
+            {
+              "treatment": "A",
+              "sucra": 0.886222
+            },
+            {
+              "treatment": "C",
+              "sucra": 0.579111
+            },
+            {
+              "treatment": "D",
+              "sucra": 0.518556
+            },
+            {
+              "treatment": "B",
+              "sucra": 0.016111
+            }
+          ],
+          "precision": {
+            "method": "POTH",
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "varianceSucra": 0.09748,
+            "maxVarianceSucra": 0.138889,
+            "averageRankVariance": 0.372683,
+            "rankVarianceByTreatment": [
+              {
+                "treatment": "A",
+                "rankVariance": 0.390158
+              },
+              {
+                "treatment": "B",
+                "rankVariance": 0.055331
+              },
+              {
+                "treatment": "C",
+                "rankVariance": 0.519006
+              },
+              {
+                "treatment": "D",
+                "rankVariance": 0.526235
+              }
+            ]
+          }
+        },
+        "multiplicativeHeterogeneity": {
+          "model": "nma_multiplicative_effect",
+          "phi": 1,
+          "qFixed": 0.149984,
+          "dfFixed": 4,
+          "effects": [
+            {
+              "treatment": "A",
+              "estimateVsReference": -0.454589,
+              "se": 0.159976,
+              "ci95": {
+                "lower": -0.768137,
+                "upper": -0.141041
+              }
+            },
+            {
+              "treatment": "B",
+              "estimateVsReference": 0,
+              "se": 0,
+              "ci95": {
+                "lower": 0,
+                "upper": 0
+              }
+            },
+            {
+              "treatment": "C",
+              "estimateVsReference": -0.318919,
+              "se": 0.151691,
+              "ci95": {
+                "lower": -0.616228,
+                "upper": -0.021611
+              }
+            },
+            {
+              "treatment": "D",
+              "estimateVsReference": -0.288834,
+              "se": 0.153726,
+              "ci95": {
+                "lower": -0.590131,
+                "upper": 0.012462
+              }
+            }
+          ]
+        },
+        "robNma": {
+          "framework": "RoB NMA",
+          "overallJudgement": "some_concerns",
+          "assessedAt": "2026-02-28T21:30:38.406Z",
+          "assumptions": {
+            "model": "comparison-level missing-evidence heuristic",
+            "tau2": 0
+          },
+          "comparisons": [
+            {
+              "pair": "A|B",
+              "treatmentA": "A",
+              "treatmentB": "B",
+              "studyCount": 1,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "some_concerns",
+              "weight": 20
+            },
+            {
+              "pair": "A|C",
+              "treatmentA": "A",
+              "treatmentB": "C",
+              "studyCount": 1,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "some_concerns",
+              "weight": 16.666667
+            },
+            {
+              "pair": "B|C",
+              "treatmentA": "B",
+              "treatmentB": "C",
+              "studyCount": 1,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "some_concerns",
+              "weight": 22.222222
+            },
+            {
+              "pair": "A|D",
+              "treatmentA": "A",
+              "treatmentB": "D",
+              "studyCount": 1,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "some_concerns",
+              "weight": 18.181818
+            },
+            {
+              "pair": "B|D",
+              "treatmentA": "B",
+              "treatmentB": "D",
+              "studyCount": 1,
+              "significantShare": 0,
+              "directionImbalance": 1,
+              "judgement": "some_concerns",
+              "weight": 20
+            },
+            {
+              "pair": "C|D",
+              "treatmentA": "C",
+              "treatmentB": "D",
+              "studyCount": 2,
+              "significantShare": 0,
+              "directionImbalance": 0,
+              "judgement": "low",
+              "weight": 29.67033
+            }
+          ],
+          "contributionSummary": [
+            {
+              "treatmentA": "A",
+              "treatmentB": "B",
+              "contributions": [
+                {
+                  "pair": "A|B",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "C|D",
+                  "contribution": 0.111186
+                },
+                {
+                  "pair": "B|C",
+                  "contribution": 0.083275
+                },
+                {
+                  "pair": "B|D",
+                  "contribution": 0.074948
+                },
+                {
+                  "pair": "A|D",
+                  "contribution": 0.068134
+                },
+                {
+                  "pair": "A|C",
+                  "contribution": 0.062456
+                }
+              ]
+            },
+            {
+              "treatmentA": "A",
+              "treatmentB": "C",
+              "contributions": [
+                {
+                  "pair": "A|C",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "C|D",
+                  "contribution": 0.107819
+                },
+                {
+                  "pair": "B|C",
+                  "contribution": 0.080753
+                },
+                {
+                  "pair": "A|B",
+                  "contribution": 0.072678
+                },
+                {
+                  "pair": "B|D",
+                  "contribution": 0.072678
+                },
+                {
+                  "pair": "A|D",
+                  "contribution": 0.066071
+                }
+              ]
+            },
+            {
+              "treatmentA": "A",
+              "treatmentB": "D",
+              "contributions": [
+                {
+                  "pair": "A|D",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "C|D",
+                  "contribution": 0.109324
+                },
+                {
+                  "pair": "B|C",
+                  "contribution": 0.081881
+                },
+                {
+                  "pair": "A|B",
+                  "contribution": 0.073692
+                },
+                {
+                  "pair": "B|D",
+                  "contribution": 0.073692
+                },
+                {
+                  "pair": "A|C",
+                  "contribution": 0.06141
+                }
+              ]
+            },
+            {
+              "treatmentA": "B",
+              "treatmentB": "C",
+              "contributions": [
+                {
+                  "pair": "B|C",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "C|D",
+                  "contribution": 0.11355
+                },
+                {
+                  "pair": "A|B",
+                  "contribution": 0.076541
+                },
+                {
+                  "pair": "B|D",
+                  "contribution": 0.076541
+                },
+                {
+                  "pair": "A|D",
+                  "contribution": 0.069583
+                },
+                {
+                  "pair": "A|C",
+                  "contribution": 0.063784
+                }
+              ]
+            },
+            {
+              "treatmentA": "B",
+              "treatmentB": "D",
+              "contributions": [
+                {
+                  "pair": "B|D",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "C|D",
+                  "contribution": 0.111186
+                },
+                {
+                  "pair": "B|C",
+                  "contribution": 0.083275
+                },
+                {
+                  "pair": "A|B",
+                  "contribution": 0.074948
+                },
+                {
+                  "pair": "A|D",
+                  "contribution": 0.068134
+                },
+                {
+                  "pair": "A|C",
+                  "contribution": 0.062456
+                }
+              ]
+            },
+            {
+              "treatmentA": "C",
+              "treatmentB": "D",
+              "contributions": [
+                {
+                  "pair": "C|D",
+                  "contribution": 0.6
+                },
+                {
+                  "pair": "B|C",
+                  "contribution": 0.091571
+                },
+                {
+                  "pair": "A|B",
+                  "contribution": 0.082414
+                },
+                {
+                  "pair": "B|D",
+                  "contribution": 0.082414
+                },
+                {
+                  "pair": "A|D",
+                  "contribution": 0.074922
+                },
+                {
+                  "pair": "A|C",
+                  "contribution": 0.068678
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "error": null
+    }
+  ]
+}

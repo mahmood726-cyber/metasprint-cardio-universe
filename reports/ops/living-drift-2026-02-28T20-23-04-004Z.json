@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-02-28T20:23:04.004Z",
+  "status": "baseline_established",
+  "summary": "No prior snapshot. Baseline established.",
+  "comparedAgainst": null,
+  "thresholds": {
+    "effectThreshold": 0.05,
+    "topProbabilityThreshold": 0.15,
+    "pothThreshold": 0.2,
+    "certaintyShiftThreshold": 0,
+    "kappaThreshold": 0.15
+  },
+  "benchmarkStatus": {
+    "pairwise": "passed",
+    "bias": "passed",
+    "network": "passed",
+    "certaintyCrosswalk": "passed"
+  },
+  "drift": {
+    "alerts": [],
+    "effectDrift": [],
+    "rankDrift": [],
+    "certaintyDrift": []
+  }
+}

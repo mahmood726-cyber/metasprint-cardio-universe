@@ -1,0 +1,171 @@
+{
+  "generatedAt": "2026-02-28T20:02:53.526Z",
+  "scope": "Lancet-tier publication readiness for cardio discovery platform",
+  "overallStatus": "ready_for_submission",
+  "score": {
+    "passed": 8,
+    "total": 8,
+    "percent": 100
+  },
+  "gates": [
+    {
+      "id": "ingestion_recall",
+      "label": "Benchmark ingestion recall",
+      "target": ">= 95%",
+      "actual": "100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\ingestion-live.json",
+      "note": "Live ctgov benchmark lookup is active for expected trial IDs."
+    },
+    {
+      "id": "advanced_stats_bias_robustness",
+      "label": "Advanced statistics and bias robustness suite",
+      "target": "pairwise=passed, bias=passed, network=passed, ROB-ME coverage>=100%, RoB NMA coverage>=100%",
+      "actual": "pairwise=passed; bias=passed; network=passed; ROB-ME coverage=100%; RoB NMA coverage=100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\pairwise-v2.json; reports\\benchmarks\\bias-sensitivity.json; reports\\benchmarks\\network-v1.json",
+      "note": "Phase-A/Phase-B/Phase-C advanced statistics and missing-evidence robustness must pass before submission lock."
+    },
+    {
+      "id": "ranking_non_proxy",
+      "label": "Ranking quality measured from non-proxy benchmark judgments",
+      "target": "precision@20 >= 90%, ndcg@20 >= 82%, proxy=false",
+      "actual": "precision@20=100%; ndcg@20=99.84%; proxy=false",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\ranking.json",
+      "note": "Proxy metrics are insufficient for top-tier editorial claims."
+    },
+    {
+      "id": "provenance_completeness",
+      "label": "Provenance completeness",
+      "target": ">= 100%",
+      "actual": "100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\dedup\\provenance-latest.json",
+      "note": "Lancet-level trust requires complete traceability for displayed evidence."
+    },
+    {
+      "id": "ontology_coverage",
+      "label": "Ontology mapping coverage",
+      "target": ">= 95%",
+      "actual": "96.67%",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ontology\\coverage-latest.json",
+      "note": "Unknown-term queue must be actively adjudicated each cycle."
+    },
+    {
+      "id": "release_gates",
+      "label": "Release gate health",
+      "target": "status=passed",
+      "actual": "passed",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ops\\release-gates-latest.json",
+      "note": "Includes phase verification and strict outage/recovery checks."
+    },
+    {
+      "id": "source_breadth",
+      "label": "Strict live-source breadth",
+      "target": "strictStatus=passed, failedSources=0, okSources>=4",
+      "actual": "strictStatus=passed; okSources=5; failedSources=0",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ops\\source-health-live-latest.json",
+      "note": "Sample-only runs are not sufficient for editorial-grade external validity."
+    },
+    {
+      "id": "methodologist_adoption",
+      "label": "Methodologist switch gate",
+      "target": "2 consecutive cycles with switch_now>=11 out of 12",
+      "actual": "2/2 consecutive cycles passed; latest=11/12",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\review-cycles\\cycle_001-summary.json; reports\\review-cycles\\cycle_002-summary.json",
+      "note": "Consecutive-cycle pass is required for submission-level confidence."
+    }
+  ],
+  "blockers": [],
+  "adoptionWindow": [
+    {
+      "cycleId": "cycle_001",
+      "switchNow": 11,
+      "totalReviewers": 12,
+      "passed": true,
+      "summaryPath": "reports\\review-cycles\\cycle_001-summary.json"
+    },
+    {
+      "cycleId": "cycle_002",
+      "switchNow": 11,
+      "totalReviewers": 12,
+      "passed": true,
+      "summaryPath": "reports\\review-cycles\\cycle_002-summary.json"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ingestion",
+      "file": "reports\\benchmarks\\ingestion.json",
+      "exists": true,
+      "sha256": "1201664348f0c76d1c603e83f5f99aabcbc0de6c34d66bb664020c002e85b422"
+    },
+    {
+      "id": "ingestionLive",
+      "file": "reports\\benchmarks\\ingestion-live.json",
+      "exists": true,
+      "sha256": "9e2eb509788773fed94693c5ead2ed46fa8713067c967b0b86012006150c7b5a"
+    },
+    {
+      "id": "ranking",
+      "file": "reports\\benchmarks\\ranking.json",
+      "exists": true,
+      "sha256": "34ce5afabd67ab7bfd611aabfef34db5119148e9f04f0238dc4d71eab46a33ed"
+    },
+    {
+      "id": "pairwiseV2",
+      "file": "reports\\benchmarks\\pairwise-v2.json",
+      "exists": true,
+      "sha256": "be21c33bb253e5a206210b3b49fc801a342ef0efcc4c10822c2c4a2667d395f0"
+    },
+    {
+      "id": "biasSensitivity",
+      "file": "reports\\benchmarks\\bias-sensitivity.json",
+      "exists": true,
+      "sha256": "49105413ea3c630017916b263ef9ee9713653a8c2abc4994af7ddb342487043b"
+    },
+    {
+      "id": "networkV1",
+      "file": "reports\\benchmarks\\network-v1.json",
+      "exists": true,
+      "sha256": "bb0de3bbda9f5fef951a3225abb4f3d59627a1714b32837de121fd4fa426bd44"
+    },
+    {
+      "id": "provenance",
+      "file": "reports\\dedup\\provenance-latest.json",
+      "exists": true,
+      "sha256": "dfbabcb3db68c803eeae4e7f253df8b51b06424ef5f10b3e0081f765fa55286c"
+    },
+    {
+      "id": "ontology",
+      "file": "reports\\ontology\\coverage-latest.json",
+      "exists": true,
+      "sha256": "b280fe247f1c54428fb18f76869fda9488dedec1e6a9db46944ac7bd512219fb"
+    },
+    {
+      "id": "releaseGates",
+      "file": "reports\\ops\\release-gates-latest.json",
+      "exists": true,
+      "sha256": "c2a3d159210f9a3327d07495f889c4d9c9f65e6760cb0808f100b7107e1e6247"
+    },
+    {
+      "id": "sourceHealth",
+      "file": "reports\\ops\\source-health-live-latest.json",
+      "exists": true,
+      "sha256": "976a0971281a1a33bcfdece3dd5df750b0a71f84a14ace4412c0e5884ce22b6d"
+    }
+  ]
+}

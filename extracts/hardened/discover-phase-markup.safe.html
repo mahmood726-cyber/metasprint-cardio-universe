@@ -1,0 +1,126 @@
+﻿# Phase 0 extraction: Discover phase HTML section
+# Source: C:\Users\user\Downloads\metasprint-autopilot\metasprint-autopilot.html
+# ExtractedAt: 2026-02-28T12:57:15.4668364+00:00
+# LineRange: 1200..1320
+
+    <section id="phase-discover" class="phase" role="tabpanel" aria-labelledby="tab-discover" tabindex="-1">
+      <div id="opportunityBanner" class="opportunity-banner" style="display:none"></div>
+      <div style="background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;margin-bottom:12px;font-size:0.78rem;color:var(--text-muted)">
+        <strong>Scoping phase</strong> (PRISMA 2020): Explore the RCT landscape to identify gaps and formulate your review question.
+        Define your PICO in the <strong>Protocol</strong> tab before proceeding to formal Search. Discovery findings should inform â€” not determine â€” your research question.
+      </div>
+      <div id="subcatPicker" style="margin-bottom:16px">
+        <label style="font-weight:600;font-size:0.95rem;margin-bottom:8px;display:block">Choose a cardiovascular area to explore</label>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <select id="subcatSelect" style="padding:8px 14px;border:1px solid var(--border);border-radius:var(--radius);font-size:0.9rem;background:var(--surface);min-width:220px">
+            <option value="">-- Select subspecialty --</option>
+            <option value="hf">Heart Failure</option>
+            <option value="acs">ACS / Coronary / PCI</option>
+            <option value="af">Atrial Fibrillation</option>
+            <option value="htn">Hypertension</option>
+            <option value="valve">Valve Disease / TAVI</option>
+            <option value="pad">PAD / Vascular</option>
+            <option value="lipids">Lipids / CV Prevention</option>
+            <option value="rhythm">Heart Rhythm / Devices</option>
+            <option value="ph">Pulmonary Hypertension</option>
+            <option value="all">All Cardiovascular (slower)</option>
+          </select>
+          <button class="btn-success" data-action="load-universe">Load Trials</button>
+          <span class="text-muted" style="font-size:0.8rem" id="pickerHint">Pick a subspecialty for fast loading (~10-30 sec)</span>
+        </div>
+      </div>
+      <div class="universe-panel" id="universePanel" style="display:none">
+        <div class="universe-title">Cardiovascular RCT Universe</div>
+        <div class="universe-subtitle" id="universeStatus">Loading...</div>
+        <div id="universeOnboardHint" style="display:none;margin-bottom:8px;padding:6px 12px;background:var(--bg-alt);border:1px solid var(--border);border-radius:6px;font-size:0.78rem;color:var(--text-muted)">
+          <strong>Start here:</strong> Ayat Universe (overview) &rarr; Treemap (volume) &rarr; Gap Scatter (find gaps) &rarr; Al-Burhan (auto-meta-analysis). Hover any tab for details.
+        </div>
+        <div class="universe-view-tabs" id="universeViewTabs" style="display:none" role="tablist">
+          <button class="view-tab" data-view="alburhan" data-action="switch-view" data-view="alburhan" role="tab" aria-selected="false" title="Al-Burhan (Living Meta-Analysis): Auto-pools trials into meta-analyses with forest plots, GRADE, and guideline context">Al-Burhan</button>
+          <button class="view-tab active" data-view="ayat" data-action="switch-view" data-view="ayat" role="tab" aria-selected="true" title="Ayat Universe: Deep-sky map of all trials â€” each dot is a trial, clustered by drug class and outcome">Ayat Universe</button>
+          <button class="view-tab" data-view="network" data-action="switch-view" data-view="network" role="tab" aria-selected="false" title="Network: Force-directed graph showing which interventions have been compared head-to-head">Network</button>
+          <button class="view-tab" data-view="treemap" data-action="switch-view" data-view="treemap" role="tab" aria-selected="false" title="Treemap: Proportional area chart â€” bigger boxes = more trials in that drug class">Treemap</button>
+          <button class="view-tab" data-view="timeline" data-action="switch-view" data-view="timeline" role="tab" aria-selected="false" title="Timeline: When trials started/completed, showing research activity over time">Timeline</button>
+          <button class="view-tab" data-view="matrix" data-action="switch-view" data-view="matrix" role="tab" aria-selected="false" title="I x O Matrix: Intervention-by-Outcome cross-tabulation â€” find which drug-outcome pairs have evidence">I x O Matrix</button>
+          <button class="view-tab" data-view="gapscatter" data-action="switch-view" data-view="gapscatter" role="tab" aria-selected="false" title="Gap Scatter: Plots evidence gaps â€” high gap score = under-studied drug-outcome pair worth investigating">Gap Scatter</button>
+          <button class="view-tab" data-view="pipeline" data-action="switch-view" data-view="pipeline" role="tab" aria-selected="false" title="Phase Pipeline: Trial phase distribution (I/II/III/IV) for each drug class â€” where is the research?">Phase Pipeline</button>
+        </div>
+        <div class="universe-vis-container" id="universeVisContainer">
+          <canvas id="ayatCanvas" class="universe-canvas universe-view active" aria-label="Ayat Universe â€” deep evidence landscape" style="height:600px"></canvas>
+          <canvas id="alBurhanCanvas" class="universe-canvas universe-view" aria-label="Al-Burhan â€” Living Meta-Analysis" style="height:600px"></canvas>
+          <input type="file" id="alBurhanFileInput" accept=".json" style="display:none" aria-label="Load Al-Burhan harvest JSON">
+          <div id="alBurhanLoadBar" style="display:none;padding:6px 12px;background:#0f172a;border-bottom:1px solid #334155;text-align:center">
+            <button id="alBurhanLoadBtn" class="btn-info btn-sm" style="font-size:0.8rem" aria-label="Load Al-Burhan harvest JSON file" data-action="click-element" data-target="alBurhanFileInput">Load JSON File</button>
+            <span style="color:#64748b;font-size:0.75rem;margin-left:8px">or drag-and-drop onto the canvas</span>
+          </div>
+          <div id="alBurhanStatusBar" style="display:none;padding:4px 12px;background:#1e293b;color:#94a3b8;font-size:0.75rem;border-bottom:1px solid #334155;font-family:system-ui" role="status" aria-live="polite"></div>
+          <svg id="networkSvg" class="network-svg universe-view" viewBox="0 0 800 500"
+               role="img" aria-label="Network graph of cardiovascular trial subcategories"></svg>
+          <canvas id="treemapCanvas" class="universe-canvas universe-view" aria-label="Evidence treemap"></canvas>
+          <canvas id="timelineCanvas" class="universe-canvas universe-view" aria-label="Timeline of RCT activity"></canvas>
+          <canvas id="matrixCanvas" class="universe-canvas universe-view" aria-label="Intervention outcome matrix"></canvas>
+          <canvas id="gapScatterCanvas" class="universe-canvas universe-view" aria-label="Gap analysis scatter plot"></canvas>
+          <svg id="pipelineSvg" class="network-svg universe-view" viewBox="0 0 900 500"
+               role="img" aria-label="Trial phase pipeline"></svg>
+        </div>
+        <div class="network-tooltip" id="networkTooltip"></div>
+        <div class="gap-scatter-tooltip" id="gapScatterTooltip"></div>
+      </div>
+      <!-- Drill-down detail panel (expands below canvas on node/edge click) -->
+      <div id="drillDownPanel" role="region" aria-label="Trial details" style="display:none;margin-top:8px;border:1px solid var(--border);border-radius:8px;background:var(--surface);max-height:60vh;overflow-y:auto">
+        <div style="display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface);z-index:2">
+          <strong id="drillDownTitle" style="flex:1"></strong>
+          <button data-action="hide-element" data-target="drillDownPanel" style="background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:1.2rem;padding:0 4px" aria-label="Close drill-down">&times;</button>
+        </div>
+        <div id="drillDownBody" style="padding:10px 14px"></div>
+      </div>
+      <div id="universeControls" style="display:none;margin-bottom:12px">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <button class="filter-btn active" data-action="sort-opportunities" data-sort="gap">Top Opportunities</button>
+          <button class="filter-btn" data-action="sort-opportunities" data-sort="recent">Most Recent</button>
+          <button class="filter-btn" data-action="sort-opportunities" data-sort="count">Most RCTs</button>
+          <span class="text-muted" style="margin-left:auto;font-size:0.8rem" id="universeStats"></span>
+        </div>
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:6px">
+          <label style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:4px">
+            Moderate &ge; <input type="number" id="gapThreshMod" value="3" min="0" max="50" step="0.5" style="width:50px;font-size:0.78rem" data-action="update-gap-thresholds">
+          </label>
+          <label style="font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:4px">
+            High &ge; <input type="number" id="gapThreshHigh" value="10" min="0" max="100" step="1" style="width:50px;font-size:0.78rem" data-action="update-gap-thresholds">
+          </label>
+          <span style="font-size:0.72rem;color:var(--text-muted)">(Gap score thresholds)</span>
+        </div>
+        <div id="kitabSearchRow" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
+          <div style="position:relative;flex:1;min-width:200px">
+            <input type="text" id="fihrisSearch" placeholder="Search the evidence... (e.g., SGLT2 mortality, empagliflozin)" aria-label="Search the evidence universe" style="width:100%;padding:6px 32px 6px 10px;border:1px solid var(--border);border-radius:6px;font-size:0.82rem;background:var(--surface);color:var(--text)" data-action="debounce-search" data-source="value">
+            <span id="fihrisSearchClear" data-action="clear-search" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1rem;color:var(--text-muted);display:none" title="Clear search">&times;</span>
+          </div>
+          <span id="fihrisResultBadge" aria-live="polite" style="font-size:0.78rem;color:var(--text-muted);white-space:nowrap"></span>
+          <label style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:3px;margin-left:8px" title="Show Tafsir cross-reference edges between related intervention clusters (shared drugs, outcomes, or mechanisms)">
+            <input type="checkbox" id="kitabCrossRefs" data-action="toggle-kitab-layer" data-layer="crossrefs" data-source="checked"> Cross-refs
+          </label>
+          <label style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:3px" title="Show Hukm evidence verdict badges on each node (Sufficient, Growing, Inconclusive, Contradictory, Desert)">
+            <input type="checkbox" id="kitabVerdicts" data-action="toggle-kitab-layer" data-layer="verdicts" data-source="checked"> Verdicts
+          </label>
+        </div>
+        <div id="fihrisResultSummary" style="display:none;margin-top:6px;font-size:0.78rem;color:var(--text-muted);padding:4px 8px;background:var(--surface);border-radius:4px"></div>
+      </div>
+      <div id="universeGrid"></div>
+
+      <!-- Landscape Analytics: population-level insights from registry-scale data -->
+      <div id="landscapeAnalytics" style="display:none;margin-top:24px">
+        <h3 style="font-size:1.1rem;margin-bottom:12px;border-bottom:2px solid var(--primary);padding-bottom:6px">Landscape Analytics</h3>
+        <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+          <button class="filter-btn active" data-action="show-landscape-tab" data-tab="heatmap" title="Pooled effect sizes across drug classes and diseases â€” green = benefit, red = harm">Drug &times; Disease Heatmap</button>
+          <button class="filter-btn" data-action="show-landscape-tab" data-tab="temporal" title="How effect estimates changed over time as new trials reported â€” shows evidence evolution">Temporal Trajectories</button>
+          <button class="filter-btn" data-action="show-landscape-tab" data-tab="maturity" title="Composite score (trial count + sample size + heterogeneity + time span) rating how mature each evidence base is">Evidence Maturity</button>
+          <button class="filter-btn" data-action="show-landscape-tab" data-tab="drift" title="Compares early vs late trial populations â€” detects if patient characteristics shifted over time">Population Drift</button>
+        </div>
+        <div id="landscapeHeatmap"></div>
+        <div id="landscapeTemporal" style="display:none"></div>
+        <div id="landscapeMaturity" style="display:none"></div>
+        <div id="landscapeDrift" style="display:none"></div>
+      </div>
+    </section>
+
+    <!-- Phase 2: Protocol -->

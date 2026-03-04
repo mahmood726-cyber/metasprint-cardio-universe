@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "bias_sensitivity.v1",
+  "createdAt": "2026-02-28T00:00:00Z",
+  "description": "Bias and sensitivity benchmark set for publication-bias robustness and ROB-ME-compatible summaries.",
+  "defaultAlpha": 0.05,
+  "scenarios": [
+    {
+      "scenarioId": "hf_publication_bias_risk",
+      "description": "Asymmetric small-study profile with probable missing non-significant studies.",
+      "studies": [
+        { "studyId": "B1", "yi": -0.61, "vi": 0.032, "pValue": 0.0012 },
+        { "studyId": "B2", "yi": -0.52, "vi": 0.029, "pValue": 0.0031 },
+        { "studyId": "B3", "yi": -0.48, "vi": 0.031, "pValue": 0.0068 },
+        { "studyId": "B4", "yi": -0.41, "vi": 0.044, "pValue": 0.021 },
+        { "studyId": "B5", "yi": -0.28, "vi": 0.051, "pValue": 0.048 },
+        { "studyId": "B6", "yi": -0.23, "vi": 0.058, "pValue": 0.052 },
+        { "studyId": "B7", "yi": -0.09, "vi": 0.12, "pValue": 0.39 }
+      ],
+      "expected": {
+        "robMeOverallAllowed": ["some_concerns", "high"],
+        "minMethodCount": 6,
+        "envelopeWidth": { "min": 0.03, "max": 2.5 },
+        "referenceLocks": {
+          "baseline_random_effects": { "estimate": -0.434003, "tolerance": 0.0005 },
+          "selection_model_proxy": { "estimate": -0.402744, "tolerance": 0.0005 },
+          "pet_peese_selected": { "estimate": -0.6872645733866763, "tolerance": 0.0005 },
+          "trim_and_fill_proxy": { "estimate": -0.450456, "tolerance": 0.0005 },
+          "p_hacking_borderline_exclusion": { "estimate": -0.484656, "tolerance": 0.0005 },
+          "non_affirmative_all": { "estimate": -0.434003, "tolerance": 0.0005 }
+        }
+      }
+    },
+    {
+      "scenarioId": "balanced_mixed_signal",
+      "description": "Mixed-effect profile with broader p-value distribution and lower missing-evidence concern.",
+      "studies": [
+        { "studyId": "C1", "yi": -0.18, "vi": 0.04, "pValue": 0.11 },
+        { "studyId": "C2", "yi": -0.12, "vi": 0.037, "pValue": 0.19 },
+        { "studyId": "C3", "yi": -0.05, "vi": 0.045, "pValue": 0.46 },
+        { "studyId": "C4", "yi": 0.02, "vi": 0.05, "pValue": 0.79 },
+        { "studyId": "C5", "yi": 0.07, "vi": 0.042, "pValue": 0.41 },
+        { "studyId": "C6", "yi": -0.09, "vi": 0.039, "pValue": 0.24 },
+        { "studyId": "C7", "yi": 0.11, "vi": 0.048, "pValue": 0.27 },
+        { "studyId": "C8", "yi": -0.03, "vi": 0.06, "pValue": 0.72 }
+      ],
+      "expected": {
+        "robMeOverallAllowed": ["low", "some_concerns"],
+        "minMethodCount": 6,
+        "envelopeWidth": { "min": 0.01, "max": 1.5 },
+        "referenceLocks": {
+          "baseline_random_effects": { "estimate": -0.040308, "tolerance": 0.0005 },
+          "selection_model_proxy": { "estimate": -0.040308, "tolerance": 0.0005 },
+          "pet_peese_selected": { "estimate": -0.6782907038050489, "tolerance": 0.0005 },
+          "trim_and_fill_proxy": { "estimate": -0.040308, "tolerance": 0.0005 },
+          "p_hacking_borderline_exclusion": { "estimate": -0.040308, "tolerance": 0.0005 },
+          "non_affirmative_all": { "estimate": -0.040308, "tolerance": 0.0005 }
+        }
+      }
+    }
+  ]
+}

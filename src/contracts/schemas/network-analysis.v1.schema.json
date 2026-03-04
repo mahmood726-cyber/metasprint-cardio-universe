@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metasprint.dev/schemas/network-analysis.v1.json",
+  "title": "NetworkAnalysisV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "model",
+    "input",
+    "effects",
+    "pairwiseEstimates",
+    "heterogeneity",
+    "inconsistency",
+    "ranking",
+    "multiplicativeHeterogeneity",
+    "robNma"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "network_analysis.v1" },
+    "model": { "type": "string", "minLength": 1 },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "studyCount",
+        "treatmentCount",
+        "treatments",
+        "referenceTreatment",
+        "alpha",
+        "rankSamples",
+        "rankSeed"
+      ],
+      "properties": {
+        "studyCount": { "type": "integer", "minimum": 2 },
+        "treatmentCount": { "type": "integer", "minimum": 3 },
+        "treatments": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "referenceTreatment": { "type": "string", "minLength": 1 },
+        "alpha": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 },
+        "rankSamples": { "type": "integer", "minimum": 500 },
+        "rankSeed": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "effects": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["treatment", "estimateVsReference", "se", "ci95"],
+        "properties": {
+          "treatment": { "type": "string", "minLength": 1 },
+          "estimateVsReference": { "type": "number" },
+          "se": { "type": "number", "minimum": 0 },
+          "ci95": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lower", "upper"],
+            "properties": {
+              "lower": { "type": "number" },
+              "upper": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "pairwiseEstimates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "treatmentA",
+          "treatmentB",
+          "estimate",
+          "se",
+          "ci95",
+          "directAvailable",
+          "directEstimate",
+          "directVariance",
+          "inconsistencyFactor",
+          "inconsistencyP"
+        ],
+        "properties": {
+          "treatmentA": { "type": "string", "minLength": 1 },
+          "treatmentB": { "type": "string", "minLength": 1 },
+          "estimate": { "type": "number" },
+          "se": { "type": "number", "minimum": 0 },
+          "ci95": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lower", "upper"],
+            "properties": {
+              "lower": { "type": "number" },
+              "upper": { "type": "number" }
+            }
+          },
+          "directAvailable": { "type": "boolean" },
+          "directEstimate": { "type": ["number", "null"] },
+          "directVariance": { "type": ["number", "null"] },
+          "inconsistencyFactor": { "type": ["number", "null"] },
+          "inconsistencyP": { "type": ["number", "null"] }
+        }
+      }
+    },
+    "heterogeneity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tau2", "q", "df", "i2"],
+      "properties": {
+        "tau2": { "type": "number", "minimum": 0 },
+        "q": { "type": "number", "minimum": 0 },
+        "df": { "type": "integer", "minimum": 1 },
+        "i2": { "type": "number", "minimum": 0 }
+      }
+    },
+    "inconsistency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["globalQ", "globalDf", "globalP", "pairDiagnostics"],
+      "properties": {
+        "globalQ": { "type": "number", "minimum": 0 },
+        "globalDf": { "type": "integer", "minimum": 1 },
+        "globalP": { "type": ["number", "null"] },
+        "pairDiagnostics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "treatmentA",
+              "treatmentB",
+              "directEstimate",
+              "indirectEstimate",
+              "inconsistencyFactor",
+              "inconsistencySe",
+              "inconsistencyP",
+              "directStudyCount"
+            ],
+            "properties": {
+              "treatmentA": { "type": "string", "minLength": 1 },
+              "treatmentB": { "type": "string", "minLength": 1 },
+              "directEstimate": { "type": "number" },
+              "indirectEstimate": { "type": "number" },
+              "inconsistencyFactor": { "type": "number" },
+              "inconsistencySe": { "type": "number", "minimum": 0 },
+              "inconsistencyP": { "type": ["number", "null"] },
+              "directStudyCount": { "type": "integer", "minimum": 1 }
+            }
+          }
+        }
+      }
+    },
+    "ranking": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "samples",
+        "topTreatment",
+        "topTreatmentProbability",
+        "rankProbabilities",
+        "expectedRanks",
+        "sucra",
+        "precision"
+      ],
+      "properties": {
+        "samples": { "type": "integer", "minimum": 500 },
+        "topTreatment": { "type": "string", "minLength": 1 },
+        "topTreatmentProbability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "rankProbabilities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["treatment", "probabilities"],
+            "properties": {
+              "treatment": { "type": "string", "minLength": 1 },
+              "probabilities": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          }
+        },
+        "expectedRanks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["treatment", "expectedRank"],
+            "properties": {
+              "treatment": { "type": "string", "minLength": 1 },
+              "expectedRank": { "type": "number", "minimum": 1 }
+            }
+          }
+        },
+        "sucra": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["treatment", "sucra"],
+            "properties": {
+              "treatment": { "type": "string", "minLength": 1 },
+              "sucra": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          }
+        },
+        "precision": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "method",
+            "poth",
+            "pothTop3",
+            "varianceSucra",
+            "maxVarianceSucra",
+            "averageRankVariance",
+            "rankVarianceByTreatment"
+          ],
+          "properties": {
+            "method": { "const": "POTH" },
+            "poth": { "type": "number", "minimum": 0, "maximum": 1 },
+            "pothTop3": { "type": "number", "minimum": 0, "maximum": 1 },
+            "varianceSucra": { "type": "number", "minimum": 0 },
+            "maxVarianceSucra": { "type": "number", "minimum": 0 },
+            "averageRankVariance": { "type": "number", "minimum": 0 },
+            "rankVarianceByTreatment": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["treatment", "rankVariance"],
+                "properties": {
+                  "treatment": { "type": "string", "minLength": 1 },
+                  "rankVariance": { "type": "number", "minimum": 0 }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "multiplicativeHeterogeneity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["model", "phi", "qFixed", "dfFixed", "effects"],
+      "properties": {
+        "model": { "const": "nma_multiplicative_effect" },
+        "phi": { "type": "number", "minimum": 1 },
+        "qFixed": { "type": "number", "minimum": 0 },
+        "dfFixed": { "type": "integer", "minimum": 1 },
+        "effects": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["treatment", "estimateVsReference", "se", "ci95"],
+            "properties": {
+              "treatment": { "type": "string", "minLength": 1 },
+              "estimateVsReference": { "type": "number" },
+              "se": { "type": "number", "minimum": 0 },
+              "ci95": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["lower", "upper"],
+                "properties": {
+                  "lower": { "type": "number" },
+                  "upper": { "type": "number" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "robNma": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["framework", "overallJudgement", "assessedAt", "comparisons", "contributionSummary"],
+      "properties": {
+        "framework": { "const": "RoB NMA" },
+        "overallJudgement": { "type": "string", "enum": ["low", "some_concerns", "high"] },
+        "assessedAt": { "type": "string", "format": "date-time" },
+        "assumptions": { "type": "object" },
+        "comparisons": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "pair",
+              "treatmentA",
+              "treatmentB",
+              "studyCount",
+              "significantShare",
+              "directionImbalance",
+              "judgement",
+              "weight"
+            ],
+            "properties": {
+              "pair": { "type": "string", "minLength": 1 },
+              "treatmentA": { "type": "string", "minLength": 1 },
+              "treatmentB": { "type": "string", "minLength": 1 },
+              "studyCount": { "type": "integer", "minimum": 1 },
+              "significantShare": { "type": "number", "minimum": 0, "maximum": 1 },
+              "directionImbalance": { "type": "number", "minimum": 0, "maximum": 1 },
+              "judgement": { "type": "string", "enum": ["low", "some_concerns", "high"] },
+              "weight": { "type": "number", "minimum": 0 }
+            }
+          }
+        },
+        "contributionSummary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["treatmentA", "treatmentB", "contributions"],
+            "properties": {
+              "treatmentA": { "type": "string", "minLength": 1 },
+              "treatmentB": { "type": "string", "minLength": 1 },
+              "contributions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["pair", "contribution"],
+                  "properties": {
+                    "pair": { "type": "string", "minLength": 1 },
+                    "contribution": { "type": "number", "minimum": 0, "maximum": 1 }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

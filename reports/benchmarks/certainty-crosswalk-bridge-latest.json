@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-02-28T21:30:44.741Z",
+  "sourceMode": "live_extracted",
+  "sourceFile": "C:\\Users\\user\\rct-extractor-v2\\output\\cardiology_ahmad_m_trials_extract_20260225\\cardiology_meta_linked_ahmad_m_trials_v3b_reextract_pdfpick_20260225_benchmark_eval_spotcheck_applied.json",
+  "rowCount": 127,
+  "comparisonCount": 127,
+  "reviewSensitiveCount": 91,
+  "gradeDistribution": {
+    "high": 38,
+    "low": 78,
+    "very_low": 11
+  },
+  "cinemaDistribution": {
+    "high": 36,
+    "low": 2,
+    "moderate": 78,
+    "very_low": 11
+  },
+  "tierDistribution": {
+    "full_auto": 38,
+    "manual": 78,
+    "unknown": 11
+  },
+  "extractedDistribution": {
+    "extracted": 116,
+    "not_extracted": 11
+  },
+  "confidence": {
+    "count": 116,
+    "min": 0.455,
+    "max": 0.99,
+    "mean": 0.631767
+  },
+  "outputs": {
+    "fixturePath": "reports/benchmarks/packs/v2/certainty_crosswalk_live.v1.json",
+    "summaryPath": "reports/benchmarks/certainty-crosswalk-bridge-latest.json"
+  }
+}

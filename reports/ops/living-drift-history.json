@@ -1,0 +1,1205 @@
+{
+  "generatedAt": "2026-02-28T21:30:48.393Z",
+  "snapshots": [
+    {
+      "generatedAt": "2026-02-28T20:23:04.004Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.92,
+            "poth": 0.699862,
+            "pothTop3": 0.699862,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.732333,
+            "poth": 0.702289,
+            "pothTop3": 0.152481,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.537542,
+        "weightedExactAgreement": 0.409091,
+        "weightedAdjacentAgreement": 0.909091,
+        "weightedSevereDisagreementRate": 0.090909
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:23:18.803Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.537542,
+        "weightedExactAgreement": 0.409091,
+        "weightedAdjacentAgreement": 0.909091,
+        "weightedSevereDisagreementRate": 0.090909
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:23:44.247Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.537542,
+        "weightedExactAgreement": 0.409091,
+        "weightedAdjacentAgreement": 0.909091,
+        "weightedSevereDisagreementRate": 0.090909
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:39:16.830Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:39:31.611Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:39:54.638Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:45:14.124Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:45:39.984Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:46:41.114Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:46:56.179Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:47:20.253Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T20:48:45.000Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T21:08:15.320Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T21:14:42.276Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T21:28:44.403Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    },
+    {
+      "generatedAt": "2026-02-28T21:30:48.393Z",
+      "benchmarkStatus": {
+        "pairwise": "passed",
+        "bias": "passed",
+        "network": "passed",
+        "certaintyCrosswalk": "passed"
+      },
+      "pairwise": {
+        "balanced_low_heterogeneity": {
+          "estimate": -0.197558,
+          "tau2": 0,
+          "i2": 0
+        },
+        "high_heterogeneity_mixed_signal": {
+          "estimate": -0.20929,
+          "tau2": 0.059325,
+          "i2": 0.544077
+        },
+        "multi_arm_dependent_effects": {
+          "estimate": -0.156826,
+          "tau2": 0,
+          "i2": 0
+        },
+        "small_k_borderline": {
+          "estimate": -0.157115,
+          "tau2": 0,
+          "i2": 0
+        }
+      },
+      "bias": {
+        "overallRobMeJudgement": "high",
+        "scenarios": {
+          "hf_publication_bias_risk": {
+            "baselineEstimate": -0.434003,
+            "envelopeWidth": 0.656454,
+            "robMeOverall": "high"
+          },
+          "balanced_mixed_signal": {
+            "baselineEstimate": -0.040308,
+            "envelopeWidth": 0.678291,
+            "robMeOverall": "low"
+          }
+        }
+      },
+      "network": {
+        "overallRobNmaJudgement": "some_concerns",
+        "scenarios": {
+          "triangle_consistent": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.925333,
+            "poth": 0.712385,
+            "pothTop3": 0.712385,
+            "tau2": 0,
+            "phi": 1
+          },
+          "four_node_mild_inconsistency": {
+            "topTreatment": "A",
+            "topTreatmentProbability": 0.74,
+            "poth": 0.701854,
+            "pothTop3": 0.155442,
+            "tau2": 0,
+            "phi": 1
+          }
+        }
+      },
+      "certaintyCrosswalk": {
+        "weightedKappa": 0.545689,
+        "primaryScenarioWeightedKappa": 0.69257,
+        "kappaMetricMode": "primary_scenario",
+        "kappaForDrift": 0.69257,
+        "primaryScenarioWeightedKappaCi95Width": 0.151309,
+        "weightedExactAgreement": 0.284404,
+        "weightedAdjacentAgreement": 1,
+        "weightedSevereDisagreementRate": 0
+      }
+    }
+  ]
+}

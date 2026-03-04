@@ -1,0 +1,1165 @@
+{
+  "schemaVersion": "certainty_crosswalk.v1",
+  "sourceMode": "live_extracted",
+  "primaryScenarioId": "live_extracted_all_rows",
+  "createdAt": "2026-02-28T21:30:44.741Z",
+  "description": "Crosswalk benchmark fixture generated from real extracted study-level certainty signals (automation tier + calibrated confidence + benchmark agreement flags).",
+  "categories": [
+    "high",
+    "moderate",
+    "low",
+    "very_low"
+  ],
+  "source": {
+    "rctRoot": "C:/Users/user/rct-extractor-v2",
+    "filePath": "C:\\Users\\user\\rct-extractor-v2\\output\\cardiology_ahmad_m_trials_extract_20260225\\cardiology_meta_linked_ahmad_m_trials_v3b_reextract_pdfpick_20260225_benchmark_eval_spotcheck_applied.json",
+    "discovery": {
+      "source": "auto_discovery",
+      "candidateCount": 22,
+      "confidenceRows": 116,
+      "tierRows": 116,
+      "extractedRows": 116
+    },
+    "mappingVersion": "live_bridge.v1"
+  },
+  "scenarios": [
+    {
+      "scenarioId": "live_extracted_all_rows",
+      "description": "All comparable live extracted rows from rct-extractor benchmark outputs.",
+      "comparisons": [
+        {
+          "comparisonId": "author_meta_trial_00001",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00002",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00003",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00004",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00005",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00006",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00007",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00008",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00009",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00010",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00011",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00012",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00013",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00014",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00015",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00016",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00017",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00018",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00019",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00020",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00021",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00022",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00023",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00024",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00025",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00026",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00027",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00028",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00029",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00030",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00031",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00032",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00033",
+          "grade": "high",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00034",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00035",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00036",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00037",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00038",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00039",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00040",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00041",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00042",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00043",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00044",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00045",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00046",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00047",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00048",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00049",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00050",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00051",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00052",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00053",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00054",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00055",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00056",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00057",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00058",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00059",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00060",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00061",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00062",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00063",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00064",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00065",
+          "grade": "high",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00066",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00067",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00068",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00069",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00070",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00071",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00072",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00073",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00074",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00075",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00076",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00077",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00078",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00079",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00080",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00081",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00082",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00083",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00084",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00085",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00086",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00087",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00088",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00089",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00090",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00091",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00092",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00093",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00094",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00095",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00096",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00097",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00098",
+          "grade": "low",
+          "cinema": "low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00099",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00100",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00101",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00102",
+          "grade": "low",
+          "cinema": "low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00103",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00104",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00105",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00106",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00107",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00108",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00109",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00110",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00111",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00112",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00113",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00114",
+          "grade": "high",
+          "cinema": "high"
+        },
+        {
+          "comparisonId": "author_meta_trial_00115",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00116",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00117",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00118",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00119",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00120",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00121",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00122",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00123",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00124",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00125",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00126",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00127",
+          "grade": "very_low",
+          "cinema": "very_low"
+        }
+      ],
+      "expected": {
+        "minComparisons": 100,
+        "exactAgreement": {
+          "min": 0.25,
+          "max": 0.9
+        },
+        "adjacentAgreement": {
+          "min": 0.9,
+          "max": 1
+        },
+        "weightedKappa": {
+          "min": 0.4,
+          "max": 0.98
+        },
+        "maxKappaCi95Width": 0.45,
+        "maxSevereDisagreement": 30,
+        "maxMeanDistance": 0.9
+      }
+    },
+    {
+      "scenarioId": "live_extracted_review_sensitive_rows",
+      "description": "Subset emphasizing non-full-auto and disagreement-sensitive rows.",
+      "comparisons": [
+        {
+          "comparisonId": "author_meta_trial_00002",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00005",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00006",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00007",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00008",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00009",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00010",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00011",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00012",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00013",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00014",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00015",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00016",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00017",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00019",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00020",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00021",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00022",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00023",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00024",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00026",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00027",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00029",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00031",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00032",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00033",
+          "grade": "high",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00034",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00035",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00036",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00037",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00038",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00039",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00040",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00041",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00042",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00043",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00045",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00046",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00047",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00048",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00049",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00051",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00053",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00058",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00060",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00061",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00063",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00065",
+          "grade": "high",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00067",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00068",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00069",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00070",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00072",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00073",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00074",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00076",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00079",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00081",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00082",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00084",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00085",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00086",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00087",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00088",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00091",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00093",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00094",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00095",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00096",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00097",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00098",
+          "grade": "low",
+          "cinema": "low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00101",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00102",
+          "grade": "low",
+          "cinema": "low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00104",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00105",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00106",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00107",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00112",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00115",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00116",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00117",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00118",
+          "grade": "low",
+          "cinema": "moderate"
+        },
+        {
+          "comparisonId": "author_meta_trial_00119",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00120",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00121",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00122",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00123",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00124",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00125",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00126",
+          "grade": "very_low",
+          "cinema": "very_low"
+        },
+        {
+          "comparisonId": "author_meta_trial_00127",
+          "grade": "very_low",
+          "cinema": "very_low"
+        }
+      ],
+      "expected": {
+        "minComparisons": 30,
+        "exactAgreement": {
+          "min": 0.1,
+          "max": 0.8
+        },
+        "adjacentAgreement": {
+          "min": 0.85,
+          "max": 1
+        },
+        "weightedKappa": {
+          "min": 0.2,
+          "max": 0.95
+        },
+        "maxKappaCi95Width": 0.6,
+        "maxSevereDisagreement": 20,
+        "maxMeanDistance": 1.1
+      }
+    }
+  ]
+}

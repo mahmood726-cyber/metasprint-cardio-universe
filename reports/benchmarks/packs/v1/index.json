@@ -1,0 +1,38 @@
+{
+  "benchmarkVersion": "v1.0.0-2026-03-02",
+  "createdAt": "2026-02-28T15:00:00.000Z",
+  "owner": "MetaSprint Cardio Methods",
+  "description": "Week-1 baseline benchmark pack manifest for cardio universe coverage and ranking validation.",
+  "packs": [
+    {
+      "packId": "sglt2_hf_cardiorenal",
+      "file": "sglt2_hf_cardiorenal.v1.json",
+      "category": "cardiometabolic_hf"
+    },
+    {
+      "packId": "glp1_cv_outcomes",
+      "file": "glp1_cv_outcomes.v1.json",
+      "category": "cardiometabolic_atherosclerotic_risk"
+    },
+    {
+      "packId": "antithrombotic_af_stroke",
+      "file": "antithrombotic_af_stroke.v1.json",
+      "category": "atrial_fibrillation"
+    },
+    {
+      "packId": "hf_foundational_therapy",
+      "file": "hf_foundational_therapy.v1.json",
+      "category": "heart_failure"
+    },
+    {
+      "packId": "ontology_benchmark_entities",
+      "file": "ontology_entities.v1.json",
+      "category": "ontology"
+    },
+    {
+      "packId": "ranking_judgments",
+      "file": "ranking_judgments.v1.json",
+      "category": "ranking"
+    }
+  ]
+}

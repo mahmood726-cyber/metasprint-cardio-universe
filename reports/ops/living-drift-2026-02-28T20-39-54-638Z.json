@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-02-28T20:39:54.638Z",
+  "status": "passed",
+  "summary": "No drift alerts above configured thresholds.",
+  "comparedAgainst": "2026-02-28T20:39:31.611Z",
+  "thresholds": {
+    "sourcePath": "reports\\ops\\packs\\living_drift_thresholds.v1.json",
+    "defaults": {
+      "effectThreshold": 0.05,
+      "topProbabilityThreshold": 0.15,
+      "pothThreshold": 0.2,
+      "certaintyShiftThreshold": 0,
+      "kappaThreshold": 0.15
+    },
+    "certainty": {
+      "robMeShiftThreshold": 0,
+      "robNmaShiftThreshold": 0,
+      "kappaThreshold": 0.1
+    },
+    "pairwise": {
+      "balanced_low_heterogeneity": {
+        "effectThreshold": 0.03
+      },
+      "high_heterogeneity_mixed_signal": {
+        "effectThreshold": 0.06
+      },
+      "multi_arm_dependent_effects": {
+        "effectThreshold": 0.04
+      },
+      "small_k_borderline": {
+        "effectThreshold": 0.07
+      }
+    },
+    "network": {
+      "triangle_consistent": {
+        "topProbabilityThreshold": 0.08,
+        "pothThreshold": 0.12
+      },
+      "four_node_mild_inconsistency": {
+        "topProbabilityThreshold": 0.12,
+        "pothThreshold": 0.18
+      }
+    }
+  },
+  "benchmarkStatus": {
+    "pairwise": "passed",
+    "bias": "passed",
+    "network": "passed",
+    "certaintyCrosswalk": "passed"
+  },
+  "drift": {
+    "alerts": [],
+    "effectDrift": [
+      {
+        "scenarioId": "balanced_low_heterogeneity",
+        "deltaEstimate": 0,
+        "thresholdUsed": 0.03
+      },
+      {
+        "scenarioId": "high_heterogeneity_mixed_signal",
+        "deltaEstimate": 0,
+        "thresholdUsed": 0.06
+      },
+      {
+        "scenarioId": "multi_arm_dependent_effects",
+        "deltaEstimate": 0,
+        "thresholdUsed": 0.04
+      },
+      {
+        "scenarioId": "small_k_borderline",
+        "deltaEstimate": 0,
+        "thresholdUsed": 0.07
+      }
+    ],
+    "rankDrift": [
+      {
+        "scenarioId": "triangle_consistent",
+        "topChanged": false,
+        "deltaTopProbability": 0,
+        "deltaPoth": 0,
+        "topProbabilityThreshold": 0.08,
+        "pothThreshold": 0.12
+      },
+      {
+        "scenarioId": "four_node_mild_inconsistency",
+        "topChanged": false,
+        "deltaTopProbability": 0,
+        "deltaPoth": 0,
+        "topProbabilityThreshold": 0.12,
+        "pothThreshold": 0.18
+      }
+    ],
+    "certaintyDrift": [
+      {
+        "metric": "rob_me_overall",
+        "previous": "high",
+        "current": "high",
+        "shift": 0,
+        "thresholdUsed": 0
+      },
+      {
+        "metric": "rob_nma_overall",
+        "previous": "some_concerns",
+        "current": "some_concerns",
+        "shift": 0,
+        "thresholdUsed": 0
+      },
+      {
+        "metric": "certainty_crosswalk_weighted_kappa",
+        "previous": 0.545689,
+        "current": 0.545689,
+        "shift": 0,
+        "thresholdUsed": 0.1
+      }
+    ]
+  }
+}

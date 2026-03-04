@@ -1,0 +1,303 @@
+﻿import { listConnectors } from '../data/connectors/index.js';
+import { loadUniverseFromConnector } from '../data/repository/universe-repository.js';
+import { buildIdentityGraph } from '../engine/identity/index.js';
+import { SAMPLE_TRIALS, SAMPLE_OPPORTUNITIES } from './data/sample-data.js';
+
+const CONNECTOR_IDS = listConnectors();
+const ALLOWED_SOURCES = new Set(['sample', ...CONNECTOR_IDS]);
+
+const SUBCATEGORY_LABELS = {
+  hf: 'Heart Failure',
+  af: 'Atrial Fibrillation',
+  htn: 'Hypertension',
+  acs: 'Acute Coronary Syndromes',
+  valve: 'Valve Disease',
+  pad: 'Peripheral Arterial Disease',
+  lipids: 'Lipid Management',
+  rhythm: 'Rhythm and Devices',
+  ph: 'Pulmonary Hypertension',
+  general: 'General Cardiology',
+};
+
+function toFiniteNumber(value, fallback = 0) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function asArray(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function computeKpis(trials, opportunities) {
+  const nowYear = new Date().getFullYear();
+  const recentTrials3y = trials.filter((t) => t.year != null && t.year >= nowYear - 3).length;
+  const subcategories = new Set(trials.map((t) => t.subcategoryId ?? 'general')).size;
+  const highPriorityClusters = opportunities.filter((o) => o.priority === 'high').length;
+
+  return {
+    totalTrials: trials.length,
+    subcategories,
+    recentTrials3y,
+    highPriorityClusters,
+  };
+}
+
+function sortOpportunities(opportunities, mode) {
+  const sorted = [...opportunities];
+  const byScore = (item) => toFiniteNumber(item?.score, 0);
+  const byRecent = (item) => toFiniteNumber(item?.recentTrials, 0);
+  const byCount = (item) => toFiniteNumber(item?.trialCount, 0);
+  if (mode === 'recent') {
+    sorted.sort((a, b) => byRecent(b) - byRecent(a) || byScore(b) - byScore(a));
+  } else if (mode === 'count') {
+    sorted.sort((a, b) => byCount(b) - byCount(a) || byScore(b) - byScore(a));
+  } else {
+    sorted.sort((a, b) => byScore(b) - byScore(a));
+  }
+  return sorted;
+}
+
+function toPriority(score) {
+  if (score >= 80) return 'high';
+  if (score >= 60) return 'moderate';
+  return 'low';
+}
+
+function toLabel(subcategoryId) {
+  return SUBCATEGORY_LABELS[subcategoryId] ?? SUBCATEGORY_LABELS.general;
+}
+
+function buildOpportunitiesFromTrials(trials) {
+  if (!trials.length) return [];
+
+  const bySubcategory = new Map();
+  const nowYear = new Date().getFullYear();
+
+  for (const trial of trials) {
+    const id = trial.subcategoryId ?? 'general';
+    const entry = bySubcategory.get(id) ?? {
+      subcategoryId: id,
+      trialCount: 0,
+      recentTrials: 0,
+      enrollmentSum: 0,
+      maxYear: null,
+    };
+
+    entry.trialCount += 1;
+    entry.enrollmentSum += toFiniteNumber(trial.enrollment, 0);
+    if (trial.year != null && trial.year >= nowYear - 3) {
+      entry.recentTrials += 1;
+    }
+    if (trial.year != null && (entry.maxYear == null || trial.year > entry.maxYear)) {
+      entry.maxYear = trial.year;
+    }
+
+    bySubcategory.set(id, entry);
+  }
+
+  const opportunities = [];
+  for (const entry of bySubcategory.values()) {
+    const avgEnrollment =
+      entry.trialCount > 0 ? toFiniteNumber(entry.enrollmentSum / entry.trialCount, 0) : 0;
+    const evidencePenalty = Math.min(entry.trialCount * 8, 40);
+    const recencyPenalty = Math.min(entry.recentTrials * 12, 36);
+    const scalePenalty = Math.min(avgEnrollment / 350, 20);
+    const rawScore = 100 - evidencePenalty - recencyPenalty - scalePenalty;
+    const score = Math.max(20, Math.round(toFiniteNumber(rawScore, 20)));
+    const priority = toPriority(score);
+    const label = toLabel(entry.subcategoryId);
+
+    opportunities.push({
+      id: `opp_${entry.subcategoryId}`,
+      title: `${label} evidence synthesis opportunity`,
+      subcategoryId: entry.subcategoryId,
+      score,
+      priority,
+      trialCount: entry.trialCount,
+      recentTrials: entry.recentTrials,
+      rationale:
+        `${entry.trialCount} trials indexed, ${entry.recentTrials} in last 3 years` +
+        (entry.maxYear ? `, latest ${entry.maxYear}.` : '.'),
+    });
+  }
+
+  return opportunities;
+}
+
+function createConnectorRequest() {
+  return {
+    domain: 'cardio',
+    query: {
+      condition: 'cardiovascular',
+      term: 'heart',
+      category: 'cardiovascular',
+      mailto: 'metasprint-cardio@example.org',
+    },
+    limit: 100,
+    offset: 0,
+  };
+}
+
+async function loadTrialsForSource(source) {
+  if (source === 'sample') return SAMPLE_TRIALS;
+  return loadUniverseFromConnector(source, createConnectorRequest());
+}
+
+function createGate(source, totalTrials, detail, status = 'high') {
+  const sourceLabel = source === 'sample' ? 'Sample' : String(source).toUpperCase();
+  return {
+    label: status === 'high' ? 'Green' : 'Amber',
+    detail: detail ?? `${sourceLabel} source loaded with ${totalTrials} normalized trials.`,
+    status,
+  };
+}
+
+function summarizeDedup(trials) {
+  const graph = buildIdentityGraph(trials, { threshold: 0.9 });
+  return {
+    duplicateClusterCount: graph.duplicateClusterCount,
+    edgeCount: graph.edgeCount,
+    multiSourceClusterCount: graph.clusters.filter((cluster) => cluster.sources.length > 1).length,
+  };
+}
+
+export function createDiscoveryActions(store, deps = {}) {
+  let latestLoadToken = 0;
+  const nextRequestToken = () => {
+    latestLoadToken += 1;
+    return latestLoadToken;
+  };
+  const loadTrials = typeof deps.loadTrialsForSource === 'function' ? deps.loadTrialsForSource : loadTrialsForSource;
+  const loadingDelayMs = Number.isFinite(Number(deps.loadingDelayMs))
+    ? Math.max(0, Number(deps.loadingDelayMs))
+    : 120;
+  const refreshDelayMs = Number.isFinite(Number(deps.refreshDelayMs))
+    ? Math.max(0, Number(deps.refreshDelayMs))
+    : 100;
+
+  const loadUniverse = async () => {
+    const loadToken = nextRequestToken();
+    const { dataSource } = store.getState();
+    store.patchState({ loading: true, lastError: null }, 'load:start');
+
+    await new Promise((resolve) => setTimeout(resolve, loadingDelayMs));
+
+    try {
+      const loadedTrials = asArray(await loadTrials(dataSource));
+      if (loadToken !== latestLoadToken) return;
+      const trials = loadedTrials.length > 0 ? loadedTrials : SAMPLE_TRIALS;
+      const usedFallbackTrials = loadedTrials.length === 0 && dataSource !== 'sample';
+      const currentSortMode = store.getState().sortMode;
+
+      const computedOpportunities = buildOpportunitiesFromTrials(trials);
+      const opportunities = sortOpportunities(
+        computedOpportunities.length > 0 ? computedOpportunities : SAMPLE_OPPORTUNITIES,
+        currentSortMode,
+      );
+      const kpis = computeKpis(trials, opportunities);
+      const dedupSummary = summarizeDedup(trials);
+
+      const gate = usedFallbackTrials
+        ? createGate(
+            'sample',
+            trials.length,
+            `Connector ${dataSource.toUpperCase()} returned no rows; sample baseline loaded.`,
+            'moderate',
+          )
+        : createGate(
+            dataSource,
+            trials.length,
+            `${String(dataSource).toUpperCase()} source loaded with ${trials.length} normalized records; ${dedupSummary.duplicateClusterCount} duplicate clusters flagged.`,
+          );
+
+      store.patchState(
+        {
+          universeLoaded: true,
+          loading: false,
+          lastRefreshIso: new Date().toISOString(),
+          trials,
+          opportunities,
+          dedupSummary,
+          kpis,
+          methodologyGate: gate,
+        },
+        'load:success',
+      );
+    } catch (error) {
+      if (loadToken !== latestLoadToken) return;
+      const message = error instanceof Error ? error.message : String(error);
+      const fallbackTrials = SAMPLE_TRIALS;
+      const fallbackOpportunities = sortOpportunities(
+        buildOpportunitiesFromTrials(fallbackTrials),
+        store.getState().sortMode,
+      );
+      const dedupSummary = summarizeDedup(fallbackTrials);
+
+      store.patchState(
+        {
+          dataSource: 'sample',
+          universeLoaded: true,
+          loading: false,
+          lastRefreshIso: new Date().toISOString(),
+          lastError: `Connector ${dataSource.toUpperCase()} failed: ${message}`,
+          trials: fallbackTrials,
+          opportunities: fallbackOpportunities,
+          dedupSummary,
+          kpis: computeKpis(fallbackTrials, fallbackOpportunities),
+          methodologyGate: createGate(
+            'sample',
+            fallbackTrials.length,
+            `Connector ${dataSource.toUpperCase()} failed; sample baseline loaded.`,
+            'moderate',
+          ),
+        },
+        'load:fallback',
+      );
+    }
+  };
+
+  const refreshUniverse = async () => {
+    if (!store.getState().universeLoaded) {
+      await loadUniverse();
+      return;
+    }
+
+    if (store.getState().dataSource === 'sample') {
+      const refreshToken = nextRequestToken();
+      store.patchState({ loading: true }, 'refresh:start');
+      await new Promise((resolve) => setTimeout(resolve, refreshDelayMs));
+      if (refreshToken !== latestLoadToken) return;
+      if (store.getState().dataSource !== 'sample') return;
+      store.patchState({ loading: false, lastRefreshIso: new Date().toISOString() }, 'refresh:success');
+      return;
+    }
+
+    await loadUniverse();
+  };
+
+  return {
+    async loadUniverse() {
+      await loadUniverse();
+    },
+
+    async refreshUniverse() {
+      await refreshUniverse();
+    },
+
+    switchView(view) {
+      store.patchState({ currentView: view }, 'view:switch');
+    },
+
+    sortOpportunities(mode) {
+      const sorted = sortOpportunities(store.getState().opportunities, mode);
+      store.patchState({ sortMode: mode, opportunities: sorted }, 'opportunities:sort');
+    },
+
+    setDataSource(source) {
+      if (!ALLOWED_SOURCES.has(source)) return false;
+      if (store.getState().dataSource === source) return false;
+      store.patchState({ dataSource: source }, 'source:set');
+      return true;
+    },
+  };
+}

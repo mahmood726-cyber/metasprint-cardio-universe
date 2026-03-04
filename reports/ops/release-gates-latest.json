@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-03-01T12:34:06.486Z",
+  "summary": {
+    "total": 3,
+    "required": 2,
+    "executed": 2,
+    "skipped": [
+      "phase1"
+    ],
+    "passed": 2,
+    "failed": 0,
+    "status": "passed"
+  },
+  "gates": [
+    {
+      "id": "resilience",
+      "script": "ops:resilience-check",
+      "exitCode": 0,
+      "durationMs": 1104,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "id": "doc_sync",
+      "script": "ops:doc-sync:enforce",
+      "exitCode": 0,
+      "durationMs": 747,
+      "status": "passed",
+      "error": null
+    }
+  ]
+}

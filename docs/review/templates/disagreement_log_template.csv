@@ -1,0 +1,3 @@
+﻿cycle_id,reviewer_id,opportunity_id,issue_type,severity,description,evidence_reference,proposed_fix
+cycle_001,R01,opp_001,ontology_mapping,high,,, 
+cycle_001,R05,opp_002,clinical_relevance,moderate,,, 

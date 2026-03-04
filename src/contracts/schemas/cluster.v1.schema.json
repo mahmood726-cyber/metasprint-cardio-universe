@@ -1,0 +1,66 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metasprint.dev/schemas/cluster.v1.json",
+  "title": "ClusterV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "clusterId",
+    "subcategoryId",
+    "outcomeId",
+    "effectMeasure",
+    "trialIds",
+    "scoreBreakdown",
+    "provenanceRef",
+    "refresh"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "cluster.v1" },
+    "clusterId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,140}$" },
+    "subcategoryId": { "type": "string", "pattern": "^[a-z0-9_:-]{2,80}$" },
+    "outcomeId": { "type": "string", "pattern": "^[a-z0-9_:-]{2,100}$" },
+    "effectMeasure": { "type": "string", "enum": ["HR", "OR", "RR", "RD", "MD", "SMD"] },
+    "trialIds": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,120}$" }
+    },
+    "sourceCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ctgov": { "type": "integer", "minimum": 0 },
+        "aact": { "type": "integer", "minimum": 0 },
+        "pubmed": { "type": "integer", "minimum": 0 },
+        "openalex": { "type": "integer", "minimum": 0 },
+        "europepmc": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "scoreBreakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidenceGap", "freshness", "feasibility", "uncertaintyPenalty", "guidelineRelevance", "total"],
+      "properties": {
+        "evidenceGap": { "type": "number", "minimum": 0, "maximum": 100 },
+        "freshness": { "type": "number", "minimum": 0, "maximum": 100 },
+        "feasibility": { "type": "number", "minimum": 0, "maximum": 100 },
+        "uncertaintyPenalty": { "type": "number", "minimum": 0, "maximum": 100 },
+        "guidelineRelevance": { "type": "number", "minimum": 0, "maximum": 100 },
+        "total": { "type": "number", "minimum": 0, "maximum": 100 }
+      }
+    },
+    "confidenceClass": { "type": "string", "enum": ["high", "moderate", "low", "very_low"] },
+    "provenanceRef": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,120}$" },
+    "refresh": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["refreshedAt", "snapshotId"],
+      "properties": {
+        "refreshedAt": { "type": "string", "format": "date-time" },
+        "snapshotId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,120}$" }
+      }
+    }
+  }
+}

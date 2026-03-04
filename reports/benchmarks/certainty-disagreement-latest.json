@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-02-28T21:30:45.632Z",
+  "framework": "GRADE_CINEMA_crosswalk",
+  "sourceMode": "live_extracted",
+  "status": "passed",
+  "weightedKappa": 0.545689,
+  "weightedExactAgreement": 0.284404,
+  "weightedAdjacentAgreement": 1,
+  "weightedSevereDisagreementRate": 0,
+  "primaryScenarioId": "live_extracted_all_rows",
+  "primaryScenarioWeightedKappa": 0.69257,
+  "primaryScenarioWeightedKappaCi95Width": 0.151309
+}

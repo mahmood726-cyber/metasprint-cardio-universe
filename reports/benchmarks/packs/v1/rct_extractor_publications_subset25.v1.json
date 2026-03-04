@@ -1,0 +1,60 @@
+{
+  "packId": "rct_extractor_author_meta_publications",
+  "version": "1.0.0",
+  "createdAt": "2026-02-28T19:08:04.505Z",
+  "description": "Imported publication benchmark from rct-extractor-v2 cardiology author-meta cohort.",
+  "source": {
+    "type": "rct-extractor-v2",
+    "repoPath": "C:/Users/user/rct-extractor-v2",
+    "seedFile": "C:\\Users\\user\\rct-extractor-v2\\data\\benchmarks\\cardiology_ahmad_subset25_20260225\\model_seed_adjudicator_only.jsonl"
+  },
+  "expectedTrialIds": [],
+  "candidateTrialIdsFromText": [
+    "NCT01117025"
+  ],
+  "expectedPublicationIds": [
+    "PMID10078083",
+    "PMID10336913",
+    "PMID10460813",
+    "PMID10573502",
+    "PMID11262572",
+    "PMID11333061",
+    "PMID12441754",
+    "PMID12862299",
+    "PMID21784880",
+    "PMID22008217",
+    "PMID22291438",
+    "PMID24135832",
+    "PMID27233239",
+    "PMID27381589",
+    "PMID27733354",
+    "PMID30874766",
+    "PMID30950507",
+    "PMID31566101",
+    "PMID31961420",
+    "PMID32489791",
+    "PMID32865375",
+    "PMID32865377",
+    "PMID34329344",
+    "PMID34397805",
+    "PMID35452688",
+    "PMID36915032",
+    "PMID38445836",
+    "PMID38828867",
+    "PMID39175848",
+    "PMID39276199",
+    "PMID39312290",
+    "PMID40468584",
+    "PMID40642671",
+    "PMID40800680",
+    "PMID40834158",
+    "PMID40955256",
+    "PMID41149262"
+  ],
+  "tags": [
+    "cardio",
+    "rct-extractor",
+    "pdf",
+    "meta-linked"
+  ]
+}

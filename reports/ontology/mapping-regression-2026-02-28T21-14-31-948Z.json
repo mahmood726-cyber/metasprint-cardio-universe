@@ -1,0 +1,97 @@
+{
+  "generatedAt": "2026-02-28T21:14:31.948Z",
+  "summary": {
+    "totalChecks": 7,
+    "passedChecks": 7,
+    "failedChecks": 0,
+    "status": "passed"
+  },
+  "checks": [
+    {
+      "checkId": "intervention_factor_xi_generic",
+      "type": "intervention_term",
+      "input": "factor xi inhibitor",
+      "expected": "factor_xi_inhibitor",
+      "actual": [
+        "factor_xi_inhibitor"
+      ],
+      "passed": true
+    },
+    {
+      "checkId": "intervention_factor_xi_alias",
+      "type": "intervention_term",
+      "input": "milvexian",
+      "expected": "factor_xi_inhibitor",
+      "actual": [
+        "factor_xi_inhibitor"
+      ],
+      "passed": true
+    },
+    {
+      "checkId": "intervention_vka_alias",
+      "type": "intervention_term",
+      "input": "warfarin",
+      "expected": "vitamin_k_antagonist",
+      "actual": [
+        "vitamin_k_antagonist"
+      ],
+      "passed": true
+    },
+    {
+      "checkId": "endpoint_frailty_generic",
+      "type": "endpoint_term",
+      "input": "frailty adjusted composite",
+      "expected": "frailty_adjusted_composite",
+      "actual": [
+        "frailty_adjusted_composite"
+      ],
+      "passed": true
+    },
+    {
+      "checkId": "endpoint_frailty_alias",
+      "type": "endpoint_term",
+      "input": "frailty composite endpoint",
+      "expected": "frailty_adjusted_composite",
+      "actual": [
+        "frailty_adjusted_composite"
+      ],
+      "passed": true
+    },
+    {
+      "checkId": "endpoint_hhf_cv_death_alias",
+      "type": "endpoint_term",
+      "input": "heart failure hospitalization or cardiovascular death",
+      "expected": "hhf_or_cv_death",
+      "actual": [
+        "cv_death",
+        "hf_hospitalization",
+        "hhf_or_cv_death"
+      ],
+      "passed": true
+    },
+    {
+      "checkId": "text_joint_mapping",
+      "type": "full_text",
+      "input": "Patients on milvexian were assessed for frailty-adjusted composite and clinically relevant bleeding outcomes.",
+      "expected": {
+        "interventionClassIds": [
+          "factor_xi_inhibitor"
+        ],
+        "endpointIds": [
+          "frailty_adjusted_composite",
+          "major_bleeding"
+        ]
+      },
+      "actual": {
+        "interventionClassIds": [
+          "factor_xi_inhibitor"
+        ],
+        "endpointIds": [
+          "major_bleeding",
+          "frailty_adjusted_composite"
+        ]
+      },
+      "passed": true
+    }
+  ]
+}

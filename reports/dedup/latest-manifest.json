@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-03-03T13:15:41.623Z",
+  "artifacts": {
+    "identityReport": "reports\\dedup\\identity-report-2026-03-03T13-15-41-623Z.json",
+    "latest": "reports\\dedup\\latest.json",
+    "provenance": "reports\\dedup\\provenance-latest.json",
+    "overrideQueue": "reports\\dedup\\override-queue.csv",
+    "sourceHealth": "reports\\ops\\source-health-latest.json"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-03-01T12:32:07.931Z",
+  "status": "warning",
+  "policy": {
+    "path": "reports\\ops\\packs\\runtime_slo_policy.v1.json",
+    "loaded": true,
+    "policyVersion": "runtime_slo_policy.v1",
+    "defaults": {
+      "historyWindow": 12,
+      "minHistoricalSamples": 4,
+      "maxRegressionRatio": 0.2,
+      "maxConsecutiveFailures": 1
+    }
+  },
+  "trend": {
+    "path": "reports\\ci\\runtime-trend.csv",
+    "rows": 0
+  },
+  "summary": {
+    "labelsChecked": 2,
+    "failed": 0,
+    "warnings": 2,
+    "enforcementMode": "observe_only"
+  },
+  "checks": [
+    {
+      "label": "verify_phase1",
+      "status": "warning",
+      "runCount": 0,
+      "latest": null,
+      "baselineMedianSeconds": null,
+      "allowedMaxSeconds": null,
+      "violations": [],
+      "warnings": [
+        "No runtime trend rows found for label \"verify_phase1\"."
+      ],
+      "ownerRole": "QA Lead"
+    },
+    {
+      "label": "verify_lancet_nightly",
+      "status": "warning",
+      "runCount": 0,
+      "latest": null,
+      "baselineMedianSeconds": null,
+      "allowedMaxSeconds": null,
+      "violations": [],
+      "warnings": [
+        "No runtime trend rows found for label \"verify_lancet_nightly\"."
+      ],
+      "ownerRole": "QA Lead"
+    }
+  ]
+}

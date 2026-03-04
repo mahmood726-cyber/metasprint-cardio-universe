@@ -1,0 +1,22 @@
+{
+  "packId": "hf_foundational_therapy",
+  "version": "1.0.0",
+  "description": "Foundational heart failure pharmacotherapy trial benchmark set.",
+  "expectedTrialIds": [
+    "NCT01035255",
+    "NCT00094302",
+    "NCT01870778",
+    "NCT01920711",
+    "NCT02604251"
+  ],
+  "expectedPublicationIds": [
+    "PMID25176015",
+    "PMID23694797",
+    "PMID31112354"
+  ],
+  "tags": [
+    "hf",
+    "neurohormonal",
+    "foundational"
+  ]
+}

@@ -1,0 +1,36 @@
+﻿{
+    "source":  "C:\\Users\\user\\Downloads\\metasprint-autopilot\\metasprint-autopilot.html",
+    "generatedAt":  "2026-02-28T12:57:17.4265357+00:00",
+    "extracts":  [
+                     {
+                         "end":  1320,
+                         "file":  "discover-phase-markup.html",
+                         "start":  1200
+                     },
+                     {
+                         "end":  4054,
+                         "file":  "universe-taxonomy-and-state.js",
+                         "start":  2576
+                     },
+                     {
+                         "end":  12153,
+                         "file":  "universe-data-loading.js",
+                         "start":  4055
+                     },
+                     {
+                         "end":  13638,
+                         "file":  "aact-universe-and-graph.js",
+                         "start":  12154
+                     },
+                     {
+                         "end":  17482,
+                         "file":  "drilldown-and-view-switching.js",
+                         "start":  13639
+                     },
+                     {
+                         "end":  18969,
+                         "file":  "universe-renderers.js",
+                         "start":  17483
+                     }
+                 ]
+}

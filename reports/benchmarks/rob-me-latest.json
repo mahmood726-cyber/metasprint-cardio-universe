@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-02-28T21:30:35.445Z",
+  "framework": "ROB-ME",
+  "overallJudgement": "high",
+  "scenarioCoverage": 2,
+  "judgementCounts": {
+    "low": 1,
+    "some_concerns": 0,
+    "high": 1
+  },
+  "sourceBenchmark": "reports\\benchmarks\\packs\\v2\\bias_sensitivity.v1.json",
+  "status": "passed"
+}

@@ -1,0 +1,29 @@
+﻿{
+  "schemaVersion": "trial_record.v1",
+  "trialId": "trial_bad_001",
+  "source": "ctgov",
+  "sourceIds": {},
+  "title": "Bad trial fixture",
+  "interventions": [
+    {
+      "rawName": "Drug A",
+      "normalizedName": "drug_a",
+      "classId": "class_a",
+      "isComparator": false
+    }
+  ],
+  "primaryOutcomes": [
+    {
+      "rawText": "Outcome",
+      "normalizedOutcomeId": "outcome_x",
+      "domain": "other"
+    }
+  ],
+  "enrollment": 100,
+  "randomized": true,
+  "subcategoryId": "hf",
+  "timestamps": {
+    "createdAt": "2026-02-28T12:00:00Z",
+    "updatedAt": "2026-02-28T12:00:00Z"
+  }
+}

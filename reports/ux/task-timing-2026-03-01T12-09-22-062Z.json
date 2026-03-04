@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-03-01T12:09:22.062Z",
+  "windowDays": 30,
+  "windowStart": "2026-01-30T12:09:22.062Z",
+  "sampleSize": 22,
+  "successfulRuns": 22,
+  "failedRuns": 1,
+  "medianDiscoveryWorkflowMinutes": 0.228,
+  "p75DiscoveryWorkflowMinutes": 0.355,
+  "source": "reports/ops/release-gates-*.json",
+  "workflowDefinition": "verify:release-gates total runtime (phase1 + resilience)",
+  "note": "Computed from 22 successful release-gate runs in the last 30 days."
+}

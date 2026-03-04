@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-02-28T13:38:47.859Z",
+  "options": {
+    "sources": [
+      "sample"
+    ],
+    "limit": 50,
+    "threshold": 0.85,
+    "synthetic": true
+  },
+  "warnings": [],
+  "summary": {
+    "recordCount": 8,
+    "edgeCount": 1,
+    "clusterCount": 7,
+    "duplicateClusterCount": 1
+  },
+  "graph": {
+    "generatedAt": "2026-02-28T13:38:47.857Z",
+    "threshold": 0.85,
+    "recordCount": 8,
+    "edgeCount": 1,
+    "clusterCount": 7,
+    "duplicateClusterCount": 1,
+    "clusters": [
+      {
+        "clusterId": "cluster_0001",
+        "canonicalTrialId": "trial_NCT03036124",
+        "memberCount": 2,
+        "members": [
+          "trial_NCT03036124",
+          "trial_NCT03036124_dup_pubmed"
+        ],
+        "sources": [
+          "ctgov",
+          "pubmed"
+        ],
+        "maxEdgeScore": 0.92,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ]
+      },
+      {
+        "clusterId": "cluster_0002",
+        "canonicalTrialId": "trial_NCT03057977",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03057977"
+        ],
+        "sources": [
+          "aact"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0003",
+        "canonicalTrialId": "trial_NCT03619213",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03619213"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0004",
+        "canonicalTrialId": "trial_NCT03057951",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03057951"
+        ],
+        "sources": [
+          "aact"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0005",
+        "canonicalTrialId": "trial_NCT02465515",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT02465515"
+        ],
+        "sources": [
+          "pubmed"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0006",
+        "canonicalTrialId": "trial_NCT03521934",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03521934"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0007",
+        "canonicalTrialId": "trial_NCT03057977_dup_openalex",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03057977_dup_openalex"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "trial_NCT03036124",
+        "to": "trial_NCT03036124_dup_pubmed",
+        "score": 0.92,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ]
+      }
+    ]
+  }
+}

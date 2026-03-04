@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "pairwise_stress.v1",
+  "createdAt": "2026-02-28T00:00:00Z",
+  "description": "Stress and edge-case benchmark set for Pairwise v2 random-effects engine.",
+  "defaultAlpha": 0.05,
+  "scenarios": [
+    {
+      "scenarioId": "balanced_low_heterogeneity",
+      "description": "Consistent treatment signal with low heterogeneity.",
+      "studies": [
+        { "studyId": "S1", "clusterId": "S1", "yi": -0.18, "vi": 0.035 },
+        { "studyId": "S2", "clusterId": "S2", "yi": -0.22, "vi": 0.041 },
+        { "studyId": "S3", "clusterId": "S3", "yi": -0.16, "vi": 0.033 },
+        { "studyId": "S4", "clusterId": "S4", "yi": -0.25, "vi": 0.052 },
+        { "studyId": "S5", "clusterId": "S5", "yi": -0.19, "vi": 0.038 },
+        { "studyId": "S6", "clusterId": "S6", "yi": -0.21, "vi": 0.044 }
+      ],
+      "expected": {
+        "pooledEstimate": { "min": -0.28, "max": -0.12 },
+        "tau2": { "min": 0, "max": 0.03 },
+        "i2": { "min": 0, "max": 0.4 },
+        "hksjWidth": { "min": 0, "max": 0.35 },
+        "predictionWidth": { "min": 0.05, "max": 0.6 },
+        "robustAvailable": true,
+        "minClusters": 6
+      }
+    },
+    {
+      "scenarioId": "high_heterogeneity_mixed_signal",
+      "description": "Substantial heterogeneity and mixed effect directions.",
+      "studies": [
+        { "studyId": "H1", "clusterId": "H1", "yi": -0.72, "vi": 0.06 },
+        { "studyId": "H2", "clusterId": "H2", "yi": -0.41, "vi": 0.05 },
+        { "studyId": "H3", "clusterId": "H3", "yi": -0.12, "vi": 0.04 },
+        { "studyId": "H4", "clusterId": "H4", "yi": 0.08, "vi": 0.045 },
+        { "studyId": "H5", "clusterId": "H5", "yi": 0.22, "vi": 0.055 },
+        { "studyId": "H6", "clusterId": "H6", "yi": -0.35, "vi": 0.048 }
+      ],
+      "expected": {
+        "pooledEstimate": { "min": -0.4, "max": 0.05 },
+        "tau2": { "min": 0.02, "max": 0.4 },
+        "i2": { "min": 0.45, "max": 0.95 },
+        "hksjWidth": { "min": 0.25, "max": 1.5 },
+        "predictionWidth": { "min": 0.5, "max": 2.5 },
+        "robustAvailable": true,
+        "minClusters": 6
+      }
+    },
+    {
+      "scenarioId": "multi_arm_dependent_effects",
+      "description": "Shared-control style multi-arm structure requiring variance inflation and cluster-robust inference.",
+      "studies": [
+        { "studyId": "M1", "clusterId": "M1", "yi": -0.31, "vi": 0.04 },
+        { "studyId": "M1", "clusterId": "M1", "yi": -0.18, "vi": 0.039 },
+        { "studyId": "M2", "clusterId": "M2", "yi": -0.07, "vi": 0.03 },
+        { "studyId": "M2", "clusterId": "M2", "yi": -0.12, "vi": 0.032 },
+        { "studyId": "M3", "clusterId": "M3", "yi": -0.22, "vi": 0.05 },
+        { "studyId": "M4", "clusterId": "M4", "yi": -0.09, "vi": 0.046 }
+      ],
+      "expected": {
+        "pooledEstimate": { "min": -0.25, "max": -0.02 },
+        "tau2": { "min": 0, "max": 0.15 },
+        "i2": { "min": 0, "max": 0.85 },
+        "hksjWidth": { "min": 0.08, "max": 1.0 },
+        "predictionWidth": { "min": 0.15, "max": 1.8 },
+        "robustAvailable": true,
+        "minClusters": 4,
+        "requireMultiArmFactorAtLeast": 2
+      }
+    },
+    {
+      "scenarioId": "small_k_borderline",
+      "description": "Few-study setting where HKSJ and prediction interval stability matters.",
+      "studies": [
+        { "studyId": "K1", "clusterId": "K1", "yi": -0.27, "vi": 0.07 },
+        { "studyId": "K2", "clusterId": "K2", "yi": -0.03, "vi": 0.06 },
+        { "studyId": "K3", "clusterId": "K3", "yi": -0.19, "vi": 0.065 }
+      ],
+      "expected": {
+        "pooledEstimate": { "min": -0.3, "max": 0.02 },
+        "tau2": { "min": 0, "max": 0.25 },
+        "i2": { "min": 0, "max": 0.9 },
+        "hksjWidth": { "min": 0.05, "max": 2.2 },
+        "predictionWidth": { "min": 0.1, "max": 3.5 },
+        "robustAvailable": true,
+        "minClusters": 3
+      }
+    }
+  ]
+}

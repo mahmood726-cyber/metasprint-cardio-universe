@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-02-28T21:30:33.483Z",
+  "sourceFixture": "reports\\benchmarks\\packs\\v2\\pairwise_stress.v1.json",
+  "schemaVersion": "pairwise_stress.v1",
+  "scenarioCount": 4,
+  "passedScenarioCount": 4,
+  "passRateScenarios": 1,
+  "checkCount": 33,
+  "passedCheckCount": 33,
+  "passRateChecks": 1,
+  "status": "passed",
+  "note": "Pairwise v2 benchmark validates REML/HKSJ/prediction interval and dependent-effects handling."
+}

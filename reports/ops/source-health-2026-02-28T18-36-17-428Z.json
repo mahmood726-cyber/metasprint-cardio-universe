@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-02-28T18:36:17.428Z",
+  "options": {
+    "sources": [
+      "sample"
+    ],
+    "strictSources": true,
+    "simulateOutage": [
+      "sample"
+    ],
+    "connectorPolicy": {
+      "timeoutMs": 15000,
+      "maxAttempts": 3,
+      "baseDelayMs": 250
+    }
+  },
+  "summary": {
+    "totalSources": 1,
+    "okSources": 0,
+    "emptySources": 0,
+    "failedSources": 1,
+    "strictStatus": "failed"
+  },
+  "warnings": [
+    "source sample [simulated_outage]: sample simulated outage"
+  ],
+  "sources": [
+    {
+      "source": "sample",
+      "status": "failed",
+      "recordCount": 0,
+      "durationMs": 1,
+      "attempts": 1,
+      "statusCode": 0,
+      "failureClass": "simulated_outage",
+      "retryable": false,
+      "message": "sample simulated outage",
+      "simulated": true,
+      "checkedAt": "2026-02-28T18:36:17.426Z"
+    }
+  ]
+}

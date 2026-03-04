@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-02-28T20:39:42.200Z",
+  "items": [
+    {
+      "termType": "endpoint",
+      "term": "frailty adjusted composite",
+      "normalizedTerm": "frailty adjusted composite",
+      "frequency": 1,
+      "packIds": [
+        "antithrombotic_af_stroke"
+      ],
+      "entityIds": [
+        "entity_af_002"
+      ],
+      "suggestedAction": "review_ontology_dictionary"
+    },
+    {
+      "termType": "intervention",
+      "term": "factor xi inhibitor",
+      "normalizedTerm": "factor xi inhibitor",
+      "frequency": 1,
+      "packIds": [
+        "antithrombotic_af_stroke"
+      ],
+      "entityIds": [
+        "entity_af_002"
+      ],
+      "suggestedAction": "review_ontology_dictionary"
+    }
+  ]
+}

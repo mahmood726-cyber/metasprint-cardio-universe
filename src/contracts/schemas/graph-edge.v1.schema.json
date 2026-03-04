@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metasprint.dev/schemas/graph-edge.v1.json",
+  "title": "GraphEdgeV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "edgeId",
+    "fromEntityId",
+    "toEntityId",
+    "relationType",
+    "evidenceRefs",
+    "confidenceClass",
+    "provenanceRef",
+    "timestamps"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "graph_edge.v1" },
+    "edgeId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,140}$" },
+    "fromEntityId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,140}$" },
+    "toEntityId": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,140}$" },
+    "relationType": {
+      "type": "string",
+      "enum": [
+        "reports",
+        "evaluates",
+        "targets",
+        "measures",
+        "belongs_to",
+        "maps_to",
+        "supports",
+        "contradicts"
+      ]
+    },
+    "weight": { "type": "number", "minimum": 0, "maximum": 1 },
+    "directed": { "type": "boolean", "default": true },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,140}$" }
+    },
+    "confidenceClass": {
+      "type": "string",
+      "enum": ["high", "moderate", "low", "very_low"]
+    },
+    "provenanceRef": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,120}$" },
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["createdAt", "updatedAt"],
+      "properties": {
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

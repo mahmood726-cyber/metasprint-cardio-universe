@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "graph_dataset.v1",
+  "datasetId": "dataset_cardio_graph_20260302",
+  "generatedAt": "2026-03-02T08:00:00Z",
+  "snapshotId": "snapshot_20260302_080000",
+  "pipelineVersion": "graph-pipeline.1.0.0",
+  "entities": [
+    {
+      "schemaVersion": "graph_entity.v1",
+      "entityId": "entity_trial_NCT03036124",
+      "entityType": "trial",
+      "label": "DAPA-HF",
+      "canonicalCode": "NCT03036124",
+      "sourceRefs": ["trial_NCT03036124"],
+      "attributes": {
+        "subcategoryId": "hf"
+      },
+      "provenanceRef": "prov_graph_20260302",
+      "timestamps": {
+        "createdAt": "2026-03-02T08:00:00Z",
+        "updatedAt": "2026-03-02T08:00:00Z"
+      }
+    },
+    {
+      "schemaVersion": "graph_entity.v1",
+      "entityId": "entity_endpoint_hf_hosp",
+      "entityType": "endpoint",
+      "label": "Heart failure hospitalization",
+      "canonicalCode": "endpoint:hf_hosp",
+      "sourceRefs": ["trial_NCT03036124"],
+      "provenanceRef": "prov_graph_20260302",
+      "timestamps": {
+        "createdAt": "2026-03-02T08:00:00Z",
+        "updatedAt": "2026-03-02T08:00:00Z"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "schemaVersion": "graph_edge.v1",
+      "edgeId": "edge_trial_outcome_0001",
+      "fromEntityId": "entity_trial_NCT03036124",
+      "toEntityId": "entity_endpoint_hf_hosp",
+      "relationType": "measures",
+      "weight": 0.96,
+      "directed": true,
+      "evidenceRefs": ["trial_NCT03036124"],
+      "confidenceClass": "high",
+      "provenanceRef": "prov_graph_20260302",
+      "timestamps": {
+        "createdAt": "2026-03-02T08:00:00Z",
+        "updatedAt": "2026-03-02T08:00:00Z"
+      }
+    }
+  ],
+  "metadata": {
+    "domain": "cardio"
+  }
+}

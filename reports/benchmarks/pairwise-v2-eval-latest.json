@@ -1,0 +1,656 @@
+{
+  "generatedAt": "2026-02-28T21:30:33.483Z",
+  "summary": {
+    "generatedAt": "2026-02-28T21:30:33.483Z",
+    "sourceFixture": "reports\\benchmarks\\packs\\v2\\pairwise_stress.v1.json",
+    "schemaVersion": "pairwise_stress.v1",
+    "scenarioCount": 4,
+    "passedScenarioCount": 4,
+    "passRateScenarios": 1,
+    "checkCount": 33,
+    "passedCheckCount": 33,
+    "passRateChecks": 1,
+    "status": "passed",
+    "note": "Pairwise v2 benchmark validates REML/HKSJ/prediction interval and dependent-effects handling."
+  },
+  "details": [
+    {
+      "scenarioId": "balanced_low_heterogeneity",
+      "description": "Consistent treatment signal with low heterogeneity.",
+      "alpha": 0.05,
+      "passed": true,
+      "checks": [
+        {
+          "check": "pooled_estimate",
+          "expected": {
+            "min": -0.28,
+            "max": -0.12
+          },
+          "actual": -0.197558,
+          "passed": true
+        },
+        {
+          "check": "tau2",
+          "expected": {
+            "min": 0,
+            "max": 0.03
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "i2",
+          "expected": {
+            "min": 0,
+            "max": 0.4
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "hksj_width",
+          "expected": {
+            "min": 0,
+            "max": 0.35
+          },
+          "actual": 0.065098,
+          "passed": true
+        },
+        {
+          "check": "prediction_width",
+          "expected": {
+            "min": 0.05,
+            "max": 0.6
+          },
+          "actual": 0.449935,
+          "passed": true
+        },
+        {
+          "check": "robust_available",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "check": "min_clusters",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "check": "analysis_result_v2_schema",
+          "expected": "valid",
+          "actual": "valid",
+          "passed": true
+        }
+      ],
+      "result": {
+        "schemaVersion": "analysis_result.v2",
+        "model": "random_effects_reml_hksj",
+        "input": {
+          "studyCount": 6,
+          "alpha": 0.05,
+          "multiArmCorrectionApplied": true,
+          "dependentEffectHandling": "cluster_robust_cr1"
+        },
+        "pooled": {
+          "estimate": -0.197558,
+          "seClassic": 0.081234,
+          "seHksj": 0.012676,
+          "ciHksj": {
+            "lower": -0.230107,
+            "upper": -0.165009
+          },
+          "predictionInterval": {
+            "lower": -0.422525,
+            "upper": 0.02741
+          }
+        },
+        "heterogeneity": {
+          "q": 0.121747,
+          "i2": 0,
+          "h2": 0.024349,
+          "tau2": 0,
+          "tau2QProfile": {
+            "lower": 0,
+            "upper": 0
+          }
+        },
+        "robustVariance": {
+          "available": true,
+          "clusters": 6,
+          "seCr1": 0.012486,
+          "ciCr1": {
+            "lower": -0.229618,
+            "upper": -0.165498
+          }
+        },
+        "adjustedStudies": [
+          {
+            "studyId": "S1",
+            "clusterId": "S1",
+            "yi": -0.18,
+            "viOriginal": 0.035,
+            "viAdjusted": 0.035,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "S2",
+            "clusterId": "S2",
+            "yi": -0.22,
+            "viOriginal": 0.041,
+            "viAdjusted": 0.041,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "S3",
+            "clusterId": "S3",
+            "yi": -0.16,
+            "viOriginal": 0.033,
+            "viAdjusted": 0.033,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "S4",
+            "clusterId": "S4",
+            "yi": -0.25,
+            "viOriginal": 0.052,
+            "viAdjusted": 0.052,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "S5",
+            "clusterId": "S5",
+            "yi": -0.19,
+            "viOriginal": 0.038,
+            "viAdjusted": 0.038,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "S6",
+            "clusterId": "S6",
+            "yi": -0.21,
+            "viOriginal": 0.044,
+            "viAdjusted": 0.044,
+            "multiArmFactor": 1
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "scenarioId": "high_heterogeneity_mixed_signal",
+      "description": "Substantial heterogeneity and mixed effect directions.",
+      "alpha": 0.05,
+      "passed": true,
+      "checks": [
+        {
+          "check": "pooled_estimate",
+          "expected": {
+            "min": -0.4,
+            "max": 0.05
+          },
+          "actual": -0.20929,
+          "passed": true
+        },
+        {
+          "check": "tau2",
+          "expected": {
+            "min": 0.02,
+            "max": 0.4
+          },
+          "actual": 0.059325,
+          "passed": true
+        },
+        {
+          "check": "i2",
+          "expected": {
+            "min": 0.45,
+            "max": 0.95
+          },
+          "actual": 0.544077,
+          "passed": true
+        },
+        {
+          "check": "hksj_width",
+          "expected": {
+            "min": 0.25,
+            "max": 1.5
+          },
+          "actual": 0.706867,
+          "passed": true
+        },
+        {
+          "check": "prediction_width",
+          "expected": {
+            "min": 0.5,
+            "max": 2.5
+          },
+          "actual": 1.541183,
+          "passed": true
+        },
+        {
+          "check": "robust_available",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "check": "min_clusters",
+          "expected": 6,
+          "actual": 6,
+          "passed": true
+        },
+        {
+          "check": "analysis_result_v2_schema",
+          "expected": "valid",
+          "actual": "valid",
+          "passed": true
+        }
+      ],
+      "result": {
+        "schemaVersion": "analysis_result.v2",
+        "model": "random_effects_reml_hksj",
+        "input": {
+          "studyCount": 6,
+          "alpha": 0.05,
+          "multiArmCorrectionApplied": true,
+          "dependentEffectHandling": "cluster_robust_cr1"
+        },
+        "pooled": {
+          "estimate": -0.20929,
+          "seClassic": 0.13454,
+          "seHksj": 0.137642,
+          "ciHksj": {
+            "lower": -0.562724,
+            "upper": 0.144143
+          },
+          "predictionInterval": {
+            "lower": -0.979882,
+            "upper": 0.561301
+          }
+        },
+        "heterogeneity": {
+          "q": 10.966768,
+          "i2": 0.544077,
+          "h2": 2.193354,
+          "tau2": 0.059325,
+          "tau2QProfile": {
+            "lower": 0,
+            "upper": 0.692975
+          }
+        },
+        "robustVariance": {
+          "available": true,
+          "clusters": 6,
+          "seCr1": 0.134493,
+          "ciCr1": {
+            "lower": -0.554636,
+            "upper": 0.136055
+          }
+        },
+        "adjustedStudies": [
+          {
+            "studyId": "H1",
+            "clusterId": "H1",
+            "yi": -0.72,
+            "viOriginal": 0.06,
+            "viAdjusted": 0.06,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "H2",
+            "clusterId": "H2",
+            "yi": -0.41,
+            "viOriginal": 0.05,
+            "viAdjusted": 0.05,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "H3",
+            "clusterId": "H3",
+            "yi": -0.12,
+            "viOriginal": 0.04,
+            "viAdjusted": 0.04,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "H4",
+            "clusterId": "H4",
+            "yi": 0.08,
+            "viOriginal": 0.045,
+            "viAdjusted": 0.045,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "H5",
+            "clusterId": "H5",
+            "yi": 0.22,
+            "viOriginal": 0.055,
+            "viAdjusted": 0.055,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "H6",
+            "clusterId": "H6",
+            "yi": -0.35,
+            "viOriginal": 0.048,
+            "viAdjusted": 0.048,
+            "multiArmFactor": 1
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "scenarioId": "multi_arm_dependent_effects",
+      "description": "Shared-control style multi-arm structure requiring variance inflation and cluster-robust inference.",
+      "alpha": 0.05,
+      "passed": true,
+      "checks": [
+        {
+          "check": "pooled_estimate",
+          "expected": {
+            "min": -0.25,
+            "max": -0.02
+          },
+          "actual": -0.156826,
+          "passed": true
+        },
+        {
+          "check": "tau2",
+          "expected": {
+            "min": 0,
+            "max": 0.15
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "i2",
+          "expected": {
+            "min": 0,
+            "max": 0.85
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "hksj_width",
+          "expected": {
+            "min": 0.08,
+            "max": 1
+          },
+          "actual": 0.182,
+          "passed": true
+        },
+        {
+          "check": "prediction_width",
+          "expected": {
+            "min": 0.15,
+            "max": 1.8
+          },
+          "actual": 0.55568,
+          "passed": true
+        },
+        {
+          "check": "robust_available",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "check": "min_clusters",
+          "expected": 4,
+          "actual": 4,
+          "passed": true
+        },
+        {
+          "check": "multi_arm_factor",
+          "expected": 2,
+          "actual": 2,
+          "passed": true
+        },
+        {
+          "check": "analysis_result_v2_schema",
+          "expected": "valid",
+          "actual": "valid",
+          "passed": true
+        }
+      ],
+      "result": {
+        "schemaVersion": "analysis_result.v2",
+        "model": "random_effects_reml_hksj",
+        "input": {
+          "studyCount": 6,
+          "alpha": 0.05,
+          "multiArmCorrectionApplied": true,
+          "dependentEffectHandling": "cluster_robust_cr1"
+        },
+        "pooled": {
+          "estimate": -0.156826,
+          "seClassic": 0.100326,
+          "seHksj": 0.035439,
+          "ciHksj": {
+            "lower": -0.247826,
+            "upper": -0.065826
+          },
+          "predictionInterval": {
+            "lower": -0.434666,
+            "upper": 0.121014
+          }
+        },
+        "heterogeneity": {
+          "q": 0.623899,
+          "i2": 0,
+          "h2": 0.12478,
+          "tau2": 0,
+          "tau2QProfile": {
+            "lower": 0,
+            "upper": 0
+          }
+        },
+        "robustVariance": {
+          "available": true,
+          "clusters": 4,
+          "seCr1": 0.041401,
+          "ciCr1": {
+            "lower": -0.287613,
+            "upper": -0.026039
+          }
+        },
+        "adjustedStudies": [
+          {
+            "studyId": "M1",
+            "clusterId": "M1",
+            "yi": -0.31,
+            "viOriginal": 0.04,
+            "viAdjusted": 0.08,
+            "multiArmFactor": 2
+          },
+          {
+            "studyId": "M1",
+            "clusterId": "M1",
+            "yi": -0.18,
+            "viOriginal": 0.039,
+            "viAdjusted": 0.078,
+            "multiArmFactor": 2
+          },
+          {
+            "studyId": "M2",
+            "clusterId": "M2",
+            "yi": -0.07,
+            "viOriginal": 0.03,
+            "viAdjusted": 0.06,
+            "multiArmFactor": 2
+          },
+          {
+            "studyId": "M2",
+            "clusterId": "M2",
+            "yi": -0.12,
+            "viOriginal": 0.032,
+            "viAdjusted": 0.064,
+            "multiArmFactor": 2
+          },
+          {
+            "studyId": "M3",
+            "clusterId": "M3",
+            "yi": -0.22,
+            "viOriginal": 0.05,
+            "viAdjusted": 0.05,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "M4",
+            "clusterId": "M4",
+            "yi": -0.09,
+            "viOriginal": 0.046,
+            "viAdjusted": 0.046,
+            "multiArmFactor": 1
+          }
+        ]
+      },
+      "error": null
+    },
+    {
+      "scenarioId": "small_k_borderline",
+      "description": "Few-study setting where HKSJ and prediction interval stability matters.",
+      "alpha": 0.05,
+      "passed": true,
+      "checks": [
+        {
+          "check": "pooled_estimate",
+          "expected": {
+            "min": -0.3,
+            "max": 0.02
+          },
+          "actual": -0.157115,
+          "passed": true
+        },
+        {
+          "check": "tau2",
+          "expected": {
+            "min": 0,
+            "max": 0.25
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "i2",
+          "expected": {
+            "min": 0,
+            "max": 0.9
+          },
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "hksj_width",
+          "expected": {
+            "min": 0.05,
+            "max": 2.2
+          },
+          "actual": 0.592827,
+          "passed": true
+        },
+        {
+          "check": "prediction_width",
+          "expected": {
+            "min": 0.1,
+            "max": 3.5
+          },
+          "actual": 2.853063,
+          "passed": true
+        },
+        {
+          "check": "robust_available",
+          "expected": true,
+          "actual": true,
+          "passed": true
+        },
+        {
+          "check": "min_clusters",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "check": "analysis_result_v2_schema",
+          "expected": "valid",
+          "actual": "valid",
+          "passed": true
+        }
+      ],
+      "result": {
+        "schemaVersion": "analysis_result.v2",
+        "model": "random_effects_reml_hksj",
+        "input": {
+          "studyCount": 3,
+          "alpha": 0.05,
+          "multiArmCorrectionApplied": true,
+          "dependentEffectHandling": "cluster_robust_cr1"
+        },
+        "pooled": {
+          "estimate": -0.157115,
+          "seClassic": 0.146905,
+          "seHksj": 0.071062,
+          "ciHksj": {
+            "lower": -0.453528,
+            "upper": 0.139299
+          },
+          "predictionInterval": {
+            "lower": -1.583646,
+            "upper": 1.269417
+          }
+        },
+        "heterogeneity": {
+          "q": 0.467984,
+          "i2": 0,
+          "h2": 0.233992,
+          "tau2": 0,
+          "tau2QProfile": {
+            "lower": 0,
+            "upper": 1.078457
+          }
+        },
+        "robustVariance": {
+          "available": true,
+          "clusters": 3,
+          "seCr1": 0.071633,
+          "ciCr1": {
+            "lower": -0.45591,
+            "upper": 0.141681
+          }
+        },
+        "adjustedStudies": [
+          {
+            "studyId": "K1",
+            "clusterId": "K1",
+            "yi": -0.27,
+            "viOriginal": 0.07,
+            "viAdjusted": 0.07,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "K2",
+            "clusterId": "K2",
+            "yi": -0.03,
+            "viOriginal": 0.06,
+            "viAdjusted": 0.06,
+            "multiArmFactor": 1
+          },
+          {
+            "studyId": "K3",
+            "clusterId": "K3",
+            "yi": -0.19,
+            "viOriginal": 0.065,
+            "viAdjusted": 0.065,
+            "multiArmFactor": 1
+          }
+        ]
+      },
+      "error": null
+    }
+  ]
+}

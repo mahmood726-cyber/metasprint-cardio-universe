@@ -1,0 +1,17 @@
+﻿{
+  "schemaVersion": "trial_record.v1",
+  "trialId": "trial_example_001",
+  "source": "manual",
+  "sourceIds": { "pmid": "12345678" },
+  "title": "Example trial for contract docs",
+  "interventions": [
+    { "rawName": "Example drug", "normalizedName": "example_drug", "classId": "example", "isComparator": false }
+  ],
+  "primaryOutcomes": [
+    { "rawText": "Example outcome", "normalizedOutcomeId": "example_outcome", "domain": "other" }
+  ],
+  "enrollment": 200,
+  "randomized": true,
+  "subcategoryId": "general",
+  "timestamps": { "createdAt": "2026-02-28T00:00:00Z", "updatedAt": "2026-02-28T00:00:00Z" }
+}

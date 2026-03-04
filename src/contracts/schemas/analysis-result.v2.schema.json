@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metasprint.dev/schemas/analysis-result.v2.json",
+  "title": "AnalysisResultV2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "model",
+    "input",
+    "pooled",
+    "heterogeneity",
+    "robustVariance",
+    "adjustedStudies"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "analysis_result.v2" },
+    "model": { "type": "string", "minLength": 1 },
+    "input": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "studyCount",
+        "alpha",
+        "multiArmCorrectionApplied",
+        "dependentEffectHandling"
+      ],
+      "properties": {
+        "studyCount": { "type": "integer", "minimum": 1 },
+        "alpha": { "type": "number", "exclusiveMinimum": 0, "exclusiveMaximum": 1 },
+        "multiArmCorrectionApplied": { "type": "boolean" },
+        "dependentEffectHandling": { "type": "string", "minLength": 1 }
+      }
+    },
+    "pooled": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["estimate", "seClassic", "seHksj", "ciHksj", "predictionInterval"],
+      "properties": {
+        "estimate": { "type": "number" },
+        "seClassic": { "type": "number", "minimum": 0 },
+        "seHksj": { "type": "number", "minimum": 0 },
+        "ciHksj": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lower", "upper"],
+          "properties": {
+            "lower": { "type": "number" },
+            "upper": { "type": "number" }
+          }
+        },
+        "predictionInterval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lower", "upper"],
+          "properties": {
+            "lower": { "type": "number" },
+            "upper": { "type": "number" }
+          }
+        }
+      }
+    },
+    "heterogeneity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["q", "i2", "h2", "tau2", "tau2QProfile"],
+      "properties": {
+        "q": { "type": "number", "minimum": 0 },
+        "i2": { "type": "number", "minimum": 0 },
+        "h2": { "type": "number", "minimum": 0 },
+        "tau2": { "type": "number", "minimum": 0 },
+        "tau2QProfile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["lower", "upper"],
+          "properties": {
+            "lower": { "type": ["number", "null"], "minimum": 0 },
+            "upper": { "type": ["number", "null"], "minimum": 0 }
+          }
+        }
+      }
+    },
+    "robustVariance": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["available", "reason"],
+          "properties": {
+            "available": { "const": false },
+            "reason": { "type": "string", "minLength": 1 }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["available", "clusters", "seCr1", "ciCr1"],
+          "properties": {
+            "available": { "const": true },
+            "clusters": { "type": "integer", "minimum": 2 },
+            "seCr1": { "type": "number", "minimum": 0 },
+            "ciCr1": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["lower", "upper"],
+              "properties": {
+                "lower": { "type": "number" },
+                "upper": { "type": "number" }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "adjustedStudies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "studyId",
+          "clusterId",
+          "yi",
+          "viOriginal",
+          "viAdjusted",
+          "multiArmFactor"
+        ],
+        "properties": {
+          "studyId": { "type": "string", "minLength": 1 },
+          "clusterId": { "type": "string", "minLength": 1 },
+          "yi": { "type": "number" },
+          "viOriginal": { "type": "number", "exclusiveMinimum": 0 },
+          "viAdjusted": { "type": "number", "exclusiveMinimum": 0 },
+          "multiArmFactor": { "type": "integer", "minimum": 1 }
+        }
+      }
+    }
+  }
+}

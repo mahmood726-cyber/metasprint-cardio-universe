@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-02-28T19:08:33.654Z",
+  "options": {
+    "sources": [
+      "sample"
+    ],
+    "strictSources": false,
+    "simulateOutage": [],
+    "connectorPolicy": {
+      "timeoutMs": 15000,
+      "maxAttempts": 3,
+      "baseDelayMs": 250
+    }
+  },
+  "summary": {
+    "totalSources": 1,
+    "okSources": 1,
+    "emptySources": 0,
+    "failedSources": 0,
+    "strictStatus": "passed"
+  },
+  "warnings": [],
+  "sources": [
+    {
+      "source": "sample",
+      "status": "ok",
+      "recordCount": 6,
+      "durationMs": 0,
+      "attempts": 1,
+      "statusCode": null,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T19:08:33.653Z"
+    }
+  ]
+}

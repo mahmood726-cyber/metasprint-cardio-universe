@@ -1,0 +1,24 @@
+﻿{
+  "schemaVersion": "provenance.v1",
+  "provenanceId": "prov_bad_001",
+  "generatedAt": "2026-02-28T12:35:00Z",
+  "pipelineVersion": "0.1.0",
+  "sourceSnapshots": [
+    {
+      "source": "ctgov",
+      "extractedAt": "2026-02-28T11:00:00Z",
+      "endpoint": "https://clinicaltrials.gov/api/v2/studies",
+      "queryHash": "a3b17d0c5f924a2f",
+      "recordCount": 123
+    }
+  ],
+  "transformations": [],
+  "metricDerivations": [
+    {
+      "metricId": "opportunity_total",
+      "formula": "x+y",
+      "inputs": ["x", "y"],
+      "output": "z"
+    }
+  ]
+}

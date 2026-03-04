@@ -1,0 +1,418 @@
+{
+  "generatedAt": "2026-02-28T14:02:35.759Z",
+  "options": {
+    "sources": [
+      "sample"
+    ],
+    "limit": 50,
+    "threshold": 0.85,
+    "reviewMin": 0.6,
+    "synthetic": true,
+    "overridesPath": "reports/dedup/overrides.json"
+  },
+  "warnings": [],
+  "overrides": {
+    "forceMerge": [],
+    "forceSplit": []
+  },
+  "summary": {
+    "recordCount": 8,
+    "edgeCount": 1,
+    "clusterCount": 7,
+    "duplicateClusterCount": 1,
+    "reviewQueueCount": 1,
+    "multiSourceClusters": 1
+  },
+  "graph": {
+    "generatedAt": "2026-02-28T14:02:35.756Z",
+    "threshold": 0.85,
+    "reviewMin": 0.6,
+    "recordCount": 8,
+    "edgeCount": 1,
+    "clusterCount": 7,
+    "duplicateClusterCount": 1,
+    "reviewQueueCount": 1,
+    "overrideStats": {
+      "forceMergeRules": 0,
+      "forceSplitRules": 0,
+      "appliedForceMerge": 0,
+      "appliedForceSplit": 0
+    },
+    "clusters": [
+      {
+        "clusterId": "cluster_0001",
+        "canonicalTrialId": "trial_NCT03036124",
+        "memberCount": 2,
+        "members": [
+          "trial_NCT03036124",
+          "trial_NCT03036124_dup_pubmed"
+        ],
+        "sources": [
+          "ctgov",
+          "pubmed"
+        ],
+        "maxEdgeScore": 0.92,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ]
+      },
+      {
+        "clusterId": "cluster_0002",
+        "canonicalTrialId": "trial_NCT03057977",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03057977"
+        ],
+        "sources": [
+          "aact"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0003",
+        "canonicalTrialId": "trial_NCT03619213",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03619213"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0004",
+        "canonicalTrialId": "trial_NCT03057951",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03057951"
+        ],
+        "sources": [
+          "aact"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0005",
+        "canonicalTrialId": "trial_NCT02465515",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT02465515"
+        ],
+        "sources": [
+          "pubmed"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0006",
+        "canonicalTrialId": "trial_NCT03521934",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03521934"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0007",
+        "canonicalTrialId": "trial_NCT03057977_dup_openalex",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03057977_dup_openalex"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "trial_NCT03036124",
+        "to": "trial_NCT03036124_dup_pubmed",
+        "score": 0.92,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ],
+        "mode": "auto"
+      }
+    ],
+    "reviewQueue": [
+      {
+        "pairId": "trial_NCT03057977::trial_NCT03057977_dup_openalex",
+        "leftTrialId": "trial_NCT03057977",
+        "rightTrialId": "trial_NCT03057977_dup_openalex",
+        "leftSource": "aact",
+        "rightSource": "openalex",
+        "leftTitle": "Cardiovascular and renal outcomes with empagliflozin in heart failure",
+        "rightTitle": "Empagliflozin cardiovascular and renal outcomes in heart-failure cohorts",
+        "score": 0.62,
+        "reasons": [
+          "title_similarity_moderate",
+          "year_alignment",
+          "subcategory_alignment"
+        ],
+        "status": "pending",
+        "overrideDecision": null,
+        "overrideReason": null,
+        "overrideReviewer": null,
+        "overrideDecidedAt": null,
+        "recommendedDecision": "force_split"
+      }
+    ]
+  },
+  "provenance": {
+    "generatedAt": "2026-02-28T14:02:35.759Z",
+    "clusterCount": 7,
+    "memberCount": 8,
+    "multiSourceClusterCount": 1,
+    "averageCompleteness": 0.59,
+    "clusters": [
+      {
+        "clusterId": "cluster_0001",
+        "canonicalTrialId": "trial_NCT03036124",
+        "memberCount": 2,
+        "sourceCount": 2,
+        "maxEdgeScore": 0.92,
+        "matchReasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ],
+        "provenanceCompleteness": 0.7,
+        "members": [
+          {
+            "trialId": "trial_NCT03036124",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03036124",
+            "pmid": null,
+            "doi": null,
+            "title": "Dapagliflozin and prevention of adverse outcomes in heart failure",
+            "year": 2019,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03036124",
+                "url": "https://clinicaltrials.gov/study/NCT03036124"
+              }
+            ],
+            "completeness": 0.6
+          },
+          {
+            "trialId": "trial_NCT03036124_dup_pubmed",
+            "source": "pubmed",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "39999001",
+            "doi": "10.9999/synthetic.duplicate.001",
+            "title": "Dapagliflozin and prevention of adverse outcomes in heart failure",
+            "year": 2019,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 39999001",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/39999001/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.9999/synthetic.duplicate.001",
+                "url": "https://doi.org/10.9999/synthetic.duplicate.001"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0002",
+        "canonicalTrialId": "trial_NCT03057977",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03057977",
+            "source": "aact",
+            "sourceType": "trial",
+            "nctId": "NCT03057977",
+            "pmid": null,
+            "doi": null,
+            "title": "Cardiovascular and renal outcomes with empagliflozin in heart failure",
+            "year": 2020,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03057977",
+                "url": "https://clinicaltrials.gov/study/NCT03057977"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0003",
+        "canonicalTrialId": "trial_NCT03619213",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03619213",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03619213",
+            "pmid": null,
+            "doi": null,
+            "title": "Dapagliflozin in heart failure with mildly reduced or preserved ejection fraction",
+            "year": 2022,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03619213",
+                "url": "https://clinicaltrials.gov/study/NCT03619213"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0004",
+        "canonicalTrialId": "trial_NCT03057951",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03057951",
+            "source": "aact",
+            "sourceType": "trial",
+            "nctId": "NCT03057951",
+            "pmid": null,
+            "doi": null,
+            "title": "Empagliflozin outcome trial in patients with chronic heart failure with preserved EF",
+            "year": 2021,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03057951",
+                "url": "https://clinicaltrials.gov/study/NCT03057951"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0005",
+        "canonicalTrialId": "trial_NCT02465515",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT02465515",
+            "source": "pubmed",
+            "sourceType": "trial",
+            "nctId": "NCT02465515",
+            "pmid": null,
+            "doi": null,
+            "title": "Apixaban for reduction in stroke in AF patients with CKD subgroup analysis",
+            "year": 2018,
+            "subcategoryId": "af",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT02465515",
+                "url": "https://clinicaltrials.gov/study/NCT02465515"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0006",
+        "canonicalTrialId": "trial_NCT03521934",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03521934",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03521934",
+            "pmid": null,
+            "doi": null,
+            "title": "Sotagliflozin in patients with diabetes and worsening heart failure",
+            "year": 2021,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03521934",
+                "url": "https://clinicaltrials.gov/study/NCT03521934"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0007",
+        "canonicalTrialId": "trial_NCT03057977_dup_openalex",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.4,
+        "members": [
+          {
+            "trialId": "trial_NCT03057977_dup_openalex",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": null,
+            "doi": null,
+            "title": "Empagliflozin cardiovascular and renal outcomes in heart-failure cohorts",
+            "year": 2020,
+            "subcategoryId": "hf",
+            "links": [],
+            "completeness": 0.4
+          }
+        ]
+      }
+    ]
+  }
+}

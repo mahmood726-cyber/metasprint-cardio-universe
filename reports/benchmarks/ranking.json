@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-03-01T12:32:44.913Z",
+  "sourceFixture": "reports\\benchmarks\\packs\\v1\\ranking_judgments.v1.json",
+  "proxy": false,
+  "judgedOpportunityCount": 26,
+  "topK": 20,
+  "relevantThreshold": 2,
+  "relevantInTopK": 20,
+  "opportunityPrecisionAt20": 1,
+  "ndcgAt20": 0.9984,
+  "note": "Non-proxy ranking metrics computed from blinded relevance judgments fixture."
+}

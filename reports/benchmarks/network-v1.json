@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-02-28T21:30:38.444Z",
+  "sourceFixture": "reports\\benchmarks\\packs\\v2\\network_nma.v1.json",
+  "schemaVersion": "network_nma.v1",
+  "scenarioCount": 2,
+  "passedScenarioCount": 2,
+  "passRateScenarios": 1,
+  "checkCount": 35,
+  "passedCheckCount": 35,
+  "passRateChecks": 1,
+  "robNmaCoverage": 1,
+  "robNmaJudgementCounts": {
+    "low": 0,
+    "some_concerns": 2,
+    "high": 0
+  },
+  "overallRobNmaJudgement": "some_concerns",
+  "status": "passed",
+  "note": "Network v1 benchmark validates NMA estimation, inconsistency diagnostics, rank uncertainty, and RoB NMA outputs."
+}

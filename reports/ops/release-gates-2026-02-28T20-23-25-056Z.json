@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-02-28T20:23:25.056Z",
+  "summary": {
+    "total": 2,
+    "executed": 2,
+    "passed": 2,
+    "failed": 0,
+    "status": "passed"
+  },
+  "gates": [
+    {
+      "id": "phase1",
+      "script": "verify:phase1",
+      "exitCode": 0,
+      "durationMs": 11005,
+      "status": "passed",
+      "error": null
+    },
+    {
+      "id": "resilience",
+      "script": "ops:resilience-check",
+      "exitCode": 0,
+      "durationMs": 1733,
+      "status": "passed",
+      "error": null
+    }
+  ]
+}

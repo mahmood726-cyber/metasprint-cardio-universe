@@ -1,0 +1,193 @@
+{
+  "generatedAt": "2026-02-28T20:23:54.297Z",
+  "scope": "Lancet-tier publication readiness for cardio discovery platform",
+  "overallStatus": "ready_for_submission",
+  "score": {
+    "passed": 9,
+    "total": 9,
+    "percent": 100
+  },
+  "gates": [
+    {
+      "id": "ingestion_recall",
+      "label": "Benchmark ingestion recall",
+      "target": ">= 95%",
+      "actual": "100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\ingestion-live.json",
+      "note": "Live ctgov benchmark lookup is active for expected trial IDs."
+    },
+    {
+      "id": "living_certainty_drift_control",
+      "label": "Certainty crosswalk and living drift control",
+      "target": "certainty_crosswalk=passed, living_drift in [passed, baseline_established]",
+      "actual": "certainty_crosswalk=passed; living_drift=passed",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\benchmarks\\certainty-crosswalk.json; reports\\ops\\living-drift-latest.json",
+      "note": "Cross-framework certainty disagreement and living-update drift must be monitored each cycle."
+    },
+    {
+      "id": "advanced_stats_bias_robustness",
+      "label": "Advanced statistics and bias robustness suite",
+      "target": "pairwise=passed, bias=passed, network=passed, ROB-ME coverage>=100%, RoB NMA coverage>=100%",
+      "actual": "pairwise=passed; bias=passed; network=passed; ROB-ME coverage=100%; RoB NMA coverage=100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\pairwise-v2.json; reports\\benchmarks\\bias-sensitivity.json; reports\\benchmarks\\network-v1.json",
+      "note": "Phase-A/Phase-B/Phase-C advanced statistics and missing-evidence robustness must pass before submission lock."
+    },
+    {
+      "id": "ranking_non_proxy",
+      "label": "Ranking quality measured from non-proxy benchmark judgments",
+      "target": "precision@20 >= 90%, ndcg@20 >= 82%, proxy=false",
+      "actual": "precision@20=100%; ndcg@20=99.84%; proxy=false",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\ranking.json",
+      "note": "Proxy metrics are insufficient for top-tier editorial claims."
+    },
+    {
+      "id": "provenance_completeness",
+      "label": "Provenance completeness",
+      "target": ">= 100%",
+      "actual": "100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\dedup\\provenance-latest.json",
+      "note": "Lancet-level trust requires complete traceability for displayed evidence."
+    },
+    {
+      "id": "ontology_coverage",
+      "label": "Ontology mapping coverage",
+      "target": ">= 95%",
+      "actual": "96.67%",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ontology\\coverage-latest.json",
+      "note": "Unknown-term queue must be actively adjudicated each cycle."
+    },
+    {
+      "id": "release_gates",
+      "label": "Release gate health",
+      "target": "status=passed",
+      "actual": "passed",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ops\\release-gates-latest.json",
+      "note": "Includes phase verification and strict outage/recovery checks."
+    },
+    {
+      "id": "source_breadth",
+      "label": "Strict live-source breadth",
+      "target": "strictStatus=passed, failedSources=0, okSources>=4",
+      "actual": "strictStatus=passed; okSources=5; failedSources=0",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ops\\source-health-live-latest.json",
+      "note": "Sample-only runs are not sufficient for editorial-grade external validity."
+    },
+    {
+      "id": "methodologist_adoption",
+      "label": "Methodologist switch gate",
+      "target": "2 consecutive cycles with switch_now>=11 out of 12",
+      "actual": "2/2 consecutive cycles passed; latest=11/12",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\review-cycles\\cycle_001-summary.json; reports\\review-cycles\\cycle_002-summary.json",
+      "note": "Consecutive-cycle pass is required for submission-level confidence."
+    }
+  ],
+  "blockers": [],
+  "adoptionWindow": [
+    {
+      "cycleId": "cycle_001",
+      "switchNow": 11,
+      "totalReviewers": 12,
+      "passed": true,
+      "summaryPath": "reports\\review-cycles\\cycle_001-summary.json"
+    },
+    {
+      "cycleId": "cycle_002",
+      "switchNow": 11,
+      "totalReviewers": 12,
+      "passed": true,
+      "summaryPath": "reports\\review-cycles\\cycle_002-summary.json"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ingestion",
+      "file": "reports\\benchmarks\\ingestion.json",
+      "exists": true,
+      "sha256": "1201664348f0c76d1c603e83f5f99aabcbc0de6c34d66bb664020c002e85b422"
+    },
+    {
+      "id": "ingestionLive",
+      "file": "reports\\benchmarks\\ingestion-live.json",
+      "exists": true,
+      "sha256": "b63a19b9e4422dad572a25acba192e12f0251eab472ff532d75bd667efee0c61"
+    },
+    {
+      "id": "ranking",
+      "file": "reports\\benchmarks\\ranking.json",
+      "exists": true,
+      "sha256": "bc6d77969ffe4ddbe8cacd1308e6e8f61b7e215479fe77ca25a457f69368df3e"
+    },
+    {
+      "id": "pairwiseV2",
+      "file": "reports\\benchmarks\\pairwise-v2.json",
+      "exists": true,
+      "sha256": "ee565775e1072714c65e69d511527cac1b6c7dd8f421469d87f20d63503481d0"
+    },
+    {
+      "id": "biasSensitivity",
+      "file": "reports\\benchmarks\\bias-sensitivity.json",
+      "exists": true,
+      "sha256": "9d98519ede3b1dd734fb8db3a8c951a820e7ee2f04096e4ec32be10391123ea7"
+    },
+    {
+      "id": "networkV1",
+      "file": "reports\\benchmarks\\network-v1.json",
+      "exists": true,
+      "sha256": "a9ae7cc7c8c6d47caa553785cb087b71f9297058d980b86aa9648f20da8797c1"
+    },
+    {
+      "id": "certaintyCrosswalk",
+      "file": "reports\\benchmarks\\certainty-crosswalk.json",
+      "exists": true,
+      "sha256": "f6e029529b1ea8b32223fb64ec5e8821511777ba443ddf49bc996a2bbabd656a"
+    },
+    {
+      "id": "livingDrift",
+      "file": "reports\\ops\\living-drift-latest.json",
+      "exists": true,
+      "sha256": "0ca57c71abc83ebbbda546600f5e38f5064fbff287fb00d0267928a5ca29b09c"
+    },
+    {
+      "id": "provenance",
+      "file": "reports\\dedup\\provenance-latest.json",
+      "exists": true,
+      "sha256": "a913d2e4da58bf27e4587fae02ad405e88f94192a8d647b5e071a96591f68b37"
+    },
+    {
+      "id": "ontology",
+      "file": "reports\\ontology\\coverage-latest.json",
+      "exists": true,
+      "sha256": "31cb01f82262db6745a2f1812fcc1b36c41e9bea09b13ed500f983a43d65b915"
+    },
+    {
+      "id": "releaseGates",
+      "file": "reports\\ops\\release-gates-latest.json",
+      "exists": true,
+      "sha256": "7c7751cf28ba5bb9031de5a90a16bc012d76ca48f58ddf56c9de853b29846d1a"
+    },
+    {
+      "id": "sourceHealth",
+      "file": "reports\\ops\\source-health-live-latest.json",
+      "exists": true,
+      "sha256": "045e721f9e2ee76f396e5aa5f305e31534e9fbaad0f31d5a2c58f0ac699fa9c8"
+    }
+  ]
+}

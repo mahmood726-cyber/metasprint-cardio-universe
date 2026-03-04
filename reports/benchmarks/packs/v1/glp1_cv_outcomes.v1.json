@@ -1,0 +1,22 @@
+{
+  "packId": "glp1_cv_outcomes",
+  "version": "1.0.0",
+  "description": "GLP-1 receptor agonist cardiovascular outcomes trial reference set.",
+  "expectedTrialIds": [
+    "NCT01179048",
+    "NCT01720446",
+    "NCT01394952",
+    "NCT01627483",
+    "NCT02692716"
+  ],
+  "expectedPublicationIds": [
+    "PMID27295427",
+    "PMID28910237",
+    "PMID30354521"
+  ],
+  "tags": [
+    "atherosclerosis",
+    "diabetes",
+    "glp1"
+  ]
+}

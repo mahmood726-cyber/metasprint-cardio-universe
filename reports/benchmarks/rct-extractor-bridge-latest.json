@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2026-02-28T19:08:05.980Z",
+  "source": {
+    "rctRoot": "C:/Users/user/rct-extractor-v2",
+    "seedPath": "C:\\Users\\user\\rct-extractor-v2\\data\\benchmarks\\cardiology_meta_linked_ahmad_m_trials_v3b_reextract_pdfpick_20260225\\model_seed_adjudicator_only.jsonl"
+  },
+  "input": {
+    "parsedRows": 127,
+    "parseErrors": []
+  },
+  "coverage": {
+    "extractedRows": 116,
+    "noExtractionRows": 11,
+    "extractedPct": 91.34,
+    "withPmidRows": 127,
+    "withPmcidRows": 82,
+    "withLinkedMetaRows": 127,
+    "withSourceTextRows": 116,
+    "withEffectTypeRows": 116
+  },
+  "distributions": {
+    "automationTierCounts": {
+      "full_auto": 38,
+      "manual": 78,
+      "unknown": 11
+    },
+    "effectTypeCounts": {
+      "HR": 26,
+      "MD": 75,
+      "OR": 13,
+      "RR": 2
+    },
+    "confidence": {
+      "count": 127,
+      "min": 0,
+      "max": 0.99,
+      "mean": 0.577047,
+      "median": 0.455
+    }
+  },
+  "identifiers": {
+    "trialPmidsCount": 127,
+    "linkedMetaPmidsCount": 24,
+    "expectedPublicationIdsCount": 151,
+    "candidateTrialIdsFromTextCount": 1
+  },
+  "topLinkedMetaPmids": [
+    {
+      "pmid": "PMID38828867",
+      "count": 24
+    },
+    {
+      "pmid": "PMID30950507",
+      "count": 14
+    },
+    {
+      "pmid": "PMID40955256",
+      "count": 12
+    },
+    {
+      "pmid": "PMID38982996",
+      "count": 7
+    },
+    {
+      "pmid": "PMID40468584",
+      "count": 7
+    },
+    {
+      "pmid": "PMID36915032",
+      "count": 6
+    },
+    {
+      "pmid": "PMID40642671",
+      "count": 6
+    },
+    {
+      "pmid": "PMID40761959",
+      "count": 6
+    },
+    {
+      "pmid": "PMID40918811",
+      "count": 6
+    },
+    {
+      "pmid": "PMID35919128",
+      "count": 5
+    },
+    {
+      "pmid": "PMID39312290",
+      "count": 5
+    },
+    {
+      "pmid": "PMID39175848",
+      "count": 4
+    },
+    {
+      "pmid": "PMID40800680",
+      "count": 4
+    },
+    {
+      "pmid": "PMID40834158",
+      "count": 4
+    },
+    {
+      "pmid": "PMID40991241",
+      "count": 4
+    },
+    {
+      "pmid": "PMID41149262",
+      "count": 4
+    },
+    {
+      "pmid": "PMID38646329",
+      "count": 3
+    },
+    {
+      "pmid": "PMID38681969",
+      "count": 3
+    },
+    {
+      "pmid": "PMID40726194",
+      "count": 3
+    },
+    {
+      "pmid": "PMID39276199",
+      "count": 2
+    }
+  ],
+  "outputs": {
+    "packPath": "C:\\Users\\user\\Downloads\\metasprint-cardio-universe\\reports\\benchmarks\\packs\\v1\\rct_extractor_publications.v1.json",
+    "summaryPath": "C:\\Users\\user\\Downloads\\metasprint-cardio-universe\\reports\\benchmarks\\rct-extractor-bridge-latest.json"
+  }
+}

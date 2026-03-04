@@ -1,0 +1,21 @@
+﻿{
+  "schemaVersion": "cluster.v1",
+  "clusterId": "cluster_bad_001",
+  "subcategoryId": "hf",
+  "outcomeId": "cv_death",
+  "effectMeasure": "HR",
+  "trialIds": ["trial_only_one"],
+  "scoreBreakdown": {
+    "evidenceGap": 60,
+    "freshness": 70,
+    "feasibility": 80,
+    "uncertaintyPenalty": 20,
+    "guidelineRelevance": 90,
+    "total": 75
+  },
+  "provenanceRef": "prov_2026_bad",
+  "refresh": {
+    "refreshedAt": "2026-02-28T12:30:00Z",
+    "snapshotId": "snap_bad_001"
+  }
+}

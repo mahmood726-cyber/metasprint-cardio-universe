@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-02-28T16:01:45.272Z",
+  "options": {
+    "sources": [
+      "sample",
+      "ctgov",
+      "pubmed",
+      "openalex",
+      "europepmc"
+    ],
+    "strictSources": true,
+    "simulateOutage": [],
+    "connectorPolicy": {
+      "timeoutMs": 15000,
+      "maxAttempts": 3,
+      "baseDelayMs": 250
+    }
+  },
+  "summary": {
+    "totalSources": 5,
+    "okSources": 5,
+    "emptySources": 0,
+    "failedSources": 0,
+    "strictStatus": "passed"
+  },
+  "warnings": [],
+  "sources": [
+    {
+      "source": "sample",
+      "status": "ok",
+      "recordCount": 6,
+      "durationMs": 0,
+      "attempts": 1,
+      "statusCode": null,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T16:01:40.207Z"
+    },
+    {
+      "source": "ctgov",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 1426,
+      "attempts": 1,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T16:01:41.634Z"
+    },
+    {
+      "source": "pubmed",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 1296,
+      "attempts": 2,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T16:01:42.930Z"
+    },
+    {
+      "source": "openalex",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 1697,
+      "attempts": 1,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T16:01:44.627Z"
+    },
+    {
+      "source": "europepmc",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 644,
+      "attempts": 1,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T16:01:45.271Z"
+    }
+  ]
+}

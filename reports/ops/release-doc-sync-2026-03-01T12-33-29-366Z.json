@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-03-01T12:33:29.366Z",
+  "status": "passed",
+  "manifest": {
+    "path": "docs\\operations\\RELEASE_DOC_SYNC.v1.json",
+    "manifestVersion": "release_doc_sync.v1",
+    "releaseCycleId": "2026Q2",
+    "updatedOn": "2026-03-01",
+    "defaultMaxAgeDays": 35
+  },
+  "summary": {
+    "totalChecks": 10,
+    "failed": 0,
+    "warnings": 0,
+    "enforcementMode": "enforced"
+  },
+  "checks": [
+    {
+      "section": "documents",
+      "path": "docs/operations/STRICT_SOURCE_RUNBOOK.md",
+      "ownerRole": "Data Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:29:59.188Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "documents",
+      "path": "docs/operations/RELEASE_GATES.md",
+      "ownerRole": "QA Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:29:50.676Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "documents",
+      "path": "docs/IDENTITY_OVERRIDE_WORKFLOW.md",
+      "ownerRole": "Methods Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:05:46.921Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "documents",
+      "path": "docs/editorial/LANCET_CLOSEOUT_PLAN.md",
+      "ownerRole": "Methods Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:30:43.004Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "documents",
+      "path": "docs/operations/OWNER_RACI_90D.md",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:30:23.922Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "documents",
+      "path": "docs/operations/OWNER_DIRECTORY.md",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:29:06.770Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "documents",
+      "path": "docs/operations/RUNTIME_SLO_POLICY.md",
+      "ownerRole": "QA Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:29:13.745Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "evidenceDocs",
+      "path": "docs/editorial/LANCET_READINESS_REPORT_LATEST.md",
+      "ownerRole": "Methods Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:09:19.321Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "evidenceDocs",
+      "path": "docs/operations/KPI_BASELINE_LATEST.json",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:09:22.267Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    },
+    {
+      "section": "evidenceDocs",
+      "path": "docs/operations/KPI_SCORECARD_90D_TEMPLATE.csv",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "exists": true,
+      "mtime": "2026-03-01T12:09:22.270Z",
+      "maxAgeDays": 35,
+      "ageDays": 0.52,
+      "status": "passed",
+      "violations": [],
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-03-01T12:09:20.937Z",
+  "windowDays": 30,
+  "windowStart": "2026-01-30T12:09:20.935Z",
+  "sampleSize": 19,
+  "successfulRuns": 19,
+  "failedRuns": 0,
+  "refreshSuccessRate30d": 1,
+  "refreshRuntimeP95Minutes": 0.073,
+  "refreshRuntimeMedianMinutes": 0.055,
+  "source": "reports/ops/source-health-live-*.json",
+  "note": "Computed from 19 strict-source telemetry runs in the last 30 days."
+}

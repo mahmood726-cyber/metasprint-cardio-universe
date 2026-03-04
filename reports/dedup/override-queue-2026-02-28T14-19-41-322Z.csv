@@ -1,0 +1,2 @@
+pair_id,left_trial_id,right_trial_id,left_source,right_source,score,recommended_decision,decision,reviewer,reason,status,generated_at
+trial_NCT03057977::trial_NCT03057977_dup_openalex,trial_NCT03057977,trial_NCT03057977_dup_openalex,aact,openalex,0.62,force_split,,,,pending,2026-02-28T14:19:41.322Z

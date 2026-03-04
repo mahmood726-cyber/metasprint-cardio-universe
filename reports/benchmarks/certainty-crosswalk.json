@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-02-28T21:30:45.632Z",
+  "sourceFixture": "reports\\benchmarks\\packs\\v2\\certainty_crosswalk_live.v1.json",
+  "schemaVersion": "certainty_crosswalk.v1",
+  "sourceMode": "live_extracted",
+  "categoryOrder": [
+    "high",
+    "moderate",
+    "low",
+    "very_low"
+  ],
+  "scenarioCount": 2,
+  "passedScenarioCount": 2,
+  "passRateScenarios": 1,
+  "checkCount": 14,
+  "passedCheckCount": 14,
+  "passRateChecks": 1,
+  "totalComparisons": 218,
+  "uniqueComparisonCount": 127,
+  "weightedExactAgreement": 0.284404,
+  "weightedAdjacentAgreement": 1,
+  "weightedKappa": 0.545689,
+  "weightedSevereDisagreementRate": 0,
+  "primaryScenarioId": "live_extracted_all_rows",
+  "primaryScenarioMetrics": {
+    "comparisonCount": 127,
+    "exactAgreement": 0.385827,
+    "adjacentAgreement": 1,
+    "weightedKappa": 0.69257,
+    "weightedKappaCi95Width": 0.151309,
+    "severeDisagreementRate": 0
+  },
+  "bootstrap": {
+    "samples": 1000,
+    "seed": 20260228
+  },
+  "status": "passed",
+  "note": "Certainty crosswalk benchmark quantifies agreement/disagreement between GRADE and CINeMA-style certainty classifications."
+}

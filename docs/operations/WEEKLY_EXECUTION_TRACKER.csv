@@ -1,0 +1,14 @@
+﻿week_id,week_start,week_end,theme,stream_owner,planned_deliverables,acceptance_criteria,status,notes
+W01,2026-03-02,2026-03-08,Mobilization and baseline lock,Program Lead,"Benchmark pack freeze; KPI baseline; governance cadence","Benchmark fixtures versioned; baseline KPI published; full calendar set",ready,"Week-1 baseline artifacts pre-generated on 2026-02-28; kickoff starts 2026-03-02."
+W02,2026-03-09,2026-03-15,Knowledge graph schema,Data Lead,"Entity and edge schema final; validator fixtures","No orphan nodes; >=50 edge-case fixtures pass",ready,"Completed early on 2026-02-28: 77/77 graph suite cases pass including orphan/dangling/self-loop guards."
+W03,2026-03-16,2026-03-22,Connector hardening,Data Lead,"Retry/backoff policy; strict-source mode; health telemetry","Strict run fails fast on source outage and recovers cleanly",ready,"Completed early on 2026-02-28: shared retry/backoff + failure classes live; source-health telemetry emits each run; resilience check (outage=exit2, recovery=exit0) passes."
+W04,2026-03-23,2026-03-29,Ontology v1,Methods Lead,"Intervention dictionary; endpoint ontology; unknown-term queue",">=95% ontology mapping coverage on benchmark sets",ready,"Completed early on 2026-02-28: ontology coverage 96.67% (58/60) with unknown-term queue emitted (2 terms)."
+W05,2026-03-30,2026-04-05,Ranking v2,Methods Lead,"Expected-value model; sensitivity report","Deterministic top-50 ranks and sensitivity payload published",pending,
+W06,2026-04-06,2026-04-12,Explainability and trust,QA Lead,"Feature contribution panel; provenance drill-through","0 unexplained scores and 0 provenance-link failures",pending,
+W07,2026-04-13,2026-04-19,Dedup adjudication UI,Data Lead,"Reviewer-facing override queue UI; conflict handling","End-to-end override updates without manual file edits",pending,
+W08,2026-04-20,2026-04-26,Discovery UX real views,UX Lead,"Ayat/Network/Treemap baseline; cross-filtering; keyboard nav","Core workflow <=10 min median and keyboard path passes",pending,
+W09,2026-04-27,2026-05-03,Benchmark CI and perf gates,QA Lead,"CI quality gates; ranking snapshots; perf suite","Failing gates block promotion and perf trend tracked",pending,
+W10,2026-05-04,2026-05-10,Blind review cycle 1,Methods Lead,"12-reviewer blinded cycle; dissent themes; remediation map","Complete reviewer submissions and owner-assigned remediation",pending,
+W11,2026-05-11,2026-05-17,Remediation and cycle 2,Methods Lead,"Ship remediation; run cycle 2",">=11/12 switch_now in cycle 2",pending,
+W12,2026-05-18,2026-05-24,Editorial output layer,UX Lead,"One-click editorial brief export; guideline overlays","Top 20 opportunities export without manual patching",pending,
+W13,2026-05-25,2026-05-31,Release hardening and decision,Program Lead,"Reliability/security sweep; launch memo","Hard gates green 7 consecutive days; signed go/no-go",pending,

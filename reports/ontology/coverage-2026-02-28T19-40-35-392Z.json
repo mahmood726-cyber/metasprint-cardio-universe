@@ -1,0 +1,258 @@
+{
+  "generatedAt": "2026-02-28T19:40:35.392Z",
+  "benchmark": {
+    "file": "reports\\benchmarks\\packs\\v1\\ontology_entities.v1.json",
+    "schemaVersion": "ontology_benchmark_entities.v1",
+    "entityCount": 10
+  },
+  "ontology": {
+    "interventionSchemaVersion": "intervention_dictionary.v1",
+    "interventionClassCount": 13,
+    "endpointSchemaVersion": "endpoint_ontology.v1",
+    "endpointCount": 12
+  },
+  "thresholds": {
+    "minCoverage": 0.95
+  },
+  "summary": {
+    "totalInterventionTerms": 30,
+    "mappedInterventionTerms": 29,
+    "interventionCoverage": 96.67,
+    "totalEndpointTerms": 30,
+    "mappedEndpointTerms": 29,
+    "endpointCoverage": 96.67,
+    "totalTerms": 60,
+    "mappedTerms": 58,
+    "coverage": 96.67,
+    "unknownTermCount": 2,
+    "passed": true
+  },
+  "perPack": [
+    {
+      "packId": "antithrombotic_af_stroke",
+      "totalInterventionTerms": 6,
+      "mappedInterventionTerms": 5,
+      "interventionCoverage": 83.33,
+      "totalEndpointTerms": 6,
+      "mappedEndpointTerms": 5,
+      "endpointCoverage": 83.33,
+      "totalTerms": 12,
+      "mappedTerms": 10,
+      "coverage": 83.33
+    },
+    {
+      "packId": "glp1_cv_outcomes",
+      "totalInterventionTerms": 5,
+      "mappedInterventionTerms": 5,
+      "interventionCoverage": 100,
+      "totalEndpointTerms": 6,
+      "mappedEndpointTerms": 6,
+      "endpointCoverage": 100,
+      "totalTerms": 11,
+      "mappedTerms": 11,
+      "coverage": 100
+    },
+    {
+      "packId": "hf_foundational_therapy",
+      "totalInterventionTerms": 14,
+      "mappedInterventionTerms": 14,
+      "interventionCoverage": 100,
+      "totalEndpointTerms": 12,
+      "mappedEndpointTerms": 12,
+      "endpointCoverage": 100,
+      "totalTerms": 26,
+      "mappedTerms": 26,
+      "coverage": 100
+    },
+    {
+      "packId": "sglt2_hf_cardiorenal",
+      "totalInterventionTerms": 5,
+      "mappedInterventionTerms": 5,
+      "interventionCoverage": 100,
+      "totalEndpointTerms": 6,
+      "mappedEndpointTerms": 6,
+      "endpointCoverage": 100,
+      "totalTerms": 11,
+      "mappedTerms": 11,
+      "coverage": 100
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "entity_sglt2_001",
+      "packId": "sglt2_hf_cardiorenal",
+      "interventionTerms": 3,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "sglt2_inhibitor"
+      ],
+      "mappedEndpointIds": [
+        "cv_death",
+        "hf_hospitalization",
+        "renal_composite"
+      ]
+    },
+    {
+      "entityId": "entity_sglt2_002",
+      "packId": "sglt2_hf_cardiorenal",
+      "interventionTerms": 2,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "sglt2_inhibitor"
+      ],
+      "mappedEndpointIds": [
+        "all_cause_death",
+        "cv_death",
+        "hhf_or_cv_death",
+        "renal_composite"
+      ]
+    },
+    {
+      "entityId": "entity_glp1_001",
+      "packId": "glp1_cv_outcomes",
+      "interventionTerms": 3,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "glp1_receptor_agonist"
+      ],
+      "mappedEndpointIds": [
+        "cv_death",
+        "mace_3pt",
+        "mi"
+      ]
+    },
+    {
+      "entityId": "entity_glp1_002",
+      "packId": "glp1_cv_outcomes",
+      "interventionTerms": 2,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "glp1_receptor_agonist"
+      ],
+      "mappedEndpointIds": [
+        "mace_3pt",
+        "stroke",
+        "urgent_revascularization"
+      ]
+    },
+    {
+      "entityId": "entity_af_001",
+      "packId": "antithrombotic_af_stroke",
+      "interventionTerms": 3,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "doac",
+        "vitamin_k_antagonist"
+      ],
+      "mappedEndpointIds": [
+        "all_cause_death",
+        "major_bleeding",
+        "stroke"
+      ]
+    },
+    {
+      "entityId": "entity_af_002",
+      "packId": "antithrombotic_af_stroke",
+      "interventionTerms": 3,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "doac"
+      ],
+      "mappedEndpointIds": [
+        "major_bleeding",
+        "stroke"
+      ]
+    },
+    {
+      "entityId": "entity_hf_001",
+      "packId": "hf_foundational_therapy",
+      "interventionTerms": 4,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "arb",
+        "arni",
+        "beta_blocker",
+        "mineralocorticoid_receptor_antagonist"
+      ],
+      "mappedEndpointIds": [
+        "all_cause_death",
+        "cv_death",
+        "hf_hospitalization",
+        "hhf_or_cv_death",
+        "quality_of_life"
+      ]
+    },
+    {
+      "entityId": "entity_hf_002",
+      "packId": "hf_foundational_therapy",
+      "interventionTerms": 4,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "ace_inhibitor",
+        "arb",
+        "loop_diuretic"
+      ],
+      "mappedEndpointIds": [
+        "cv_death",
+        "hf_hospitalization",
+        "renal_composite"
+      ]
+    },
+    {
+      "entityId": "entity_hf_003",
+      "packId": "hf_foundational_therapy",
+      "interventionTerms": 3,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "mineralocorticoid_receptor_antagonist"
+      ],
+      "mappedEndpointIds": [
+        "all_cause_death",
+        "hf_hospitalization",
+        "quality_of_life"
+      ]
+    },
+    {
+      "entityId": "entity_hf_004",
+      "packId": "hf_foundational_therapy",
+      "interventionTerms": 3,
+      "endpointTerms": 3,
+      "mappedInterventionClassIds": [
+        "beta_blocker"
+      ],
+      "mappedEndpointIds": [
+        "cv_death",
+        "hf_hospitalization",
+        "mi"
+      ]
+    }
+  ],
+  "unknownTermQueue": [
+    {
+      "termType": "endpoint",
+      "term": "frailty adjusted composite",
+      "normalizedTerm": "frailty adjusted composite",
+      "frequency": 1,
+      "packIds": [
+        "antithrombotic_af_stroke"
+      ],
+      "entityIds": [
+        "entity_af_002"
+      ],
+      "suggestedAction": "review_ontology_dictionary"
+    },
+    {
+      "termType": "intervention",
+      "term": "factor xi inhibitor",
+      "normalizedTerm": "factor xi inhibitor",
+      "frequency": 1,
+      "packIds": [
+        "antithrombotic_af_stroke"
+      ],
+      "entityIds": [
+        "entity_af_002"
+      ],
+      "suggestedAction": "review_ontology_dictionary"
+    }
+  ]
+}

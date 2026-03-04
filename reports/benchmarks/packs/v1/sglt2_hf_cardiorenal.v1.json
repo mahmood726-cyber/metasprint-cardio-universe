@@ -1,0 +1,23 @@
+{
+  "packId": "sglt2_hf_cardiorenal",
+  "version": "1.0.0",
+  "description": "Landmark SGLT2 cardio and cardio-renal heart failure trial set.",
+  "expectedTrialIds": [
+    "NCT03036124",
+    "NCT03057977",
+    "NCT03619213",
+    "NCT03057951",
+    "NCT03521934",
+    "NCT04349072",
+    "NCT04363697"
+  ],
+  "expectedPublicationIds": [
+    "PMID32865377",
+    "PMID32877652"
+  ],
+  "tags": [
+    "hf",
+    "sglt2",
+    "cardiorenal"
+  ]
+}

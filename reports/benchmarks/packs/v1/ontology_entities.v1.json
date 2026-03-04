@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "ontology_benchmark_entities.v1",
+  "createdAt": "2026-02-28T00:00:00Z",
+  "description": "Benchmark entities for intervention and endpoint ontology coverage validation.",
+  "entities": [
+    {
+      "entityId": "entity_sglt2_001",
+      "packId": "sglt2_hf_cardiorenal",
+      "referenceId": "NCT03036124",
+      "interventionTerms": ["dapagliflozin", "sglt2 inhibitor", "empagliflozin"],
+      "endpointTerms": ["heart failure hospitalization", "cardiovascular death", "renal composite"]
+    },
+    {
+      "entityId": "entity_sglt2_002",
+      "packId": "sglt2_hf_cardiorenal",
+      "referenceId": "NCT04349072",
+      "interventionTerms": ["sotagliflozin", "canagliflozin"],
+      "endpointTerms": ["hhf or cv death", "kidney composite", "all-cause mortality"]
+    },
+    {
+      "entityId": "entity_glp1_001",
+      "packId": "glp1_cv_outcomes",
+      "referenceId": "NCT01720446",
+      "interventionTerms": ["liraglutide", "glp1 receptor agonist", "semaglutide"],
+      "endpointTerms": ["3-point mace", "cardiovascular death", "myocardial infarction"]
+    },
+    {
+      "entityId": "entity_glp1_002",
+      "packId": "glp1_cv_outcomes",
+      "referenceId": "NCT01394952",
+      "interventionTerms": ["dulaglutide", "exenatide"],
+      "endpointTerms": ["stroke", "major adverse cardiovascular events", "urgent revascularization"]
+    },
+    {
+      "entityId": "entity_af_001",
+      "packId": "antithrombotic_af_stroke",
+      "referenceId": "NCT02465515",
+      "interventionTerms": ["apixaban", "doac", "warfarin"],
+      "endpointTerms": ["ischemic stroke", "major bleeding", "all-cause mortality"]
+    },
+    {
+      "entityId": "entity_af_002",
+      "packId": "antithrombotic_af_stroke",
+      "referenceId": "NCT02258841",
+      "interventionTerms": ["rivaroxaban", "dabigatran", "factor xi inhibitor"],
+      "endpointTerms": ["stroke", "clinically relevant bleeding", "frailty adjusted composite"]
+    },
+    {
+      "entityId": "entity_hf_001",
+      "packId": "hf_foundational_therapy",
+      "referenceId": "NCT01870778",
+      "interventionTerms": ["sacubitril/valsartan", "arni", "beta blocker", "mra"],
+      "endpointTerms": ["heart failure hospitalization or cardiovascular death", "all-cause death", "quality of life"]
+    },
+    {
+      "entityId": "entity_hf_002",
+      "packId": "hf_foundational_therapy",
+      "referenceId": "NCT01035255",
+      "interventionTerms": ["enalapril", "ace inhibitor", "valsartan", "loop diuretic"],
+      "endpointTerms": ["worsening heart failure", "cardiovascular death", "renal outcome"]
+    },
+    {
+      "entityId": "entity_hf_003",
+      "packId": "hf_foundational_therapy",
+      "referenceId": "NCT01920711",
+      "interventionTerms": ["spironolactone", "eplerenone", "mineralocorticoid receptor antagonist"],
+      "endpointTerms": ["hf hospitalization", "all-cause mortality", "kccq score"]
+    },
+    {
+      "entityId": "entity_hf_004",
+      "packId": "hf_foundational_therapy",
+      "referenceId": "NCT02604251",
+      "interventionTerms": ["bisoprolol", "carvedilol", "metoprolol"],
+      "endpointTerms": ["heart failure hospitalization", "cv death", "myocardial infarction"]
+    }
+  ]
+}

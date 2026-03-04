@@ -1,0 +1,13 @@
+﻿reviewer_id,role,specialty,active
+R01,methodologist,evidence_synthesis,1
+R02,methodologist,evidence_synthesis,1
+R03,methodologist,evidence_synthesis,1
+R04,methodologist,evidence_synthesis,1
+R05,cardiologist,hf,1
+R06,cardiologist,interventional,1
+R07,cardiologist,electrophysiology,1
+R08,biostatistician,clinical_trials,1
+R09,biostatistician,meta_analysis,1
+R10,information_specialist,search_methods,1
+R11,guideline_expert,cardio_guidelines,1
+R12,patient_representative,public_voice,1

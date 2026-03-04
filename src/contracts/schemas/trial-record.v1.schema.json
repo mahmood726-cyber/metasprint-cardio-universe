@@ -1,0 +1,107 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metasprint.dev/schemas/trial-record.v1.json",
+  "title": "TrialRecordV1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "trialId",
+    "source",
+    "sourceIds",
+    "title",
+    "interventions",
+    "primaryOutcomes",
+    "enrollment",
+    "randomized",
+    "subcategoryId",
+    "timestamps"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "trial_record.v1" },
+    "trialId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{6,120}$"
+    },
+    "source": {
+      "type": "string",
+      "enum": ["ctgov", "aact", "pubmed", "openalex", "europepmc", "manual"]
+    },
+    "sourceIds": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "nctId": { "type": "string", "pattern": "^NCT\\d{8}$" },
+        "pmid": { "type": "string", "pattern": "^\\d{5,10}$" },
+        "doi": { "type": "string", "pattern": "^10\\.\\d{4,9}/[-._;()/:A-Za-z0-9]+$" }
+      },
+      "anyOf": [
+        { "required": ["nctId"] },
+        { "required": ["pmid"] },
+        { "required": ["doi"] }
+      ]
+    },
+    "title": { "type": "string", "minLength": 1, "maxLength": 1500 },
+    "status": { "type": "string", "maxLength": 100 },
+    "phase": { "type": "string", "enum": ["phase_1", "phase_2", "phase_3", "phase_4", "mixed", "unknown"] },
+    "enrollment": { "type": "integer", "minimum": 0 },
+    "randomized": { "type": "boolean" },
+    "interventions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["rawName", "normalizedName", "classId", "isComparator"],
+        "properties": {
+          "rawName": { "type": "string", "minLength": 1, "maxLength": 600 },
+          "normalizedName": { "type": "string", "minLength": 1, "maxLength": 300 },
+          "classId": { "type": "string", "pattern": "^[a-z0-9_:-]{2,80}$" },
+          "isComparator": { "type": "boolean" }
+        }
+      }
+    },
+    "conditions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "maxLength": 300 },
+      "default": []
+    },
+    "primaryOutcomes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["rawText", "normalizedOutcomeId", "domain"],
+        "properties": {
+          "rawText": { "type": "string", "minLength": 1, "maxLength": 800 },
+          "normalizedOutcomeId": { "type": "string", "pattern": "^[a-z0-9_:-]{3,100}$" },
+          "domain": {
+            "type": "string",
+            "enum": ["mortality", "mace", "hf", "arrhythmia", "renal", "safety", "other"]
+          },
+          "timepoint": { "type": "string", "maxLength": 120 }
+        }
+      }
+    },
+    "subcategoryId": { "type": "string", "pattern": "^[a-z0-9_:-]{2,80}$" },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "completenessScore": { "type": "number", "minimum": 0, "maximum": 1 },
+        "confidenceClass": { "type": "string", "enum": ["high", "moderate", "low", "very_low"] }
+      }
+    },
+    "provenanceRef": { "type": "string", "pattern": "^[A-Za-z0-9._:-]{6,120}$" },
+    "timestamps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["createdAt", "updatedAt"],
+      "properties": {
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

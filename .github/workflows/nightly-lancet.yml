@@ -1,0 +1,37 @@
+name: Nightly Lancet Verify
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+jobs:
+  lancet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Lancet Verify (Nightly Budget)
+        run: node scripts/ci/run-with-budget.mjs --label verify_lancet_nightly --budget-seconds 5400 -- npm run verify:lancet
+
+      - name: Enforce Runtime SLO (Nightly Lancet)
+        run: node scripts/operations/check-runtime-slo.mjs --policy reports/ops/packs/runtime_slo_policy.v1.json --label verify_lancet_nightly --enforce
+
+      - name: Upload Nightly Runtime Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-lancet-runtime-artifacts
+          path: reports/ci/

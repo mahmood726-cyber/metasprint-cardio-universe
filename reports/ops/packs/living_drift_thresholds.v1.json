@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "living_drift_thresholds.v1",
+  "createdAt": "2026-02-28T00:00:00Z",
+  "description": "Scenario-tuned drift thresholds for living evidence updates.",
+  "defaults": {
+    "effectThreshold": 0.05,
+    "topProbabilityThreshold": 0.15,
+    "pothThreshold": 0.2,
+    "certaintyShiftThreshold": 0,
+    "kappaThreshold": 0.15
+  },
+  "pairwise": {
+    "balanced_low_heterogeneity": {
+      "effectThreshold": 0.03
+    },
+    "high_heterogeneity_mixed_signal": {
+      "effectThreshold": 0.06
+    },
+    "multi_arm_dependent_effects": {
+      "effectThreshold": 0.04
+    },
+    "small_k_borderline": {
+      "effectThreshold": 0.07
+    }
+  },
+  "network": {
+    "triangle_consistent": {
+      "topProbabilityThreshold": 0.08,
+      "pothThreshold": 0.12
+    },
+    "four_node_mild_inconsistency": {
+      "topProbabilityThreshold": 0.12,
+      "pothThreshold": 0.18
+    }
+  },
+  "certainty": {
+    "robMeShiftThreshold": 0,
+    "robNmaShiftThreshold": 0,
+    "kappaThreshold": 0.1
+  }
+}

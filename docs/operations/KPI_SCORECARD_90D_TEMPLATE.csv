@@ -1,0 +1,12 @@
+week_start,kpi_name,target,actual,status,owner,source_artifact,notes
+2026-03-02,ingestion_recall,0.95,1,on_track,Data Lead,reports/benchmarks/ingestion-live.json,Using live benchmark coverage (22/22 expected trials).
+2026-03-02,opportunity_precision_at_20,0.9,1,measured,Methods Lead,reports/benchmarks/ranking.json,Measured from blinded non-proxy ranking benchmark fixture.
+2026-03-02,ndcg_at_20,0.82,0.9984,measured,Methods Lead,reports/benchmarks/ranking.json,Measured from blinded non-proxy ranking benchmark fixture.
+2026-03-02,ontology_mapping_coverage,0.98,1,on_track,Methods Lead,reports/ontology/coverage-latest.json,Ontology benchmark mapping coverage with unknown-term queue generation.
+2026-03-02,ontology_unknown_terms,0,0,on_track,Methods Lead,reports/ontology/coverage-latest.json,Lancet-tier ontology gate requires zero unknown terms on benchmark entities.
+2026-03-02,dedup_f1,0.92,1,on_track,Data Lead,reports/benchmarks/dedup-identity.json,Measured from dedup identity benchmark (passed).
+2026-03-02,provenance_completeness,1,1,on_track,QA Lead,reports\dedup\provenance-latest.json,Cluster-level average completeness from stitched provenance ledger.
+2026-03-02,refresh_success_rate_30d,0.99,1,on_track,Data Lead,reports/ops/refresh-health.json,Computed from 19 strict-source telemetry runs in the last 30 days.
+2026-03-02,refresh_runtime_p95_minutes,30,0.073,on_track,Data Lead,reports/ops/refresh-health.json,Computed from 19 strict-source telemetry runs in the last 30 days.
+2026-03-02,median_discovery_workflow_minutes,10,0.228,on_track,UX Lead,reports/ux/task-timing.json,Computed from 22 successful release-gate runs in the last 30 days.
+2026-03-02,switch_now_count,11,11,on_track,Methods Lead,reports/review-cycles/cycle_002-summary.json,Current gate result: 11/12.

@@ -1,0 +1,33 @@
+﻿{
+  "schemaVersion": "cluster.v1",
+  "clusterId": "cluster_hf_sglt2i_cv_death_or_hf_hosp_hr",
+  "subcategoryId": "hf",
+  "outcomeId": "cv_death_or_hf_hosp",
+  "effectMeasure": "HR",
+  "trialIds": [
+    "trial_NCT03036124",
+    "trial_NCT03057977",
+    "trial_NCT03619213"
+  ],
+  "sourceCoverage": {
+    "ctgov": 3,
+    "aact": 3,
+    "pubmed": 3,
+    "openalex": 2,
+    "europepmc": 2
+  },
+  "scoreBreakdown": {
+    "evidenceGap": 72,
+    "freshness": 91,
+    "feasibility": 88,
+    "uncertaintyPenalty": 18,
+    "guidelineRelevance": 95,
+    "total": 86
+  },
+  "confidenceClass": "high",
+  "provenanceRef": "prov_2026_02_28_001",
+  "refresh": {
+    "refreshedAt": "2026-02-28T12:30:00Z",
+    "snapshotId": "snap_2026_02_28_001"
+  }
+}

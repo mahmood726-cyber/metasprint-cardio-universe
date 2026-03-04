@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-02-28T15:36:31.961Z",
+  "scenarios": {
+    "outage": {
+      "args": [
+        "--sources",
+        "sample",
+        "--strict-sources",
+        "--simulate-outage",
+        "sample"
+      ],
+      "exitCode": 2,
+      "strictStatus": "failed",
+      "sampleStatus": "failed",
+      "sampleFailureClass": "simulated_outage"
+    },
+    "recovery": {
+      "args": [
+        "--sources",
+        "sample",
+        "--strict-sources"
+      ],
+      "exitCode": 0,
+      "strictStatus": "passed",
+      "sampleStatus": "ok"
+    }
+  }
+}

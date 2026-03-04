@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-03-03T20:16:07.136Z",
+  "aggregate": {
+    "cyclesTracked": 2,
+    "gatePassCount": 2,
+    "latestCycleId": "cycle_002",
+    "latestGatePassed": true,
+    "latestSwitchNow": 11,
+    "latestSwitchWithConditions": 1,
+    "latestNotYet": 0
+  },
+  "cycles": [
+    {
+      "cycleId": "cycle_001",
+      "generatedAt": "2026-02-28T14:19:21.938Z",
+      "totalReviewers": 12,
+      "switchNow": 11,
+      "switchWithConditions": 1,
+      "notYet": 0,
+      "gatePassed": true,
+      "gapToTarget": 0,
+      "avgClinicalRelevance": 4.33,
+      "avgMethodValidity": 4.33,
+      "avgNovelty": 3.83,
+      "avgActionability": 4.25,
+      "avgTransparencyConfidence": 4.33,
+      "topDissentThemes": [
+        {
+          "theme": "conditional",
+          "count": 1
+        },
+        {
+          "theme": "depth",
+          "count": 1
+        },
+        {
+          "theme": "ontology",
+          "count": 1
+        }
+      ],
+      "criticalBlockers": [],
+      "scoreRowCount": 12,
+      "sourceSummaryPath": "reports\\review-cycles\\cycle_001-summary.json",
+      "sourceScoresPath": "reports\\review-cycles\\cycle_001\\scores_sample_filled.csv"
+    },
+    {
+      "cycleId": "cycle_002",
+      "generatedAt": "2026-02-28T18:29:06.836Z",
+      "totalReviewers": 12,
+      "switchNow": 11,
+      "switchWithConditions": 1,
+      "notYet": 0,
+      "gatePassed": true,
+      "gapToTarget": 0,
+      "avgClinicalRelevance": 4.33,
+      "avgMethodValidity": 4.33,
+      "avgNovelty": 3.83,
+      "avgActionability": 4.25,
+      "avgTransparencyConfidence": 4.33,
+      "topDissentThemes": [
+        {
+          "theme": "conditional",
+          "count": 1
+        },
+        {
+          "theme": "depth",
+          "count": 1
+        },
+        {
+          "theme": "ontology",
+          "count": 1
+        }
+      ],
+      "criticalBlockers": [],
+      "scoreRowCount": 12,
+      "sourceSummaryPath": "reports\\review-cycles\\cycle_002-summary.json",
+      "sourceScoresPath": "reports\\review-cycles\\cycle_002\\scores_sample_filled.csv"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "manifestVersion": "release_doc_sync.v1",
+  "releaseCycleId": "2026Q2",
+  "updatedOn": "2026-03-01",
+  "defaultMaxAgeDays": 35,
+  "documents": [
+    {
+      "path": "docs/operations/STRICT_SOURCE_RUNBOOK.md",
+      "ownerRole": "Data Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/operations/RELEASE_GATES.md",
+      "ownerRole": "QA Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/IDENTITY_OVERRIDE_WORKFLOW.md",
+      "ownerRole": "Methods Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/editorial/LANCET_CLOSEOUT_PLAN.md",
+      "ownerRole": "Methods Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/operations/OWNER_RACI_90D.md",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/operations/OWNER_DIRECTORY.md",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/operations/RUNTIME_SLO_POLICY.md",
+      "ownerRole": "QA Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    }
+  ],
+  "evidenceDocs": [
+    {
+      "path": "docs/editorial/LANCET_READINESS_REPORT_LATEST.md",
+      "ownerRole": "Methods Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/operations/KPI_BASELINE_LATEST.json",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    },
+    {
+      "path": "docs/operations/KPI_SCORECARD_90D_TEMPLATE.csv",
+      "ownerRole": "Program Lead",
+      "reviewedOn": "2026-03-01",
+      "maxAgeDays": 35
+    }
+  ]
+}

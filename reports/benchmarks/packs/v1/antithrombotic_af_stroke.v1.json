@@ -1,0 +1,22 @@
+{
+  "packId": "antithrombotic_af_stroke",
+  "version": "1.0.0",
+  "description": "Atrial fibrillation stroke prevention and antithrombotic benchmark set.",
+  "expectedTrialIds": [
+    "NCT00412984",
+    "NCT00781391",
+    "NCT00643201",
+    "NCT02465515",
+    "NCT02258841"
+  ],
+  "expectedPublicationIds": [
+    "PMID21175318",
+    "PMID21830957",
+    "PMID21933749"
+  ],
+  "tags": [
+    "af",
+    "stroke",
+    "anticoagulation"
+  ]
+}

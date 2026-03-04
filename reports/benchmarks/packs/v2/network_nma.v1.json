@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "network_nma.v1",
+  "createdAt": "2026-02-28T00:00:00Z",
+  "description": "Network meta-analysis benchmark fixture with consistency and inconsistency stress scenarios.",
+  "defaultAlpha": 0.05,
+  "defaultRankSamples": 3000,
+  "defaultRankSeed": 20260228,
+  "scenarios": [
+    {
+      "scenarioId": "triangle_consistent",
+      "description": "Three-treatment network with near-consistent direct and indirect evidence.",
+      "referenceTreatment": "B",
+      "studies": [
+        { "studyId": "T1", "treatmentA": "A", "treatmentB": "B", "yi": -0.22, "vi": 0.04 },
+        { "studyId": "T2", "treatmentA": "A", "treatmentB": "B", "yi": -0.18, "vi": 0.045 },
+        { "studyId": "T3", "treatmentA": "A", "treatmentB": "C", "yi": -0.31, "vi": 0.05 },
+        { "studyId": "T4", "treatmentA": "B", "treatmentB": "C", "yi": -0.11, "vi": 0.055 },
+        { "studyId": "T5", "treatmentA": "B", "treatmentB": "C", "yi": -0.09, "vi": 0.06 }
+      ],
+      "expected": {
+        "treatmentCount": 3,
+        "tau2": { "min": 0, "max": 0.08 },
+        "globalInconsistencyQ": { "min": 0, "max": 4 },
+        "globalInconsistencyP": { "min": 0.05, "max": 1 },
+        "allowedTopTreatments": ["A"],
+        "topTreatmentProbability": { "min": 0.45, "max": 1 },
+        "minPairDiagnostics": 2,
+        "robNmaOverallAllowed": ["low", "some_concerns"],
+        "robNmaMinComparisons": 3
+      }
+    },
+    {
+      "scenarioId": "four_node_mild_inconsistency",
+      "description": "Four-treatment network with loop tension to exercise inconsistency diagnostics.",
+      "referenceTreatment": "B",
+      "studies": [
+        { "studyId": "F1", "treatmentA": "A", "treatmentB": "B", "yi": -0.41, "vi": 0.05 },
+        { "studyId": "F2", "treatmentA": "A", "treatmentB": "C", "yi": -0.13, "vi": 0.06 },
+        { "studyId": "F3", "treatmentA": "B", "treatmentB": "C", "yi": 0.34, "vi": 0.045 },
+        { "studyId": "F4", "treatmentA": "A", "treatmentB": "D", "yi": -0.22, "vi": 0.055 },
+        { "studyId": "F5", "treatmentA": "B", "treatmentB": "D", "yi": 0.31, "vi": 0.05 },
+        { "studyId": "F6", "treatmentA": "C", "treatmentB": "D", "yi": -0.04, "vi": 0.065 },
+        { "studyId": "F7", "treatmentA": "C", "treatmentB": "D", "yi": 0.02, "vi": 0.07 }
+      ],
+      "expected": {
+        "treatmentCount": 4,
+        "tau2": { "min": 0, "max": 0.2 },
+        "globalInconsistencyQ": { "min": 0, "max": 20 },
+        "globalInconsistencyP": { "min": 0, "max": 1 },
+        "allowedTopTreatments": ["A", "B"],
+        "topTreatmentProbability": { "min": 0.25, "max": 1 },
+        "minPairDiagnostics": 4,
+        "robNmaOverallAllowed": ["some_concerns", "high"],
+        "robNmaMinComparisons": 6
+      }
+    }
+  ]
+}

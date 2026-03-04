@@ -1,0 +1,139 @@
+{
+  "generatedAt": "2026-02-28T16:09:41.321Z",
+  "scope": "Lancet-tier publication readiness for cardio discovery platform",
+  "overallStatus": "not_ready",
+  "score": {
+    "passed": 6,
+    "total": 7,
+    "percent": 85.71
+  },
+  "gates": [
+    {
+      "id": "ingestion_recall",
+      "label": "Benchmark ingestion recall",
+      "target": ">= 95%",
+      "actual": "100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\ingestion-live.json",
+      "note": "Live ctgov benchmark lookup is active for expected trial IDs."
+    },
+    {
+      "id": "ranking_non_proxy",
+      "label": "Ranking quality measured from non-proxy benchmark judgments",
+      "target": "precision@20 >= 90%, ndcg@20 >= 82%, proxy=false",
+      "actual": "precision@20=100%; ndcg@20=99.84%; proxy=false",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\benchmarks\\ranking.json",
+      "note": "Proxy metrics are insufficient for top-tier editorial claims."
+    },
+    {
+      "id": "provenance_completeness",
+      "label": "Provenance completeness",
+      "target": ">= 100%",
+      "actual": "100%",
+      "passed": true,
+      "severity": "critical",
+      "evidencePath": "reports\\dedup\\provenance-latest.json",
+      "note": "Lancet-level trust requires complete traceability for displayed evidence."
+    },
+    {
+      "id": "ontology_coverage",
+      "label": "Ontology mapping coverage",
+      "target": ">= 95%",
+      "actual": "96.67%",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ontology\\coverage-latest.json",
+      "note": "Unknown-term queue must be actively adjudicated each cycle."
+    },
+    {
+      "id": "release_gates",
+      "label": "Release gate health",
+      "target": "status=passed",
+      "actual": "passed",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\ops\\release-gates-latest.json",
+      "note": "Includes phase verification and strict outage/recovery checks."
+    },
+    {
+      "id": "source_breadth",
+      "label": "Strict live-source breadth",
+      "target": "strictStatus=passed, failedSources=0, okSources>=4",
+      "actual": "strictStatus=passed; okSources=1; failedSources=0",
+      "passed": false,
+      "severity": "major",
+      "evidencePath": "reports\\ops\\source-health-latest.json",
+      "note": "Sample-only runs are not sufficient for editorial-grade external validity."
+    },
+    {
+      "id": "methodologist_adoption",
+      "label": "Methodologist switch gate",
+      "target": "switch_now>=11 out of 12",
+      "actual": "11/12",
+      "passed": true,
+      "severity": "major",
+      "evidencePath": "reports\\review-cycles\\cycle_001-summary.json",
+      "note": "Two consecutive cycles should pass for submission-level confidence."
+    }
+  ],
+  "blockers": [
+    {
+      "id": "source_breadth",
+      "label": "Strict live-source breadth",
+      "target": "strictStatus=passed, failedSources=0, okSources>=4",
+      "actual": "strictStatus=passed; okSources=1; failedSources=0",
+      "passed": false,
+      "severity": "major",
+      "evidencePath": "reports\\ops\\source-health-latest.json",
+      "note": "Sample-only runs are not sufficient for editorial-grade external validity.",
+      "recommendedAction": "Use strict multisource run as the canonical editorial build and require >=4 healthy live sources."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ingestion",
+      "file": "reports\\benchmarks\\ingestion.json",
+      "exists": true,
+      "sha256": "ed0074c3d184221ed2e7059fb5750f6848c4c1eaa0eca54003c4b1a47fad6802"
+    },
+    {
+      "id": "ingestionLive",
+      "file": "reports\\benchmarks\\ingestion-live.json",
+      "exists": true,
+      "sha256": "fa65216ef2d0831744d597578e574d927264805811249db31c69bab1cfd0787e"
+    },
+    {
+      "id": "ranking",
+      "file": "reports\\benchmarks\\ranking.json",
+      "exists": true,
+      "sha256": "abb978f0f02858f1b485bf04c7aab72c47fd6d67a68d919a0e6f2f72af0559b2"
+    },
+    {
+      "id": "provenance",
+      "file": "reports\\dedup\\provenance-latest.json",
+      "exists": true,
+      "sha256": "b9d1030a912b023ad687b914fcbb6e74679d3ae924b9dcde63deee613dc3a59e"
+    },
+    {
+      "id": "ontology",
+      "file": "reports\\ontology\\coverage-latest.json",
+      "exists": true,
+      "sha256": "e38e9020da3810e1791aeab3dd17e57c7e708f4f00a927ec69827da44ea29863"
+    },
+    {
+      "id": "releaseGates",
+      "file": "reports\\ops\\release-gates-latest.json",
+      "exists": true,
+      "sha256": "6dd89f1356e82ecc3e6453e5f3515888a875cc793b99426fec2b43e553d5b8de"
+    },
+    {
+      "id": "sourceHealth",
+      "file": "reports\\ops\\source-health-latest.json",
+      "exists": true,
+      "sha256": "2d5ddb1ea16380087f4c120ea6824ec4f4c6611ec10e0ee85911717417971a1b"
+    }
+  ]
+}

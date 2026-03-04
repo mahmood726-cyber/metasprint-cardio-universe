@@ -1,0 +1,47 @@
+﻿{
+  "schemaVersion": "trial_record.v1",
+  "trialId": "trial_NCT03036124",
+  "source": "ctgov",
+  "sourceIds": {
+    "nctId": "NCT03036124",
+    "doi": "10.1056/NEJMoa1812389"
+  },
+  "title": "Dapagliflozin and Prevention of Adverse Outcomes in Heart Failure",
+  "status": "COMPLETED",
+  "phase": "phase_3",
+  "enrollment": 4744,
+  "randomized": true,
+  "interventions": [
+    {
+      "rawName": "Dapagliflozin 10 mg",
+      "normalizedName": "dapagliflozin",
+      "classId": "sglt2i",
+      "isComparator": false
+    },
+    {
+      "rawName": "Placebo",
+      "normalizedName": "placebo",
+      "classId": "placebo",
+      "isComparator": true
+    }
+  ],
+  "conditions": ["Heart Failure"],
+  "primaryOutcomes": [
+    {
+      "rawText": "Composite of worsening heart failure or cardiovascular death",
+      "normalizedOutcomeId": "cv_death_or_hf_hosp",
+      "domain": "hf",
+      "timepoint": "median 18.2 months"
+    }
+  ],
+  "subcategoryId": "hf",
+  "quality": {
+    "completenessScore": 0.97,
+    "confidenceClass": "high"
+  },
+  "provenanceRef": "prov_2026_02_28_001",
+  "timestamps": {
+    "createdAt": "2026-02-28T12:00:00Z",
+    "updatedAt": "2026-02-28T12:00:00Z"
+  }
+}

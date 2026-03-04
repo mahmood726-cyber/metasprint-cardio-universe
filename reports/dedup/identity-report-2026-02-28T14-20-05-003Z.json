@@ -1,0 +1,3750 @@
+{
+  "generatedAt": "2026-02-28T14:20:05.003Z",
+  "options": {
+    "sources": [
+      "sample",
+      "ctgov",
+      "pubmed",
+      "openalex",
+      "europepmc"
+    ],
+    "limit": 25,
+    "threshold": 0.85,
+    "reviewMin": 0.65,
+    "synthetic": false,
+    "strictSources": true,
+    "overridesPath": "reports/dedup/overrides.json"
+  },
+  "warnings": [
+    "source pubmed: fetch failed"
+  ],
+  "overrides": {
+    "forceMerge": [],
+    "forceSplit": []
+  },
+  "summary": {
+    "recordCount": 81,
+    "edgeCount": 2,
+    "clusterCount": 79,
+    "duplicateClusterCount": 2,
+    "reviewQueueCount": 0,
+    "multiSourceClusters": 1
+  },
+  "graph": {
+    "generatedAt": "2026-02-28T14:20:04.993Z",
+    "threshold": 0.85,
+    "reviewMin": 0.65,
+    "recordCount": 81,
+    "edgeCount": 2,
+    "clusterCount": 79,
+    "duplicateClusterCount": 2,
+    "reviewQueueCount": 0,
+    "overrideStats": {
+      "forceMergeRules": 0,
+      "forceSplitRules": 0,
+      "appliedForceMerge": 0,
+      "appliedForceSplit": 0
+    },
+    "clusters": [
+      {
+        "clusterId": "cluster_0002",
+        "canonicalTrialId": "trial_https://openalex.org/W3081830235",
+        "memberCount": 2,
+        "members": [
+          "trial_NCT03057977",
+          "trial_https://openalex.org/W3081830235"
+        ],
+        "sources": [
+          "aact",
+          "openalex"
+        ],
+        "maxEdgeScore": 0.92,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ]
+      },
+      {
+        "clusterId": "cluster_0034",
+        "canonicalTrialId": "trial_https://openalex.org/W2124624517",
+        "memberCount": 2,
+        "members": [
+          "trial_https://openalex.org/W2124624517",
+          "trial_https://openalex.org/W4249896096"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": 0.87,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment",
+          "same_source_penalty"
+        ]
+      },
+      {
+        "clusterId": "cluster_0001",
+        "canonicalTrialId": "trial_NCT03036124",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03036124"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0003",
+        "canonicalTrialId": "trial_NCT03619213",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03619213"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0004",
+        "canonicalTrialId": "trial_NCT03057951",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03057951"
+        ],
+        "sources": [
+          "aact"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0005",
+        "canonicalTrialId": "trial_NCT02465515",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT02465515"
+        ],
+        "sources": [
+          "pubmed"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0006",
+        "canonicalTrialId": "trial_NCT03521934",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03521934"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0007",
+        "canonicalTrialId": "trial_NCT03422991",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03422991"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0008",
+        "canonicalTrialId": "trial_NCT03539510",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03539510"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0009",
+        "canonicalTrialId": "trial_NCT00528320",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT00528320"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0010",
+        "canonicalTrialId": "trial_NCT02863796",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT02863796"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0011",
+        "canonicalTrialId": "trial_NCT01658670",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT01658670"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0012",
+        "canonicalTrialId": "trial_NCT00241098",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT00241098"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0013",
+        "canonicalTrialId": "trial_NCT02973633",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT02973633"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0014",
+        "canonicalTrialId": "trial_NCT05897489",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT05897489"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0015",
+        "canonicalTrialId": "trial_NCT00518817",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT00518817"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0016",
+        "canonicalTrialId": "trial_NCT06679179",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT06679179"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0017",
+        "canonicalTrialId": "trial_NCT06192524",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT06192524"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0018",
+        "canonicalTrialId": "trial_NCT07304817",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT07304817"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0019",
+        "canonicalTrialId": "trial_NCT04790617",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT04790617"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0020",
+        "canonicalTrialId": "trial_NCT05909280",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT05909280"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0021",
+        "canonicalTrialId": "trial_NCT00293150",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT00293150"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0022",
+        "canonicalTrialId": "trial_NCT03402490",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03402490"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0023",
+        "canonicalTrialId": "trial_NCT07186062",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT07186062"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0024",
+        "canonicalTrialId": "trial_NCT06228924",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT06228924"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0025",
+        "canonicalTrialId": "trial_NCT06702527",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT06702527"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0026",
+        "canonicalTrialId": "trial_NCT06122961",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT06122961"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0027",
+        "canonicalTrialId": "trial_NCT02530788",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT02530788"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0028",
+        "canonicalTrialId": "trial_NCT07292896",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT07292896"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0029",
+        "canonicalTrialId": "trial_NCT01092325",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT01092325"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0030",
+        "canonicalTrialId": "trial_NCT02459288",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT02459288"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0031",
+        "canonicalTrialId": "trial_NCT03168568",
+        "memberCount": 1,
+        "members": [
+          "trial_NCT03168568"
+        ],
+        "sources": [
+          "ctgov"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0032",
+        "canonicalTrialId": "trial_https://openalex.org/W2146264128",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2146264128"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0033",
+        "canonicalTrialId": "trial_https://openalex.org/W2145632027",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2145632027"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0035",
+        "canonicalTrialId": "trial_https://openalex.org/W3113178943",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W3113178943"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0036",
+        "canonicalTrialId": "trial_https://openalex.org/W2626446274",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2626446274"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0037",
+        "canonicalTrialId": "trial_https://openalex.org/W2425644022",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2425644022"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0038",
+        "canonicalTrialId": "trial_https://openalex.org/W2163092745",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2163092745"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0039",
+        "canonicalTrialId": "trial_https://openalex.org/W2150751323",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2150751323"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0040",
+        "canonicalTrialId": "trial_https://openalex.org/W2900413769",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2900413769"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0041",
+        "canonicalTrialId": "trial_https://openalex.org/W2519510391",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2519510391"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0042",
+        "canonicalTrialId": "trial_https://openalex.org/W2596179513",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2596179513"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0043",
+        "canonicalTrialId": "trial_https://openalex.org/W3021842026",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W3021842026"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0044",
+        "canonicalTrialId": "trial_https://openalex.org/W1986349550",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W1986349550"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0045",
+        "canonicalTrialId": "trial_https://openalex.org/W2159584910",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2159584910"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0046",
+        "canonicalTrialId": "trial_https://openalex.org/W2148092884",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2148092884"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0047",
+        "canonicalTrialId": "trial_https://openalex.org/W2316376271",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2316376271"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0048",
+        "canonicalTrialId": "trial_https://openalex.org/W2166000498",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2166000498"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0049",
+        "canonicalTrialId": "trial_https://openalex.org/W2070692648",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2070692648"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0050",
+        "canonicalTrialId": "trial_https://openalex.org/W2058610272",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2058610272"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0051",
+        "canonicalTrialId": "trial_https://openalex.org/W3126800207",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W3126800207"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0052",
+        "canonicalTrialId": "trial_https://openalex.org/W2115944543",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2115944543"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0053",
+        "canonicalTrialId": "trial_https://openalex.org/W2122779695",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W2122779695"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0054",
+        "canonicalTrialId": "trial_https://openalex.org/W1752045965",
+        "memberCount": 1,
+        "members": [
+          "trial_https://openalex.org/W1752045965"
+        ],
+        "sources": [
+          "openalex"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0055",
+        "canonicalTrialId": "trial_37600025",
+        "memberCount": 1,
+        "members": [
+          "trial_37600025"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0056",
+        "canonicalTrialId": "trial_35865375",
+        "memberCount": 1,
+        "members": [
+          "trial_35865375"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0057",
+        "canonicalTrialId": "trial_37633337",
+        "memberCount": 1,
+        "members": [
+          "trial_37633337"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0058",
+        "canonicalTrialId": "trial_32524327",
+        "memberCount": 1,
+        "members": [
+          "trial_32524327"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0059",
+        "canonicalTrialId": "trial_32423555",
+        "memberCount": 1,
+        "members": [
+          "trial_32423555"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0060",
+        "canonicalTrialId": "trial_PPR425635",
+        "memberCount": 1,
+        "members": [
+          "trial_PPR425635"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0061",
+        "canonicalTrialId": "trial_41338959",
+        "memberCount": 1,
+        "members": [
+          "trial_41338959"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0062",
+        "canonicalTrialId": "trial_PPR239717",
+        "memberCount": 1,
+        "members": [
+          "trial_PPR239717"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0063",
+        "canonicalTrialId": "trial_33853578",
+        "memberCount": 1,
+        "members": [
+          "trial_33853578"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0064",
+        "canonicalTrialId": "trial_41682823",
+        "memberCount": 1,
+        "members": [
+          "trial_41682823"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0065",
+        "canonicalTrialId": "trial_41757453",
+        "memberCount": 1,
+        "members": [
+          "trial_41757453"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0066",
+        "canonicalTrialId": "trial_41730547",
+        "memberCount": 1,
+        "members": [
+          "trial_41730547"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0067",
+        "canonicalTrialId": "trial_41735154",
+        "memberCount": 1,
+        "members": [
+          "trial_41735154"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0068",
+        "canonicalTrialId": "trial_PMC12935647",
+        "memberCount": 1,
+        "members": [
+          "trial_PMC12935647"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0069",
+        "canonicalTrialId": "trial_PMC12938863",
+        "memberCount": 1,
+        "members": [
+          "trial_PMC12938863"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0070",
+        "canonicalTrialId": "trial_41740625",
+        "memberCount": 1,
+        "members": [
+          "trial_41740625"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0071",
+        "canonicalTrialId": "trial_41735454",
+        "memberCount": 1,
+        "members": [
+          "trial_41735454"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0072",
+        "canonicalTrialId": "trial_41697954",
+        "memberCount": 1,
+        "members": [
+          "trial_41697954"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0073",
+        "canonicalTrialId": "trial_41677478",
+        "memberCount": 1,
+        "members": [
+          "trial_41677478"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0074",
+        "canonicalTrialId": "trial_41679408",
+        "memberCount": 1,
+        "members": [
+          "trial_41679408"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0075",
+        "canonicalTrialId": "trial_41744085",
+        "memberCount": 1,
+        "members": [
+          "trial_41744085"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0076",
+        "canonicalTrialId": "trial_41757434",
+        "memberCount": 1,
+        "members": [
+          "trial_41757434"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0077",
+        "canonicalTrialId": "trial_41746846",
+        "memberCount": 1,
+        "members": [
+          "trial_41746846"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0078",
+        "canonicalTrialId": "trial_41708980",
+        "memberCount": 1,
+        "members": [
+          "trial_41708980"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      },
+      {
+        "clusterId": "cluster_0079",
+        "canonicalTrialId": "trial_41752779",
+        "memberCount": 1,
+        "members": [
+          "trial_41752779"
+        ],
+        "sources": [
+          "europepmc"
+        ],
+        "maxEdgeScore": null,
+        "reasons": []
+      }
+    ],
+    "edges": [
+      {
+        "from": "trial_NCT03057977",
+        "to": "trial_https://openalex.org/W3081830235",
+        "score": 0.92,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ],
+        "mode": "auto"
+      },
+      {
+        "from": "trial_https://openalex.org/W2124624517",
+        "to": "trial_https://openalex.org/W4249896096",
+        "score": 0.87,
+        "reasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment",
+          "same_source_penalty"
+        ],
+        "mode": "auto"
+      }
+    ],
+    "reviewQueue": []
+  },
+  "provenance": {
+    "generatedAt": "2026-02-28T14:20:05.002Z",
+    "clusterCount": 79,
+    "memberCount": 81,
+    "multiSourceClusterCount": 1,
+    "averageCompleteness": 0.7,
+    "clusters": [
+      {
+        "clusterId": "cluster_0002",
+        "canonicalTrialId": "trial_https://openalex.org/W3081830235",
+        "memberCount": 2,
+        "sourceCount": 2,
+        "maxEdgeScore": 0.92,
+        "matchReasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment"
+        ],
+        "provenanceCompleteness": 0.7,
+        "members": [
+          {
+            "trialId": "trial_NCT03057977",
+            "source": "aact",
+            "sourceType": "trial",
+            "nctId": "NCT03057977",
+            "pmid": null,
+            "doi": null,
+            "title": "Cardiovascular and renal outcomes with empagliflozin in heart failure",
+            "year": 2020,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03057977",
+                "url": "https://clinicaltrials.gov/study/NCT03057977"
+              }
+            ],
+            "completeness": 0.6
+          },
+          {
+            "trialId": "trial_https://openalex.org/W3081830235",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "32865377",
+            "doi": "10.1056/nejmoa2022190",
+            "title": "Cardiovascular and Renal Outcomes with Empagliflozin in Heart Failure",
+            "year": 2020,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 32865377",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/32865377/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa2022190",
+                "url": "https://doi.org/10.1056/nejmoa2022190"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0034",
+        "canonicalTrialId": "trial_https://openalex.org/W2124624517",
+        "memberCount": 2,
+        "sourceCount": 1,
+        "maxEdgeScore": 0.87,
+        "matchReasons": [
+          "title_similarity_very_high",
+          "year_alignment",
+          "subcategory_alignment",
+          "same_source_penalty"
+        ],
+        "provenanceCompleteness": 0.7,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2124624517",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "25559473",
+            "doi": "10.1016/j.echo.2014.10.003",
+            "title": "Recommendations for Cardiac Chamber Quantification by Echocardiography in Adults: An Update from the American Society of Echocardiography and the European Association of Cardiovascular Imaging",
+            "year": 2015,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 25559473",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/25559473/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1016/j.echo.2014.10.003",
+                "url": "https://doi.org/10.1016/j.echo.2014.10.003"
+              }
+            ],
+            "completeness": 0.8
+          },
+          {
+            "trialId": "trial_https://openalex.org/W4249896096",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": null,
+            "doi": "10.1093/ehjci/jev014",
+            "title": "Recommendations for Cardiac Chamber Quantification by Echocardiography in Adults: An Update from the American Society of Echocardiography and the European Association of Cardiovascular Imaging",
+            "year": 2015,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "doi",
+                "label": "DOI 10.1093/ehjci/jev014",
+                "url": "https://doi.org/10.1093/ehjci/jev014"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0001",
+        "canonicalTrialId": "trial_NCT03036124",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03036124",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03036124",
+            "pmid": null,
+            "doi": null,
+            "title": "Dapagliflozin and prevention of adverse outcomes in heart failure",
+            "year": 2019,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03036124",
+                "url": "https://clinicaltrials.gov/study/NCT03036124"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0003",
+        "canonicalTrialId": "trial_NCT03619213",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03619213",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03619213",
+            "pmid": null,
+            "doi": null,
+            "title": "Dapagliflozin in heart failure with mildly reduced or preserved ejection fraction",
+            "year": 2022,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03619213",
+                "url": "https://clinicaltrials.gov/study/NCT03619213"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0004",
+        "canonicalTrialId": "trial_NCT03057951",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03057951",
+            "source": "aact",
+            "sourceType": "trial",
+            "nctId": "NCT03057951",
+            "pmid": null,
+            "doi": null,
+            "title": "Empagliflozin outcome trial in patients with chronic heart failure with preserved EF",
+            "year": 2021,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03057951",
+                "url": "https://clinicaltrials.gov/study/NCT03057951"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0005",
+        "canonicalTrialId": "trial_NCT02465515",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT02465515",
+            "source": "pubmed",
+            "sourceType": "trial",
+            "nctId": "NCT02465515",
+            "pmid": null,
+            "doi": null,
+            "title": "Apixaban for reduction in stroke in AF patients with CKD subgroup analysis",
+            "year": 2018,
+            "subcategoryId": "af",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT02465515",
+                "url": "https://clinicaltrials.gov/study/NCT02465515"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0006",
+        "canonicalTrialId": "trial_NCT03521934",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03521934",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03521934",
+            "pmid": null,
+            "doi": null,
+            "title": "Sotagliflozin in patients with diabetes and worsening heart failure",
+            "year": 2021,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03521934",
+                "url": "https://clinicaltrials.gov/study/NCT03521934"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0007",
+        "canonicalTrialId": "trial_NCT03422991",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03422991",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03422991",
+            "pmid": null,
+            "doi": null,
+            "title": "Cohort of Heart Failure Patients",
+            "year": 2017,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03422991",
+                "url": "https://clinicaltrials.gov/study/NCT03422991"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0008",
+        "canonicalTrialId": "trial_NCT03539510",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03539510",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03539510",
+            "pmid": null,
+            "doi": null,
+            "title": "Effectiveness of the HF-ACP Website Study",
+            "year": 2018,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03539510",
+                "url": "https://clinicaltrials.gov/study/NCT03539510"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0009",
+        "canonicalTrialId": "trial_NCT00528320",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.4,
+        "members": [
+          {
+            "trialId": "trial_NCT00528320",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT00528320",
+            "pmid": null,
+            "doi": null,
+            "title": "Clinical Evaluation of Cardiac Resynchronization Therapy (CRT) Using the Ovatio CRT Implantable Cardioverter-defibrillator (ICD) System",
+            "year": 0,
+            "subcategoryId": "rhythm",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT00528320",
+                "url": "https://clinicaltrials.gov/study/NCT00528320"
+              }
+            ],
+            "completeness": 0.4
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0010",
+        "canonicalTrialId": "trial_NCT02863796",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT02863796",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT02863796",
+            "pmid": null,
+            "doi": null,
+            "title": "Safety and Feasibility of the WhiteSwell System\"",
+            "year": 2016,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT02863796",
+                "url": "https://clinicaltrials.gov/study/NCT02863796"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0011",
+        "canonicalTrialId": "trial_NCT01658670",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT01658670",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT01658670",
+            "pmid": null,
+            "doi": null,
+            "title": "HEART Camp: Promoting Adherence to Exercise in Patients With Heart Failure",
+            "year": 2012,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT01658670",
+                "url": "https://clinicaltrials.gov/study/NCT01658670"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0012",
+        "canonicalTrialId": "trial_NCT00241098",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT00241098",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT00241098",
+            "pmid": null,
+            "doi": null,
+            "title": "The VALIDATE Study of Valsartan for Patients With Early Stage Heart Failure",
+            "year": 2003,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT00241098",
+                "url": "https://clinicaltrials.gov/study/NCT00241098"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0013",
+        "canonicalTrialId": "trial_NCT02973633",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT02973633",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT02973633",
+            "pmid": null,
+            "doi": null,
+            "title": "Diffusion MRI in Heart Failure",
+            "year": 2017,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT02973633",
+                "url": "https://clinicaltrials.gov/study/NCT02973633"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0014",
+        "canonicalTrialId": "trial_NCT05897489",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT05897489",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT05897489",
+            "pmid": null,
+            "doi": null,
+            "title": "SGLT2 for Heart Failure in CHD Patients",
+            "year": 2023,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT05897489",
+                "url": "https://clinicaltrials.gov/study/NCT05897489"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0015",
+        "canonicalTrialId": "trial_NCT00518817",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT00518817",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT00518817",
+            "pmid": null,
+            "doi": null,
+            "title": "The Cardiovascular Genetic and Therapeutic Implications of Muscular Dystrophy",
+            "year": 2007,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT00518817",
+                "url": "https://clinicaltrials.gov/study/NCT00518817"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0016",
+        "canonicalTrialId": "trial_NCT06679179",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT06679179",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT06679179",
+            "pmid": null,
+            "doi": null,
+            "title": "Effect of Flozin (dapagliflozin) Administration on Myocardial and Peripheral Vascular Remodeling",
+            "year": 2023,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT06679179",
+                "url": "https://clinicaltrials.gov/study/NCT06679179"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0017",
+        "canonicalTrialId": "trial_NCT06192524",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT06192524",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT06192524",
+            "pmid": null,
+            "doi": null,
+            "title": "OPTImal PHARMacological Therapy for Patients With Heart Failure: The OPTIPHARM-HF Registry",
+            "year": 2022,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT06192524",
+                "url": "https://clinicaltrials.gov/study/NCT06192524"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0018",
+        "canonicalTrialId": "trial_NCT07304817",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT07304817",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT07304817",
+            "pmid": null,
+            "doi": null,
+            "title": "Comparative Study on the Mode of Action of Vicadrostat and Spironolactone on Protein Profiles and Renal Hemodynamic Effects (COMPARE-VS)",
+            "year": 2026,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT07304817",
+                "url": "https://clinicaltrials.gov/study/NCT07304817"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0019",
+        "canonicalTrialId": "trial_NCT04790617",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT04790617",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT04790617",
+            "pmid": null,
+            "doi": null,
+            "title": "ENCOMPASS: Expansion Study B, RCT",
+            "year": 2021,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT04790617",
+                "url": "https://clinicaltrials.gov/study/NCT04790617"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0020",
+        "canonicalTrialId": "trial_NCT05909280",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT05909280",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT05909280",
+            "pmid": null,
+            "doi": null,
+            "title": "Real-time Pressure Volume Loop Monitoring as a Guide for Enhanced Understanding of Changes in Elemental Cardiovascular Physiology During Therapeutic Strategies Aiming for Hemodynamic Optimization. Cohort I: Veno-arterial Extracorporeal Membrane Oxygenation (PLUTO-I)",
+            "year": 2022,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT05909280",
+                "url": "https://clinicaltrials.gov/study/NCT05909280"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0021",
+        "canonicalTrialId": "trial_NCT00293150",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT00293150",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT00293150",
+            "pmid": null,
+            "doi": null,
+            "title": "Reversing Endothelial and Diastolic Dysfunction and Improving Collagen Turnover in Diastolic Heart Failure",
+            "year": 2003,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT00293150",
+                "url": "https://clinicaltrials.gov/study/NCT00293150"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0022",
+        "canonicalTrialId": "trial_NCT03402490",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03402490",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03402490",
+            "pmid": null,
+            "doi": null,
+            "title": "Enhancement of Physical Activity in Elderly Patients With Diastolic Heart Failure by a Motivational Intervention",
+            "year": 2013,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03402490",
+                "url": "https://clinicaltrials.gov/study/NCT03402490"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0023",
+        "canonicalTrialId": "trial_NCT07186062",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT07186062",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT07186062",
+            "pmid": null,
+            "doi": null,
+            "title": "Clinical Outcomes of Levosimendan Versus Dobutamine Versus Milrinone in Cases With Acute Decompensated Heart Failure With Impaired Renal Function",
+            "year": 2022,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT07186062",
+                "url": "https://clinicaltrials.gov/study/NCT07186062"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0024",
+        "canonicalTrialId": "trial_NCT06228924",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT06228924",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT06228924",
+            "pmid": null,
+            "doi": null,
+            "title": "Open-label, Dose Escalation Study of Safety and Preliminary Efficacy of TN-401 in Adults With PKP2 Mutation-associated ARVC",
+            "year": 2024,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT06228924",
+                "url": "https://clinicaltrials.gov/study/NCT06228924"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0025",
+        "canonicalTrialId": "trial_NCT06702527",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT06702527",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT06702527",
+            "pmid": null,
+            "doi": null,
+            "title": "Optimizing Clinical Outcomes in Patients Undergoing Mitral Transcatheter Edge-to-edge Repair (M-TEER) for Severe Functional Mitral Regurgitation Towards Improved Guideline-directed Medical Therapy",
+            "year": 2025,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT06702527",
+                "url": "https://clinicaltrials.gov/study/NCT06702527"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0026",
+        "canonicalTrialId": "trial_NCT06122961",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT06122961",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT06122961",
+            "pmid": null,
+            "doi": null,
+            "title": "Levels of Inflammation in People With Cardiovascular Disease (POSEIDON)",
+            "year": 2023,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT06122961",
+                "url": "https://clinicaltrials.gov/study/NCT06122961"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0027",
+        "canonicalTrialId": "trial_NCT02530788",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT02530788",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT02530788",
+            "pmid": null,
+            "doi": null,
+            "title": "High-dose Selenium Supplementation in Patients With Left Ventricular Assist",
+            "year": 2015,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT02530788",
+                "url": "https://clinicaltrials.gov/study/NCT02530788"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0028",
+        "canonicalTrialId": "trial_NCT07292896",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT07292896",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT07292896",
+            "pmid": null,
+            "doi": null,
+            "title": "A Multicenter Study on the Normal Reference Range and Clinical Significance of the Right Atrioventricular Coupling Index Assessed by Artificial Intelligence-Based Three-Dimensional Echocardiography",
+            "year": 2025,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT07292896",
+                "url": "https://clinicaltrials.gov/study/NCT07292896"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0029",
+        "canonicalTrialId": "trial_NCT01092325",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT01092325",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT01092325",
+            "pmid": null,
+            "doi": null,
+            "title": "Safety and Hemodynamic Effects and Pharmacokinetics of CXL-1020 in Patients With Stable Heart Failure",
+            "year": 2009,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT01092325",
+                "url": "https://clinicaltrials.gov/study/NCT01092325"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0030",
+        "canonicalTrialId": "trial_NCT02459288",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT02459288",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT02459288",
+            "pmid": null,
+            "doi": null,
+            "title": "Platelet Resistance With Ticagrelor or Standard-Dose Clopidogrel Among CKD and ACS Patients",
+            "year": 2014,
+            "subcategoryId": "general",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT02459288",
+                "url": "https://clinicaltrials.gov/study/NCT02459288"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0031",
+        "canonicalTrialId": "trial_NCT03168568",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_NCT03168568",
+            "source": "ctgov",
+            "sourceType": "trial",
+            "nctId": "NCT03168568",
+            "pmid": null,
+            "doi": null,
+            "title": "Differential Vascular and Endocrine Effects of Valsartan/Sacubitril in Heart Failure With Reduced Ejection Fraction",
+            "year": 2017,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "trial_registry",
+                "label": "ClinicalTrials.gov NCT03168568",
+                "url": "https://clinicaltrials.gov/study/NCT03168568"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0032",
+        "canonicalTrialId": "trial_https://openalex.org/W2146264128",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2146264128",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "26378978",
+            "doi": "10.1056/nejmoa1504720",
+            "title": "Empagliflozin, Cardiovascular Outcomes, and Mortality in Type 2 Diabetes",
+            "year": 2015,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 26378978",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/26378978/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa1504720",
+                "url": "https://doi.org/10.1056/nejmoa1504720"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0033",
+        "canonicalTrialId": "trial_https://openalex.org/W2145632027",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2145632027",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "15385656",
+            "doi": "10.1056/nejmoa041031",
+            "title": "Chronic Kidney Disease and the Risks of Death, Cardiovascular Events, and Hospitalization",
+            "year": 2004,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 15385656",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/15385656/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa041031",
+                "url": "https://doi.org/10.1056/nejmoa041031"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0035",
+        "canonicalTrialId": "trial_https://openalex.org/W3113178943",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W3113178943",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "33309175",
+            "doi": "10.1016/j.jacc.2020.11.010",
+            "title": "Global Burden of Cardiovascular Diseases and Risk Factors, 1990–2019",
+            "year": 2020,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 33309175",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/33309175/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1016/j.jacc.2020.11.010",
+                "url": "https://doi.org/10.1016/j.jacc.2020.11.010"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0036",
+        "canonicalTrialId": "trial_https://openalex.org/W2626446274",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2626446274",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "28605608",
+            "doi": "10.1056/nejmoa1611925",
+            "title": "Canagliflozin and Cardiovascular and Renal Events in Type 2 Diabetes",
+            "year": 2017,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 28605608",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/28605608/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa1611925",
+                "url": "https://doi.org/10.1056/nejmoa1611925"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0037",
+        "canonicalTrialId": "trial_https://openalex.org/W2425644022",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2425644022",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "27295427",
+            "doi": "10.1056/nejmoa1603827",
+            "title": "Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes",
+            "year": 2016,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 27295427",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/27295427/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa1603827",
+                "url": "https://doi.org/10.1056/nejmoa1603827"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0038",
+        "canonicalTrialId": "trial_https://openalex.org/W2163092745",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2163092745",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "12551878",
+            "doi": "10.1161/01.cir.0000052939.59093.45",
+            "title": "Markers of Inflammation and Cardiovascular Disease",
+            "year": 2003,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 12551878",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/12551878/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1161/01.cir.0000052939.59093.45",
+                "url": "https://doi.org/10.1161/01.cir.0000052939.59093.45"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0039",
+        "canonicalTrialId": "trial_https://openalex.org/W2150751323",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2150751323",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "20458016",
+            "doi": "10.1161/cir.0b013e3181dbece1",
+            "title": "Particulate Matter Air Pollution and Cardiovascular Disease",
+            "year": 2010,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 20458016",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/20458016/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1161/cir.0b013e3181dbece1",
+                "url": "https://doi.org/10.1161/cir.0b013e3181dbece1"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0040",
+        "canonicalTrialId": "trial_https://openalex.org/W2900413769",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2900413769",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "30415602",
+            "doi": "10.1056/nejmoa1812389",
+            "title": "Dapagliflozin and Cardiovascular Outcomes in Type 2 Diabetes",
+            "year": 2018,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 30415602",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/30415602/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa1812389",
+                "url": "https://doi.org/10.1056/nejmoa1812389"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0041",
+        "canonicalTrialId": "trial_https://openalex.org/W2519510391",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2519510391",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "27633186",
+            "doi": "10.1056/nejmoa1607141",
+            "title": "Semaglutide and Cardiovascular Outcomes in Patients with Type 2 Diabetes",
+            "year": 2016,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 27633186",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/27633186/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa1607141",
+                "url": "https://doi.org/10.1056/nejmoa1607141"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0042",
+        "canonicalTrialId": "trial_https://openalex.org/W2596179513",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2596179513",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "28304224",
+            "doi": "10.1056/nejmoa1615664",
+            "title": "Evolocumab and Clinical Outcomes in Patients with Cardiovascular Disease",
+            "year": 2017,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 28304224",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/28304224/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa1615664",
+                "url": "https://doi.org/10.1056/nejmoa1615664"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0043",
+        "canonicalTrialId": "trial_https://openalex.org/W3021842026",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W3021842026",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "22555213",
+            "doi": "10.1093/eurheartj/ehs092",
+            "title": "European Guidelines on cardiovascular disease prevention in clinical practice (version 2012): The Fifth Joint Task Force of the European Society of Cardiology and Other Societies on Cardiovascular Disease Prevention in Clinical Practice (constituted by representatives of nine societies and by invited experts) * Developed with the special contribution of the European Association for Cardiovascular Prevention &amp; Rehabilitation (EACPR)",
+            "year": 2012,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 22555213",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/22555213/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1093/eurheartj/ehs092",
+                "url": "https://doi.org/10.1093/eurheartj/ehs092"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0044",
+        "canonicalTrialId": "trial_https://openalex.org/W1986349550",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W1986349550",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "11315831",
+            "doi": "10.2337/diacare.24.4.683",
+            "title": "Cardiovascular Morbidity and Mortality Associated With the Metabolic Syndrome",
+            "year": 2001,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 11315831",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/11315831/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.2337/diacare.24.4.683",
+                "url": "https://doi.org/10.2337/diacare.24.4.683"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0045",
+        "canonicalTrialId": "trial_https://openalex.org/W2159584910",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2159584910",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": null,
+            "doi": "10.7326/0003-4819-101-3-415_3",
+            "title": "Heart Disease: A Textbook of Cardiovascular Medicine.",
+            "year": 1984,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "doi",
+                "label": "DOI 10.7326/0003-4819-101-3-415_3",
+                "url": "https://doi.org/10.7326/0003-4819-101-3-415_3"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0046",
+        "canonicalTrialId": "trial_https://openalex.org/W2148092884",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2148092884",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "18212285",
+            "doi": "10.1161/circulationaha.107.699579",
+            "title": "General Cardiovascular Risk Profile for Use in Primary Care",
+            "year": 2008,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 18212285",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/18212285/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1161/circulationaha.107.699579",
+                "url": "https://doi.org/10.1161/circulationaha.107.699579"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0047",
+        "canonicalTrialId": "trial_https://openalex.org/W2316376271",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2316376271",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "9077376",
+            "doi": "10.1056/nejm199704033361401",
+            "title": "Inflammation, Aspirin, and the Risk of Cardiovascular Disease in Apparently Healthy Men",
+            "year": 1997,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 9077376",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/9077376/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejm199704033361401",
+                "url": "https://doi.org/10.1056/nejm199704033361401"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0048",
+        "canonicalTrialId": "trial_https://openalex.org/W2166000498",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2166000498",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "23432189",
+            "doi": "10.1056/nejmoa1200303",
+            "title": "Primary Prevention of Cardiovascular Disease with a Mediterranean Diet",
+            "year": 2013,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 23432189",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/23432189/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa1200303",
+                "url": "https://doi.org/10.1056/nejmoa1200303"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0049",
+        "canonicalTrialId": "trial_https://openalex.org/W2070692648",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2070692648",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "430798",
+            "doi": "10.1001/jama.241.19.2035",
+            "title": "Diabetes and cardiovascular disease. The Framingham study",
+            "year": 1979,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 430798",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/430798/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1001/jama.241.19.2035",
+                "url": "https://doi.org/10.1001/jama.241.19.2035"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0050",
+        "canonicalTrialId": "trial_https://openalex.org/W2058610272",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2058610272",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "10733371",
+            "doi": "10.1056/nejm200003233421202",
+            "title": "C-Reactive Protein and Other Markers of Inflammation in the Prediction of Cardiovascular Disease in Women",
+            "year": 2000,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 10733371",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/10733371/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejm200003233421202",
+                "url": "https://doi.org/10.1056/nejm200003233421202"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0051",
+        "canonicalTrialId": "trial_https://openalex.org/W3126800207",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W3126800207",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "4972212",
+            "doi": "10.7326/0003-4819-69-6-1335_2",
+            "title": "Cardiovascular Survey Methods.",
+            "year": 1968,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 4972212",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/4972212/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.7326/0003-4819-69-6-1335_2",
+                "url": "https://doi.org/10.7326/0003-4819-69-6-1335_2"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0052",
+        "canonicalTrialId": "trial_https://openalex.org/W2115944543",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2115944543",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "21475195",
+            "doi": "10.1038/nature09922",
+            "title": "Gut flora metabolism of phosphatidylcholine promotes cardiovascular disease",
+            "year": 2011,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 21475195",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/21475195/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1038/nature09922",
+                "url": "https://doi.org/10.1038/nature09922"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0053",
+        "canonicalTrialId": "trial_https://openalex.org/W2122779695",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W2122779695",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "21670242",
+            "doi": "10.1161/circulationaha.110.009449",
+            "title": "Standardized Bleeding Definitions for Cardiovascular Clinical Trials",
+            "year": 2011,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 21670242",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/21670242/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1161/circulationaha.110.009449",
+                "url": "https://doi.org/10.1161/circulationaha.110.009449"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0054",
+        "canonicalTrialId": "trial_https://openalex.org/W1752045965",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_https://openalex.org/W1752045965",
+            "source": "openalex",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "16371630",
+            "doi": "10.1056/nejmoa052187",
+            "title": "Intensive Diabetes Treatment and Cardiovascular Disease in Patients with Type 1 Diabetes",
+            "year": 2005,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 16371630",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/16371630/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1056/nejmoa052187",
+                "url": "https://doi.org/10.1056/nejmoa052187"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0055",
+        "canonicalTrialId": "trial_37600025",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_37600025",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "37600025",
+            "doi": "10.3389/fcvm.2023.1256656",
+            "title": "Editorial: Novelties in the therapeutic approaches for chronic heart failure: cardiovascular targets and beyond, volume II.",
+            "year": 2023,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 37600025",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/37600025/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.3389/fcvm.2023.1256656",
+                "url": "https://doi.org/10.3389/fcvm.2023.1256656"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0056",
+        "canonicalTrialId": "trial_35865375",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_35865375",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "35865375",
+            "doi": "10.3389/fcvm.2022.895258",
+            "title": "Editorial: Novelties in the Therapeutic Approaches for Chronic Heart Failure: Cardiovascular Targets and Beyond.",
+            "year": 2022,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 35865375",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/35865375/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.3389/fcvm.2022.895258",
+                "url": "https://doi.org/10.3389/fcvm.2022.895258"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0057",
+        "canonicalTrialId": "trial_37633337",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_37633337",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "37633337",
+            "doi": "10.1016/j.mvr.2023.104598",
+            "title": "Neutrophil-to-lymphocyte ratio an inflammatory biomarker, and prognostic marker in heart failure, cardiovascular disease and chronic inflammatory diseases: New insights for a potential predictor of anti-cytokine therapy responsiveness.",
+            "year": 2023,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 37633337",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/37633337/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1016/j.mvr.2023.104598",
+                "url": "https://doi.org/10.1016/j.mvr.2023.104598"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0058",
+        "canonicalTrialId": "trial_32524327",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_32524327",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "32524327",
+            "doi": "10.1007/s10741-020-09987-z",
+            "title": "Pathogenesis of chronic heart failure: cardiovascular aging, risk factors, comorbidities, and disease modifiers.",
+            "year": 2022,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 32524327",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/32524327/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1007/s10741-020-09987-z",
+                "url": "https://doi.org/10.1007/s10741-020-09987-z"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0059",
+        "canonicalTrialId": "trial_32423555",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_32423555",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "32423555",
+            "doi": "10.1016/j.ihj.2020.01.006",
+            "title": "Soluble neprilysin: A versatile biomarker for heart failure, cardiovascular diseases and diabetic complications-A systematic review.",
+            "year": 2020,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 32423555",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/32423555/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1016/j.ihj.2020.01.006",
+                "url": "https://doi.org/10.1016/j.ihj.2020.01.006"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0060",
+        "canonicalTrialId": "trial_PPR425635",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_PPR425635",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": null,
+            "doi": "10.1101/2021.11.27.21266928",
+            "title": "Alkaline phosphatase variability predicts new onset heart failure, cardiovascular mortality, and all-cause mortality in patients with type-2 diabetes mellitus: a population-based study",
+            "year": 2021,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "doi",
+                "label": "DOI 10.1101/2021.11.27.21266928",
+                "url": "https://doi.org/10.1101/2021.11.27.21266928"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0061",
+        "canonicalTrialId": "trial_41338959",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41338959",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41338959",
+            "doi": "10.6133/apjcn.202512_34(6).0015",
+            "title": "Study on nutritional status and incidence of sarcopenia in elderly patients with chronic heart failure.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41338959",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41338959/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.6133/apjcn.202512_34(6).0015",
+                "url": "https://doi.org/10.6133/apjcn.202512_34(6).0015"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0062",
+        "canonicalTrialId": "trial_PPR239717",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.6,
+        "members": [
+          {
+            "trialId": "trial_PPR239717",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": null,
+            "doi": "10.21203/rs.3.rs-65564/v2",
+            "title": "Long-term body mass index changes in obese adults and the risk of heart failure, cardiovascular disease and mortality: a longitudinal study of 260,000 adults",
+            "year": 2020,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "doi",
+                "label": "DOI 10.21203/rs.3.rs-65564/v2",
+                "url": "https://doi.org/10.21203/rs.3.rs-65564/v2"
+              }
+            ],
+            "completeness": 0.6
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0063",
+        "canonicalTrialId": "trial_33853578",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_33853578",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "33853578",
+            "doi": "10.1186/s12889-021-10606-1",
+            "title": "Long-term body mass index changes in overweight and obese adults and the risk of heart failure, cardiovascular disease and mortality: a cohort study of over 260,000 adults in the UK.",
+            "year": 2021,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 33853578",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/33853578/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1186/s12889-021-10606-1",
+                "url": "https://doi.org/10.1186/s12889-021-10606-1"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0064",
+        "canonicalTrialId": "trial_41682823",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41682823",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41682823",
+            "doi": "10.3390/jcm15031143",
+            "title": "Combined Burden of Heart Failure and Arterial Hypertension as Predictors of Adverse Outcomes in Hospitalized COVID-19 Patients.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41682823",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41682823/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.3390/jcm15031143",
+                "url": "https://doi.org/10.3390/jcm15031143"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0065",
+        "canonicalTrialId": "trial_41757453",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41757453",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41757453",
+            "doi": "10.1161/jaha.120.019880",
+            "title": "Effects of Cardiac Resynchronization Therapy on Cardiovascular and Noncardiovascular Hospitalization: A MADIT-CRT Long-Term Follow-Up.",
+            "year": 2026,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41757453",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41757453/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1161/jaha.120.019880",
+                "url": "https://doi.org/10.1161/jaha.120.019880"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0066",
+        "canonicalTrialId": "trial_41730547",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41730547",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41730547",
+            "doi": "10.1136/heartjnl-2025-326812",
+            "title": "Cardiovascular benefits of obesity therapies: an overview of obesity medicines and metabolic bariatric surgery.",
+            "year": 2026,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41730547",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41730547/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1136/heartjnl-2025-326812",
+                "url": "https://doi.org/10.1136/heartjnl-2025-326812"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0067",
+        "canonicalTrialId": "trial_41735154",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41735154",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41735154",
+            "doi": "10.1016/j.sleh.2025.12.009",
+            "title": "Association of insomnia and its proteomic signatures with incident heart failure: A European population-based study.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41735154",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41735154/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1016/j.sleh.2025.12.009",
+                "url": "https://doi.org/10.1016/j.sleh.2025.12.009"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0068",
+        "canonicalTrialId": "trial_PMC12935647",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.2,
+        "members": [
+          {
+            "trialId": "trial_PMC12935647",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": null,
+            "doi": null,
+            "title": "Cardiovascular remodeling: key mechanisms and clinical implications linking sarcopenia and heart failure",
+            "year": 0,
+            "subcategoryId": "hf",
+            "links": [],
+            "completeness": 0.2
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0069",
+        "canonicalTrialId": "trial_PMC12938863",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.4,
+        "members": [
+          {
+            "trialId": "trial_PMC12938863",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": null,
+            "doi": null,
+            "title": "Time to first cardiovascular hospitalization after guideline-based treatment optimization: A multicenter retrospective cohort study in northwest Ethiopia",
+            "year": 2026,
+            "subcategoryId": "pad",
+            "links": [],
+            "completeness": 0.4
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0070",
+        "canonicalTrialId": "trial_41740625",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41740625",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41740625",
+            "doi": "10.1152/ajpcell.00541.2025",
+            "title": "Neuroimmune interactions in cardiovascular homeostasis and disease.",
+            "year": 2026,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41740625",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41740625/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1152/ajpcell.00541.2025",
+                "url": "https://doi.org/10.1152/ajpcell.00541.2025"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0071",
+        "canonicalTrialId": "trial_41735454",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41735454",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41735454",
+            "doi": "10.1038/s41371-026-01123-y",
+            "title": "Natriuretic peptides and cardiac troponins in hypertension and heart failure: A contemporary review of the evidence.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41735454",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41735454/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1038/s41371-026-01123-y",
+                "url": "https://doi.org/10.1038/s41371-026-01123-y"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0072",
+        "canonicalTrialId": "trial_41697954",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41697954",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41697954",
+            "doi": "10.1093/ehjcvp/pvag010",
+            "title": "A Bayesian analysis of finerenone in heart failure with mildly reduced and preserved ejection fraction: a pre-specified analysis of FINEARTS-HF.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41697954",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41697954/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1093/ehjcvp/pvag010",
+                "url": "https://doi.org/10.1093/ehjcvp/pvag010"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0073",
+        "canonicalTrialId": "trial_41677478",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41677478",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41677478",
+            "doi": "10.1016/j.jchf.2026.102946",
+            "title": "Left Atrial Volumetric Enlargement in Heart Failure With Reduced Ejection Fraction: Obligatory Consequence or Independent Predictor of Outcome?",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41677478",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41677478/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1016/j.jchf.2026.102946",
+                "url": "https://doi.org/10.1016/j.jchf.2026.102946"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0074",
+        "canonicalTrialId": "trial_41679408",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41679408",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41679408",
+            "doi": "10.1016/j.amjcard.2026.02.016",
+            "title": "Managing Obesity in Heart Failure Patients: Current Evidence and Strategies.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41679408",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41679408/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1016/j.amjcard.2026.02.016",
+                "url": "https://doi.org/10.1016/j.amjcard.2026.02.016"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0075",
+        "canonicalTrialId": "trial_41744085",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41744085",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41744085",
+            "doi": "10.1161/circep.125.014412",
+            "title": "Right and Left Atrial Dysfunction as Independent Cardiovascular Risk Factors: A UK Biobank Study.",
+            "year": 2026,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41744085",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41744085/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1161/circep.125.014412",
+                "url": "https://doi.org/10.1161/circep.125.014412"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0076",
+        "canonicalTrialId": "trial_41757434",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41757434",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41757434",
+            "doi": "10.1161/jaha.124.038783",
+            "title": "Cohort Study of Initial Diuretic Dosing and Outcomes Among Patients Hospitalized for Congestive Heart Failure: Insights From the Cardiovascular Quality Improvement and Care Innovation Consortium.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41757434",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41757434/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1161/jaha.124.038783",
+                "url": "https://doi.org/10.1161/jaha.124.038783"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0077",
+        "canonicalTrialId": "trial_41746846",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41746846",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41746846",
+            "doi": "10.1159/000550762",
+            "title": "Phase Difference between End-Tidal CO₂ and Ventilation in Heart Failure with Oscillatory Breathing.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41746846",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41746846/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1159/000550762",
+                "url": "https://doi.org/10.1159/000550762"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0078",
+        "canonicalTrialId": "trial_41708980",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41708980",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41708980",
+            "doi": "10.1038/s41569-026-01260-4",
+            "title": "Neurovascular interactions in the ageing heart.",
+            "year": 2026,
+            "subcategoryId": "pad",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41708980",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41708980/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.1038/s41569-026-01260-4",
+                "url": "https://doi.org/10.1038/s41569-026-01260-4"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      },
+      {
+        "clusterId": "cluster_0079",
+        "canonicalTrialId": "trial_41752779",
+        "memberCount": 1,
+        "sourceCount": 1,
+        "maxEdgeScore": null,
+        "matchReasons": [],
+        "provenanceCompleteness": 0.8,
+        "members": [
+          {
+            "trialId": "trial_41752779",
+            "source": "europepmc",
+            "sourceType": "publication",
+            "nctId": null,
+            "pmid": "41752779",
+            "doi": "10.3390/medicina62020380",
+            "title": "Heart Failure in Rheumatoid Arthritis: Epidemiology, Pathogenesis, Diagnosis, Treatment, and Emerging Insights-A Comprehensive Review.",
+            "year": 2026,
+            "subcategoryId": "hf",
+            "links": [
+              {
+                "type": "publication",
+                "label": "PubMed 41752779",
+                "url": "https://pubmed.ncbi.nlm.nih.gov/41752779/"
+              },
+              {
+                "type": "doi",
+                "label": "DOI 10.3390/medicina62020380",
+                "url": "https://doi.org/10.3390/medicina62020380"
+              }
+            ],
+            "completeness": 0.8
+          }
+        ]
+      }
+    ]
+  }
+}

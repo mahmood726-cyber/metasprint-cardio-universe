@@ -1,0 +1,266 @@
+{
+  "generatedAt": "2026-02-28T21:31:05.521Z",
+  "benchmarkVersion": "v1.0.0-2026-03-02",
+  "source": "clinicaltrials_gov_live_lookup",
+  "connectorPolicy": {
+    "timeoutMs": 15000,
+    "maxAttempts": 3,
+    "baseDelayMs": 250
+  },
+  "expectedTrialCount": 22,
+  "matchedTrialCount": 22,
+  "ingestionRecall": 1,
+  "ingestionRecallPct": 100,
+  "packCoverage": [
+    {
+      "packId": "sglt2_hf_cardiorenal",
+      "expectedTrialCount": 7,
+      "matchedTrialCount": 7,
+      "recall": 1,
+      "matchedTrialIds": [
+        "NCT03036124",
+        "NCT03057977",
+        "NCT03619213",
+        "NCT03057951",
+        "NCT03521934",
+        "NCT04349072",
+        "NCT04363697"
+      ],
+      "missingTrialIds": []
+    },
+    {
+      "packId": "glp1_cv_outcomes",
+      "expectedTrialCount": 5,
+      "matchedTrialCount": 5,
+      "recall": 1,
+      "matchedTrialIds": [
+        "NCT01179048",
+        "NCT01720446",
+        "NCT01394952",
+        "NCT01627483",
+        "NCT02692716"
+      ],
+      "missingTrialIds": []
+    },
+    {
+      "packId": "antithrombotic_af_stroke",
+      "expectedTrialCount": 5,
+      "matchedTrialCount": 5,
+      "recall": 1,
+      "matchedTrialIds": [
+        "NCT00412984",
+        "NCT00781391",
+        "NCT00643201",
+        "NCT02465515",
+        "NCT02258841"
+      ],
+      "missingTrialIds": []
+    },
+    {
+      "packId": "hf_foundational_therapy",
+      "expectedTrialCount": 5,
+      "matchedTrialCount": 5,
+      "recall": 1,
+      "matchedTrialIds": [
+        "NCT01035255",
+        "NCT00094302",
+        "NCT01870778",
+        "NCT01920711",
+        "NCT02604251"
+      ],
+      "missingTrialIds": []
+    },
+    {
+      "packId": "ontology_benchmark_entities",
+      "expectedTrialCount": 0,
+      "matchedTrialCount": 0,
+      "recall": null,
+      "missingTrialIds": []
+    },
+    {
+      "packId": "ranking_judgments",
+      "expectedTrialCount": 0,
+      "matchedTrialCount": 0,
+      "recall": null,
+      "missingTrialIds": []
+    }
+  ],
+  "trialChecks": [
+    {
+      "trialId": "NCT03036124",
+      "packId": "sglt2_hf_cardiorenal",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT03057977",
+      "packId": "sglt2_hf_cardiorenal",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT03619213",
+      "packId": "sglt2_hf_cardiorenal",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT03057951",
+      "packId": "sglt2_hf_cardiorenal",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT03521934",
+      "packId": "sglt2_hf_cardiorenal",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT04349072",
+      "packId": "sglt2_hf_cardiorenal",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT04363697",
+      "packId": "sglt2_hf_cardiorenal",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT01179048",
+      "packId": "glp1_cv_outcomes",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT01720446",
+      "packId": "glp1_cv_outcomes",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT01394952",
+      "packId": "glp1_cv_outcomes",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT01627483",
+      "packId": "glp1_cv_outcomes",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT02692716",
+      "packId": "glp1_cv_outcomes",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT00412984",
+      "packId": "antithrombotic_af_stroke",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT00781391",
+      "packId": "antithrombotic_af_stroke",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT00643201",
+      "packId": "antithrombotic_af_stroke",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT02465515",
+      "packId": "antithrombotic_af_stroke",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT02258841",
+      "packId": "antithrombotic_af_stroke",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT01035255",
+      "packId": "hf_foundational_therapy",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT00094302",
+      "packId": "hf_foundational_therapy",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT01870778",
+      "packId": "hf_foundational_therapy",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT01920711",
+      "packId": "hf_foundational_therapy",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    },
+    {
+      "trialId": "NCT02604251",
+      "packId": "hf_foundational_therapy",
+      "found": true,
+      "attempts": 1,
+      "statusCode": 200,
+      "returnedStudies": 1
+    }
+  ]
+}

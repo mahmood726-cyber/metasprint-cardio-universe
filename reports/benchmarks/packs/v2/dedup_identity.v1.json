@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "dedup_identity_benchmark.v1",
+  "description": "Gold-labeled identity-dedup benchmark fixture for pairwise duplicate clustering and review-queue behavior.",
+  "options": {
+    "threshold": 0.85,
+    "reviewMin": 0.65
+  },
+  "records": [
+    {
+      "trialId": "trial_ctgov_a",
+      "source": "ctgov",
+      "sourceType": "trial",
+      "nctId": "NCT90000001",
+      "pmid": "39000001",
+      "doi": "10.5555/cardio.a",
+      "title": "Dapagliflozin outcomes in chronic heart failure trial",
+      "year": 2021,
+      "enrollment": 4200,
+      "subcategoryId": "hf"
+    },
+    {
+      "trialId": "trial_pubmed_a",
+      "source": "pubmed",
+      "sourceType": "publication",
+      "nctId": "NCT90000001",
+      "pmid": "39000001",
+      "doi": null,
+      "title": "Dapagliflozin outcomes in chronic heart failure",
+      "year": 2021,
+      "enrollment": 4200,
+      "subcategoryId": "hf"
+    },
+    {
+      "trialId": "trial_openalex_a",
+      "source": "openalex",
+      "sourceType": "publication",
+      "nctId": null,
+      "pmid": null,
+      "doi": "10.5555/cardio.a",
+      "title": "Chronic heart failure outcomes with dapagliflozin",
+      "year": 2021,
+      "enrollment": 4180,
+      "subcategoryId": "hf"
+    },
+    {
+      "trialId": "trial_ctgov_b",
+      "source": "ctgov",
+      "sourceType": "trial",
+      "nctId": "NCT90000002",
+      "pmid": "39000002",
+      "doi": null,
+      "title": "Apixaban versus warfarin for stroke prevention in atrial fibrillation",
+      "year": 2019,
+      "enrollment": 3500,
+      "subcategoryId": "af"
+    },
+    {
+      "trialId": "trial_europepmc_b",
+      "source": "europepmc",
+      "sourceType": "publication",
+      "nctId": null,
+      "pmid": "39000002",
+      "doi": null,
+      "title": "Stroke prevention in atrial fibrillation: apixaban versus warfarin",
+      "year": 2019,
+      "enrollment": 3510,
+      "subcategoryId": "af"
+    },
+    {
+      "trialId": "trial_ctgov_c",
+      "source": "ctgov",
+      "sourceType": "trial",
+      "nctId": "NCT90000003",
+      "pmid": null,
+      "doi": null,
+      "title": "Canagliflozin for heart failure outcomes in diabetes",
+      "year": 2020,
+      "enrollment": 2500,
+      "subcategoryId": "hf"
+    },
+    {
+      "trialId": "trial_openalex_d",
+      "source": "openalex",
+      "sourceType": "publication",
+      "nctId": null,
+      "pmid": null,
+      "doi": null,
+      "title": "Milvexian for stroke prevention in atrial fibrillation randomized trial",
+      "year": 2025,
+      "enrollment": 12000,
+      "subcategoryId": "af"
+    },
+    {
+      "trialId": "trial_pubmed_d",
+      "source": "pubmed",
+      "sourceType": "publication",
+      "nctId": null,
+      "pmid": null,
+      "doi": null,
+      "title": "Randomized trial of milvexian for stroke prevention in atrial fibrillation",
+      "year": 2025,
+      "enrollment": 11850,
+      "subcategoryId": "af"
+    },
+    {
+      "trialId": "trial_openalex_e",
+      "source": "openalex",
+      "sourceType": "publication",
+      "nctId": null,
+      "pmid": null,
+      "doi": null,
+      "title": "Dietary sodium reduction and blood pressure outcomes in resistant hypertension",
+      "year": 2024,
+      "enrollment": 1500,
+      "subcategoryId": "htn"
+    },
+    {
+      "trialId": "trial_ctgov_e",
+      "source": "ctgov",
+      "sourceType": "trial",
+      "nctId": "NCT90000004",
+      "pmid": null,
+      "doi": null,
+      "title": "Sodium reduction trial for blood pressure outcomes in resistant hypertension",
+      "year": 2024,
+      "enrollment": 1470,
+      "subcategoryId": "htn"
+    }
+  ],
+  "expected": {
+    "duplicatePairs": [
+      ["trial_ctgov_a", "trial_pubmed_a"],
+      ["trial_ctgov_a", "trial_openalex_a"],
+      ["trial_pubmed_a", "trial_openalex_a"],
+      ["trial_ctgov_b", "trial_europepmc_b"],
+      ["trial_openalex_d", "trial_pubmed_d"]
+    ],
+    "duplicateClusterCount": 3,
+    "minPrecision": 0.9,
+    "minRecall": 0.9,
+    "minF1": 0.92,
+    "maxFalsePositives": 1,
+    "maxFalseNegatives": 1
+  }
+}

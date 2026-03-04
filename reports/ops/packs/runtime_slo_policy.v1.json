@@ -1,0 +1,31 @@
+{
+  "policyVersion": "runtime_slo_policy.v1",
+  "updatedOn": "2026-03-01",
+  "defaults": {
+    "historyWindow": 12,
+    "minHistoricalSamples": 4,
+    "maxRegressionRatio": 0.2,
+    "maxConsecutiveFailures": 1
+  },
+  "jobs": {
+    "verify_phase1": {
+      "ownerRole": "QA Lead",
+      "budgetSeconds": 1800,
+      "baselineSeconds": 1200,
+      "maxRegressionRatio": 0.15
+    },
+    "verify_lancet_nightly": {
+      "ownerRole": "QA Lead",
+      "budgetSeconds": 5400,
+      "baselineSeconds": 3600,
+      "maxRegressionRatio": 0.2
+    }
+  },
+  "weeklyReviewProtocol": {
+    "cadence": "weekly",
+    "dayOfWeek": "Monday",
+    "ownerRole": "QA Lead",
+    "inputArtifact": "reports/ci/runtime-trend.csv",
+    "requiredAction": "Recalibrate baselineSeconds from the median of the latest 4 passing runs when sustained drift is observed."
+  }
+}

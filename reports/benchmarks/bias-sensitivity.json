@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-02-28T21:30:35.445Z",
+  "sourceFixture": "reports\\benchmarks\\packs\\v2\\bias_sensitivity.v1.json",
+  "schemaVersion": "bias_sensitivity.v1",
+  "scenarioCount": 2,
+  "passedScenarioCount": 2,
+  "passRateScenarios": 1,
+  "checkCount": 20,
+  "passedCheckCount": 20,
+  "passRateChecks": 1,
+  "robMeCoverage": 1,
+  "robMeJudgementCounts": {
+    "low": 1,
+    "some_concerns": 0,
+    "high": 1
+  },
+  "overallRobMeJudgement": "high",
+  "status": "passed",
+  "note": "Bias robustness suite including selection proxy, PET-PEESE, trim-fill proxy, p-hacking, and non-affirmative inclusion."
+}

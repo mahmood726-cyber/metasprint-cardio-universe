@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MetaSprint Review Dashboard</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-alt: #eef3f9;
+      --text: #102138;
+      --muted: #4e647f;
+      --border: #cdd9e6;
+      --accent: #0b7a75;
+      --accent-strong: #0a5f5b;
+      --danger: #b42318;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 20%, #fef2e9 0, #f5f7fb 45%, #e8eef7 100%);
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .shell {
+      max-width: 1280px;
+      margin: 20px auto 28px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: 0 14px 40px rgba(16, 33, 56, 0.08);
+    }
+
+    .header {
+      padding: 16px 20px;
+      background: linear-gradient(130deg, #0b7a75, #11698c);
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: 0.01em;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      font-size: 0.82rem;
+      opacity: 0.92;
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 20px;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .error {
+      margin: 16px 20px 0;
+      padding: 10px 12px;
+      border: 1px solid #f3c1ba;
+      background: #fff1ef;
+      color: var(--danger);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      display: none;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 0;
+      min-height: 600px;
+    }
+
+    .main {
+      border-right: 1px solid var(--border);
+      padding: 16px;
+    }
+
+    .side {
+      padding: 16px;
+      background: #fbfdff;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .kpi {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .kpi .label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .kpi .value {
+      font-size: 0.95rem;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 10px 12px;
+      background: #f7fbff;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.86rem;
+    }
+
+    .panel-body {
+      padding: 10px 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+    }
+
+    thead th {
+      text-align: left;
+      background: #f3f8fd;
+      border-bottom: 1px solid var(--border);
+      padding: 8px;
+      color: #26425f;
+      position: sticky;
+      top: 0;
+    }
+
+    tbody td {
+      border-bottom: 1px solid #edf2f8;
+      padding: 7px 8px;
+      color: #22364c;
+    }
+
+    tbody th {
+      border-bottom: 1px solid #edf2f8;
+      padding: 7px 8px;
+      color: #22364c;
+      text-align: left;
+      font-weight: 600;
+      background: #fcfeff;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 0.78rem;
+      color: #22364c;
+    }
+
+    li { margin-bottom: 6px; }
+
+    .hint {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .chart-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .chart-card.wide {
+      grid-column: 1 / -1;
+    }
+
+    .chart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .chart-head h3 {
+      margin: 0;
+      font-size: 0.8rem;
+      color: #16385a;
+    }
+
+    .chart-download {
+      border: 1px solid #9ab6d2;
+      background: #f3f8fd;
+      color: #1a4b7d;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .chart-download:hover {
+      background: #e8f2fc;
+      border-color: #84a6c8;
+    }
+
+    .chart-download:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .chart-box {
+      min-height: 240px;
+      border: 1px dashed #c7d8eb;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #f8fcff, #f2f7fb);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4e647f;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    .chart-note {
+      margin: 8px 0 0;
+      font-size: 0.76rem;
+      color: #2d4867;
+    }
+
+    .chart-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 1120px) {
+      .grid { grid-template-columns: 1fr; }
+      .main { border-right: 0; border-bottom: 1px solid var(--border); }
+      .kpi-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); }
+      .chart-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="header">
+      <h1>MetaSprint Blind Review Dashboard</h1>
+      <p>11/12 immediate-switch adoption gate, dissent theme tracking, and blocker surveillance.</p>
+    </header>
+
+    <div class="meta">
+      <div><strong>Generated:</strong> <span id="generatedAt">loading...</span></div>
+      <div><strong>Latest summary source:</strong> <span id="latestPath">loading...</span></div>
+      <div><strong>Refresh command:</strong> <code>npm run review:dashboard-data</code></div>
+    </div>
+
+    <div id="loadError" class="error" role="alert" aria-live="assertive" tabindex="-1"></div>
+
+    <div class="grid">
+      <main class="main">
+        <div class="kpi-grid" id="kpiGrid"></div>
+
+        <section class="panel">
+          <h2>Cycle Adoption Table</h2>
+          <div class="panel-body" style="max-height: 390px; overflow: auto;" tabindex="0" aria-label="Scrollable review cycle adoption table">
+            <table aria-label="Review cycle adoption table">
+              <thead>
+                <tr>
+                  <th scope="col">Cycle</th>
+                  <th scope="col">Gate</th>
+                  <th scope="col">Switch Now</th>
+                  <th scope="col">Switch Conditions</th>
+                  <th scope="col">Not Yet</th>
+                  <th scope="col">Avg Method</th>
+                  <th scope="col">Avg Transparency</th>
+                  <th scope="col">Gap</th>
+                </tr>
+              </thead>
+              <tbody id="cycleRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Charts With Results</h2>
+          <div class="panel-body">
+            <div class="hint">Each chart includes a one-line interpretation of what it shows and what the latest result means.</div>
+            <div class="chart-grid">
+              <article class="chart-card">
+                <div class="chart-head">
+                  <h3>Switch-Now Trend</h3>
+                  <button
+                    type="button"
+                    class="chart-download"
+                    data-chart-download="chartSwitchTrend"
+                    data-chart-file="review_switch_now_trend"
+                    aria-label="Download switch-now trend chart as PNG"
+                    disabled
+                    aria-disabled="true"
+                  >Download PNG</button>
+                </div>
+                <div class="chart-box" id="chartSwitchTrend" role="img" aria-label="Switch-now trend by cycle" aria-describedby="chartSwitchTrendNote chartSwitchTrendData">Waiting for chart data...</div>
+                <p class="chart-note" id="chartSwitchTrendNote" aria-live="polite">Result summary will appear here.</p>
+                <div class="sr-only" id="chartSwitchTrendData"></div>
+              </article>
+
+              <article class="chart-card">
+                <div class="chart-head">
+                  <h3>Decision Mix by Cycle</h3>
+                  <button
+                    type="button"
+                    class="chart-download"
+                    data-chart-download="chartDecisionMix"
+                    data-chart-file="review_decision_mix"
+                    aria-label="Download decision-mix chart as PNG"
+                    disabled
+                    aria-disabled="true"
+                  >Download PNG</button>
+                </div>
+                <div class="chart-box" id="chartDecisionMix" role="img" aria-label="Decision mix by cycle" aria-describedby="chartDecisionMixNote chartDecisionMixData">Waiting for chart data...</div>
+                <p class="chart-note" id="chartDecisionMixNote" aria-live="polite">Result summary will appear here.</p>
+                <div class="sr-only" id="chartDecisionMixData"></div>
+              </article>
+
+              <article class="chart-card wide">
+                <div class="chart-head">
+                  <h3>Latest Dissent Theme Profile</h3>
+                  <button
+                    type="button"
+                    class="chart-download"
+                    data-chart-download="chartDissentThemes"
+                    data-chart-file="review_dissent_themes"
+                    aria-label="Download dissent-theme chart as PNG"
+                    disabled
+                    aria-disabled="true"
+                  >Download PNG</button>
+                </div>
+                <div class="chart-box" id="chartDissentThemes" role="img" aria-label="Top dissent themes in latest cycle" aria-describedby="chartDissentThemesNote chartDissentThemesData">Waiting for chart data...</div>
+                <p class="chart-note" id="chartDissentThemesNote" aria-live="polite">Result summary will appear here.</p>
+                <div class="sr-only" id="chartDissentThemesData"></div>
+              </article>
+            </div>
+            <div class="chart-actions">
+              <button type="button" class="chart-download" id="downloadAllCharts" disabled aria-disabled="true">Download All Charts (PNG)</button>
+            </div>
+            <div id="chartActionStatus" class="hint" role="status" aria-live="polite"></div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="side">
+        <section class="panel">
+          <h2>Top Dissent Themes (Latest Cycle)</h2>
+          <div class="panel-body">
+            <ul id="themeList"></ul>
+            <div class="hint">Extracted from `required_improvement` and `notes` in scored rows.</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Critical Blockers (Latest Cycle)</h2>
+          <div class="panel-body">
+            <ul id="blockerList"></ul>
+            <div class="hint">Flags: `not_yet`, `method_validity <=2`, `transparency_confidence <=2`.</div>
+          </div>
+        </section>
+      </aside>
+    </div>
+  </div>
+
+  <div id="srAnnouncements" class="sr-only" aria-live="polite"></div>
+  <script type="module" src="./review-dashboard-main.js"></script>
+</body>
+</html>

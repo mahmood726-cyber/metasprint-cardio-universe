@@ -1,0 +1,104 @@
+{
+  "generatedAt": "2026-03-01T12:32:45.596Z",
+  "fixture": {
+    "file": "reports\\benchmarks\\packs\\v2\\dedup_identity.v1.json",
+    "schemaVersion": "dedup_identity_benchmark.v1",
+    "description": "Gold-labeled identity-dedup benchmark fixture for pairwise duplicate clustering and review-queue behavior."
+  },
+  "status": "passed",
+  "checks": [
+    {
+      "id": "min_precision",
+      "expected": 0.9,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "id": "min_recall",
+      "expected": 0.9,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "id": "min_f1",
+      "expected": 0.92,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "id": "max_false_positives",
+      "expected": 1,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "id": "max_false_negatives",
+      "expected": 1,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "id": "duplicate_cluster_count",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    }
+  ],
+  "metrics": {
+    "generatedAt": "2026-03-01T12:32:45.596Z",
+    "sourceFixture": "reports\\benchmarks\\packs\\v2\\dedup_identity.v1.json",
+    "schemaVersion": "dedup_identity_benchmark.v1",
+    "status": "passed",
+    "threshold": 0.85,
+    "reviewMin": 0.65,
+    "recordCount": 10,
+    "duplicateClusterCount": 3,
+    "expectedDuplicateClusterCount": 3,
+    "expectedDuplicatePairCount": 5,
+    "predictedDuplicatePairCount": 5,
+    "truePositivePairs": 5,
+    "falsePositivePairs": 0,
+    "falseNegativePairs": 0,
+    "precision": 1,
+    "recall": 1,
+    "f1": 1,
+    "dedupF1": 1,
+    "expectedReviewPairCount": 0,
+    "predictedReviewPairCount": 0,
+    "reviewPrecision": null,
+    "reviewRecall": null,
+    "checkCount": 6,
+    "passedCheckCount": 6,
+    "note": "Gold-label dedup benchmark for identity clustering and review-queue behavior."
+  },
+  "expected": {
+    "duplicatePairs": [
+      "trial_ctgov_a::trial_openalex_a",
+      "trial_ctgov_a::trial_pubmed_a",
+      "trial_ctgov_b::trial_europepmc_b",
+      "trial_openalex_a::trial_pubmed_a",
+      "trial_openalex_d::trial_pubmed_d"
+    ],
+    "reviewPairs": []
+  },
+  "predicted": {
+    "duplicatePairs": [
+      "trial_ctgov_a::trial_openalex_a",
+      "trial_ctgov_a::trial_pubmed_a",
+      "trial_ctgov_b::trial_europepmc_b",
+      "trial_openalex_a::trial_pubmed_a",
+      "trial_openalex_d::trial_pubmed_d"
+    ],
+    "reviewPairs": []
+  },
+  "errors": {
+    "falsePositiveDuplicatePairs": [],
+    "falseNegativeDuplicatePairs": []
+  },
+  "graphSummary": {
+    "duplicateClusterCount": 3,
+    "reviewQueueCount": 0,
+    "edgeCount": 5,
+    "clusterCount": 6
+  }
+}

@@ -1,0 +1,1696 @@
+{
+  "generatedAt": "2026-02-28T21:30:45.632Z",
+  "summary": {
+    "generatedAt": "2026-02-28T21:30:45.632Z",
+    "sourceFixture": "reports\\benchmarks\\packs\\v2\\certainty_crosswalk_live.v1.json",
+    "schemaVersion": "certainty_crosswalk.v1",
+    "sourceMode": "live_extracted",
+    "categoryOrder": [
+      "high",
+      "moderate",
+      "low",
+      "very_low"
+    ],
+    "scenarioCount": 2,
+    "passedScenarioCount": 2,
+    "passRateScenarios": 1,
+    "checkCount": 14,
+    "passedCheckCount": 14,
+    "passRateChecks": 1,
+    "totalComparisons": 218,
+    "uniqueComparisonCount": 127,
+    "weightedExactAgreement": 0.284404,
+    "weightedAdjacentAgreement": 1,
+    "weightedKappa": 0.545689,
+    "weightedSevereDisagreementRate": 0,
+    "primaryScenarioId": "live_extracted_all_rows",
+    "primaryScenarioMetrics": {
+      "comparisonCount": 127,
+      "exactAgreement": 0.385827,
+      "adjacentAgreement": 1,
+      "weightedKappa": 0.69257,
+      "weightedKappaCi95Width": 0.151309,
+      "severeDisagreementRate": 0
+    },
+    "bootstrap": {
+      "samples": 1000,
+      "seed": 20260228
+    },
+    "status": "passed",
+    "note": "Certainty crosswalk benchmark quantifies agreement/disagreement between GRADE and CINeMA-style certainty classifications."
+  },
+  "scenarios": [
+    {
+      "scenarioId": "live_extracted_all_rows",
+      "description": "All comparable live extracted rows from rct-extractor benchmark outputs.",
+      "passed": true,
+      "checks": [
+        {
+          "check": "min_comparisons",
+          "expected": 100,
+          "actual": 127,
+          "passed": true
+        },
+        {
+          "check": "exact_agreement",
+          "expected": {
+            "min": 0.25,
+            "max": 0.9
+          },
+          "actual": 0.385827,
+          "passed": true
+        },
+        {
+          "check": "adjacent_agreement",
+          "expected": {
+            "min": 0.9,
+            "max": 1
+          },
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "check": "weighted_kappa",
+          "expected": {
+            "min": 0.4,
+            "max": 0.98
+          },
+          "actual": 0.69257,
+          "passed": true
+        },
+        {
+          "check": "max_severe_disagreement",
+          "expected": 30,
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "max_mean_distance",
+          "expected": 0.9,
+          "actual": 0.614173,
+          "passed": true
+        },
+        {
+          "check": "max_kappa_ci95_width",
+          "expected": 0.45,
+          "actual": 0.151309,
+          "passed": true
+        }
+      ],
+      "result": {
+        "comparisonCount": 127,
+        "exactAgreement": 0.385827,
+        "adjacentAgreement": 1,
+        "weightedKappa": 0.69257,
+        "meanDistance": 0.614173,
+        "severeDisagreementCount": 0,
+        "severeDisagreementRate": 0,
+        "agreementLabel": "good",
+        "matrix": [
+          [
+            36,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            76,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            11
+          ]
+        ],
+        "confusion": [
+          {
+            "grade": "high",
+            "high": 36,
+            "moderate": 2,
+            "low": 0,
+            "very_low": 0
+          },
+          {
+            "grade": "moderate",
+            "high": 0,
+            "moderate": 0,
+            "low": 0,
+            "very_low": 0
+          },
+          {
+            "grade": "low",
+            "high": 0,
+            "moderate": 76,
+            "low": 2,
+            "very_low": 0
+          },
+          {
+            "grade": "very_low",
+            "high": 0,
+            "moderate": 0,
+            "low": 0,
+            "very_low": 11
+          }
+        ],
+        "transitionSummary": [
+          {
+            "from": "low",
+            "to": "moderate",
+            "count": 76,
+            "share": 0.598425
+          },
+          {
+            "from": "high",
+            "to": "moderate",
+            "count": 2,
+            "share": 0.015748
+          }
+        ],
+        "disagreementCount": 78,
+        "disagreementPreviewCount": 78,
+        "disagreementsTruncated": false,
+        "disagreements": [
+          {
+            "comparisonId": "author_meta_trial_00002",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00007",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00008",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00009",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00010",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00011",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00012",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00013",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00014",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00015",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00016",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00017",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00019",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00020",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00021",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00022",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00023",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00024",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00026",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00027",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00029",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00031",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00032",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00033",
+            "grade": "high",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00034",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00035",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00036",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00037",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00038",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00039",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00040",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00041",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00042",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00043",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00045",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00046",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00047",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00048",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00049",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00051",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00053",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00058",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00060",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00061",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00063",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00065",
+            "grade": "high",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00067",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00068",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00069",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00070",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00072",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00073",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00074",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00076",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00079",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00081",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00082",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00084",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00085",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00086",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00087",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00088",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00091",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00093",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00094",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00095",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00096",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00097",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00101",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00104",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00105",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00106",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00107",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00112",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00115",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00116",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00117",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00118",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          }
+        ],
+        "uncertainty": {
+          "method": "bootstrap_percentile",
+          "samples": 1000,
+          "seed": 832436846,
+          "weightedKappa": {
+            "lower": 0.610283,
+            "upper": 0.761591,
+            "width": 0.151309
+          },
+          "exactAgreement": {
+            "lower": 0.299213,
+            "upper": 0.472441,
+            "width": 0.173228
+          },
+          "adjacentAgreement": {
+            "lower": 1,
+            "upper": 1,
+            "width": 0
+          },
+          "severeDisagreementRate": {
+            "lower": 0,
+            "upper": 0,
+            "width": 0
+          }
+        },
+        "comparisonIds": [
+          "author_meta_trial_00001",
+          "author_meta_trial_00002",
+          "author_meta_trial_00003",
+          "author_meta_trial_00004",
+          "author_meta_trial_00005",
+          "author_meta_trial_00006",
+          "author_meta_trial_00007",
+          "author_meta_trial_00008",
+          "author_meta_trial_00009",
+          "author_meta_trial_00010",
+          "author_meta_trial_00011",
+          "author_meta_trial_00012",
+          "author_meta_trial_00013",
+          "author_meta_trial_00014",
+          "author_meta_trial_00015",
+          "author_meta_trial_00016",
+          "author_meta_trial_00017",
+          "author_meta_trial_00018",
+          "author_meta_trial_00019",
+          "author_meta_trial_00020",
+          "author_meta_trial_00021",
+          "author_meta_trial_00022",
+          "author_meta_trial_00023",
+          "author_meta_trial_00024",
+          "author_meta_trial_00025",
+          "author_meta_trial_00026",
+          "author_meta_trial_00027",
+          "author_meta_trial_00028",
+          "author_meta_trial_00029",
+          "author_meta_trial_00030",
+          "author_meta_trial_00031",
+          "author_meta_trial_00032",
+          "author_meta_trial_00033",
+          "author_meta_trial_00034",
+          "author_meta_trial_00035",
+          "author_meta_trial_00036",
+          "author_meta_trial_00037",
+          "author_meta_trial_00038",
+          "author_meta_trial_00039",
+          "author_meta_trial_00040",
+          "author_meta_trial_00041",
+          "author_meta_trial_00042",
+          "author_meta_trial_00043",
+          "author_meta_trial_00044",
+          "author_meta_trial_00045",
+          "author_meta_trial_00046",
+          "author_meta_trial_00047",
+          "author_meta_trial_00048",
+          "author_meta_trial_00049",
+          "author_meta_trial_00050",
+          "author_meta_trial_00051",
+          "author_meta_trial_00052",
+          "author_meta_trial_00053",
+          "author_meta_trial_00054",
+          "author_meta_trial_00055",
+          "author_meta_trial_00056",
+          "author_meta_trial_00057",
+          "author_meta_trial_00058",
+          "author_meta_trial_00059",
+          "author_meta_trial_00060",
+          "author_meta_trial_00061",
+          "author_meta_trial_00062",
+          "author_meta_trial_00063",
+          "author_meta_trial_00064",
+          "author_meta_trial_00065",
+          "author_meta_trial_00066",
+          "author_meta_trial_00067",
+          "author_meta_trial_00068",
+          "author_meta_trial_00069",
+          "author_meta_trial_00070",
+          "author_meta_trial_00071",
+          "author_meta_trial_00072",
+          "author_meta_trial_00073",
+          "author_meta_trial_00074",
+          "author_meta_trial_00075",
+          "author_meta_trial_00076",
+          "author_meta_trial_00077",
+          "author_meta_trial_00078",
+          "author_meta_trial_00079",
+          "author_meta_trial_00080",
+          "author_meta_trial_00081",
+          "author_meta_trial_00082",
+          "author_meta_trial_00083",
+          "author_meta_trial_00084",
+          "author_meta_trial_00085",
+          "author_meta_trial_00086",
+          "author_meta_trial_00087",
+          "author_meta_trial_00088",
+          "author_meta_trial_00089",
+          "author_meta_trial_00090",
+          "author_meta_trial_00091",
+          "author_meta_trial_00092",
+          "author_meta_trial_00093",
+          "author_meta_trial_00094",
+          "author_meta_trial_00095",
+          "author_meta_trial_00096",
+          "author_meta_trial_00097",
+          "author_meta_trial_00098",
+          "author_meta_trial_00099",
+          "author_meta_trial_00100",
+          "author_meta_trial_00101",
+          "author_meta_trial_00102",
+          "author_meta_trial_00103",
+          "author_meta_trial_00104",
+          "author_meta_trial_00105",
+          "author_meta_trial_00106",
+          "author_meta_trial_00107",
+          "author_meta_trial_00108",
+          "author_meta_trial_00109",
+          "author_meta_trial_00110",
+          "author_meta_trial_00111",
+          "author_meta_trial_00112",
+          "author_meta_trial_00113",
+          "author_meta_trial_00114",
+          "author_meta_trial_00115",
+          "author_meta_trial_00116",
+          "author_meta_trial_00117",
+          "author_meta_trial_00118",
+          "author_meta_trial_00119",
+          "author_meta_trial_00120",
+          "author_meta_trial_00121",
+          "author_meta_trial_00122",
+          "author_meta_trial_00123",
+          "author_meta_trial_00124",
+          "author_meta_trial_00125",
+          "author_meta_trial_00126",
+          "author_meta_trial_00127"
+        ]
+      },
+      "error": null
+    },
+    {
+      "scenarioId": "live_extracted_review_sensitive_rows",
+      "description": "Subset emphasizing non-full-auto and disagreement-sensitive rows.",
+      "passed": true,
+      "checks": [
+        {
+          "check": "min_comparisons",
+          "expected": 30,
+          "actual": 91,
+          "passed": true
+        },
+        {
+          "check": "exact_agreement",
+          "expected": {
+            "min": 0.1,
+            "max": 0.8
+          },
+          "actual": 0.142857,
+          "passed": true
+        },
+        {
+          "check": "adjacent_agreement",
+          "expected": {
+            "min": 0.85,
+            "max": 1
+          },
+          "actual": 1,
+          "passed": true
+        },
+        {
+          "check": "weighted_kappa",
+          "expected": {
+            "min": 0.2,
+            "max": 0.95
+          },
+          "actual": 0.340702,
+          "passed": true
+        },
+        {
+          "check": "max_severe_disagreement",
+          "expected": 20,
+          "actual": 0,
+          "passed": true
+        },
+        {
+          "check": "max_mean_distance",
+          "expected": 1.1,
+          "actual": 0.857143,
+          "passed": true
+        },
+        {
+          "check": "max_kappa_ci95_width",
+          "expected": 0.6,
+          "actual": 0.26961,
+          "passed": true
+        }
+      ],
+      "result": {
+        "comparisonCount": 91,
+        "exactAgreement": 0.142857,
+        "adjacentAgreement": 1,
+        "weightedKappa": 0.340702,
+        "meanDistance": 0.857143,
+        "severeDisagreementCount": 0,
+        "severeDisagreementRate": 0,
+        "agreementLabel": "fair",
+        "matrix": [
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            76,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            11
+          ]
+        ],
+        "confusion": [
+          {
+            "grade": "high",
+            "high": 0,
+            "moderate": 2,
+            "low": 0,
+            "very_low": 0
+          },
+          {
+            "grade": "moderate",
+            "high": 0,
+            "moderate": 0,
+            "low": 0,
+            "very_low": 0
+          },
+          {
+            "grade": "low",
+            "high": 0,
+            "moderate": 76,
+            "low": 2,
+            "very_low": 0
+          },
+          {
+            "grade": "very_low",
+            "high": 0,
+            "moderate": 0,
+            "low": 0,
+            "very_low": 11
+          }
+        ],
+        "transitionSummary": [
+          {
+            "from": "low",
+            "to": "moderate",
+            "count": 76,
+            "share": 0.835165
+          },
+          {
+            "from": "high",
+            "to": "moderate",
+            "count": 2,
+            "share": 0.021978
+          }
+        ],
+        "disagreementCount": 78,
+        "disagreementPreviewCount": 78,
+        "disagreementsTruncated": false,
+        "disagreements": [
+          {
+            "comparisonId": "author_meta_trial_00002",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00007",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00008",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00009",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00010",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00011",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00012",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00013",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00014",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00015",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00016",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00017",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00019",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00020",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00021",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00022",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00023",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00024",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00026",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00027",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00029",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00031",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00032",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00033",
+            "grade": "high",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00034",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00035",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00036",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00037",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00038",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00039",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00040",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00041",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00042",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00043",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00045",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00046",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00047",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00048",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00049",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00051",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00053",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00058",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00060",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00061",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00063",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00065",
+            "grade": "high",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00067",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00068",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00069",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00070",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00072",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00073",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00074",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00076",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00079",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00081",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00082",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00084",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00085",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00086",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00087",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00088",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00091",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00093",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00094",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00095",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00096",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00097",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00101",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00104",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00105",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00106",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00107",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00112",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00115",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00116",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00117",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          },
+          {
+            "comparisonId": "author_meta_trial_00118",
+            "grade": "low",
+            "cinema": "moderate",
+            "distance": 1,
+            "severity": "adjacent"
+          }
+        ],
+        "uncertainty": {
+          "method": "bootstrap_percentile",
+          "samples": 1000,
+          "seed": 350086556,
+          "weightedKappa": {
+            "lower": 0.191894,
+            "upper": 0.461504,
+            "width": 0.26961
+          },
+          "exactAgreement": {
+            "lower": 0.076923,
+            "upper": 0.21978,
+            "width": 0.142857
+          },
+          "adjacentAgreement": {
+            "lower": 1,
+            "upper": 1,
+            "width": 0
+          },
+          "severeDisagreementRate": {
+            "lower": 0,
+            "upper": 0,
+            "width": 0
+          }
+        },
+        "comparisonIds": [
+          "author_meta_trial_00002",
+          "author_meta_trial_00005",
+          "author_meta_trial_00006",
+          "author_meta_trial_00007",
+          "author_meta_trial_00008",
+          "author_meta_trial_00009",
+          "author_meta_trial_00010",
+          "author_meta_trial_00011",
+          "author_meta_trial_00012",
+          "author_meta_trial_00013",
+          "author_meta_trial_00014",
+          "author_meta_trial_00015",
+          "author_meta_trial_00016",
+          "author_meta_trial_00017",
+          "author_meta_trial_00019",
+          "author_meta_trial_00020",
+          "author_meta_trial_00021",
+          "author_meta_trial_00022",
+          "author_meta_trial_00023",
+          "author_meta_trial_00024",
+          "author_meta_trial_00026",
+          "author_meta_trial_00027",
+          "author_meta_trial_00029",
+          "author_meta_trial_00031",
+          "author_meta_trial_00032",
+          "author_meta_trial_00033",
+          "author_meta_trial_00034",
+          "author_meta_trial_00035",
+          "author_meta_trial_00036",
+          "author_meta_trial_00037",
+          "author_meta_trial_00038",
+          "author_meta_trial_00039",
+          "author_meta_trial_00040",
+          "author_meta_trial_00041",
+          "author_meta_trial_00042",
+          "author_meta_trial_00043",
+          "author_meta_trial_00045",
+          "author_meta_trial_00046",
+          "author_meta_trial_00047",
+          "author_meta_trial_00048",
+          "author_meta_trial_00049",
+          "author_meta_trial_00051",
+          "author_meta_trial_00053",
+          "author_meta_trial_00058",
+          "author_meta_trial_00060",
+          "author_meta_trial_00061",
+          "author_meta_trial_00063",
+          "author_meta_trial_00065",
+          "author_meta_trial_00067",
+          "author_meta_trial_00068",
+          "author_meta_trial_00069",
+          "author_meta_trial_00070",
+          "author_meta_trial_00072",
+          "author_meta_trial_00073",
+          "author_meta_trial_00074",
+          "author_meta_trial_00076",
+          "author_meta_trial_00079",
+          "author_meta_trial_00081",
+          "author_meta_trial_00082",
+          "author_meta_trial_00084",
+          "author_meta_trial_00085",
+          "author_meta_trial_00086",
+          "author_meta_trial_00087",
+          "author_meta_trial_00088",
+          "author_meta_trial_00091",
+          "author_meta_trial_00093",
+          "author_meta_trial_00094",
+          "author_meta_trial_00095",
+          "author_meta_trial_00096",
+          "author_meta_trial_00097",
+          "author_meta_trial_00098",
+          "author_meta_trial_00101",
+          "author_meta_trial_00102",
+          "author_meta_trial_00104",
+          "author_meta_trial_00105",
+          "author_meta_trial_00106",
+          "author_meta_trial_00107",
+          "author_meta_trial_00112",
+          "author_meta_trial_00115",
+          "author_meta_trial_00116",
+          "author_meta_trial_00117",
+          "author_meta_trial_00118",
+          "author_meta_trial_00119",
+          "author_meta_trial_00120",
+          "author_meta_trial_00121",
+          "author_meta_trial_00122",
+          "author_meta_trial_00123",
+          "author_meta_trial_00124",
+          "author_meta_trial_00125",
+          "author_meta_trial_00126",
+          "author_meta_trial_00127"
+        ]
+      },
+      "error": null
+    }
+  ]
+}

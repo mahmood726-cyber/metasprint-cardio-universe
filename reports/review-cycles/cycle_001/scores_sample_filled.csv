@@ -1,0 +1,13 @@
+﻿cycle_id,reviewer_id,opportunity_id,clinical_relevance,method_validity,novelty,actionability,transparency_confidence,decision,confidence,required_improvement,notes
+cycle_001,R01,opp_001,5,5,4,5,5,switch_now,5,none,ready
+cycle_001,R02,opp_001,5,4,4,5,5,switch_now,5,none,ready
+cycle_001,R03,opp_001,4,4,4,4,4,switch_now,4,none,ready
+cycle_001,R04,opp_001,4,5,4,4,4,switch_now,4,none,ready
+cycle_001,R05,opp_001,5,4,4,4,4,switch_now,4,none,ready
+cycle_001,R06,opp_001,4,4,3,4,4,switch_now,4,minor,ready
+cycle_001,R07,opp_001,5,5,4,5,5,switch_now,5,none,ready
+cycle_001,R08,opp_001,4,5,4,4,5,switch_now,5,none,ready
+cycle_001,R09,opp_001,4,4,4,4,4,switch_now,4,none,ready
+cycle_001,R10,opp_001,4,4,4,4,4,switch_now,4,none,ready
+cycle_001,R11,opp_001,5,5,4,5,5,switch_now,5,none,ready
+cycle_001,R12,opp_001,3,3,3,3,3,switch_with_conditions,3,more ontology depth,conditional

@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-02-28T19:49:11.825Z",
+  "options": {
+    "sources": [
+      "sample",
+      "ctgov",
+      "pubmed",
+      "openalex",
+      "europepmc"
+    ],
+    "strictSources": true,
+    "simulateOutage": [],
+    "connectorPolicy": {
+      "timeoutMs": 15000,
+      "maxAttempts": 3,
+      "baseDelayMs": 250
+    }
+  },
+  "summary": {
+    "totalSources": 5,
+    "okSources": 5,
+    "emptySources": 0,
+    "failedSources": 0,
+    "strictStatus": "passed"
+  },
+  "warnings": [],
+  "sources": [
+    {
+      "source": "sample",
+      "status": "ok",
+      "recordCount": 6,
+      "durationMs": 0,
+      "attempts": 1,
+      "statusCode": null,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T19:49:09.254Z"
+    },
+    {
+      "source": "ctgov",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 389,
+      "attempts": 1,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T19:49:09.645Z"
+    },
+    {
+      "source": "pubmed",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 740,
+      "attempts": 2,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T19:49:10.385Z"
+    },
+    {
+      "source": "openalex",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 1126,
+      "attempts": 1,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T19:49:11.511Z"
+    },
+    {
+      "source": "europepmc",
+      "status": "ok",
+      "recordCount": 25,
+      "durationMs": 314,
+      "attempts": 1,
+      "statusCode": 200,
+      "failureClass": null,
+      "retryable": null,
+      "message": null,
+      "simulated": false,
+      "checkedAt": "2026-02-28T19:49:11.825Z"
+    }
+  ]
+}

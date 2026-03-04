@@ -1,0 +1,28 @@
+{
+  "benchmarkVersion": "v2.1.0-2026-02-28",
+  "createdAt": "2026-02-28T00:00:00.000Z",
+  "owner": "MetaSprint Cardio Methods",
+  "description": "Advanced-statistics and identity-dedup benchmark pack manifest.",
+  "packs": [
+    {
+      "packId": "pairwise_stress",
+      "file": "pairwise_stress.v1.json",
+      "category": "pairwise_stats_v2"
+    },
+    {
+      "packId": "bias_sensitivity",
+      "file": "bias_sensitivity.v1.json",
+      "category": "bias_robustness_v1"
+    },
+    {
+      "packId": "network_nma",
+      "file": "network_nma.v1.json",
+      "category": "network_meta_analysis_v1"
+    },
+    {
+      "packId": "dedup_identity",
+      "file": "dedup_identity.v1.json",
+      "category": "identity_dedup_v1"
+    }
+  ]
+}

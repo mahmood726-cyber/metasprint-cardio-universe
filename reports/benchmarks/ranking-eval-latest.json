@@ -1,0 +1,343 @@
+{
+  "generatedAt": "2026-03-01T12:32:44.913Z",
+  "fixture": {
+    "schemaVersion": "ranking_judgments.v1",
+    "file": "reports\\benchmarks\\packs\\v1\\ranking_judgments.v1.json",
+    "description": "Blinded judgment benchmark set for ranking quality (non-proxy)."
+  },
+  "metrics": {
+    "topK": 20,
+    "relevantThreshold": 2,
+    "relevantInTopK": 20,
+    "precisionAtK": 1,
+    "dcgAtK": 36.876924,
+    "idcgAtK": 36.934663,
+    "ndcgAtK": 0.9984
+  },
+  "rankedTopK": [
+    {
+      "opportunityId": "opp_rank_001",
+      "title": "HFpEF SGLT2 composite endpoints update",
+      "subcategoryId": "hf",
+      "predictedScore": 99,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_002",
+      "title": "HFrEF foundational quadruple therapy class effects",
+      "subcategoryId": "hf",
+      "predictedScore": 97,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_003",
+      "title": "Cardio-renal outcomes under SGLT2 in CKD strata",
+      "subcategoryId": "hf",
+      "predictedScore": 96,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_004",
+      "title": "AF anticoagulation in CKD and bleeding-risk subgroups",
+      "subcategoryId": "af",
+      "predictedScore": 95,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_005",
+      "title": "GLP-1 CVOT stroke heterogeneity synthesis",
+      "subcategoryId": "acs",
+      "predictedScore": 94,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_006",
+      "title": "MACE endpoint-definition harmonization across cardio-metabolic RCTs",
+      "subcategoryId": "acs",
+      "predictedScore": 93,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_007",
+      "title": "HF hospitalization plus CV death endpoint consistency review",
+      "subcategoryId": "hf",
+      "predictedScore": 92,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_008",
+      "title": "Post-ACS lipid intensification and event reduction synthesis",
+      "subcategoryId": "lipids",
+      "predictedScore": 91,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_009",
+      "title": "DOAC comparative effectiveness under multimorbidity",
+      "subcategoryId": "af",
+      "predictedScore": 90,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_010",
+      "title": "HFmrEF treatment class evidence gap map",
+      "subcategoryId": "hf",
+      "predictedScore": 89,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_011",
+      "title": "Women-only cardiovascular outcome representation gaps",
+      "subcategoryId": "general",
+      "predictedScore": 88,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_012",
+      "title": "Elderly AF anticoagulation net-clinical-benefit synthesis",
+      "subcategoryId": "af",
+      "predictedScore": 87,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_013",
+      "title": "Device vs drug rhythm-control trial comparability",
+      "subcategoryId": "rhythm",
+      "predictedScore": 86,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_014",
+      "title": "CKD progression composite endpoint heterogeneity in cardio trials",
+      "subcategoryId": "hf",
+      "predictedScore": 85,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_015",
+      "title": "Primary prevention lipid lowering in diabetes with ASCVD risk",
+      "subcategoryId": "lipids",
+      "predictedScore": 84,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_016",
+      "title": "Resistant hypertension triple-pathway treatment comparison",
+      "subcategoryId": "htn",
+      "predictedScore": 83,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_017",
+      "title": "AF ablation vs antiarrhythmic medication long-term outcomes",
+      "subcategoryId": "rhythm",
+      "predictedScore": 82,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_018",
+      "title": "Valve-intervention post-procedure antithrombotic uncertainty",
+      "subcategoryId": "valve",
+      "predictedScore": 81,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_019",
+      "title": "Peripheral vascular event outcomes under antiplatelet intensification",
+      "subcategoryId": "pad",
+      "predictedScore": 80,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_020",
+      "title": "Pulmonary hypertension subgroup trial synthesis",
+      "subcategoryId": "ph",
+      "predictedScore": 79,
+      "blindedRelevance": 2
+    }
+  ],
+  "rankedAll": [
+    {
+      "opportunityId": "opp_rank_001",
+      "title": "HFpEF SGLT2 composite endpoints update",
+      "subcategoryId": "hf",
+      "predictedScore": 99,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_002",
+      "title": "HFrEF foundational quadruple therapy class effects",
+      "subcategoryId": "hf",
+      "predictedScore": 97,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_003",
+      "title": "Cardio-renal outcomes under SGLT2 in CKD strata",
+      "subcategoryId": "hf",
+      "predictedScore": 96,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_004",
+      "title": "AF anticoagulation in CKD and bleeding-risk subgroups",
+      "subcategoryId": "af",
+      "predictedScore": 95,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_005",
+      "title": "GLP-1 CVOT stroke heterogeneity synthesis",
+      "subcategoryId": "acs",
+      "predictedScore": 94,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_006",
+      "title": "MACE endpoint-definition harmonization across cardio-metabolic RCTs",
+      "subcategoryId": "acs",
+      "predictedScore": 93,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_007",
+      "title": "HF hospitalization plus CV death endpoint consistency review",
+      "subcategoryId": "hf",
+      "predictedScore": 92,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_008",
+      "title": "Post-ACS lipid intensification and event reduction synthesis",
+      "subcategoryId": "lipids",
+      "predictedScore": 91,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_009",
+      "title": "DOAC comparative effectiveness under multimorbidity",
+      "subcategoryId": "af",
+      "predictedScore": 90,
+      "blindedRelevance": 3
+    },
+    {
+      "opportunityId": "opp_rank_010",
+      "title": "HFmrEF treatment class evidence gap map",
+      "subcategoryId": "hf",
+      "predictedScore": 89,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_011",
+      "title": "Women-only cardiovascular outcome representation gaps",
+      "subcategoryId": "general",
+      "predictedScore": 88,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_012",
+      "title": "Elderly AF anticoagulation net-clinical-benefit synthesis",
+      "subcategoryId": "af",
+      "predictedScore": 87,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_013",
+      "title": "Device vs drug rhythm-control trial comparability",
+      "subcategoryId": "rhythm",
+      "predictedScore": 86,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_014",
+      "title": "CKD progression composite endpoint heterogeneity in cardio trials",
+      "subcategoryId": "hf",
+      "predictedScore": 85,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_015",
+      "title": "Primary prevention lipid lowering in diabetes with ASCVD risk",
+      "subcategoryId": "lipids",
+      "predictedScore": 84,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_016",
+      "title": "Resistant hypertension triple-pathway treatment comparison",
+      "subcategoryId": "htn",
+      "predictedScore": 83,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_017",
+      "title": "AF ablation vs antiarrhythmic medication long-term outcomes",
+      "subcategoryId": "rhythm",
+      "predictedScore": 82,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_018",
+      "title": "Valve-intervention post-procedure antithrombotic uncertainty",
+      "subcategoryId": "valve",
+      "predictedScore": 81,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_019",
+      "title": "Peripheral vascular event outcomes under antiplatelet intensification",
+      "subcategoryId": "pad",
+      "predictedScore": 80,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_020",
+      "title": "Pulmonary hypertension subgroup trial synthesis",
+      "subcategoryId": "ph",
+      "predictedScore": 79,
+      "blindedRelevance": 2
+    },
+    {
+      "opportunityId": "opp_rank_021",
+      "title": "Short-term surrogate endpoint-only studies in mild HTN",
+      "subcategoryId": "htn",
+      "predictedScore": 78,
+      "blindedRelevance": 1
+    },
+    {
+      "opportunityId": "opp_rank_022",
+      "title": "Small pilot rhythm studies without hard outcomes",
+      "subcategoryId": "rhythm",
+      "predictedScore": 76,
+      "blindedRelevance": 1
+    },
+    {
+      "opportunityId": "opp_rank_023",
+      "title": "Legacy trial re-aggregation without new data",
+      "subcategoryId": "general",
+      "predictedScore": 74,
+      "blindedRelevance": 1
+    },
+    {
+      "opportunityId": "opp_rank_024",
+      "title": "Narrow biomarker endpoint review with low practice impact",
+      "subcategoryId": "general",
+      "predictedScore": 73,
+      "blindedRelevance": 1
+    },
+    {
+      "opportunityId": "opp_rank_025",
+      "title": "Sparse publication-case summaries",
+      "subcategoryId": "general",
+      "predictedScore": 70,
+      "blindedRelevance": 0
+    },
+    {
+      "opportunityId": "opp_rank_026",
+      "title": "Non-randomized cardio registry-only aggregation",
+      "subcategoryId": "general",
+      "predictedScore": 68,
+      "blindedRelevance": 0
+    }
+  ]
+}

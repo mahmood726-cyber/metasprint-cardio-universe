@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "certainty_crosswalk.v1",
+  "createdAt": "2026-02-28T00:00:00Z",
+  "description": "Crosswalk benchmark fixture for GRADE vs CINeMA-style certainty agreement diagnostics.",
+  "categories": ["high", "moderate", "low", "very_low"],
+  "scenarios": [
+    {
+      "scenarioId": "hf_hierarchy_mixed",
+      "description": "Mostly concordant certainty with mild adjacent-class disagreement.",
+      "comparisons": [
+        { "comparisonId": "hf_01", "grade": "high", "cinema": "high" },
+        { "comparisonId": "hf_02", "grade": "moderate", "cinema": "moderate" },
+        { "comparisonId": "hf_03", "grade": "moderate", "cinema": "low" },
+        { "comparisonId": "hf_04", "grade": "low", "cinema": "low" },
+        { "comparisonId": "hf_05", "grade": "high", "cinema": "moderate" },
+        { "comparisonId": "hf_06", "grade": "low", "cinema": "very_low" },
+        { "comparisonId": "hf_07", "grade": "very_low", "cinema": "very_low" },
+        { "comparisonId": "hf_08", "grade": "moderate", "cinema": "moderate" },
+        { "comparisonId": "hf_09", "grade": "low", "cinema": "moderate" },
+        { "comparisonId": "hf_10", "grade": "high", "cinema": "high" },
+        { "comparisonId": "hf_11", "grade": "moderate", "cinema": "low" },
+        { "comparisonId": "hf_12", "grade": "low", "cinema": "low" }
+      ],
+      "expected": {
+        "minComparisons": 10,
+        "exactAgreement": { "min": 0.45, "max": 0.85 },
+        "adjacentAgreement": { "min": 0.9, "max": 1 },
+        "weightedKappa": { "min": 0.4, "max": 0.95 },
+        "maxSevereDisagreement": 1,
+        "maxMeanDistance": 0.7
+      }
+    },
+    {
+      "scenarioId": "device_outcomes_discordant",
+      "description": "Higher discordance profile to stress-test disagreement outputs.",
+      "comparisons": [
+        { "comparisonId": "dv_01", "grade": "high", "cinema": "moderate" },
+        { "comparisonId": "dv_02", "grade": "moderate", "cinema": "low" },
+        { "comparisonId": "dv_03", "grade": "moderate", "cinema": "very_low" },
+        { "comparisonId": "dv_04", "grade": "low", "cinema": "very_low" },
+        { "comparisonId": "dv_05", "grade": "high", "cinema": "low" },
+        { "comparisonId": "dv_06", "grade": "low", "cinema": "moderate" },
+        { "comparisonId": "dv_07", "grade": "moderate", "cinema": "moderate" },
+        { "comparisonId": "dv_08", "grade": "very_low", "cinema": "low" },
+        { "comparisonId": "dv_09", "grade": "high", "cinema": "moderate" },
+        { "comparisonId": "dv_10", "grade": "low", "cinema": "low" }
+      ],
+      "expected": {
+        "minComparisons": 8,
+        "exactAgreement": { "min": 0.1, "max": 0.45 },
+        "adjacentAgreement": { "min": 0.6, "max": 0.9 },
+        "weightedKappa": { "min": -0.05, "max": 0.45 },
+        "maxSevereDisagreement": 3,
+        "maxMeanDistance": 1.2
+      }
+    }
+  ]
+}

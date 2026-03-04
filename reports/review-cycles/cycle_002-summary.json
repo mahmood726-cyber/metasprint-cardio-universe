@@ -1,0 +1,123 @@
+{
+  "cycleId": "cycle_002",
+  "generatedAt": "2026-02-28T18:29:06.836Z",
+  "totalReviewers": 12,
+  "switchNow": 11,
+  "switchWithConditions": 1,
+  "notYet": 0,
+  "adoptionGate": {
+    "target": ">=11 switch_now out of 12",
+    "passed": true,
+    "gap": 0
+  },
+  "reviewerDecision": [
+    {
+      "reviewer_id": "R01",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R02",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R03",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R04",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R05",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R06",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R07",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R08",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R09",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R10",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R11",
+      "decision": "switch_now",
+      "counts": {
+        "switch_now": 1,
+        "switch_with_conditions": 0,
+        "not_yet": 0
+      }
+    },
+    {
+      "reviewer_id": "R12",
+      "decision": "switch_with_conditions",
+      "counts": {
+        "switch_now": 0,
+        "switch_with_conditions": 1,
+        "not_yet": 0
+      }
+    }
+  ]
+}
