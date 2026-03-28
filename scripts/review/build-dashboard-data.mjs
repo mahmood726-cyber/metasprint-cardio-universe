@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import { GATE_POLICY, evaluateGate } from '../../src/review/gate-policy.js';
 
 function parseCsv(text) {
   const rows = [];
@@ -104,10 +105,7 @@ function extractThemes(rows) {
 
   for (const row of rows) {
     if (row.decision === 'switch_now') continue;
-    const tokens = [
-      ...tokenizeText(row.required_improvement),
-      ...tokenizeText(row.notes),
-    ];
+    const tokens = [...tokenizeText(row.required_improvement), ...tokenizeText(row.notes)];
     for (const token of tokens) {
       if (stopWords.has(token)) continue;
       frequency.set(token, (frequency.get(token) ?? 0) + 1);
@@ -139,9 +137,7 @@ function computeBlockers(rows) {
 }
 
 function averageScore(rows, field) {
-  const values = rows
-    .map((row) => toNumber(row[field], NaN))
-    .filter((n) => Number.isFinite(n));
+  const values = rows.map((row) => toNumber(row[field], NaN)).filter((n) => Number.isFinite(n));
   if (!values.length) return null;
   const total = values.reduce((sum, n) => sum + n, 0);
   return Number((total / values.length).toFixed(2));
@@ -170,23 +166,32 @@ function buildCycleEntry(summaryPath, scoresByCycleDir) {
   const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
   const cycleId = summary.cycleId;
   const cycleDir = path.join(scoresByCycleDir, cycleId);
-  const scoreCandidates = [
-    path.join(cycleDir, 'scores.csv'),
-    path.join(cycleDir, 'scores_sample_filled.csv'),
-  ];
+  const scoreCandidates = [path.join(cycleDir, 'scores.csv'), path.join(cycleDir, 'scores_sample_filled.csv')];
   const { scorePath, scoreRows } = loadBestScoreRows(scoreCandidates);
   const themes = extractThemes(scoreRows);
   const blockers = computeBlockers(scoreRows);
+
+  const gate = evaluateGate({
+    switchNow: summary.switchNow,
+    responsesReceived: summary.adoptionGate?.responsesReceived ?? summary.totalReviewers,
+  });
+
+  const gatePassed = summary.adoptionGate?.passed === true || gate.passed;
 
   return {
     cycleId,
     generatedAt: summary.generatedAt,
     totalReviewers: summary.totalReviewers,
+    responsesReceived: gate.responsesReceived,
     switchNow: summary.switchNow,
     switchWithConditions: summary.switchWithConditions,
     notYet: summary.notYet,
-    gatePassed: summary.adoptionGate?.passed === true,
-    gapToTarget: toNumber(summary.adoptionGate?.gap, 0),
+    gatePassed,
+    gateRequiredSwitchNow: gate.requiredSwitchNow,
+    gateExpectedReviewers: gate.expectedReviewers,
+    gateTarget: gate.target,
+    insufficientResponses: gate.insufficientResponses,
+    gapToTarget: toNumber(summary.adoptionGate?.gap, gate.gap),
     avgClinicalRelevance: averageScore(scoreRows, 'clinical_relevance'),
     avgMethodValidity: averageScore(scoreRows, 'method_validity'),
     avgNovelty: averageScore(scoreRows, 'novelty'),
@@ -240,10 +245,14 @@ const aggregate = {
   latestSwitchNow: latest.switchNow,
   latestSwitchWithConditions: latest.switchWithConditions,
   latestNotYet: latest.notYet,
+  latestResponsesReceived: latest.responsesReceived,
 };
 
 const dashboardPayload = {
   generatedAt: new Date().toISOString(),
+  gatePolicy: {
+    ...GATE_POLICY,
+  },
   aggregate,
   cycles,
 };

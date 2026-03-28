@@ -278,6 +278,7 @@ function buildMatrixSummary(trials) {
       id: columnId,
       label: ENDPOINT_DOMAIN_LABELS[columnId] ?? columnId,
       trialCount: colCounts.get(columnId)?.size ?? 0,
+      trialIds: [...(colCounts.get(columnId) ?? new Set())].sort(),
     }));
 
   const rows = [...rowCounts.keys()]
@@ -289,9 +290,11 @@ function buildMatrixSummary(trials) {
           ? 'Unspecified intervention'
           : INTERVENTION_LABELS.get(rowId) ?? rowId,
       trialCount: rowCounts.get(rowId)?.size ?? 0,
+      trialIds: [...(rowCounts.get(rowId) ?? new Set())].sort(),
       cells: columns.map((column) => ({
         id: column.id,
         count: cellCounts.get(`${rowId}__${column.id}`)?.size ?? 0,
+        trialIds: [...(cellCounts.get(`${rowId}__${column.id}`) ?? new Set())].sort(),
       })),
     }));
 

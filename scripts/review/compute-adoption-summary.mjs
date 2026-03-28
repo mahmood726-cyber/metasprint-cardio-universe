@@ -1,6 +1,7 @@
-﻿import fs from 'node:fs';
+import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import { evaluateGate } from '../../src/review/gate-policy.js';
 
 function parseCsv(text) {
   const rows = [];
@@ -106,7 +107,11 @@ const switchNow = reviewerDecision.filter((r) => r.decision === 'switch_now').le
 const switchWithConditions = reviewerDecision.filter((r) => r.decision === 'switch_with_conditions').length;
 const notYet = reviewerDecision.filter((r) => r.decision === 'not_yet').length;
 
-const passed = switchNow >= 11;
+const adoptionGate = evaluateGate({
+  switchNow,
+  responsesReceived: totalReviewers,
+});
+
 const cycleId = data[0].cycle_id || 'unspecified_cycle';
 
 const summary = {
@@ -116,11 +121,7 @@ const summary = {
   switchNow,
   switchWithConditions,
   notYet,
-  adoptionGate: {
-    target: '>=11 switch_now out of 12',
-    passed,
-    gap: Math.max(0, 11 - switchNow),
-  },
+  adoptionGate,
   reviewerDecision,
 };
 
@@ -132,4 +133,4 @@ fs.writeFileSync(outPath, JSON.stringify(summary, null, 2));
 console.log(JSON.stringify(summary, null, 2));
 console.log(`\nWrote summary: ${outPath}`);
 
-if (!passed) process.exitCode = 2;
+if (!adoptionGate.passed) process.exitCode = 2;

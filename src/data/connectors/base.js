@@ -250,7 +250,9 @@ export async function fetchWithRetry(options) {
       }
 
       try {
-        const json = await response.json();
+        const rawBody = await response.text();
+        const normalizedBody = rawBody.replace(/^\uFEFF/, '').trim();
+        const json = JSON.parse(normalizedBody);
         return {
           json,
           attempts: attempt,
@@ -261,7 +263,7 @@ export async function fetchWithRetry(options) {
         throw new ConnectorError(`${connectorId} invalid JSON response`, {
           connectorId,
           failureClass: 'invalid_response',
-          retryable: false,
+          retryable: true,
           attempts: attempt,
           statusCode: response.status,
           url,

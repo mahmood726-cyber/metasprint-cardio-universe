@@ -36,6 +36,8 @@ function hasPlotly() {
 
 const PLOTLY_CDN_URL = 'https://cdn.plot.ly/plotly-2.27.0.min.js';
 const PLOTLY_LOCAL_URL = './vendor/plotly-2.27.0.min.js';
+const DEFAULT_GATE_REQUIRED_SWITCH_NOW = 11;
+const DEFAULT_GATE_EXPECTED_REVIEWERS = 12;
 let plotlyLoadPromise = null;
 
 function loadPlotlyScript(url, timeoutMs) {
@@ -127,6 +129,12 @@ function setChartFallback(id, text) {
   host.textContent = String(text ?? '');
 }
 
+function clearChartHost(id) {
+  const host = document.getElementById(id);
+  if (!host) return;
+  clearNode(host);
+}
+
 function normalizeThemes(themes) {
   const safeThemes = Array.isArray(themes) ? themes : [];
   return safeThemes
@@ -150,16 +158,36 @@ function normalizeBlockers(blockers) {
 
 function normalizeCycle(cycle, index) {
   const cycleId = String(cycle?.cycleId ?? `cycle_${String(index + 1).padStart(3, '0')}`).trim();
+  const responsesReceived = Math.max(0, toNumber(cycle?.responsesReceived, toNumber(cycle?.totalReviewers, 0)));
+  const gateRequiredSwitchNow = Math.max(
+    0,
+    toNumber(cycle?.gateRequiredSwitchNow, DEFAULT_GATE_REQUIRED_SWITCH_NOW),
+  );
+  const gateExpectedReviewers = Math.max(
+    1,
+    toNumber(cycle?.gateExpectedReviewers, DEFAULT_GATE_EXPECTED_REVIEWERS),
+  );
+  const computedGatePassed = cycle?.gatePassed === true
+    || (toNumber(cycle?.switchNow, 0) >= gateRequiredSwitchNow && responsesReceived >= gateExpectedReviewers);
+
   return {
     cycleId: cycleId || `cycle_${String(index + 1).padStart(3, '0')}`,
     generatedAt: cycle?.generatedAt ?? null,
     totalReviewers: Math.max(1, toNumber(cycle?.totalReviewers, 12)),
+    responsesReceived,
     switchNow: Math.max(0, toNumber(cycle?.switchNow, 0)),
     switchWithConditions: Math.max(0, toNumber(cycle?.switchWithConditions, 0)),
     notYet: Math.max(0, toNumber(cycle?.notYet, 0)),
-    gatePassed: cycle?.gatePassed === true,
+    gatePassed: computedGatePassed,
+    gateRequiredSwitchNow,
+    gateExpectedReviewers,
+    gateTarget: String(cycle?.gateTarget ?? `${DEFAULT_GATE_REQUIRED_SWITCH_NOW}/${DEFAULT_GATE_EXPECTED_REVIEWERS}`),
+    insufficientResponses: cycle?.insufficientResponses === true || responsesReceived < gateExpectedReviewers,
     gapToTarget: Math.max(0, toNumber(cycle?.gapToTarget, 0)),
+    avgClinicalRelevance: cycle?.avgClinicalRelevance == null ? null : toNumber(cycle.avgClinicalRelevance, null),
     avgMethodValidity: cycle?.avgMethodValidity == null ? null : toNumber(cycle.avgMethodValidity, null),
+    avgNovelty: cycle?.avgNovelty == null ? null : toNumber(cycle.avgNovelty, null),
+    avgActionability: cycle?.avgActionability == null ? null : toNumber(cycle.avgActionability, null),
     avgTransparencyConfidence:
       cycle?.avgTransparencyConfidence == null ? null : toNumber(cycle.avgTransparencyConfidence, null),
     topDissentThemes: normalizeThemes(cycle?.topDissentThemes),
@@ -179,9 +207,21 @@ function normalizePayload(rawPayload) {
   const cycles = cyclesRaw.map((cycle, index) => normalizeCycle(cycle, index));
   const latest = cycles[cycles.length - 1];
   const aggregateRaw = rawPayload.aggregate ?? {};
+  const gatePolicyRaw = rawPayload.gatePolicy ?? {};
 
   return {
     generatedAt: rawPayload.generatedAt ?? null,
+    gatePolicy: {
+      requiredSwitchNow: Math.max(
+        0,
+        toNumber(gatePolicyRaw.requiredSwitchNow, latest.gateRequiredSwitchNow ?? DEFAULT_GATE_REQUIRED_SWITCH_NOW),
+      ),
+      expectedReviewers: Math.max(
+        1,
+        toNumber(gatePolicyRaw.expectedReviewers, latest.gateExpectedReviewers ?? DEFAULT_GATE_EXPECTED_REVIEWERS),
+      ),
+      target: String(gatePolicyRaw.target ?? latest.gateTarget ?? `${DEFAULT_GATE_REQUIRED_SWITCH_NOW}/${DEFAULT_GATE_EXPECTED_REVIEWERS}`),
+    },
     aggregate: {
       cyclesTracked: Math.max(1, toNumber(aggregateRaw.cyclesTracked, cycles.length)),
       gatePassCount: Math.max(0, toNumber(aggregateRaw.gatePassCount, cycles.filter((cycle) => cycle.gatePassed).length)),
@@ -193,6 +233,10 @@ function normalizePayload(rawPayload) {
         toNumber(aggregateRaw.latestSwitchWithConditions, latest.switchWithConditions),
       ),
       latestNotYet: Math.max(0, toNumber(aggregateRaw.latestNotYet, latest.notYet)),
+      latestResponsesReceived: Math.max(
+        0,
+        toNumber(aggregateRaw.latestResponsesReceived, latest.responsesReceived),
+      ),
     },
     cycles,
   };
@@ -205,9 +249,11 @@ function renderKpis(payload) {
   const items = [
     ['Cycles tracked', payload.aggregate.cyclesTracked],
     ['Gate pass cycles', payload.aggregate.gatePassCount],
+    ['Gate policy', `${payload.gatePolicy.requiredSwitchNow}/${payload.gatePolicy.expectedReviewers}`],
     ['Latest cycle', payload.aggregate.latestCycleId],
     ['Latest gate passed', yesNo(payload.aggregate.latestGatePassed)],
     ['Latest switch now', payload.aggregate.latestSwitchNow],
+    ['Latest responses', payload.aggregate.latestResponsesReceived],
     ['Latest switch cond.', payload.aggregate.latestSwitchWithConditions],
     ['Latest not yet', payload.aggregate.latestNotYet],
     ['Generated', formatDate(payload.generatedAt)],
@@ -232,10 +278,14 @@ function renderCycleRows(payload) {
 
     const cells = [
       cycle.gatePassed ? 'Pass' : 'Fail',
-      `${cycle.switchNow}/${cycle.totalReviewers}`,
+      `${cycle.switchNow}/${cycle.gateRequiredSwitchNow}`,
+      `${cycle.responsesReceived}/${cycle.gateExpectedReviewers}`,
       String(cycle.switchWithConditions),
       String(cycle.notYet),
+      cycle.avgClinicalRelevance ?? 'n/a',
       cycle.avgMethodValidity ?? 'n/a',
+      cycle.avgNovelty ?? 'n/a',
+      cycle.avgActionability ?? 'n/a',
       cycle.avgTransparencyConfidence ?? 'n/a',
       cycle.gapToTarget,
     ];
@@ -294,11 +344,14 @@ async function renderSwitchTrendChart(payload) {
   const cycles = payload.cycles;
   const x = cycles.map((cycle) => cycle.cycleId);
   const switchNow = cycles.map((cycle) => cycle.switchNow);
-  const gateVotesNeeded = cycles.map((cycle) => Math.ceil((cycle.totalReviewers * 11) / 12));
+  const gateVotesNeeded = cycles.map((cycle) => cycle.gateRequiredSwitchNow);
   const maxReviewers = Math.max(...cycles.map((cycle) => cycle.totalReviewers), 12);
   const maxPlotted = Math.max(maxReviewers, ...switchNow, ...gateVotesNeeded);
-  const invalidCycles = cycles.filter((cycle) => cycle.switchNow > cycle.totalReviewers).map((cycle) => cycle.cycleId);
+  const invalidCycles = cycles
+    .filter((cycle) => cycle.switchNow > cycle.responsesReceived)
+    .map((cycle) => cycle.cycleId);
 
+  clearChartHost('chartSwitchTrend');
   await globalThis.Plotly.newPlot(
     'chartSwitchTrend',
     [
@@ -315,7 +368,7 @@ async function renderSwitchTrendChart(payload) {
         y: gateVotesNeeded,
         mode: 'lines',
         line: { color: '#b45309', width: 2, dash: 'dot' },
-        name: 'Votes needed (11/12)',
+        name: `Votes needed (${payload.gatePolicy.requiredSwitchNow}/${payload.gatePolicy.expectedReviewers})`,
       },
     ],
     {
@@ -330,21 +383,21 @@ async function renderSwitchTrendChart(payload) {
   );
 
   const latest = cycles[cycles.length - 1];
-  const latestGate = Math.ceil((latest.totalReviewers * 11) / 12);
-  const gateMet = latest.switchNow >= latestGate;
+  const latestGate = latest.gateRequiredSwitchNow;
+  const gateMet = latest.gatePassed;
   const warning =
     invalidCycles.length > 0
-      ? ` Data warning: switch-now exceeds total reviewers in ${invalidCycles.join(', ')}.`
+      ? ` Data warning: switch-now exceeds responses received in ${invalidCycles.join(', ')}.`
       : '';
   setChartNote(
     'chartSwitchTrendNote',
-    `Shows switch-now votes over time against the 11/12 gate. Latest ${latest.cycleId} is ${latest.switchNow}/${latest.totalReviewers}, with ${latestGate} needed, ${gateMet ? 'meeting' : 'below'} the gate.${warning}`,
+    `Shows switch-now votes over time against the ${payload.gatePolicy.requiredSwitchNow}/${payload.gatePolicy.expectedReviewers} gate. Latest ${latest.cycleId} is ${latest.switchNow}/${latest.gateRequiredSwitchNow} with ${latest.responsesReceived}/${latest.gateExpectedReviewers} responses, ${gateMet ? 'meeting' : 'below'} the gate.${warning}`,
   );
   const trendDetails = cycles
     .map((cycle) => {
-      const gateVotes = Math.ceil((cycle.totalReviewers * 11) / 12);
-      const status = cycle.switchNow >= gateVotes ? 'gate met' : 'gate not met';
-      return `${cycle.cycleId}: switch-now ${cycle.switchNow}/${cycle.totalReviewers}, gate ${gateVotes}, ${status}`;
+      const gateVotes = cycle.gateRequiredSwitchNow;
+      const status = cycle.gatePassed ? 'gate met' : 'gate not met';
+      return `${cycle.cycleId}: switch-now ${cycle.switchNow}/${gateVotes}, responses ${cycle.responsesReceived}/${cycle.gateExpectedReviewers}, ${status}`;
     })
     .join('; ');
   setChartData('chartSwitchTrendData', `Switch-now trend data by cycle: ${trendDetails}.`);
@@ -354,6 +407,7 @@ async function renderDecisionMixChart(payload) {
   const cycles = payload.cycles;
   const x = cycles.map((cycle) => cycle.cycleId);
 
+  clearChartHost('chartDecisionMix');
   await globalThis.Plotly.newPlot(
     'chartDecisionMix',
     [
@@ -409,6 +463,7 @@ async function renderDissentThemeChart(payload) {
   const latest = payload.cycles[payload.cycles.length - 1];
   const themes = latest?.topDissentThemes ?? [];
 
+  clearChartHost('chartDissentThemes');
   if (themes.length === 0) {
     await globalThis.Plotly.newPlot(
       'chartDissentThemes',
