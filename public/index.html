@@ -403,6 +403,57 @@
         border-bottom: 1px solid var(--border);
       }
     }
+
+    .weights-panel {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: #f8fafb;
+    }
+
+    .weights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .weight-control {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .weight-control label {
+      font-size: 0.76rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .weight-control .weight-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .weight-control input[type="range"] {
+      flex: 1;
+      accent-color: var(--primary);
+    }
+
+    .weight-control .weight-pct {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--text);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    .score-breakdown {
+      font-size: 0.68rem;
+      color: #2e4f74;
+      font-family: monospace;
+      margin-top: 2px;
+    }
   </style>
 </head>
 <body>
@@ -426,6 +477,12 @@
       <button class="btn" data-action="sort-opportunities" data-sort="recent" aria-pressed="false">Sort: Recent</button>
       <button class="btn" data-action="sort-opportunities" data-sort="count" aria-pressed="false">Sort: Count</button>
       <a class="btn" href="./review-dashboard.html">Review Charts</a>
+      <button class="btn" data-action="toggle-weights" aria-expanded="false">Weights</button>
+    </div>
+
+    <div class="weights-panel" id="weightsPanel" hidden>
+      <div class="weights-grid" id="weightsGrid"></div>
+      <button class="btn" data-action="reset-weights" type="button">Reset defaults</button>
     </div>
 
     <div class="tabs" role="tablist" aria-label="Discovery views" id="viewTabs">
