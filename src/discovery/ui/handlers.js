@@ -1,12 +1,15 @@
-﻿import { listConnectors } from '../../data/connectors/index.js';
+import { listConnectors } from '../../data/connectors/index.js';
 import { attachActionDelegates } from '../../core/delegates.js';
 
 const ALLOWED_VIEWS = new Set(['ayat', 'network', 'treemap', 'timeline', 'matrix', 'gapscatter', 'pipeline']);
 const ALLOWED_SORTS = new Set(['gap', 'recent', 'count']);
 const ALLOWED_SOURCES = new Set(['sample', ...listConnectors()]);
+const ALLOWED_FACTORS = new Set([
+  'clinicalImpact', 'uncertaintyReduction', 'feasibility', 'freshness', 'provenanceConfidence',
+]);
 
 export function attachDiscoveryHandlers(root, actions) {
-  return attachActionDelegates(root, {
+  const detach = attachActionDelegates(root, {
     'load-universe': () => actions.loadUniverse(),
     'refresh-universe': () => actions.refreshUniverse(),
     'switch-view': (trigger) => {
@@ -26,5 +29,22 @@ export function attachDiscoveryHandlers(root, actions) {
       if (!changed) return;
       await actions.loadUniverse();
     },
+    'toggle-weights': () => actions.toggleSensitivityPanel(),
+    'reset-weights': () => actions.resetRankingWeights(),
   });
+
+  const onWeightInput = (event) => {
+    const input = event.target;
+    if (!input || input.type !== 'range' || !input.dataset.factor) return;
+    const factorId = input.dataset.factor;
+    if (!ALLOWED_FACTORS.has(factorId)) return;
+    actions.setRankingWeight(factorId, Number(input.value));
+  };
+
+  root.addEventListener('input', onWeightInput);
+
+  return () => {
+    if (typeof detach === 'function') detach();
+    root.removeEventListener('input', onWeightInput);
+  };
 }
