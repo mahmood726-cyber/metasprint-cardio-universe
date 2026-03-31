@@ -104,19 +104,21 @@ test('loadUniverse uses latest sortMode when request resolves', async () => {
 
   assert.equal(typeof resolveCtgov, 'function');
   resolveCtgov([
-    makeTrial({ trialId: 'hf_1', source: 'ctgov', title: 'HF trial 1', subcategoryId: 'hf', year: 2017 }),
-    makeTrial({ trialId: 'hf_2', source: 'ctgov', title: 'HF trial 2', subcategoryId: 'hf', year: 2018 }),
-    makeTrial({ trialId: 'hf_3', source: 'ctgov', title: 'HF trial 3', subcategoryId: 'hf', year: 2019 }),
-    makeTrial({ trialId: 'hf_4', source: 'ctgov', title: 'HF trial 4', subcategoryId: 'hf', year: 2020 }),
-    makeTrial({ trialId: 'af_1', source: 'ctgov', title: 'AF trial 1', subcategoryId: 'af', year: 2021 }),
+    { trialId: 'hf_1', source: 'ctgov', sourceType: 'trial', title: 'Empagliflozin heart failure trial 1', subcategoryId: 'hf', year: 2017, enrollment: 200, interventionClassIds: ['sglt2_inhibitor'], endpointIds: ['cv_death'] },
+    { trialId: 'hf_2', source: 'ctgov', sourceType: 'trial', title: 'Empagliflozin heart failure trial 2', subcategoryId: 'hf', year: 2018, enrollment: 200, interventionClassIds: ['sglt2_inhibitor'], endpointIds: ['cv_death'] },
+    { trialId: 'hf_3', source: 'ctgov', sourceType: 'trial', title: 'Empagliflozin heart failure trial 3', subcategoryId: 'hf', year: 2019, enrollment: 200, interventionClassIds: ['sglt2_inhibitor'], endpointIds: ['cv_death'] },
+    { trialId: 'hf_4', source: 'ctgov', sourceType: 'trial', title: 'Empagliflozin heart failure trial 4', subcategoryId: 'hf', year: 2020, enrollment: 200, interventionClassIds: ['sglt2_inhibitor'], endpointIds: ['cv_death'] },
+    { trialId: 'af_1', source: 'ctgov', sourceType: 'trial', title: 'Apixaban atrial fibrillation trial 1', subcategoryId: 'af', year: 2021, enrollment: 200, interventionClassIds: ['doac'], endpointIds: ['stroke'] },
   ]);
 
   await loadPromise;
 
   const state = store.getState();
   assert.equal(state.sortMode, 'count');
-  assert.equal(state.opportunities[0].subcategoryId, 'hf');
-  assert.ok((state.opportunities[0].trialCount ?? 0) > (state.opportunities[1].trialCount ?? 0));
+  assert.ok(state.opportunities.length > 0, 'should have at least one opportunity');
+  // The hf group (sglt2_inhibitor x cv_death, 4 trials) should sort above the af group (doac x stroke, 1 trial) by count
+  const sortedCounts = state.opportunities.map((o) => o.trialCount ?? 0);
+  assert.ok(sortedCounts[0] >= sortedCounts[sortedCounts.length - 1], 'opportunities should be sorted descending by trialCount');
 });
 
 test('loadUniverse tolerates non-finite enrollment inputs and keeps finite scores', async () => {

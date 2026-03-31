@@ -3,6 +3,7 @@ import { loadUniverseFromConnector } from '../data/repository/universe-repositor
 import { buildIdentityGraph } from '../engine/identity/index.js';
 import { ENDPOINT_ONTOLOGY_V1, INTERVENTION_DICTIONARY_V1, mapOntologyFromText } from '../ontology/index.js';
 import { SAMPLE_TRIALS, SAMPLE_OPPORTUNITIES } from './data/sample-data.js';
+import { buildAndScoreOpportunities, normalizeWeights, DEFAULT_WEIGHTS } from '../engine/ranking/index.js';
 
 const CONNECTOR_IDS = listConnectors();
 const ALLOWED_SOURCES = new Set(['sample', ...CONNECTOR_IDS]);
@@ -335,13 +336,15 @@ export function createDiscoveryActions(store, deps = {}) {
       const usedFallbackTrials = loadedTrials.length === 0 && dataSource !== 'sample';
       const currentSortMode = store.getState().sortMode;
 
-      const computedOpportunities = buildOpportunitiesFromTrials(trials);
+      const matrixSummary = buildMatrixSummary(trials);
+      const currentWeights = store.getState().rankingWeights ?? DEFAULT_WEIGHTS;
+      const globalContext = { usedFallback: usedFallbackTrials };
+      const computedOpportunities = buildAndScoreOpportunities(trials, matrixSummary, currentWeights, globalContext);
       const opportunities = sortOpportunities(
         computedOpportunities.length > 0 ? computedOpportunities : SAMPLE_OPPORTUNITIES,
         currentSortMode,
       );
       const kpis = computeKpis(trials, opportunities);
-      const matrixSummary = buildMatrixSummary(trials);
       const dedupSummary = summarizeDedup(trials);
 
       const gate = usedFallbackTrials
@@ -383,11 +386,15 @@ export function createDiscoveryActions(store, deps = {}) {
       if (loadToken !== latestLoadToken) return;
       const message = error instanceof Error ? error.message : String(error);
       const fallbackTrials = SAMPLE_TRIALS;
+      const fallbackWeights = store.getState().rankingWeights ?? DEFAULT_WEIGHTS;
+      const fallbackGlobalCtx = { usedFallback: true };
+      const fallbackMatrixSummary = buildMatrixSummary(fallbackTrials);
+      const fallbackScoredOpportunities = buildAndScoreOpportunities(fallbackTrials, fallbackMatrixSummary, fallbackWeights, fallbackGlobalCtx);
       const fallbackOpportunities = sortOpportunities(
-        buildOpportunitiesFromTrials(fallbackTrials),
+        fallbackScoredOpportunities.length > 0 ? fallbackScoredOpportunities : SAMPLE_OPPORTUNITIES,
         store.getState().sortMode,
       );
-      const matrixSummary = buildMatrixSummary(fallbackTrials);
+      const matrixSummary = fallbackMatrixSummary;
       const dedupSummary = summarizeDedup(fallbackTrials);
 
       store.patchState(
@@ -463,6 +470,34 @@ export function createDiscoveryActions(store, deps = {}) {
       if (store.getState().dataSource === source) return false;
       store.patchState({ dataSource: source }, 'source:set');
       return true;
+    },
+
+    setRankingWeight(factorId, rawValue) {
+      const currentWeights = { ...store.getState().rankingWeights };
+      currentWeights[factorId] = Math.max(0, Number(rawValue) || 0);
+      const normalized = normalizeWeights(currentWeights);
+
+      const { trials, matrixSummary, provenance, sortMode } = store.getState();
+      const globalContext = { usedFallback: Boolean(provenance?.usedFallback) };
+      const scored = buildAndScoreOpportunities(trials, matrixSummary, normalized, globalContext);
+      const opportunities = sortOpportunities(scored, sortMode);
+
+      store.patchState({ rankingWeights: normalized, opportunities }, 'weights:set');
+    },
+
+    resetRankingWeights() {
+      const weights = { ...DEFAULT_WEIGHTS };
+      const { trials, matrixSummary, provenance, sortMode } = store.getState();
+      const globalContext = { usedFallback: Boolean(provenance?.usedFallback) };
+      const scored = buildAndScoreOpportunities(trials, matrixSummary, weights, globalContext);
+      const opportunities = sortOpportunities(scored, sortMode);
+
+      store.patchState({ rankingWeights: weights, opportunities }, 'weights:reset');
+    },
+
+    toggleSensitivityPanel() {
+      const open = !store.getState().rankingSensitivityOpen;
+      store.patchState({ rankingSensitivityOpen: open }, 'sensitivity:toggle');
     },
   };
 }
