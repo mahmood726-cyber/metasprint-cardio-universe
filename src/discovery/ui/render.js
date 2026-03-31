@@ -203,7 +203,17 @@ function renderOpportunityList(state) {
 
     const formulaNode = el('div', { className: 'meta formula', text: formula });
     const rationale = el('div', { className: 'meta', text: item.rationale });
-    append(li, title, meta, formulaNode, rationale);
+    const factors = item.factors;
+    let breakdownText = '';
+    if (factors && typeof factors === 'object') {
+      const parts = Object.entries(FACTOR_ABBREVS)
+        .map(([key, abbr]) => `${abbr}:${Math.round(Number(factors[key]) || 0)}`)
+        .join(' ');
+      breakdownText = `${Math.round(item.compositeScore ?? item.score)} = ${parts}`;
+    }
+    const breakdown = el('div', { className: 'score-breakdown', text: breakdownText });
+
+    append(li, title, meta, formulaNode, rationale, breakdown);
 
     const linkedTrials = (trialsBySubcategory.get(String(item.subcategoryId ?? 'general')) ?? [])
       .slice()
@@ -802,6 +812,63 @@ function renderMethodologyGate(state) {
   }
 }
 
+const FACTOR_LABELS = {
+  clinicalImpact: 'Clinical Impact',
+  uncertaintyReduction: 'Uncertainty Reduction',
+  feasibility: 'Feasibility',
+  freshness: 'Freshness',
+  provenanceConfidence: 'Provenance Confidence',
+};
+
+const FACTOR_ABBREVS = {
+  clinicalImpact: 'CI',
+  uncertaintyReduction: 'UR',
+  feasibility: 'F',
+  freshness: 'EF',
+  provenanceConfidence: 'PC',
+};
+
+function renderWeightsPanel(state) {
+  const panel = byId('weightsPanel');
+  const grid = byId('weightsGrid');
+  const toggle = document.querySelector('[data-action="toggle-weights"]');
+  if (!panel || !grid) return;
+
+  const open = Boolean(state.rankingSensitivityOpen);
+  panel.hidden = !open;
+  if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (!open) return;
+
+  clearNode(grid);
+  const weights = state.rankingWeights ?? {};
+
+  for (const [factorId, label] of Object.entries(FACTOR_LABELS)) {
+    const weight = Number(weights[factorId]) || 0;
+    const pct = Math.round(weight * 100);
+
+    const control = el('div', { className: 'weight-control' });
+    const labelEl = el('label', { text: label, attrs: { for: `weight-${factorId}` } });
+
+    const row = el('div', { className: 'weight-row' });
+    const input = el('input', {
+      attrs: {
+        type: 'range',
+        id: `weight-${factorId}`,
+        min: '0',
+        max: '100',
+        value: String(pct),
+        'data-factor': factorId,
+        'aria-label': `${label} weight`,
+      },
+    });
+    const pctLabel = el('span', { className: 'weight-pct', text: `${pct}%` });
+
+    append(row, input, pctLabel);
+    append(control, labelEl, row);
+    grid.appendChild(control);
+  }
+}
+
 export function renderDiscovery(state) {
   const provenance = state.provenance ?? {};
   const requestedSource = sourceLabel(provenance.requestedSource ?? state.dataSource);
@@ -822,4 +889,5 @@ export function renderDiscovery(state) {
   renderViewFrame(state);
   renderOpportunityList(state);
   renderMethodologyGate(state);
+  renderWeightsPanel(state);
 }
