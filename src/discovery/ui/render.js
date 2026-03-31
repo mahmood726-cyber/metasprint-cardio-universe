@@ -1,4 +1,5 @@
 import { append, byId, clearNode, el, setText } from '../../core/dom.js';
+import { classifyConfidence, explainFactor } from '../../engine/explainability/index.js';
 
 function formatTime(iso) {
   if (!iso) return 'never';
@@ -187,6 +188,14 @@ function renderOpportunityList(state) {
     });
     title.appendChild(badge);
 
+    const globalCtx = { usedFallback: Boolean(state.provenance?.usedFallback) };
+    const confidence = classifyConfidence(item, globalCtx);
+    const confBadge = el('span', {
+      className: `confidence-badge ${confidence.tier}`,
+      text: confidence.tierLabel.toUpperCase(),
+    });
+    title.appendChild(confBadge);
+
     const metaParts = [`${item.subcategoryId.toUpperCase()}`, `Gap score ${item.score}`];
     if (item.trialCount != null) metaParts.push(`${item.trialCount} trials`);
     if (item.recentTrials != null) metaParts.push(`${item.recentTrials} recent`);
@@ -248,6 +257,7 @@ function renderOpportunityList(state) {
       details.appendChild(el('div', { className: 'meta', text: `Showing first 20 of ${linkedTrials.length} trials.` }));
     }
     li.appendChild(details);
+    renderExplanationPanel(li, item, state);
     host.appendChild(li);
   }
 }
@@ -867,6 +877,135 @@ function renderWeightsPanel(state) {
     append(control, labelEl, row);
     grid.appendChild(control);
   }
+}
+
+const STATUS_ICONS = {
+  real: '\u2713',
+  imputed: '\u26A0',
+  degraded: '\u26A0',
+};
+
+const FACTOR_NAMES = {
+  clinicalImpact: 'Clinical Impact',
+  uncertaintyReduction: 'Uncertainty Reduction',
+  feasibility: 'Feasibility',
+  freshness: 'Freshness',
+  provenanceConfidence: 'Provenance Confidence',
+};
+
+const STATUS_COLORS = {
+  real: '#16a34a',
+  imputed: '#d97706',
+  degraded: '#dc2626',
+};
+
+function drawFactorBars(canvas, factors, confidence) {
+  if (!canvas || typeof canvas.getContext !== 'function') return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
+  const width = 280;
+  const barHeight = 14;
+  const gap = 4;
+  const labelWidth = 30;
+  const scoreWidth = 28;
+  const barMaxWidth = width - labelWidth - scoreWidth - 12;
+  const factorIds = Object.keys(FACTOR_NAMES);
+  const height = factorIds.length * (barHeight + gap) + gap;
+
+  canvas.width = width;
+  canvas.height = height;
+  canvas.style.width = `${width}px`;
+  canvas.style.height = `${height}px`;
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.font = '10px monospace';
+
+  for (let i = 0; i < factorIds.length; i++) {
+    const fid = factorIds[i];
+    const y = gap + i * (barHeight + gap);
+    const score = Math.round(Number(factors?.[fid]) || 0);
+    const status = confidence?.perFactor?.[fid]?.status ?? 'real';
+    const barWidth = Math.max(0, (score / 100) * barMaxWidth);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'left';
+    ctx.fillText(FACTOR_ABBREVS[fid] ?? fid.slice(0, 2).toUpperCase(), 2, y + barHeight / 2);
+
+    ctx.fillStyle = '#e2e8f0';
+    ctx.fillRect(labelWidth, y, barMaxWidth, barHeight);
+
+    ctx.fillStyle = STATUS_COLORS[status] ?? STATUS_COLORS.real;
+    ctx.fillRect(labelWidth, y, barWidth, barHeight);
+
+    ctx.fillStyle = '#334155';
+    ctx.textAlign = 'right';
+    ctx.fillText(String(score), width - 2, y + barHeight / 2);
+  }
+}
+
+function renderExplanationPanel(container, item, state) {
+  const globalContext = { usedFallback: Boolean(state.provenance?.usedFallback) };
+  const confidence = classifyConfidence(item, globalContext);
+  const factors = item.factors ?? {};
+
+  const section = el('div', { className: 'explain-section' });
+
+  const canvas = document.createElement('canvas');
+  canvas.className = 'explain-canvas';
+  canvas.setAttribute('role', 'img');
+  canvas.setAttribute('aria-label', 'Factor contribution bar chart');
+  section.appendChild(canvas);
+  drawFactorBars(canvas, factors, confidence);
+
+  const factorIds = Object.keys(FACTOR_NAMES);
+  for (const fid of factorIds) {
+    const score = Math.round(Number(factors[fid]) || 0);
+    const status = confidence.perFactor?.[fid]?.status ?? 'real';
+    const explanation = explainFactor(fid, item, score, state.trials ?? []);
+
+    const row = el('details', { className: 'factor-row' });
+    const summaryEl = el('summary');
+    summaryEl.textContent = `${FACTOR_NAMES[fid]}: ${score}`;
+
+    const icon = el('span', {
+      className: `status-icon ${status}`,
+      text: STATUS_ICONS[status] ?? '',
+      attrs: { 'aria-label': status },
+    });
+    summaryEl.appendChild(icon);
+    row.appendChild(summaryEl);
+
+    const derivation = el('div', { className: 'factor-derivation', text: explanation.text });
+    row.appendChild(derivation);
+
+    if (explanation.trialRefs.length > 0) {
+      const trialDiv = el('div', { className: 'factor-trials' });
+      for (const ref of explanation.trialRefs.slice(0, 10)) {
+        const trialLine = el('div');
+        if (ref.href) {
+          const link = el('a', {
+            text: ref.label,
+            attrs: { href: ref.href, target: '_blank', rel: 'noopener noreferrer' },
+          });
+          trialLine.appendChild(link);
+        } else {
+          trialLine.appendChild(el('span', { text: ref.label }));
+        }
+        if (ref.year) trialLine.appendChild(el('span', { text: ` (${ref.year})` }));
+        trialDiv.appendChild(trialLine);
+      }
+      if (explanation.trialRefs.length > 10) {
+        trialDiv.appendChild(el('div', { text: `... and ${explanation.trialRefs.length - 10} more` }));
+      }
+      row.appendChild(trialDiv);
+    }
+
+    section.appendChild(row);
+  }
+
+  container.appendChild(section);
 }
 
 export function renderDiscovery(state) {
