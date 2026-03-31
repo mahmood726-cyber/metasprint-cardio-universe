@@ -196,9 +196,9 @@ function renderOpportunityList(state) {
       text: metaParts.join(' | '),
     });
 
-    const breakdown = item.scoreBreakdown;
-    const formula = breakdown
-      ? `Formula: 100 - evidence ${breakdown.evidencePenalty} - recency ${breakdown.recencyPenalty} - scale ${breakdown.scalePenalty}`
+    const scoreBreakdown = item.scoreBreakdown;
+    const formula = scoreBreakdown
+      ? `Formula: 100 - evidence ${scoreBreakdown.evidencePenalty} - recency ${scoreBreakdown.recencyPenalty} - scale ${scoreBreakdown.scalePenalty}`
       : 'Formula: 100 - evidence - recency - scale';
 
     const formulaNode = el('div', { className: 'meta formula', text: formula });
