@@ -65,7 +65,9 @@ function uniqueStrings(values) {
 function computeKpis(trials, opportunities) {
   const nowYear = new Date().getFullYear();
   const recentTrials3y = trials.filter((t) => t.year != null && t.year >= nowYear - 3).length;
-  const subcategories = new Set(trials.map((t) => t.subcategoryId ?? 'general')).size;
+  const subcategories = new Set(
+    opportunities.map((o) => o.interventionClassId ?? o.subcategoryId ?? 'general'),
+  ).size;
   const highPriorityClusters = opportunities.filter((o) => o.priority === 'high').length;
 
   return {

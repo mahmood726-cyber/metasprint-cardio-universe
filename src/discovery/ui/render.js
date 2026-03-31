@@ -120,7 +120,7 @@ function renderKpis(state) {
 
   const items = [
     ['Total Trials', state.kpis.totalTrials],
-    ['Subcategories', state.kpis.subcategories],
+    ['Intervention Classes', state.kpis.subcategories],
     ['Recent Trials (3y)', state.kpis.recentTrials3y],
     ['High Priority', state.kpis.highPriorityClusters],
   ];
