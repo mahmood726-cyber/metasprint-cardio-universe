@@ -454,6 +454,89 @@
       font-family: monospace;
       margin-top: 2px;
     }
+
+    .confidence-badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 0.64rem;
+      font-weight: 600;
+      margin-left: 4px;
+      color: #fff;
+    }
+
+    .confidence-badge.high { background: #16a34a; }
+    .confidence-badge.moderate { background: #d97706; }
+    .confidence-badge.low { background: #dc2626; }
+
+    .explain-section {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    .explain-canvas {
+      display: block;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      background: #f8fafc;
+    }
+
+    .factor-row {
+      margin-bottom: 4px;
+      font-size: 0.73rem;
+    }
+
+    .factor-row summary {
+      cursor: pointer;
+      color: #334155;
+      font-weight: 600;
+      padding: 3px 0;
+      list-style: none;
+    }
+
+    .factor-row summary::-webkit-details-marker { display: none; }
+
+    .factor-row summary::before {
+      content: '\25B6 ';
+      font-size: 0.6rem;
+      margin-right: 4px;
+      color: #94a3b8;
+    }
+
+    .factor-row[open] summary::before {
+      content: '\25BC ';
+    }
+
+    .factor-derivation {
+      padding: 4px 0 4px 16px;
+      font-size: 0.7rem;
+      color: #475569;
+      font-family: monospace;
+      line-height: 1.4;
+    }
+
+    .factor-trials {
+      padding: 2px 0 4px 16px;
+      font-size: 0.7rem;
+    }
+
+    .factor-trials a {
+      color: #0f4c81;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .factor-trials a:hover { text-decoration: underline; }
+
+    .status-icon {
+      margin-left: 4px;
+      font-size: 0.68rem;
+    }
+
+    .status-icon.real { color: #16a34a; }
+    .status-icon.imputed { color: #d97706; }
+    .status-icon.degraded { color: #dc2626; }
   </style>
 </head>
 <body>
