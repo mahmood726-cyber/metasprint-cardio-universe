@@ -1,3 +1,5 @@
+import { DEFAULT_WEIGHTS } from '../engine/ranking/index.js';
+
 export const INITIAL_DISCOVERY_STATE = {
   universeLoaded: false,
   loading: false,
@@ -38,4 +40,6 @@ export const INITIAL_DISCOVERY_STATE = {
     detail: 'Run at least one loaded cycle before evaluation.',
     status: 'moderate',
   },
+  rankingWeights: { ...DEFAULT_WEIGHTS },
+  rankingSensitivityOpen: false,
 };
