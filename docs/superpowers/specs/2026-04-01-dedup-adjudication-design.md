@@ -82,7 +82,7 @@ localStorage key: `metasprint_adjudication_decisions`
 | `removeDecision` | `(pairId, storage) -> void` | Remove a decision (undo), persist |
 | `setReviewerId` | `(id, storage) -> void` | Persist default reviewer ID |
 | `getReviewerId` | `(storage) -> string` | Read persisted reviewer ID |
-| `detectConflicts` | `(decisions) -> ConflictPair[]` | Find pairs where 2+ distinct reviewer IDs made different decisions |
+| `detectConflicts` | `(existingDecisions, importedDecisions) -> ConflictPair[]` | Find pairs where 2+ distinct reviewer IDs made different decisions |
 | `exportOverridesJson` | `(decisions) -> { forceMerge, forceSplit }` | Convert decisions to existing `overrides.json` schema. `clear` decisions are excluded (they remove overrides). |
 | `importOverridesJson` | `(json, existingDecisions) -> { merged, conflicts }` | Merge imported overrides into current decisions. Return merged map + conflict pairs. |
 
@@ -94,10 +94,8 @@ A conflict occurs when the same `pairId` has decisions from 2+ distinct `reviewe
 [
   {
     pairId: "trial_NCT001::trial_NCT002",
-    decisions: [
-      { reviewer: "mahmood", decision: "force_merge", decidedAt: "..." },
-      { reviewer: "sarah", decision: "force_split", decidedAt: "..." },
-    ],
+    existing: { reviewer: "mahmood", decision: "force_merge", decidedAt: "..." },
+    imported: { reviewer: "sarah", decision: "force_split", decidedAt: "..." },
   },
 ]
 ```
