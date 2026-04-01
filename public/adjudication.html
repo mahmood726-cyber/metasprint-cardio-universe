@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MetaSprint Cardio — Dedup Adjudication</title>
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --surface-alt: #f0f4f8;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #d1d9e2;
+      --primary: #0f766e;
+      --primary-strong: #115e59;
+      --danger: #b91c1c;
+      --warn: #b45309;
+      --success: #166534;
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #f7f8fa, #e8eef5 60%, #dbe7f0);
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .shell {
+      max-width: 1100px;
+      margin: 20px auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+    }
+
+    .header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(120deg, #0f766e, #0e7490);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header h1 { margin: 0; font-size: 1.2rem; font-weight: 700; }
+    .header a { color: #c7f5f0; font-size: 0.78rem; text-decoration: none; }
+    .header a:hover { text-decoration: underline; }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-alt);
+      align-items: center;
+    }
+
+    .toolbar label { font-size: 0.78rem; font-weight: 600; color: var(--muted); }
+    .toolbar input[type="text"] {
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.78rem;
+      width: 160px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .btn:hover { background: var(--surface-alt); }
+    .btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn.primary:hover { background: var(--primary-strong); }
+    .btn.danger { background: var(--danger); color: #fff; border-color: var(--danger); }
+
+    .stats {
+      margin-left: auto;
+      font-size: 0.72rem;
+      color: var(--muted);
+      display: flex;
+      gap: 12px;
+    }
+    .stats strong { color: var(--text); }
+
+    .filter-tabs {
+      display: flex;
+      gap: 4px;
+      padding: 8px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    .queue-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.76rem;
+    }
+    .queue-table th {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 2px solid var(--border);
+      background: var(--surface-alt);
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .queue-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .queue-table tr:hover td { background: #f0fdf4; }
+    .queue-table tr.conflict td { background: #fef2f2; }
+
+    .score-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: #fff;
+    }
+    .score-badge.high { background: var(--success); }
+    .score-badge.medium { background: var(--warn); }
+    .score-badge.low { background: var(--danger); }
+
+    .decision-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.68rem;
+    }
+    .decision-badge.force_merge { background: #dcfce7; color: #166534; }
+    .decision-badge.force_split { background: #fee2e2; color: #991b1b; }
+    .decision-badge.clear { background: #e2e8f0; color: #475569; }
+    .decision-badge.pending { background: #fef9c3; color: #854d0e; }
+
+    .action-btns { display: flex; gap: 4px; }
+    .action-btns button {
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+      font-size: 0.68rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .action-btns button:hover { background: var(--surface-alt); }
+    .action-btns .merge-btn:hover { background: #dcfce7; color: #166534; }
+    .action-btns .split-btn:hover { background: #fee2e2; color: #991b1b; }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .empty-state p { margin: 8px 0; }
+
+    .conflict-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--danger);
+      margin-right: 4px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      max-height: calc(100vh - 240px);
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="header">
+      <h1>Dedup Adjudication</h1>
+      <a href="./index.html">Back to Discovery</a>
+    </div>
+
+    <div class="toolbar">
+      <label for="reviewerInput">Reviewer ID:</label>
+      <input type="text" id="reviewerInput" placeholder="Enter your name" autocomplete="off">
+      <button class="btn primary" id="loadQueueBtn" type="button">Load Queue</button>
+      <button class="btn" id="exportBtn" type="button">Export JSON</button>
+      <button class="btn" id="importBtn" type="button">Import JSON</button>
+      <input type="file" id="importFile" accept=".json" hidden>
+      <div class="stats" id="statsBar">
+        <span>Total: <strong id="statTotal">0</strong></span>
+        <span>Decided: <strong id="statDecided">0</strong></span>
+        <span>Pending: <strong id="statPending">0</strong></span>
+        <span>Conflicts: <strong id="statConflicts">0</strong></span>
+      </div>
+    </div>
+
+    <div class="filter-tabs" id="filterTabs">
+      <button class="tab-btn active" data-filter="all" type="button">All</button>
+      <button class="tab-btn" data-filter="pending" type="button">Pending</button>
+      <button class="tab-btn" data-filter="decided" type="button">Decided</button>
+      <button class="tab-btn" data-filter="conflicts" type="button">Conflicts</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="queue-table" id="queueTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Score</th>
+            <th>Left Trial</th>
+            <th>Right Trial</th>
+            <th>Sources</th>
+            <th>Recommended</th>
+            <th>Decision</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="queueBody"></tbody>
+      </table>
+      <div class="empty-state" id="emptyState">
+        <p>No override queue loaded.</p>
+        <p>Click <strong>Load Queue</strong> to fetch the override queue CSV.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./adjudication-runtime.js"></script>
+</body>
+</html>
