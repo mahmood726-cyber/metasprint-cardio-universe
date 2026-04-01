@@ -5,12 +5,13 @@ import {
   removeDecision,
   setReviewerId,
   getReviewerId,
-  detectConflicts,
   exportOverridesJson,
   importOverridesJson,
 } from '../src/engine/adjudication/index.js';
 
 const QUEUE_CSV_PATH = '../reports/dedup/override-queue.csv';
+const MAX_IMPORT_BYTES = 10 * 1024 * 1024;
+const VALID_ACTIONS = new Set(['merge', 'split', 'clear']);
 
 const state = {
   queue: [],
@@ -21,36 +22,33 @@ function byId(id) {
   return document.getElementById(id);
 }
 
+function esc(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function scoreClass(score) {
   if (score >= 0.9) return 'high';
   if (score >= 0.7) return 'medium';
   return 'low';
 }
 
-function getDecisionForPair(pairId) {
-  const store = loadDecisions(localStorage);
-  return store.decisions[pairId] ?? null;
-}
-
 function getReviewer() {
   return byId('reviewerInput').value.trim() || getReviewerId(localStorage);
 }
 
-function updateStats() {
-  const store = loadDecisions(localStorage);
-  const decided = state.queue.filter((q) => store.decisions[q.pairId]).length;
+function updateStats(store) {
+  const decisions = store.decisions;
+  const decided = state.queue.filter((q) => decisions[q.pairId]).length;
   const pending = state.queue.length - decided;
-
-  const allDecisions = store.decisions;
-  const reviewerGroups = {};
-  for (const [pid, entry] of Object.entries(allDecisions)) {
-    if (!reviewerGroups[pid]) reviewerGroups[pid] = [];
-    reviewerGroups[pid].push(entry);
-  }
 
   let conflictCount = 0;
   for (const q of state.queue) {
-    const d = allDecisions[q.pairId];
+    const d = decisions[q.pairId];
     if (d && q.recommendedDecision && d.decision !== q.recommendedDecision && d.decision !== 'clear') {
       conflictCount += 1;
     }
@@ -62,11 +60,12 @@ function updateStats() {
   byId('statConflicts').textContent = String(conflictCount);
 }
 
-function renderRow(item, index) {
-  const decision = getDecisionForPair(item.pairId);
+function renderRow(item, index, store) {
+  const decision = store.decisions[item.pairId] ?? null;
   const decisionValue = decision?.decision ?? 'pending';
   const hasConflict = decision && item.recommendedDecision &&
     decision.decision !== item.recommendedDecision && decision.decision !== 'clear';
+  const score = Number.isFinite(item.score) ? item.score : 0;
 
   const tr = document.createElement('tr');
   if (hasConflict) tr.classList.add('conflict');
@@ -74,16 +73,16 @@ function renderRow(item, index) {
 
   tr.innerHTML = `
     <td>${index + 1}</td>
-    <td><span class="score-badge ${scoreClass(item.score)}">${item.score.toFixed(2)}</span></td>
-    <td title="${item.leftTrialId}">${item.leftTrialId}</td>
-    <td title="${item.rightTrialId}">${item.rightTrialId}</td>
-    <td>${item.leftSource} / ${item.rightSource}</td>
-    <td><span class="decision-badge ${item.recommendedDecision || 'pending'}">${item.recommendedDecision || 'none'}</span></td>
-    <td><span class="decision-badge ${decisionValue}">${decisionValue}</span></td>
+    <td><span class="score-badge ${scoreClass(score)}">${score.toFixed(2)}</span></td>
+    <td title="${esc(item.leftTrialId)}">${esc(item.leftTrialId)}</td>
+    <td title="${esc(item.rightTrialId)}">${esc(item.rightTrialId)}</td>
+    <td>${esc(item.leftSource)} / ${esc(item.rightSource)}</td>
+    <td><span class="decision-badge ${esc(item.recommendedDecision || 'pending')}">${esc(item.recommendedDecision || 'none')}</span></td>
+    <td><span class="decision-badge ${esc(decisionValue)}">${esc(decisionValue)}</span></td>
     <td class="action-btns">
-      <button class="merge-btn" data-action="merge" data-pair="${item.pairId}" type="button">Merge</button>
-      <button class="split-btn" data-action="split" data-pair="${item.pairId}" type="button">Split</button>
-      <button data-action="clear" data-pair="${item.pairId}" type="button">Clear</button>
+      <button class="merge-btn" data-action="merge" data-pair="${esc(item.pairId)}" type="button">Merge</button>
+      <button class="split-btn" data-action="split" data-pair="${esc(item.pairId)}" type="button">Split</button>
+      <button data-action="clear" data-pair="${esc(item.pairId)}" type="button">Clear</button>
     </td>
   `;
   return tr;
@@ -113,10 +112,10 @@ function renderTable() {
   });
 
   for (let i = 0; i < filtered.length; i++) {
-    tbody.appendChild(renderRow(filtered[i], i));
+    tbody.appendChild(renderRow(filtered[i], i, store));
   }
 
-  updateStats();
+  updateStats(store);
 }
 
 async function loadQueue() {
@@ -138,11 +137,12 @@ async function loadQueue() {
     renderTable();
   } catch (err) {
     byId('emptyState').innerHTML =
-      `<p>Error loading queue: ${err.message}</p>`;
+      `<p>Error loading queue: ${esc(err.message)}</p>`;
   }
 }
 
 function handleDecision(pairId, decision) {
+  if (!VALID_ACTIONS.has(decision)) return;
   const reviewer = getReviewer();
   if (!reviewer) {
     byId('reviewerInput').focus();
@@ -176,6 +176,10 @@ function exportDecisions() {
 }
 
 function importDecisions(file) {
+  if (file.size > MAX_IMPORT_BYTES) {
+    alert('Import file too large (max 10 MB).');
+    return;
+  }
   const reader = new FileReader();
   reader.onload = () => {
     try {
@@ -230,7 +234,9 @@ function init() {
     if (!btn) return;
     state.filter = btn.dataset.filter;
     for (const tab of byId('filterTabs').querySelectorAll('.tab-btn')) {
-      tab.classList.toggle('active', tab.dataset.filter === state.filter);
+      const isActive = tab.dataset.filter === state.filter;
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', String(isActive));
     }
     renderTable();
   });
