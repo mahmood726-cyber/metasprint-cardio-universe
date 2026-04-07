@@ -1,6 +1,6 @@
 Mahmood Ahmad
 Tahir Heart Institute
-author@example.com
+mahmood.ahmad2@nhs.net
 
 MetaSprint Cardio Universe: Provenance-First Discovery for Living Evidence Synthesis
 
