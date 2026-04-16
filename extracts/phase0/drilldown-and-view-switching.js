@@ -1,7 +1,7 @@
-﻿# Phase 0 extraction: Drill-down system and universe view switching
-# Source: C:\Users\user\Downloads\metasprint-autopilot\metasprint-autopilot.html
-# ExtractedAt: 2026-02-28T12:57:16.4858885+00:00
-# LineRange: 13639..17482
+﻿// Phase 0 extraction: Drill-down system and universe view switching
+// Source: archived metasprint-autopilot.html
+// ExtractedAt: 2026-02-28T12:57:16.4858885+00:00
+// LineRange: 13639..17482
 
   // === DRILL-DOWN PANEL (click-to-expand provenance system) ===
   // "Read! In the name of your Lord who created" â€” 96:1

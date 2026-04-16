@@ -1,7 +1,7 @@
-﻿# Phase 0 extraction: AACT universe fetch and graph preparation
-# Source: C:\Users\user\Downloads\metasprint-autopilot\metasprint-autopilot.html
-# ExtractedAt: 2026-02-28T12:57:16.3664912+00:00
-# LineRange: 12154..13638
+﻿// Phase 0 extraction: AACT universe fetch and graph preparation
+// Source: archived metasprint-autopilot.html
+// ExtractedAt: 2026-02-28T12:57:16.3664912+00:00
+// LineRange: 12154..13638
 
   // AACT UNIVERSE â€” Bulk fetch all CV RCTs for Ayat Universe
   // ============================================================
