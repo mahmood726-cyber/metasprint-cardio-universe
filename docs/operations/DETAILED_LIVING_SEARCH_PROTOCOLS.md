@@ -13,10 +13,11 @@ Scope of "source-complete" in this SOP:
 - This is not a claim of universal coverage of all global registries/databases.
 
 Adaptation basis:
-- Patterns adapted from:
-  - `C:\Users\user\OneDrive - NHS\Documents\Tricuspid_TEER_LivingMeta`
-  - `C:\Users\user\OneDrive - NHS\Documents\LivingMeta_Watchman_Amulet`
-  - `C:\Users\user\OneDrive - NHS\Documents\PFA_AF_LivingMeta`
+- Patterns adapted from local archives (paths redacted; set
+  `LIVINGMETA_ARCHIVE_ROOT` to point at your own workspace):
+  - `${LIVINGMETA_ARCHIVE_ROOT}/Tricuspid_TEER_LivingMeta`
+  - `${LIVINGMETA_ARCHIVE_ROOT}/LivingMeta_Watchman_Amulet`
+  - `${LIVINGMETA_ARCHIVE_ROOT}/PFA_AF_LivingMeta`
 
 ## 1) Protocol Freeze (required before running)
 

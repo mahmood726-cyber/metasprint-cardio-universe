@@ -1,5 +1,5 @@
 ﻿param(
-  [string]$SourceHtml = "C:\Users\user\Downloads\metasprint-autopilot\metasprint-autopilot.html",
+  [string]$SourceHtml = $(if ($env:METASPRINT_AUTOPILOT_HTML) { $env:METASPRINT_AUTOPILOT_HTML } else { "$PSScriptRoot\..\metasprint-autopilot.html" }),
   [string]$OutputDir = "$PSScriptRoot\..\extracts\phase0"
 )
 

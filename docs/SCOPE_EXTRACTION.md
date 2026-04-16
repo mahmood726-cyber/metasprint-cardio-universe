@@ -1,7 +1,7 @@
 ﻿# Scope Extraction Map
 
 Source monolith:
-- C:/Users/user/Downloads/metasprint-autopilot/metasprint-autopilot.html
+- ${METASPRINT_AUTOPILOT_HTML}
 
 Primary extraction targets:
 - Discover phase UI section and tabs.

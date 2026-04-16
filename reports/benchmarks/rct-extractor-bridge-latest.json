@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-02-28T19:08:05.980Z",
   "source": {
-    "rctRoot": "C:/Users/user/rct-extractor-v2",
+    "rctRoot": "${RCT_EXTRACTOR_ROOT}",
     "seedPath": "C:\\Users\\user\\rct-extractor-v2\\data\\benchmarks\\cardiology_meta_linked_ahmad_m_trials_v3b_reextract_pdfpick_20260225\\model_seed_adjudicator_only.jsonl"
   },
   "input": {

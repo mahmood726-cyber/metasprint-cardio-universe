@@ -5,7 +5,7 @@
   "description": "Imported publication benchmark from rct-extractor-v2 cardiology author-meta cohort.",
   "source": {
     "type": "rct-extractor-v2",
-    "repoPath": "C:/Users/user/rct-extractor-v2",
+    "repoPath": "${RCT_EXTRACTOR_ROOT}",
     "seedFile": "C:\\Users\\user\\rct-extractor-v2\\data\\benchmarks\\cardiology_ahmad_subset25_20260225\\model_seed_adjudicator_only.jsonl"
   },
   "expectedTrialIds": [],

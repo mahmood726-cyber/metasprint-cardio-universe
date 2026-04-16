@@ -4,7 +4,7 @@ import process from 'node:process';
 
 function parseArgs(argv) {
   const options = {
-    rctRoot: 'C:/Users/user/rct-extractor-v2',
+    rctRoot: process.env.RCT_EXTRACTOR_ROOT || 'C:/rct-extractor-v2',
     seedPath: null,
     outputPackPath: 'reports/benchmarks/packs/v1/rct_extractor_publications.v1.json',
     outputSummaryPath: 'reports/benchmarks/rct-extractor-bridge-latest.json',

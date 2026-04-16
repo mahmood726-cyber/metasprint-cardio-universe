@@ -11,7 +11,7 @@
     "very_low"
   ],
   "source": {
-    "rctRoot": "C:/Users/user/rct-extractor-v2",
+    "rctRoot": "${RCT_EXTRACTOR_ROOT}",
     "filePath": "C:\\Users\\user\\rct-extractor-v2\\output\\cardiology_ahmad_m_trials_extract_20260225\\cardiology_meta_linked_ahmad_m_trials_v3b_reextract_pdfpick_20260225_benchmark_eval_spotcheck_applied.json",
     "discovery": {
       "source": "auto_discovery",

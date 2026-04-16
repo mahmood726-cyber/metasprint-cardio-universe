@@ -56,10 +56,10 @@ Quick start:
 10. `npm run benchmark:dedup-identity` (gold-label identity dedup precision/recall/F1 benchmark)
 11. `npm run benchmark:bias-sensitivity` (Phase-B bias robustness + ROB-ME-compatible benchmark)
 12. `npm run benchmark:network-v1` (Phase-C NMA + inconsistency diagnostics + rank uncertainty + RoB NMA)
-13. `npm run benchmark:certainty-crosswalk` (live extracted study-level certainty crosswalk from `C:/Users/user/rct-extractor-v2`)
+13. `npm run benchmark:certainty-crosswalk` (live extracted study-level certainty crosswalk from `${RCT_EXTRACTOR_ROOT}`)
 14. `npm run ops:living-drift` (scenario-tuned living update drift monitor for effect/rank/certainty stability)
 15. `npm run verify:stats-advanced`
-16. `npm run benchmark:rct-bridge` (imports external cardiology PDF corpus IDs from `C:/Users/user/rct-extractor-v2`)
+16. `npm run benchmark:rct-bridge` (imports external cardiology PDF corpus IDs from `${RCT_EXTRACTOR_ROOT}`)
 17. `npm run verify:release-gates`
 18. `npm run ops:runtime-slo`
 19. `npm run ops:doc-sync`
