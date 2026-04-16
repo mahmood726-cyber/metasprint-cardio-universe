@@ -8,3 +8,18 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Python bytecode (sub-tools use Python)
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Overmind / Sentinel auto-generated logs
+DECISIONS.md
+STUCK_FAILURES.md
+STUCK_FAILURES.jsonl
+sentinel-findings.md
+sentinel-findings.jsonl
+review-findings.md
+review-findings.jsonl
