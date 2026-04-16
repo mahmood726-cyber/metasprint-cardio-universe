@@ -1,7 +1,7 @@
-﻿# Phase 0 extraction: Ayat renderer and all discovery views
-# Source: C:\Users\user\Downloads\metasprint-autopilot\metasprint-autopilot.html
-# ExtractedAt: 2026-02-28T12:57:16.8369483+00:00
-# LineRange: 17483..18969
+﻿// Phase 0 extraction: Ayat renderer and all discovery views
+// Source: archived metasprint-autopilot.html
+// ExtractedAt: 2026-02-28T12:57:16.8369483+00:00
+// LineRange: 17483..18969
 
   // --- Main Ayat Universe Renderer ---
   let _ayatState = null; // persistent zoom/pan state

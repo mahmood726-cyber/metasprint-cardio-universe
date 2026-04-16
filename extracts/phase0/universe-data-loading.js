@@ -1,7 +1,7 @@
-﻿# Phase 0 extraction: Universe data loading and sync pipeline
-# Source: C:\Users\user\Downloads\metasprint-autopilot\metasprint-autopilot.html
-# ExtractedAt: 2026-02-28T12:57:15.7805820+00:00
-# LineRange: 4055..12153
+﻿// Phase 0 extraction: Universe data loading and sync pipeline
+// Source: archived metasprint-autopilot.html
+// ExtractedAt: 2026-02-28T12:57:15.7805820+00:00
+// LineRange: 4055..12153
 
   // CARDIAC UNIVERSE â€” Data Loading & Delta Updates
   // ============================================================

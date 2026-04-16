@@ -1,7 +1,7 @@
-﻿# Phase 0 extraction: Universe taxonomy and state constants
-# Source: C:\Users\user\Downloads\metasprint-autopilot\metasprint-autopilot.html
-# ExtractedAt: 2026-02-28T12:57:15.7036149+00:00
-# LineRange: 2576..4054
+﻿// Phase 0 extraction: Universe taxonomy and state constants
+// Source: archived metasprint-autopilot.html
+// ExtractedAt: 2026-02-28T12:57:15.7036149+00:00
+// LineRange: 2576..4054
 
   // CARDIAC UNIVERSE â€” Subcategory Taxonomy
   // ============================================================
@@ -239,7 +239,8 @@
   async function initMLClassifier(onProgress) {
     try {
       if (typeof onProgress === 'function') onProgress('Importing Transformers.js...', 0.05);
-      const mod = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@3');
+      const transformersUrl = globalThis.__TRANSFORMERS_JS_URL__ || './vendor/transformers.mjs';
+      const mod = await import(transformersUrl);
       const { pipeline, env } = mod;
       env.allowLocalModels = false;
       if (typeof onProgress === 'function') onProgress('Loading ' + ML_MODEL_ID + '...', 0.1);
