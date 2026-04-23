@@ -1,19 +1,39 @@
 import { pairKey } from '../identity/overrides.js';
 
-const STORAGE_KEY = 'metasprint_adjudication_decisions';
+const STORAGE_KEY = 'metasprint-v1-adjudication-decisions';
+// Pre-versioning key. Migrated on first load via readStore() and then removed.
+const LEGACY_STORAGE_KEY = 'metasprint_adjudication_decisions';
 
-function readStore(storage) {
+function parseStoreRaw(raw) {
+  if (!raw) return null;
   try {
-    const raw = storage.getItem(STORAGE_KEY);
-    if (!raw) return { decisions: {}, reviewerId: '' };
     const parsed = JSON.parse(raw);
     return {
       decisions: parsed?.decisions && typeof parsed.decisions === 'object' ? parsed.decisions : {},
       reviewerId: typeof parsed?.reviewerId === 'string' ? parsed.reviewerId : '',
     };
   } catch {
-    return { decisions: {}, reviewerId: '' };
+    return null;
   }
+}
+
+function readStore(storage) {
+  const versioned = parseStoreRaw(storage.getItem(STORAGE_KEY));
+  if (versioned) return versioned;
+
+  const legacy = parseStoreRaw(storage.getItem(LEGACY_STORAGE_KEY));
+  if (legacy) {
+    // One-shot migration: copy legacy payload into the versioned key so
+    // future reads short-circuit, then drop the legacy key so an old build
+    // running concurrently sees a clean state instead of stale data.
+    try {
+      storage.setItem(STORAGE_KEY, JSON.stringify(legacy));
+      storage.removeItem(LEGACY_STORAGE_KEY);
+    } catch { /* storage write failed — return data anyway */ }
+    return legacy;
+  }
+
+  return { decisions: {}, reviewerId: '' };
 }
 
 function writeStore(data, storage) {

@@ -197,7 +197,7 @@ function importDecisions(file) {
       }
 
       const newStore = { decisions: merged, reviewerId: store.reviewerId };
-      localStorage.setItem('metasprint_adjudication_decisions', JSON.stringify(newStore));
+      localStorage.setItem('metasprint-v1-adjudication-decisions', JSON.stringify(newStore));
       renderTable();
     } catch (err) {
       alert(`Import error: ${err.message}`);

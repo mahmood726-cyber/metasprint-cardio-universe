@@ -1151,13 +1151,13 @@
       if (systemDark) document.body.classList.add('light-forced');
     }
     _themeCache = null; // Bust canvas theme color cache
-    try { localStorage.setItem('msa-dark', isDark ? '1' : '0'); } catch(e) { console.warn('Storage/parse error:', e.message); }
+    try { localStorage.setItem('msa-v1-dark', isDark ? '1' : '0'); } catch(e) { console.warn('Storage/parse error:', e.message); }
     const btn = document.getElementById('darkModeBtn');
     if (btn) btn.innerHTML = isDark ? '&#9728;' : '&#127769;';
   }
 
   function loadDarkMode() {
-    const stored = safeGetStorage('msa-dark', null);
+    const stored = safeGetStorage('msa-v1-dark', null);
     const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const isDark = stored === '1' || (stored === null && systemDark);
     if (isDark) {

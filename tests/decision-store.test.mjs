@@ -139,3 +139,68 @@ test('importOverridesJson adds new pairs without conflict', () => {
   assert.ok(result.merged['x::y']);
   assert.equal(result.conflicts.length, 0);
 });
+
+// --- Migration from legacy unversioned localStorage key ---
+// Key was bumped from 'metasprint_adjudication_decisions' to
+// 'metasprint-v1-adjudication-decisions' to allow safe future v2 deployment
+// alongside v1. Data must NOT be lost when an existing user upgrades.
+const LEGACY_KEY = 'metasprint_adjudication_decisions';
+const VERSIONED_KEY = 'metasprint-v1-adjudication-decisions';
+
+test('loadDecisions migrates legacy key when versioned key is empty', () => {
+  const storage = createMemoryStorage();
+  const legacyPayload = {
+    decisions: {
+      'x::y': {
+        pairId: 'x::y', decision: 'force_merge', reviewer: 'mahmood',
+        reason: 'same trial', decidedAt: '2026-04-01T10:00:00Z',
+      },
+    },
+    reviewerId: 'mahmood',
+  };
+  storage.setItem(LEGACY_KEY, JSON.stringify(legacyPayload));
+
+  const result = loadDecisions(storage);
+
+  assert.equal(result.reviewerId, 'mahmood');
+  assert.equal(result.decisions['x::y'].decision, 'force_merge');
+  // Legacy key should be removed after migration so old version of app
+  // wakes up on a clean state.
+  assert.equal(storage.getItem(LEGACY_KEY), null);
+  // Versioned key should now hold the migrated payload.
+  const migrated = JSON.parse(storage.getItem(VERSIONED_KEY));
+  assert.equal(migrated.reviewerId, 'mahmood');
+  assert.ok(migrated.decisions['x::y']);
+});
+
+test('loadDecisions does not overwrite versioned key when both exist', () => {
+  const storage = createMemoryStorage();
+  // Populate versioned key directly to bypass any readStore-side migration.
+  storage.setItem(VERSIONED_KEY, JSON.stringify({
+    decisions: {
+      'new::data': {
+        pairId: 'new::data', decision: 'force_split', reviewer: 'new',
+        reason: '', decidedAt: '2026-04-01T11:00:00Z',
+      },
+    },
+    reviewerId: 'new',
+  }));
+  // Concurrently populate legacy (e.g., another tab on old version).
+  storage.setItem(LEGACY_KEY, JSON.stringify({
+    decisions: {
+      'old::data': {
+        pairId: 'old::data', decision: 'force_merge', reviewer: 'old',
+        reason: '', decidedAt: '2026-04-01T10:00:00Z',
+      },
+    },
+    reviewerId: 'old',
+  }));
+
+  const result = loadDecisions(storage);
+
+  assert.equal(result.decisions['new::data']?.decision, 'force_split');
+  assert.equal(result.decisions['old::data'], undefined);
+  // Versioned key untouched.
+  const stillThere = JSON.parse(storage.getItem(VERSIONED_KEY));
+  assert.equal(stillThere.reviewerId, 'new');
+});
