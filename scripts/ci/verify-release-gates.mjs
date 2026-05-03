@@ -24,7 +24,9 @@ function parseArgs(argv) {
 
 function runGate(root, gate) {
   const startedAt = Date.now();
-  const result = spawnSync(`npm run ${gate.script}`, {
+  // CI-only helper; `gate.script` is sourced from a hardcoded gates manifest
+  // committed to this repo, not from any network-exposed surface.
+  const result = spawnSync(`npm run ${gate.script}`, { // nosemgrep: javascript.lang.security.detect-child-process.detect-child-process
     cwd: root,
     shell: true,
     stdio: 'inherit',

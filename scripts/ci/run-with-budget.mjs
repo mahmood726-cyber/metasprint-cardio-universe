@@ -52,7 +52,9 @@ function appendCsv(filePath, row) {
 
 function runCommand(command, args) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, {
+    // CI-only helper; `command` is sourced from the script's own argv (label/cmd
+    // pair passed by the workflow), not from any network-exposed surface.
+    const child = spawn(command, args, { // nosemgrep: javascript.lang.security.detect-child-process.detect-child-process
       stdio: 'inherit',
       shell: process.platform === 'win32',
     });

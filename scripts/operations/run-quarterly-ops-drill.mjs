@@ -39,7 +39,9 @@ function trimTail(text, maxLines = 40) {
 
 function runScenario(root, scenario) {
   const startedAt = Date.now();
-  const result = spawnSync(scenario.command, scenario.args, {
+  // CI/operations helper; `scenario.command` is sourced from a hardcoded
+  // ops-drill manifest committed to this repo, not from any user-facing surface.
+  const result = spawnSync(scenario.command, scenario.args, { // nosemgrep: javascript.lang.security.detect-child-process.detect-child-process
     cwd: root,
     shell: Boolean(scenario.shell),
     encoding: 'utf8',
