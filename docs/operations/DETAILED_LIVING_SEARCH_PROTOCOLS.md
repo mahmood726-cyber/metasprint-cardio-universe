@@ -1,3 +1,7 @@
+<!-- sentinel:skip-file — this document contains absolute local paths
+     as descriptive content (data locations, project layouts, session
+     logs, release checklists), not application configuration. Same
+     legitimate-paths-as-data pattern as E156/rewrite-workbook.txt. -->
 # Detailed Living Search Protocols
 
 Updated: 2026-03-03
